@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         dev.Калькулейшин
-// @namespace    dev.Калькулейшин
-// @version      3.4
+// @name         Калькулейшин
+// @namespace    Калькулейшин
+// @version      3.41
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
