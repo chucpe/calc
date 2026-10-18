@@ -1380,7 +1380,7 @@ for (let i = 0; i < count; i++) {
 // ==================================================================
 (function() {
   'use strict';
-  const PRICE_URL = 'https://raw.githubusercontent.com/chucpe/qa52/master/src/price.json';
+  const PRICE_URL = 'https://raw.githubusercontent.com/chucpe/calc/refs/heads/master/src/price.json';
   const TARGET_SELECTOR = 'div.text-sm.font-semibold.break-all';
   const DECOR_ATTR = 'data-price-decorated';
   const RATE = 0.48;
