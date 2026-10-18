@@ -11,8 +11,8 @@
 // @connect      e8.ffa.su
 // @connect      backoffice-e8.ffa.su
 // @run-at       document-start
-// @downloadURL https://raw.githubusercontent.com/chucpe/qa52/master/calc.user.js
-// @updateURL   https://raw.githubusercontent.com/chucpe/qa52/master/calc.user.js
+// @downloadURL https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
+// @updateURL   https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
 // ==/UserScript==
 
 // ==================================================================
