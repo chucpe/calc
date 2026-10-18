@@ -11,8 +11,8 @@
 // @connect      e8.ffa.su
 // @connect      backoffice-e8.ffa.su
 // @run-at       document-start
-// @downloadURL https://raw.githubusercontent.com/chucpe/qa52/master/calc.user.js
-// @updateURL   https://raw.githubusercontent.com/chucpe/qa52/master/calc.user.js
+// @downloadURL https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
+// @updateURL   https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
 // ==/UserScript==
 
 // ==================================================================
@@ -523,7 +523,7 @@
 // ==================================================================
     (function () {
         'use strict';
-        const PRICE_URL = 'https://raw.githubusercontent.com/chucpe/qa52/master/src/price.json';
+        const PRICE_URL = 'https://github.com/chucpe/calc/raw/refs/heads/master/src/price.json';
         const MSK_OFFSET_MIN = 3 * 60;
         const LS_MIN_KEY = 'e8-calc-minimized';
         const LS_SETTINGS_KEY = 'e8-calc-settings';
@@ -1464,7 +1464,7 @@
             (function() {
             'use strict';
             const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
-            const EMPLOYEES_URL = 'https://raw.githubusercontent.com/chucpe/qa52/refs/heads/master/src/employees.json';
+            const EMPLOYEES_URL = 'https://github.com/chucpe/calc/raw/refs/heads/master/src/employees.json';
             const API_BASE = 'https://backoffice-e8.ffa.su';
             let usersCache = [], currentWorkPlanId = null, employeesMap = null;
 
