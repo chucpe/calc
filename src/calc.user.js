@@ -523,7 +523,7 @@ for (let i = 0; i < count; i++) {
 // ==================================================================
 (function () {
   'use strict';
-  const PRICE_URL = 'https://raw.githubusercontent.com/chucpe/qa52/master/src/price.json';
+  const PRICE_URL = 'https://raw.githubusercontent.com/chucpe/calc/refs/heads/master/src/price.json';
   const MSK_OFFSET_MIN = 3 * 60;
   const LS_MIN_KEY = 'e8-calc-minimized';
   const LS_SETTINGS_KEY = 'e8-calc-settings';
@@ -1464,7 +1464,7 @@ for (let i = 0; i < count; i++) {
 (function() {
   'use strict';
   const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
-  const EMPLOYEES_URL = 'https://raw.githubusercontent.com/chucpe/qa52/refs/heads/master/src/employees.json';
+  const EMPLOYEES_URL = 'https://raw.githubusercontent.com/chucpe/calc/refs/heads/master/src/employees.json';
   const API_BASE = 'https://backoffice-e8.ffa.su';
   let usersCache = [], currentWorkPlanId = null, employeesMap = null;
 
