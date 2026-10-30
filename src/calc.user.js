@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      3.5
+// @version      4
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -71,7 +71,6 @@
     try { patchFetch(globalThis); } catch (e) {}
 })();
 
-
 // ==================================================================
 // МОДУЛЬ СТАТИСТИКИ
 // ==================================================================
@@ -81,30 +80,43 @@
     const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
     const STATS_KEY = 'e8_stats_by_product';
     const SEEN_KEY  = 'e8_seen_pallets';
+    const DAILY_KEY = 'e8_stats_daily';
 
     let stats = {};
     let seenPallets = [];
+    let dailyStats = {};
+    let accordionState = {};
+    let currentTab = 'daily';
 
     function loadStats() {
         try {
             const raw = localStorage.getItem(STATS_KEY);
+            if (raw) { const s = JSON.parse(raw); if (s && typeof s === 'object') stats = s; }
+            const rawDaily = localStorage.getItem(DAILY_KEY);
+            if (rawDaily) { const d = JSON.parse(rawDaily); if (d && typeof d === 'object') dailyStats = d; }
+        } catch (e) {}
+    }
+    function loadAccordion() {
+        try {
+            const raw = localStorage.getItem('e8_stats_accordion_state');
             if (raw) {
                 const s = JSON.parse(raw);
-                if (s && typeof s === 'object') stats = s;
+                if (s && typeof s === 'object') accordionState = s;
             }
         } catch (e) {}
     }
+    function saveAccordion() {
+        try { localStorage.setItem('e8_stats_accordion_state', JSON.stringify(accordionState)); } catch (e) {}
+    }
     function saveStats() {
         try { localStorage.setItem(STATS_KEY, JSON.stringify(stats)); } catch (e) {}
+        try { localStorage.setItem(DAILY_KEY, JSON.stringify(dailyStats)); } catch (e) {}
     }
 
     function loadSeen() {
         try {
             const raw = localStorage.getItem(SEEN_KEY);
-            if (raw) {
-                const arr = JSON.parse(raw);
-                if (Array.isArray(arr)) seenPallets = arr;
-            }
+            if (raw) { const arr = JSON.parse(raw); if (Array.isArray(arr)) seenPallets = arr; }
         } catch (e) {}
     }
     function saveSeen() {
@@ -122,7 +134,7 @@
         if (seenPallets.indexOf(id) === -1) seenPallets.push(id);
     }
 
-    function accumulateBase(label, holes, earn, palletId) {
+    function accumulateBase(label, holes, earn, palletId, dateIso) {
         if (!label) return;
         if (palletId) {
             if (isSeen(palletId)) return;
@@ -135,6 +147,15 @@
         s.holes += Number(holes) || 0;
         s.earn  += Number(earn) || 0;
         s.count += 1;
+
+        if (dateIso) {
+            const dateStr = dateIso.split('T')[0];
+            if (!dailyStats[dateStr]) dailyStats[dateStr] = { earn: 0, count: 0, times: [] };
+            dailyStats[dateStr].earn += Number(earn) || 0;
+            dailyStats[dateStr].count += 1;
+            dailyStats[dateStr].times.push(dateIso);
+        }
+
         saveStats();
     }
 
@@ -168,7 +189,7 @@
         return `${hours}ч ${minutes}м`;
     }
 
-        function buildStatsHTML() {
+    function buildStatsHTML() {
         const items = Object.entries(stats);
         let totalEarn = 0, totalCount = 0, totalHours = 0;
         for (const [, s] of items) {
@@ -176,10 +197,6 @@
             totalCount += s.count || 0;
             totalHours += s.hours || 0;
         }
-        const top = items
-            .map(([label, s]) => ({ label, holes: s.holes || 0, earn: s.earn || 0, count: s.count || 0, hours: s.hours || 0 }))
-            .sort((a, b) => b.holes - a.holes)
-            .slice(0, 10);
 
         const money = (n) => (Math.round(n * 100) / 100).toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₽';
 
@@ -189,27 +206,119 @@
                 <div style="display:flex;justify-content:space-between;color:#fbbf24;font-weight:700;margin-top:2px;"><span>Время:</span><span>${formatHours(totalHours)}</span></div>
                 <div style="display:flex;justify-content:space-between;color:#a78bfa;font-weight:700;margin-top:2px;"><span>Паллет:</span><span>${totalCount}</span></div>
                 ${progress.active ? `<div style="margin-top:6px;font-size:11px;color:#60a5fa;">Загружаем время: ${progress.done} / ${progress.total}…</div>` : ''}
-                <div style="margin-top:8px;font-size:11px;opacity:.7;">Топ-10 позиций (по отверстиям):</div>
-            </div>
+
+                <div style="display:flex;gap:6px;margin-top:10px;margin-bottom:8px;">
+                    <button id="e8-tab-daily" style="flex:1;margin:0;padding:4px;font-size:11px;background:${currentTab === 'daily' ? '#3b82f6' : '#334155'};border-radius:4px;">По дням</button>
+                    <button id="e8-tab-top" style="flex:1;margin:0;padding:4px;font-size:11px;background:${currentTab === 'top' ? '#3b82f6' : '#334155'};border-radius:4px;">Топ 10</button>
+                    <button id="e8-tab-inwork" style="flex:1;margin:0;padding:4px;font-size:11px;background:${currentTab === 'inwork' ? '#3b82f6' : '#334155'};border-radius:4px;">В работе</button>
+                </div>
         `;
 
-        if (top.length === 0) {
-            html += `<div style="font-size:11px;opacity:.6;margin-top:4px;">Пока нет данных</div>`;
-        } else {
-            top.forEach((t, i) => {
-                html += `
-                    <div style="display:flex;justify-content:space-between;gap:8px;padding:3px 0;font-size:11px;border-top:1px solid #2a2a3e;margin-top:2px;">
-                        <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><b>${i + 1}.</b> ${t.label}</span>
-                        <span style="text-align:right;white-space:nowrap;"><span style="color:#60a5fa;">${t.holes} отв</span> · <span style="color:#fbbf24;">${formatHours(t.hours)}</span> · <span style="color:#7CFC9B;">${money(t.earn)}</span></span>
-                    </div>
-                `;
-            });
+        if (currentTab === 'top') {
+            const top = items
+                .map(([label, s]) => ({ label, holes: s.holes || 0, earn: s.earn || 0, count: s.count || 0, hours: s.hours || 0 }))
+                .sort((a, b) => b.holes - a.holes)
+                .slice(0, 10);
+
+            html += `<div style="font-size:11px;opacity:.7;">Топ-10 позиций (по отверстиям):</div>`;
+            if (top.length === 0) {
+                html += `<div style="font-size:11px;opacity:.6;margin-top:4px;">Пока нет данных</div>`;
+            } else {
+                top.forEach((t, i) => {
+                    html += `
+                        <div style="display:flex;justify-content:space-between;gap:8px;padding:3px 0;font-size:11px;border-top:1px solid #2a2a3e;margin-top:2px;">
+                            <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><b>${i + 1}.</b> ${t.label}</span>
+                            <span style="text-align:right;white-space:nowrap;"><span style="color:#60a5fa;">${t.holes} отв</span> · <span style="color:#fbbf24;">${formatHours(t.hours)}</span> · <span style="color:#7CFC9B;">${money(t.earn)}</span></span>
+                        </div>
+                    `;
+                });
+            }
+        } else if (currentTab === 'daily') {
+            html += `<div style="font-size:11px;opacity:.7;">История по дням:</div>`;
+            const sortedDates = Object.keys(dailyStats).sort((a, b) => b.localeCompare(a));
+
+            if (sortedDates.length === 0) {
+                html += `<div style="font-size:11px;opacity:.6;margin-top:4px;">Пока нет данных. Нажмите «Пересчитать».</div>`;
+            } else {
+                const grouped = {};
+                sortedDates.forEach(date => {
+                    const [year, month, day] = date.split('-');
+                    if (!grouped[year]) grouped[year] = {};
+                    if (!grouped[year][month]) grouped[year][month] = [];
+                    grouped[year][month].push({ day, date, ...dailyStats[date] });
+                });
+
+                const monthsRu = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+                const now = new Date();
+                const currentYearStr = String(now.getFullYear());
+                const currentMonthStr = String(now.getMonth() + 1).padStart(2, '0');
+
+                for (const year of Object.keys(grouped).sort((a, b) => b.localeCompare(a))) {
+                    let yearTotal = 0;
+                    let yearDaysHtml = '';
+
+                    for (const month of Object.keys(grouped[year]).sort((a, b) => b.localeCompare(a))) {
+                        const monthIdx = parseInt(month, 10) - 1;
+                        const monthName = monthsRu[monthIdx];
+                        let monthTotal = 0;
+                        let daysHtml = '';
+
+                        grouped[year][month].sort((a, b) => a.day.localeCompare(b.day)).forEach(d => {
+                            monthTotal += d.earn;
+                            yearTotal += d.earn;
+                            const dateStr = `${d.day}.${month}.${year.slice(-2)}`;
+                            daysHtml += `
+                                <div class="e8-day-row" style="display:flex;justify-content:space-between;padding:2px 4px;font-size:11px;opacity:.85;border-radius:4px;transition:background-color 0.15s ease;">
+                                    <span>${dateStr}</span>
+                                    <span style="color:#7CFC9B;">${money(d.earn)}</span>
+                                </div>
+                            `;
+                        });
+
+                        const monthId = `month-${year}-${month}`;
+                        let isOpen = false;
+                        if (accordionState[monthId] !== undefined) isOpen = accordionState[monthId];
+                        else isOpen = (year === currentYearStr && month === currentMonthStr);
+
+                        const displayStyle = isOpen ? 'block' : 'none';
+                        const arrowSymbol = isOpen ? '▼' : '▶';
+
+                        yearDaysHtml += `
+                            <div style="margin-top:4px;">
+                                <div class="e8-toggle-group" data-target="${monthId}" style="display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:#60a5fa;border-top:1px dashed #2a2a3e;padding-top:4px;cursor:pointer;user-select:none;">
+                                    <span><span class="e8-arrow" style="margin-right:4px;font-size:9px;">${arrowSymbol}</span>${monthName}</span>
+                                    <span>${money(monthTotal)}</span>
+                                </div>
+                                <div id="${monthId}" style="display:${displayStyle};padding-left:8px;">${daysHtml}</div>
+                            </div>
+                        `;
+                    }
+
+                    const yearId = `year-${year}`;
+                    let isYearOpen = true;
+                    if (accordionState[yearId] !== undefined) isYearOpen = accordionState[yearId];
+                    const yearDisplayStyle = isYearOpen ? 'block' : 'none';
+                    const yearArrowSymbol = isYearOpen ? '▼' : '▶';
+
+                    html += `
+                        <div style="margin-top:8px;">
+                            <div class="e8-toggle-group" data-target="${yearId}" style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:#fbbf24;border-bottom:1px solid #2a2a3e;padding-bottom:4px;cursor:pointer;user-select:none;">
+                                <span><span class="e8-arrow" style="margin-right:4px;font-size:10px;">${yearArrowSymbol}</span>${year} год</span>
+                                <span>${money(yearTotal)}</span>
+                            </div>
+                            <div id="${yearId}" style="display:${yearDisplayStyle};">
+                                ${yearDaysHtml}
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        } else if (currentTab === 'inwork') {
+            // Таблицу рисует модуль "В работе"
         }
 
-        // Кнопка экспорта
+        html += `</div>`;
         html += `<button id="e8-stats-export" style="margin-top:10px;width:100%;cursor:pointer;background:#3b82f6;color:#fff;border:0;border-radius:5px;padding:4px 8px;font:600 11px system-ui,sans-serif;">Скачать CSV</button>`;
-
-        // Кнопка очистки
         html += `<button id="e8-stats-clear" style="margin-top:6px;width:100%;cursor:pointer;background:#ef4444;color:#fff;border:0;border-radius:5px;padding:4px 8px;font:600 11px system-ui,sans-serif;">Очистить статистику</button>`;
 
         return html;
@@ -236,6 +345,40 @@
         if (!panel) return;
         panel.innerHTML = buildStatsHTML();
 
+        const tabTop = panel.querySelector('#e8-tab-top');
+        const tabDaily = panel.querySelector('#e8-tab-daily');
+        const tabInWork = panel.querySelector('#e8-tab-inwork');
+
+        if (tabTop) tabTop.addEventListener('click', () => { currentTab = 'top'; renderStats(); });
+        if (tabDaily) tabDaily.addEventListener('click', () => { currentTab = 'daily'; renderStats(); });
+        if (tabInWork) {
+            tabInWork.addEventListener('click', () => {
+                currentTab = 'inwork';
+                renderStats();
+                if (window.__e8ForceInWorkUpdate) {
+                    window.__e8ForceInWorkUpdate();
+                }
+            });
+        }
+
+        panel.querySelectorAll('.e8-toggle-group').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const targetId = el.getAttribute('data-target');
+                const content = panel.querySelector('#' + targetId);
+                const arrow = el.querySelector('.e8-arrow');
+
+                if (content) {
+                    const isHidden = content.style.display === 'none';
+                    content.style.display = isHidden ? 'block' : 'none';
+                    if (arrow) arrow.textContent = isHidden ? '▼' : '▶';
+
+                    accordionState[targetId] = isHidden;
+                    saveAccordion();
+                }
+            });
+        });
+
         const clearBtn = panel.querySelector('#e8-stats-clear');
         if (clearBtn) {
             let clearArmed = false;
@@ -248,6 +391,7 @@
                     return;
                 }
                 stats = {};
+                dailyStats = {};
                 seenPallets = [];
                 saveStats();
                 saveSeen();
@@ -255,7 +399,7 @@
                 panel.innerHTML = buildStatsHTML();
             });
         }
-                        // Обработчик кнопки «Скачать CSV» в статистике (каждая паллета отдельной строкой)
+
         const exportBtn = panel.querySelector('#e8-stats-export');
         if (exportBtn) {
             exportBtn.addEventListener('click', () => {
@@ -268,52 +412,29 @@
                 const rows = res.debugRows;
                 const esc = (v) => `"${String(v === null || v === undefined ? '' : v).replace(/"/g, '""')}"`;
 
-                // Заголовки для детального отчета
-                const headers = [
-                    'Заявка',
-                    'Продукт',
-                    'Паллета №',
-                    'Отверстий на 1 паллету',
-                    'Сумма (₽)',
-                    'Время (МСК)'
-                ];
-
+                const headers = ['Заявка', 'Продукт', 'Паллета №', 'Отверстий на 1 паллету', 'Сумма (₽)', 'Время (МСК)'];
                 let csv = headers.map(esc).join(';') + '\n';
 
-                // Проходим по каждой позиции и разворачиваем паллеты
                 for (const r of rows) {
-                    // Берем время из массива times (если оно есть)
                     const times = r.times || [];
-
-                    // Количество паллет в этой позиции (в диапазоне фильтра)
                     const count = r.palletsInRange || 0;
 
-                    // Функция для перевода UTC в МСК (ДД.ММ.ГГГГ ЧЧ:ММ)
-const formatToMsk = (iso) => {
-    if (!iso) return '—';
-    let s = String(iso);
-    if (!/[Zz]|[+\-]\d{2}:?\d{2}$/.test(s)) s += 'Z';
-    const d = new Date(s);
-    if (isNaN(d)) return '—';
-    const msk = new Date(d.getTime() + 3 * 60 * 60 * 1000);
-    const p = (x) => String(x).padStart(2, '0');
-    return `${p(msk.getUTCDate())}.${p(msk.getUTCMonth() + 1)}.${msk.getUTCFullYear()} ${p(msk.getUTCHours())}:${p(msk.getUTCMinutes())}`;
-};
+                    const formatToMsk = (iso) => {
+                        if (!iso) return '—';
+                        let s = String(iso);
+                        if (!/[Zz]|[+\-]\d{2}:?\d{2}$/.test(s)) s += 'Z';
+                        const d = new Date(s);
+                        if (isNaN(d)) return '—';
+                        const msk = new Date(d.getTime() + 3 * 60 * 60 * 1000);
+                        const p = (x) => String(x).padStart(2, '0');
+                        return `${p(msk.getUTCDate())}.${p(msk.getUTCMonth() + 1)}.${msk.getUTCFullYear()} ${p(msk.getUTCHours())}:${p(msk.getUTCMinutes())}`;
+                    };
 
-for (let i = 0; i < count; i++) {
-    const pricePerPallet = r.sum / count;
-    // Форматируем время в МСК
-    const time = formatToMsk(times[i] || r.firstDate);
-
-    csv += [
-        esc(r.order),
-        esc(r.label),
-        esc(i + 1),
-        esc(r.holes),
-        esc(pricePerPallet.toFixed(2)),
-        esc(time)
-    ].join(';') + '\n';
-}
+                    for (let i = 0; i < count; i++) {
+                        const pricePerPallet = r.sum / count;
+                        const time = formatToMsk(times[i] || r.firstDate);
+                        csv += [esc(r.order), esc(r.label), esc(i + 1), esc(r.holes), esc(pricePerPallet.toFixed(2)), esc(time)].join(';') + '\n';
+                    }
                 }
 
                 const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
@@ -328,6 +449,11 @@ for (let i = 0; i < count; i++) {
             });
         }
     }
+
+    window.__e8SetStatsTab = function(tab) {
+        currentTab = tab;
+        renderStats();
+    };
 
     function attachToButton() {
         const btn = document.getElementById('e8-calc-stats-toggle');
@@ -363,8 +489,64 @@ for (let i = 0; i < count; i++) {
         });
     }
 
+    function recalculateDailyStats() {
+        const res = window.__e8LastResult;
+        if (!res || !res.debugRows) return;
+
+        const allPallets = [];
+        for (const row of res.debugRows) {
+            if (!row.times) continue;
+            for (const iso of row.times) {
+                if (!iso) continue;
+                allPallets.push({ iso, earn: row.sum / (row.palletsInRange || 1) });
+            }
+        }
+        if (allPallets.length === 0) return;
+
+        allPallets.sort((a, b) => new Date(a.iso).getTime() - new Date(b.iso).getTime());
+
+        const newDailyStats = {};
+        for (const p of allPallets) {
+            let str = String(p.iso);
+            if (!/[Zz]|[+\-]\d{2}:?\d{2}$/.test(str)) str += 'Z';
+            const d = new Date(str);
+            if (isNaN(d)) continue;
+
+            const msk = new Date(d.getTime() + 3 * 60 * 60 * 1000);
+            const h = msk.getUTCHours();
+            const m = msk.getUTCMinutes();
+            const timeInMinutes = h * 60 + m;
+
+            const shiftDate = new Date(Date.UTC(msk.getUTCFullYear(), msk.getUTCMonth(), msk.getUTCDate()));
+            const pad = (x) => String(x).padStart(2, '0');
+            let shiftDateStr = '';
+
+            if (timeInMinutes >= 300 && timeInMinutes < 1050) {
+                shiftDateStr = `${shiftDate.getUTCFullYear()}-${pad(shiftDate.getUTCMonth() + 1)}-${pad(shiftDate.getUTCDate())}`;
+            } else {
+                if (timeInMinutes < 300) {
+                    shiftDate.setUTCDate(shiftDate.getUTCDate() - 1);
+                }
+                shiftDateStr = `${shiftDate.getUTCFullYear()}-${pad(shiftDate.getUTCMonth() + 1)}-${pad(shiftDate.getUTCDate())}`;
+            }
+
+            if (!newDailyStats[shiftDateStr]) newDailyStats[shiftDateStr] = { earn: 0, count: 0 };
+            newDailyStats[shiftDateStr].earn += p.earn;
+            newDailyStats[shiftDateStr].count += 1;
+        }
+
+        dailyStats = newDailyStats;
+        saveStats();
+        renderStats();
+    }
+
+    window.addEventListener('e8-stats-updated', () => {
+        recalculateDailyStats();
+    });
+
     loadStats();
     loadSeen();
+    loadAccordion();
     attachToButton();
     setInterval(attachToButton, 1000);
     W.__e8StatsUI = { renderStats, setProgress };
@@ -941,12 +1123,13 @@ for (let i = 0; i < count; i++) {
           }
           totalQuantity += quantityInRange;
 
-          if (window.__e8Stats && window.__e8Stats.accumulate) {
+                    if (window.__e8Stats && window.__e8Stats.accumulate) {
               const rule = getSpecialRule(label);
               const earnPerPallet = rule ? holes * rule.rate : holes * settings.rate * (1 - settings.tax / 100);
               for (let i = 0; i < palletsInRange; i++) {
                   const child = childList[i] || null;
-                  window.__e8Stats.accumulate(label, holes, earnPerPallet, child?.id || null);
+                  // Передаем дату паллеты (5-м аргументом)
+                  window.__e8Stats.accumulate(label, holes, earnPerPallet, child?.id || null, child?.cancelDateTime || null);
               }
           }
 
@@ -960,6 +1143,7 @@ for (let i = 0; i < count; i++) {
     window.__e8LastResult = lastResult; // делаем доступным для других модулей
     log('Результат:', lastResult);
     renderWindow();
+    window.dispatchEvent(new Event('e8-stats-updated'));
   }
 
   function patchFetch(target) {
@@ -1054,9 +1238,6 @@ for (let i = 0; i < count; i++) {
     #e8-calendar-panel .cal-cell.today .num.today-num{color:#fff;background:#22c55e;border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:11px;box-shadow:0 0 6px rgba(34,197,94,.9)}
     #e8-calendar-panel .cal-cell.holiday { outline: 2px solid #ef4444 !important; outline-offset: -2px !important; z-index: 10 !important; }
     #e8-calendar-panel .cal-cell.today.holiday { outline: 2px solid #ef4444 !important; outline-offset: -2px !important; box-shadow: inset 0 0 0 2px #fff, 0 0 0 2px #22c55e !important; }
-    #e8-calc-mini{position:fixed;right:20px;bottom:20px;z-index:999999;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;transition:background-color .15s, transform .1s;color:transparent;background-color:#3b82f6;background-image:url('https://raw.githubusercontent.com/chucpe/qa52/master/icon.png'), url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M18%207V4H6l6%208-6%208h12v-3%22%2F%3E%3C%2Fsvg%3E');background-repeat:no-repeat,no-repeat;background-position:center center,center center;background-size:26px 26px,22px 22px}
-    #e8-calc-mini:hover{background-color:#2563eb;transform:scale(1.05)}
-    #e8-calc-mini.hidden{display:none}
   `);
 
   function applyAdaptiveLayout() {
@@ -1698,8 +1879,9 @@ for (let i = 0; i < count; i++) {
 })();
 
 // ==================================================================
-// ЗАПРЕЩАЕМ ОТКРЫТИЕ КНОПКИ «Характеристика продукции»
+// ЗАПРЕЩАЕМ ОТКРЫТИЕ КНОПКИ «Характеристика продукции» вроеменно отключил
 // ==================================================================
+/*
 (function() {
     'use strict';
     const style = document.createElement('style');
@@ -1709,7 +1891,7 @@ for (let i = 0; i < count; i++) {
         div[data-slot="overlay"][data-state="open"] { visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
     `;
     (document.head || document.documentElement).appendChild(style);
-})();
+})(); */
 
 // ==================================================================
 // ПОДСЧЁТ КОЛИЧЕСТВА ОТВЕРСТИЙ И ЦИТАТА
@@ -1785,29 +1967,74 @@ for (let i = 0; i < count; i++) {
     else createQuote();
 })();
 
-//Замена иконки
+
+// ==================================================================
+// ЗАМЕНА ИКОНКИ
+// ==================================================================
 (function() {
     'use strict';
-    const MY_ICON_URL = 'https://img.icons8.ru/?size=100&id=71367&format=png&color=000000';
-    const FALLBACK_SVG = encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 7V4H6l6 8-6 8h12v-3"/></svg>');
-    const FALLBACK_URL = `data:image/svg+xml;utf8,${FALLBACK_SVG}`;
-    const css = `
-        #e8-calc-mini{position:fixed;right:20px;bottom:20px;z-index:999999;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;transition:background-color .15s, transform .1s;color:transparent;background-color:#3b82f6;background-image:url('${MY_ICON_URL}'), url('${FALLBACK_URL}');background-repeat:no-repeat,no-repeat;background-position:center center,center center;background-size:26px 26px,22px 22px;}
-        #e8-calc-mini:hover{background-color:#2563eb;transform:scale(1.05);}
-        #e8-calc-mini.hidden{ display:none; }
+    const SVG_ICON = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>`;
+
+         const css = `
+            #e8-calc-mini {
+            position: fixed !important;
+            right: 20px !important;
+            bottom: 20px !important;
+            z-index: 2147483647 !important;
+            width: 56px !important;
+            height: 56px !important;
+            border-radius: 50% !important;
+            border: none !important;
+            cursor: pointer !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            pointer-events: auto !important;
+
+            background-color: #0ea5e9 !important;
+            background-image: url('${SVG_ICON}'), linear-gradient(135deg, #0ea5e9 0%, #2dd4bf 100%) !important;
+            background-repeat: no-repeat, no-repeat !important;
+            background-position: center center, center center !important;
+            background-size: 28px 28px, cover !important;
+
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            animation: e8-wave-pulse 2s infinite !important;
+        }
+
+            #e8-calc-mini:hover {
+            transform: translateY(-5px) scale(1.05) !important;
+            background-image: url('${SVG_ICON}'), linear-gradient(135deg, #38bdf8 0%, #5eead4 100%) !important;
+        }
+
+            #e8-calc-mini:active {
+            transform: translateY(0) scale(0.95) !important;
+        }
+
+            #e8-calc-mini.hidden {
+            display: none !important;
+        }
+
+            @keyframes e8-wave-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(14, 165, 233, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+        }
     `;
-    const style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
+
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
 })();
 
 // ==================================================================
-// МОДУЛЬ АВТО-ПОПОЛНЕНИЯ PRICE.JSON (V3 - BATCH UPDATE)
+// МОДУЛЬ АВТО-ПОПОЛНЕНИЯ PRICE.JSON
 // ==================================================================
 (function() {
     'use strict';
     const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
 
     // --- НАСТРОЙКИ ---
-    const GITHUB_TOKEN = localStorage.getItem('gh_token') || 'токен';
+    const GITHUB_TOKEN = localStorage.getItem('gh_token') || 'токенздесь';
     const OWNER = 'chucpe';
     const REPO = 'calc';
     const FILE_PATH = 'src/price.json';
@@ -2046,7 +2273,7 @@ for (let i = 0; i < count; i++) {
         target.fetch = async function (...args) {
             const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
             const res = await orig.apply(this, args);
-            if (url.includes('/jobs') && url.includes('statusId=1')) {
+            if (url.includes('/jobs') && (url.includes('statusId=1') || url.includes('statusId=2'))) {
                 res.clone().json().then(processJobs).catch(() => {});
             }
             return res;
@@ -2066,7 +2293,7 @@ for (let i = 0; i < count; i++) {
             this.addEventListener('load', function () {
                 try {
                     const url = this.__e8url || '';
-                    if (url.includes('/jobs') && url.includes('statusId=1')) {
+                    if (url.includes('/jobs') && (url.includes('statusId=1') || url.includes('statusId=2'))) {
                         processJobs(JSON.parse(this.responseText));
                     }
                 } catch (e) {}
@@ -2074,4 +2301,456 @@ for (let i = 0; i < count; i++) {
             return origSend.apply(this, args);
         };
     }
+})();
+
+// ==================================================================
+// МОДУЛЬ: ОТВЕРСТИЯ ИЗ PRICE.JSON И СУММА (С ИСКЛЮЧЕНИЕМ Б002)
+// ==================================================================
+(function() {
+    'use strict';
+    const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
+    const PRICE_URL = 'https://raw.githubusercontent.com/chucpe/calc/refs/heads/master/src/price.json';
+
+    let priceMap = new Map();
+    let isPriceLoaded = false;
+
+    // Нормализация
+    function normalize(s) { return String(s || '').toLowerCase().replace(/\s+/g, '').replace(/[«»"']/g, '').trim(); }
+    function baseName(s) { return normalize(s).replace(/\([^)]*\)/g, ''); }
+
+    // Загрузка прайса
+    function loadPrice() {
+        GM_xmlhttpRequest({
+            method: 'GET',
+            url: PRICE_URL + '?t=' + Date.now(),
+            onload: (res) => {
+                if (res.status === 200) {
+                    try {
+                        const arr = JSON.parse(res.responseText);
+                        for (const item of arr) {
+                            if (item && item.name && typeof item.holes === 'number') {
+                                priceMap.set(normalize(item.name), item.holes);
+                                priceMap.set(baseName(item.name), item.holes);
+                            }
+                        }
+                        isPriceLoaded = true;
+                        console.log('[e8-pallet-info] Прайс загружен, записей:', arr.length);
+                    } catch (e) {
+                        console.error('[e8-pallet-info] Ошибка парсинга прайса:', e);
+                    }
+                }
+            }
+        });
+    }
+
+    // Поиск отверстий
+    function findHoles(label) {
+        if (!label) return null;
+        const norm = normalize(label);
+        if (priceMap.has(norm)) return priceMap.get(norm);
+
+        const base = baseName(label);
+        if (priceMap.has(base)) return priceMap.get(base);
+
+        for (const [k, v] of priceMap) {
+            if (base && k.startsWith(base) && base.length > 4) return v;
+        }
+        return null;
+    }
+
+    // Расчет суммы с учетом спец-правила для Б002
+    function calculateSum(label, holes) {
+        if (holes === null) return null;
+
+        // Спец-правило для Б002
+        const B002_COLORS = ['Бетон', 'Сонома', 'Молочный', 'Графит', 'Белый', 'Красный'];
+        const B002_RATE = 0.50;
+        const cleanLabel = String(label || '').trim();
+
+        if (cleanLabel.startsWith('Б002')) {
+            const rest = cleanLabel.slice(4);
+            for (const color of B002_COLORS) {
+                if (rest.startsWith(color)) {
+                    // Для Б002 ставка 0.50, НДФЛ НЕ вычитается
+                    return (holes * B002_RATE).toFixed(2);
+                }
+            }
+        }
+
+        // Стандартная формула: ставка 0.48, минус 13% НДФЛ
+        return (holes * 0.48 * 0.87).toFixed(2);
+    }
+
+    // Вставка в DOM
+    function injectToDOM(holes, sum) {
+        if (document.getElementById('e8-test-info')) return;
+
+        let stageEl = null;
+        const divs = document.querySelectorAll('div.text-sm.text-muted');
+        for (const el of divs) {
+            if (el.textContent.trim() === 'Этап') { stageEl = el; break; }
+        }
+        if (!stageEl) return;
+
+        const grid = stageEl.closest('.grid');
+        if (!grid) return;
+
+        const l1 = document.createElement('div');
+        l1.className = 'text-sm text-muted';
+        l1.textContent = 'Количество отверстий';
+
+        const v1 = document.createElement('div');
+        v1.className = 'flex items-center justify-end text-right text-sm wrap-break-word break-all whitespace-pre-wrap';
+        v1.style.color = '#60a5fa';
+        v1.style.fontWeight = 'bold';
+        v1.textContent = holes === null ? 'Нет в прайсе' : holes;
+
+        const l2 = document.createElement('div');
+        l2.className = 'text-sm text-muted';
+        l2.textContent = 'Сумма';
+
+        const v2 = document.createElement('div');
+        v2.className = 'flex items-center justify-end text-right text-sm break-all whitespace-pre-wrap';
+        v2.style.color = '#60a5fa';
+        v2.style.fontWeight = 'bold';
+        v2.textContent = sum === null ? '—' : sum + ' ₽';
+
+        const wrapper = document.createElement('div');
+        wrapper.id = 'e8-test-info';
+        wrapper.style.display = 'contents';
+
+        wrapper.appendChild(l1);
+        wrapper.appendChild(v1);
+        wrapper.appendChild(l2);
+        wrapper.appendChild(v2);
+        grid.appendChild(wrapper);
+    }
+
+    // Обработка страницы
+    function processPage() {
+        if (!isPriceLoaded) return;
+        if (document.getElementById('e8-test-info')) return;
+
+        let stageEl = null;
+        let labelEl = null;
+        const divs = document.querySelectorAll('div.text-sm.text-muted');
+
+        for (let i = 0; i < divs.length; i++) {
+            const text = divs[i].textContent.trim();
+            if (text === 'Этап') stageEl = divs[i];
+            if (text === 'Название' && divs[i].nextElementSibling) {
+                labelEl = divs[i].nextElementSibling;
+            }
+        }
+
+        if (!stageEl || !labelEl) return;
+
+        const productLabel = labelEl.textContent.trim();
+        const holes = findHoles(productLabel);
+        const sum = calculateSum(productLabel, holes);
+
+        injectToDOM(holes, sum);
+    }
+
+    loadPrice();
+
+    setInterval(() => {
+        processPage();
+
+        const hasStage = Array.from(document.querySelectorAll('div.text-sm.text-muted')).some(el => el.textContent.trim() === 'Этап');
+        if (!hasStage) {
+            document.getElementById('e8-test-info')?.remove();
+        }
+    }, 500);
+
+})();
+
+// ==================================================================
+// CSS ДЛЯ ПОДСВЕТКИ СТРОК В СТАТИСТИКЕ
+// ==================================================================
+(function() {
+    'use strict';
+    const style = document.createElement('style');
+    style.textContent = `
+        .e8-day-row:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        .e8-toggle-group:hover {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            border-radius: 4px;
+        }
+    `;
+    document.head.appendChild(style);
+})();
+
+// ==================================================================
+// МОДУЛЬ «В РАБОТЕ» (ПОЛНЫЙ)
+// ==================================================================
+(function() {
+    'use strict';
+    const API_BASE = 'https://backoffice-e8.ffa.su/api/v1/admin';
+    const LS_KEY = 'e8_inwork_jobs';
+    const MAX_PARALLEL = 5;
+
+    function loadCache() {
+        try {
+            const raw = localStorage.getItem(LS_KEY);
+            return raw ? JSON.parse(raw) : [];
+        } catch (e) { return []; }
+    }
+    function saveCache(data) {
+        try { localStorage.setItem(LS_KEY, JSON.stringify(data)); } catch (e) {}
+    }
+
+    function toMsk(iso) {
+        if (!iso) return '—';
+        let s = String(iso);
+        if (!/[Zz]|[+\-]\d{2}:?\d{2}$/.test(s)) s += 'Z';
+        const d = new Date(s);
+        if (isNaN(d)) return '—';
+        const msk = new Date(d.getTime() + 3 * 60 * 60 * 1000);
+        const p = (x) => String(x).padStart(2, '0');
+        return `${p(msk.getUTCDate())}.${p(msk.getUTCMonth() + 1)}.${msk.getUTCFullYear()} ${p(msk.getUTCHours())}:${p(msk.getUTCMinutes())}`;
+    }
+
+    function getToken() {
+        let t = localStorage.getItem('auth_token');
+        if (t && /^eyJ/.test(t)) return /^Bearer\s+/i.test(t) ? t : ('Bearer ' + t);
+        return null;
+    }
+
+    function fetchCurrentJobs() {
+        return new Promise((resolve) => {
+            const token = getToken();
+            if (!token) { resolve(null); return; }
+            GM_xmlhttpRequest({
+                method: 'GET',
+                url: `${API_BASE}/projects/1/jobs?statusId=1`,
+                headers: { 'Accept': 'application/json', 'Authorization': token },
+                onload: (res) => {
+                    if (res.status === 200) {
+                        try { resolve(JSON.parse(res.responseText)); } catch (e) { resolve(null); }
+                    } else {
+                        resolve(null);
+                    }
+                },
+                onerror: () => resolve(null),
+                timeout: 15000
+            });
+        });
+    }
+
+    function fetchJobInfo(jobId) {
+        return new Promise((resolve) => {
+            const token = getToken();
+            if (!token) { resolve(null); return; }
+            GM_xmlhttpRequest({
+                method: 'GET',
+                url: `${API_BASE}/projects/1/jobs/${jobId}`,
+                headers: { 'Accept': 'application/json', 'Authorization': token },
+                onload: (res) => {
+                    if (res.status === 200) {
+                        try {
+                            const json = JSON.parse(res.responseText);
+                            let d = null;
+                            if (Array.isArray(json) && json.length > 0) d = json[0];
+                            else if (json.data && Array.isArray(json.data) && json.data.length > 0) d = json.data[0];
+                            else if (json.data && typeof json.data === 'object') d = json.data;
+                            else if (json && typeof json === 'object') d = json;
+                            resolve(d);
+                        } catch (e) { resolve(null); }
+                    } else {
+                        resolve(null);
+                    }
+                },
+                onerror: () => resolve(null),
+                timeout: 10000
+            });
+        });
+    }
+
+    // Отрисовка таблицы (сохраняет кнопки)
+    function renderInWorkTable() {
+        const panel = document.getElementById('e8-stats-panel');
+        if (!panel) return;
+        const tabInWork = document.getElementById('e8-tab-inwork');
+        if (!tabInWork || tabInWork.style.background !== 'rgb(59, 130, 246)') return;
+
+        // 1. Сохраняем кнопки вкладок
+        const btnRow = panel.querySelector('div[style*="display:flex"]');
+        const savedButtons = btnRow ? btnRow.outerHTML : '';
+
+        // 2. Очищаем панель
+        panel.innerHTML = '';
+
+        // 3. Возвращаем кнопки
+        if (savedButtons) {
+            panel.innerHTML += savedButtons;
+        }
+
+        // 4. Добавляем таблицу
+        const jobs = loadCache();
+        const container = document.createElement('div');
+        container.style.cssText = 'margin-top:6px;';
+
+        if (jobs.length === 0) {
+            container.innerHTML = `<div style="font-size:11px;opacity:.6;margin-top:4px;">Данные загружаются...</div>`;
+        } else {
+            jobs.sort((a, b) => {
+                const order = { 'В работе': 1, 'Завершен': 2, 'Не назначен': 3 };
+                const orderA = order[a.status] || 4;
+                const orderB = order[b.status] || 4;
+                return orderA - orderB;
+            });
+
+            let html = `<div style="font-size:11px;opacity:.7;margin-bottom:4px;">Сохранено паллетов: ${jobs.length}</div>`;
+            html += `<table style="width:100%;border-collapse:collapse;font-size:11px;">
+                <thead><tr style="border-bottom:1px solid #333;color:#aaa;">
+                    <th style="text-align:left;padding:4px;">Название</th>
+                    <th style="text-align:left;padding:4px;">Работник</th>
+                    <th style="text-align:left;padding:4px;">Статус</th>
+                </tr></thead><tbody>`;
+
+            jobs.forEach(j => {
+                let statusHtml = '';
+                if (j.status === 'Не назначен') {
+                    statusHtml = `<span style="color:#fbbf24;">Не назначен</span>`;
+                } else if (j.status === 'В работе') {
+                    const timeStr = j.date ? ` <span style="color:#888;font-size:10px;">${j.date}</span>` : '';
+                    statusHtml = `<span style="color:#7CFC9B;">В работе</span>${timeStr}`;
+                } else if (j.status === 'Завершен') {
+                    const timeStr = j.date ? ` <span style="color:#888;font-size:10px;">${j.date}</span>` : '';
+                    statusHtml = `<span style="color:#aaa;">Завершен</span>${timeStr}`;
+                } else {
+                    statusHtml = `<span style="color:#fbbf24;">${j.status || 'Не назначен'}</span>`;
+                }
+                const workerName = j.worker && j.worker !== '—' ? j.worker : '';
+                html += `<tr onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${j.id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')" style="cursor:pointer;border-bottom:1px solid #2a2a3e; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+                    <td style="padding:6px 4px; color:#60a5fa;">${j.name}</td>
+                    <td style="padding:6px 4px;">${workerName}</td>
+                    <td style="padding:6px 4px;">${statusHtml}</td>
+                </tr>`;
+            });
+            html += `</tbody></table>`;
+            container.innerHTML = html;
+        }
+
+        panel.appendChild(container);
+
+        // 5. Перевешиваем обработчики на кнопки
+        const newTabTop = panel.querySelector('#e8-tab-top');
+        const newTabDaily = panel.querySelector('#e8-tab-daily');
+        const newTabInWork = panel.querySelector('#e8-tab-inwork');
+
+        if (newTabTop) newTabTop.addEventListener('click', () => { window.__e8SetStatsTab('top'); });
+        if (newTabDaily) newTabDaily.addEventListener('click', () => { window.__e8SetStatsTab('daily'); });
+        if (newTabInWork) newTabInWork.addEventListener('click', () => { window.__e8SetStatsTab('inwork'); });
+    }
+
+    async function updateInWork() {
+        console.log('[e8-inwork] Обновление...');
+        const json = await fetchCurrentJobs();
+        if (!json) { console.log('[e8-inwork] Нет данных от API'); return; }
+
+        const items = json.items || json.data?.items || [];
+        const products = json.other?.dictionary?.products || json.data?.other?.dictionary?.products || [];
+        const productMap = new Map(products.map(p => [p.id, p.label]));
+
+        const currentIds = new Set();
+        const currentNames = new Map();
+
+        for (const order of items) {
+            for (const group of (order.children || [])) {
+                const label = productMap.get(group.productId) || 'Без названия';
+                for (const wp of (group.children || [])) {
+                    for (const pallet of (wp.children || [])) {
+                        if (pallet.id) {
+                            currentIds.add(pallet.id);
+                            currentNames.set(pallet.id, label);
+                        }
+                    }
+                }
+            }
+        }
+
+        console.log('[e8-inwork] В statusId=1 найдено:', currentIds.size, 'паллетов');
+
+        const oldCache = loadCache();
+        const cacheMap = new Map(oldCache.map(j => [j.id, j]));
+        const newJobs = [];
+
+        for (const [id, name] of currentNames) {
+            const old = cacheMap.get(id);
+            if (old) {
+                newJobs.push({ ...old, name: name });
+            } else {
+                newJobs.push({ id, name: name, worker: '', status: 'Не назначен', date: '' });
+            }
+        }
+
+        for (const old of oldCache) {
+            if (!currentIds.has(old.id)) {
+                if (old.status === 'Завершен') {
+                    newJobs.push(old);
+                } else {
+                    newJobs.push({ ...old, status: 'Загрузка...' });
+                }
+            }
+        }
+
+        if (newJobs.length === 0) { console.log('[e8-inwork] Нет данных'); return; }
+
+        for (let i = 0; i < newJobs.length; i += MAX_PARALLEL) {
+            const chunk = newJobs.slice(i, i + MAX_PARALLEL);
+            await Promise.all(chunk.map(async (job) => {
+                if (job.status === 'Завершен') return;
+                const d = await fetchJobInfo(job.id);
+                if (!d) { job.status = 'Не назначен'; return; }
+
+                let worker = '';
+                if (d.executors && Array.isArray(d.executors) && d.executors.length > 0) {
+                    const exec = d.executors[0];
+                    worker = `${exec.firstName || ''} ${exec.lastName || ''}`.trim();
+                }
+                job.worker = worker;
+
+                let statusLabel = null;
+                if (d.status) {
+                    if (typeof d.status === 'string') statusLabel = d.status;
+                    else if (d.status.label) statusLabel = d.status.label;
+                }
+
+                if (d.cancelDateTime) {
+                    job.status = 'Завершен';
+                    job.date = toMsk(d.cancelDateTime);
+                } else if (d.startDateTime || statusLabel === 'В работе') {
+                    job.status = 'В работе';
+                    job.date = d.startDateTime ? toMsk(d.startDateTime) : '';
+                } else {
+                    job.status = 'Не назначен';
+                    job.date = '';
+                }
+            }));
+        }
+
+        saveCache(newJobs);
+        console.log('[e8-inwork] Обновлено:', newJobs.length, 'паллетов');
+        renderInWorkTable();
+    }
+
+    document.addEventListener('click', (e) => {
+        if (e.target && e.target.id === 'e8-tab-inwork') {
+            setTimeout(() => {
+                renderInWorkTable();
+                updateInWork();
+            }, 100);
+        }
+    });
+
+    setTimeout(() => {
+        console.log('[e8-inwork] Автоматическое обновление при загрузке...');
+        updateInWork();
+    }, 2000);
+
+    window.__e8ForceInWorkUpdate = updateInWork;
 })();
