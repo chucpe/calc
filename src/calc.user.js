@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      3.42
+// @version      3.5
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -9,6 +9,7 @@
 // @grant        unsafeWindow
 // @connect      raw.githubusercontent.com
 // @connect      e8.ffa.su
+// @connect      api.github.com
 // @connect      backoffice-e8.ffa.su
 // @run-at       document-start
 // @downloadURL https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
@@ -805,7 +806,7 @@ for (let i = 0; i < count; i++) {
           <div class="half bottom" style="${bottomCss}">
             ${bottomIcon ? `<span style="position:absolute; bottom:2px; right:4px; font-size:9px; z-index:3; opacity:0.9;">${bottomIcon}</span>` : ''}
           </div>
-          <span class="num">${day}</span>
+          <span class="num${todayClass ? ' today-num' : ''}">${day}</span>
         </div>
       `;
         }
@@ -820,8 +821,28 @@ for (let i = 0; i < count; i++) {
     html += `</div>`;
 
     const activeCrew = settings.activeCrew;
+
+    // --- подсчёт рабочих смен за отображаемый месяц ---
+    const crewKeys = ['blue', 'purple', 'orange'];
+    const shiftCount = { blue: 0, purple: 0, orange: 0 };
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(year, month, day);
+      const info = getShiftInfoForDate(date);
+      for (const crew of crewKeys) {
+        if (info[crew] === 'day' || info[crew] === 'night') shiftCount[crew]++;
+      }
+    }
+    const totalShifts = activeCrew
+      ? shiftCount[activeCrew]
+      : (shiftCount.blue + shiftCount.purple + shiftCount.orange);
+
+    const shiftsLabel = `Количество смен: ${totalShifts}`;
+
     html += `
-      <div style="display:flex;gap:6px;margin-top:8px;font-size:10px;flex-wrap:wrap;">
+        <div style="display:flex;justify-content:flex-end;margin-top:8px;font-size:12px;font-weight:700;color:#888;">
+        ${shiftsLabel}
+        </div>
+        <div style="display:flex;gap:6px;margin-top:6px;font-size:10px;flex-wrap:wrap;">
         <button type="button" data-crew="blue" style="flex:1;padding:4px 6px;border:0;border-radius:4px;cursor:pointer;font:600 10px system-ui;color:#fff;background:${activeCrew === 'blue' ? SHIFT_COLORS.blue : '#334155'};${activeCrew === 'blue' ? 'box-shadow:0 0 0 2px #fff;' : ''}">Смена 1</button>
         <button type="button" data-crew="purple" style="flex:1;padding:4px 6px;border:0;border-radius:4px;cursor:pointer;font:600 10px system-ui;color:#fff;background:${activeCrew === 'purple' ? SHIFT_COLORS.purple : '#334155'};${activeCrew === 'purple' ? 'box-shadow:0 0 0 2px #fff;' : ''}">Смена 2</button>
         <button type="button" data-crew="orange" style="flex:1;padding:4px 6px;border:0;border-radius:4px;cursor:pointer;font:600 10px system-ui;color:#fff;background:${activeCrew === 'orange' ? SHIFT_COLORS.orange : '#334155'};${activeCrew === 'orange' ? 'box-shadow:0 0 0 2px #fff;' : ''}">Смена 3</button>
@@ -1029,9 +1050,10 @@ for (let i = 0; i < count; i++) {
     #e8-calendar-panel .cal-cell .half.bottom{bottom:0}
     #e8-calendar-panel .cal-cell .num{position:relative;z-index:2}
     #e8-calendar-panel .cal-cell.empty{background:transparent;color:#444;text-shadow:none}
-    #e8-calendar-panel .cal-cell.today{box-shadow:inset 0 0 0 2px #fff}
+    #e8-calendar-panel .cal-cell.today{box-shadow:inset 0 0 0 2px #fff, 0 0 0 2px #22c55e, 0 0 8px rgba(34,197,94,.7);z-index:5}
+    #e8-calendar-panel .cal-cell.today .num.today-num{color:#fff;background:#22c55e;border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:11px;box-shadow:0 0 6px rgba(34,197,94,.9)}
     #e8-calendar-panel .cal-cell.holiday { outline: 2px solid #ef4444 !important; outline-offset: -2px !important; z-index: 10 !important; }
-    #e8-calendar-panel .cal-cell.today.holiday { outline: 2px solid #ef4444 !important; outline-offset: -2px !important; box-shadow: inset 0 0 0 2px #fff !important; }
+    #e8-calendar-panel .cal-cell.today.holiday { outline: 2px solid #ef4444 !important; outline-offset: -2px !important; box-shadow: inset 0 0 0 2px #fff, 0 0 0 2px #22c55e !important; }
     #e8-calc-mini{position:fixed;right:20px;bottom:20px;z-index:999999;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;transition:background-color .15s, transform .1s;color:transparent;background-color:#3b82f6;background-image:url('https://raw.githubusercontent.com/chucpe/qa52/master/icon.png'), url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M18%207V4H6l6%208-6%208h12v-3%22%2F%3E%3C%2Fsvg%3E');background-repeat:no-repeat,no-repeat;background-position:center center,center center;background-size:26px 26px,22px 22px}
     #e8-calc-mini:hover{background-color:#2563eb;transform:scale(1.05)}
     #e8-calc-mini.hidden{display:none}
@@ -1775,4 +1797,281 @@ for (let i = 0; i < count; i++) {
         #e8-calc-mini.hidden{ display:none; }
     `;
     const style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
+})();
+
+// ==================================================================
+// МОДУЛЬ АВТО-ПОПОЛНЕНИЯ PRICE.JSON (V3 - BATCH UPDATE)
+// ==================================================================
+(function() {
+    'use strict';
+    const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
+
+    // --- НАСТРОЙКИ ---
+    const GITHUB_TOKEN = localStorage.getItem('gh_token') || 'токен';
+    const OWNER = 'chucpe';
+    const REPO = 'calc';
+    const FILE_PATH = 'src/price.json';
+    const API_BASE = 'https://backoffice-e8.ffa.su';
+
+    const MAX_PARALLEL = 4; // Сколько запросов отверстий делать одновременно
+
+    let isCheckingJobs = false;
+    let isUpdatingGithub = false;
+    let knownNames = new Set();
+    let knownBaseNames = new Set();
+    let isPriceLoaded = false;
+
+    // Вспомогательные функции нормализации
+    function normalize(s) { return String(s || '').toLowerCase().replace(/\s+/g, '').replace(/[«»"']/g, '').trim(); }
+    function baseName(s) { return normalize(s).replace(/\([^)]*\)/g, ''); }
+
+    // 1. Загружаем текущий список имен из price.json (для проверки дублей)
+    async function loadCurrentPrice() {
+        try {
+            const res = await new Promise((resolve) => {
+                GM_xmlhttpRequest({
+                    method: 'GET',
+                    url: `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${FILE_PATH}?t=${Date.now()}`,
+                    onload: resolve,
+                    onerror: () => resolve(null)
+                });
+            });
+            if (!res || res.status !== 200) return;
+            const arr = JSON.parse(res.responseText);
+            arr.forEach(item => {
+                if (!item.name) return;
+                knownNames.add(item.name);
+                knownBaseNames.add(baseName(item.name));
+            });
+            isPriceLoaded = true;
+            console.log('[e8-autoprice] База имен загружена. Записей:', knownNames.size);
+        } catch (e) {
+            console.error('[e8-autoprice] Ошибка загрузки прайса:', e);
+        }
+    }
+
+    // 2. Подсчёт отверстий из ответа API
+    function countHoles(obj) {
+        let holes = 0;
+        function traverse(node) {
+            if (!node || typeof node !== 'object') return;
+            if (typeof node.totalHole === 'number' && node.category && node.category.label && node.category.label.trim() === 'ЛДСП') {
+                holes += node.totalHole;
+            }
+            if (Array.isArray(node.children)) node.children.forEach(traverse);
+            if (Array.isArray(node.items)) node.items.forEach(traverse);
+        }
+        traverse(obj);
+        return holes;
+    }
+
+    // 3. Запрос параметров паллета
+    function fetchProductParams(productId, jobId) {
+        return new Promise((resolve) => {
+            let token = W.__e8Token || window.__e8Token || localStorage.getItem('auth_token');
+            if (token && /^eyJ/.test(token)) token = /^Bearer\s+/i.test(token) ? token : ('Bearer ' + token);
+            if (!token) { resolve(0); return; }
+
+            const url = `${API_BASE}/api/v1/admin/products/${productId}/1/params?jobId=${jobId}`;
+            GM_xmlhttpRequest({
+                method: 'GET',
+                url: url,
+                headers: { 'Accept': 'application/json', 'Authorization': token },
+                onload: (res) => {
+                    if (res.status !== 200) { resolve(0); return; }
+                    try {
+                        const json = JSON.parse(res.responseText);
+                        resolve(countHoles(json));
+                    } catch (e) { resolve(0); }
+                },
+                onerror: () => resolve(0),
+                timeout: 10000
+            });
+        });
+    }
+
+    // 4. ЕДИНСТВЕННЫЙ запрос на обновление файла на GitHub
+    async function updateGitHubJson(newData) {
+        if (!GITHUB_TOKEN || GITHUB_TOKEN === 'ВАШ_ТОКЕН_ЗДЕСЬ') {
+        console.warn('[e8-autoprice] Не указан GitHub Token.');
+        return;
+        }
+        if (isUpdatingGithub) return;
+        isUpdatingGithub = true;
+
+        const apiUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE_PATH}`;
+        const headers = {
+            'Authorization': `Bearer ${GITHUB_TOKEN}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+        };
+
+        try {
+            // Получаем SHA текущего файла (обязательно перед PUT)
+            const getRes = await new Promise((resolve) => {
+                GM_xmlhttpRequest({ method: 'GET', url: apiUrl, headers, onload: resolve, onerror: () => resolve(null) });
+            });
+
+            if (!getRes || getRes.status !== 200) throw new Error('Не удалось получить SHA файла');
+            const sha = JSON.parse(getRes.responseText).sha;
+
+            // Формируем и кодируем новый JSON
+            const jsonString = JSON.stringify(newData, null, 2);
+            const base64Content = btoa(unescape(encodeURIComponent(jsonString)));
+
+            // Отправляем ОДИН запрос со всеми изменениями
+            await new Promise((resolve, reject) => {
+                GM_xmlhttpRequest({
+                    method: 'PUT',
+                    url: apiUrl,
+                    headers: headers,
+                    data: JSON.stringify({
+                        message: 'Auto-add missing products (batch update)',
+                        content: base64Content,
+                        sha: sha,
+                        branch: 'master'
+                    }),
+                    onload: (res) => {
+                        if (res.status === 200 || res.status === 201) {
+                            console.log('[e8-autoprice] ✅ Файл price.json успешно обновлен на GitHub!');
+                            resolve();
+                        } else {
+                            reject(new Error(`Ошибка GitHub: ${res.status} ${res.responseText}`));
+                        }
+                    },
+                    onerror: () => reject(new Error('Сетевая ошибка при обновлении'))
+                });
+            });
+        } catch (e) {
+            console.error('[e8-autoprice] ❌ Ошибка обновления:', e.message);
+        } finally {
+            isUpdatingGithub = false;
+        }
+    }
+
+    // 5. Основная логика с "Корзиной"
+    async function processJobs(json) {
+        if (isCheckingJobs || !isPriceLoaded || isUpdatingGithub) return;
+        isCheckingJobs = true;
+
+        try {
+            const items = json?.items || json?.data?.items;
+            const productsDict = json?.other?.dictionary?.products || json?.data?.other?.dictionary?.products || [];
+            if (!items || !productsDict.length) return;
+
+            const productMap = new Map(productsDict.map(p => [p.id, p.label]));
+            const missingProducts = new Map(); // label -> { productId, jobId }
+
+            // 1. Собираем уникальные отсутствующие изделия
+            for (const order of items) {
+                for (const group of (order.children || [])) {
+                    const productId = group.productId;
+                    const label = productMap.get(productId);
+                    if (!label) continue;
+
+                    if (knownNames.has(label) || knownBaseNames.has(baseName(label))) continue;
+
+                    let foundJobId = null;
+                    for (const wp of (group.children || [])) {
+                        for (const pallet of (wp.children || [])) {
+                            if (pallet.id) { foundJobId = pallet.id; break; }
+                        }
+                        if (foundJobId) break;
+                    }
+
+                    if (foundJobId) {
+                        missingProducts.set(label, { productId, jobId: foundJobId });
+                    }
+                }
+            }
+
+            if (missingProducts.size === 0) return;
+            console.log(`[e8-autoprice] Найдено ${missingProducts.size} новых изделий. Собираем данные...`);
+
+            // 2. Загружаем текущий JSON целиком (чтобы добавить в него новые данные)
+            let currentPriceData = [];
+            const rawRes = await new Promise((resolve) => {
+                GM_xmlhttpRequest({ method: 'GET', url: `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${FILE_PATH}?t=${Date.now()}`, onload: resolve });
+            });
+            if (rawRes && rawRes.status === 200) currentPriceData = JSON.parse(rawRes.responseText);
+
+            // 3. КОРЗИНА: Сюда собираем все новые данные
+            const newItemsBatch = [];
+            const entries = Array.from(missingProducts.entries());
+
+            // 4. Параллельно (пачками) собираем отверстия
+            for (let i = 0; i < entries.length; i += MAX_PARALLEL) {
+                const chunk = entries.slice(i, i + MAX_PARALLEL);
+                await Promise.all(chunk.map(async ([label, data]) => {
+                    const holes = await fetchProductParams(data.productId, data.jobId);
+                    if (holes > 0) {
+                        newItemsBatch.push({ name: label, holes: holes });
+                        console.log(`[e8-autoprice] Данные собраны: ${label} (${holes} отв.)`);
+                    } else {
+                        console.warn(`[e8-autoprice] Не удалось посчитать отверстия для ${label}`);
+                    }
+                }));
+            }
+
+            // 5. Если корзина не пуста — ОДИН раз обновляем GitHub
+            if (newItemsBatch.length > 0) {
+                console.log(`[e8-autoprice] Сбор завершен. Отправляем ${newItemsBatch.length} новых записей в GitHub...`);
+
+                // Добавляем все новые записи в конец массива
+                currentPriceData.push(...newItemsBatch);
+
+                // Обновляем локальные списки, чтобы не добавлять их повторно в этой сессии
+                newItemsBatch.forEach(item => {
+                    knownNames.add(item.name);
+                    knownBaseNames.add(baseName(item.name));
+                });
+
+                await updateGitHubJson(currentPriceData);
+            }
+
+        } catch (e) {
+            console.error('[e8-autoprice] Ошибка в процессе:', e);
+        } finally {
+            isCheckingJobs = false;
+        }
+    }
+
+    // Инициализация и перехват
+    loadCurrentPrice();
+
+    function patchFetch(target) {
+        if (!target || !target.fetch || target.__e8AutoPricePatched) return;
+        target.__e8AutoPricePatched = true;
+        const orig = target.fetch;
+        target.fetch = async function (...args) {
+            const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
+            const res = await orig.apply(this, args);
+            if (url.includes('/jobs') && url.includes('statusId=1')) {
+                res.clone().json().then(processJobs).catch(() => {});
+            }
+            return res;
+        };
+    }
+
+    patchFetch(W);
+    if (W !== window) patchFetch(window);
+
+    const XHR = W.XMLHttpRequest || window.XMLHttpRequest;
+    if (XHR && !XHR.prototype.__e8AutoPricePatched) {
+        XHR.prototype.__e8AutoPricePatched = true;
+        const origOpen = XHR.prototype.open;
+        const origSend = XHR.prototype.send;
+        XHR.prototype.open = function (method, url, ...rest) { this.__e8url = url; return origOpen.call(this, method, url, ...rest); };
+        XHR.prototype.send = function (...args) {
+            this.addEventListener('load', function () {
+                try {
+                    const url = this.__e8url || '';
+                    if (url.includes('/jobs') && url.includes('statusId=1')) {
+                        processJobs(JSON.parse(this.responseText));
+                    }
+                } catch (e) {}
+            });
+            return origSend.apply(this, args);
+        };
+    }
 })();
