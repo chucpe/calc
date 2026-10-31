@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         Калькулейшин
-// @namespace    Калькулейшин
+// @name         дев.Калькулейшин
+// @namespace    дев.Калькулейшин
 // @version      4
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
@@ -8,12 +8,12 @@
 // @grant        GM_addStyle
 // @grant        unsafeWindow
 // @connect      raw.githubusercontent.com
-// @connect      e8.ffa.su
 // @connect      api.github.com
+// @connect      e8.ffa.su
 // @connect      backoffice-e8.ffa.su
 // @run-at       document-start
-// @downloadURL https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
-// @updateURL   https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
+// @downloadURL  https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
+// @updateURL    https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
 // ==/UserScript==
 
 // ==================================================================
@@ -274,6 +274,9 @@
                                 </div>
                             `;
                         });
+                        // СДЗ: общая сумма за месяц / количество рабочих дней
+                        const workDaysCount = grouped[year][month].length;
+                        const avgPerDay = workDaysCount > 0 ? (monthTotal / workDaysCount) : 0;
 
                         const monthId = `month-${year}-${month}`;
                         let isOpen = false;
@@ -283,10 +286,11 @@
                         const displayStyle = isOpen ? 'block' : 'none';
                         const arrowSymbol = isOpen ? '▼' : '▶';
 
-                        yearDaysHtml += `
+                                                                  yearDaysHtml += `
                             <div style="margin-top:4px;">
-                                <div class="e8-toggle-group" data-target="${monthId}" style="display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:#60a5fa;border-top:1px dashed #2a2a3e;padding-top:4px;cursor:pointer;user-select:none;">
-                                    <span><span class="e8-arrow" style="margin-right:4px;font-size:9px;">${arrowSymbol}</span>${monthName}</span>
+                                <div class="e8-toggle-group" data-target="${monthId}" style="display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;color:#60a5fa;border-top:1px dashed #2a2a3e;padding-top:4px;cursor:pointer;user-select:none;">
+                                    <span style="flex:1;"><span class="e8-arrow" style="margin-right:4px;font-size:9px;">${arrowSymbol}</span>${monthName}</span>
+                                    <span style="color:#fbbf24;font-weight:600;margin-right:8px;">${money(avgPerDay)} (${workDaysCount} дн.)</span>
                                     <span>${money(monthTotal)}</span>
                                 </div>
                                 <div id="${monthId}" style="display:${displayStyle};padding-left:8px;">${daysHtml}</div>
@@ -746,21 +750,8 @@
   }
   function saveSettings() { try { localStorage.setItem(LS_SETTINGS_KEY, JSON.stringify(settings)); } catch (e) {} }
 
-  const B002_COLORS = ['Бетон', 'Сонома', 'Молочный', 'Графит', 'Белый', 'Красный'];
-  const B002_RATE = 0.50;
-
-  function getSpecialRule(label) {
-    const clean = String(label || '').trim();
-    if (!clean.startsWith('Б002')) return null;
-    const rest = clean.slice(4);
-    for (const color of B002_COLORS) if (rest.startsWith(color)) return { prefix: 'Б002' + color, rate: B002_RATE, taxFree: true };
-    return null;
-  }
-
-  function calcSum(label, holes, pallets) {
+    function calcSum(label, holes, pallets) {
     if (holes == null) return 0;
-    const rule = getSpecialRule(label);
-    if (rule) return round2(holes * rule.rate * pallets);
     return round2(holes * settings.rate * (1 - settings.tax / 100) * pallets);
   }
 
@@ -1109,11 +1100,96 @@
             continue;
           }
 
-          const sum = calcSum(label, holes, palletsInRange);
+          // Вычисляем сумму с учётом деления на исполнителей
+          let sum = 0;
+          for (let i = 0; i < palletsInRange; i++) {
+              const child = childList[i] || null;
+              const childId = child?.id || '';
+              const execCount = Number(localStorage.getItem('e8_exec_count_' + childId)) || 1;
+              const palletSum = calcSum(label, holes, 1) / execCount;
+              sum += palletSum;
+          }
+          sum = round2(sum);
+
           totalPallets += palletsInRange;
           totalSum = round2(totalSum + sum);
           orderStat.pallets += palletsInRange;
           orderStat.sum = round2(orderStat.sum + sum);
+
+                    if (window.__e8Stats && window.__e8Stats.accumulate) {
+              const earnPerPallet = holes * settings.rate * (1 - settings.tax / 100);
+
+              // Собираем паллеты, для которых нет execCount в localStorage
+              const needFetch = [];
+              for (let i = 0; i < palletsInRange; i++) {
+                  const child = childList[i] || null;
+                  if (child?.id && localStorage.getItem('e8_exec_count_' + child.id) === null) {
+                      needFetch.push(child.id);
+                  }
+              }
+
+              // Если есть паллеты без execCount — запрашиваем (по 5 штук)
+              if (needFetch.length > 0) {
+                  console.log(`[e8-calc] Запрашиваем execCount для ${needFetch.length} паллетов...`);
+                  const token = W.__e8Token || window.__e8Token || localStorage.getItem('auth_token');
+                  let auth = token;
+                  if (auth && /^eyJ/.test(auth)) auth = /^Bearer\s+/i.test(auth) ? auth : ('Bearer ' + auth);
+
+                  const fetchExecCount = (id) => new Promise((resolve) => {
+                      GM_xmlhttpRequest({
+                          method: 'GET',
+                          url: `https://backoffice-e8.ffa.su/api/v1/admin/projects/1/jobs/${id}`,
+                          headers: { 'Accept': 'application/json', 'Authorization': auth },
+                          onload: (res) => {
+                              let execCount = 1;
+                              if (res.status === 200) {
+                                  try {
+                                      const json = JSON.parse(res.responseText);
+                                      let d = null;
+                                      if (Array.isArray(json) && json.length > 0) d = json[0];
+                                      else if (json.data && Array.isArray(json.data) && json.data.length > 0) d = json.data[0];
+                                      else if (json.data && typeof json.data === 'object') d = json.data;
+                                      else if (json && typeof json === 'object') d = json;
+                                      if (d && d.executors && Array.isArray(d.executors) && d.executors.length > 1) {
+                                          execCount = d.executors.length;
+                                      }
+                                  } catch (e) {}
+                              }
+                              localStorage.setItem('e8_exec_count_' + id, String(execCount));
+                              resolve();
+                          },
+                          onerror: () => {
+                              localStorage.setItem('e8_exec_count_' + id, '1');
+                              resolve();
+                          },
+                          timeout: 10000
+                      });
+                  });
+
+                  (async () => {
+                      for (let i = 0; i < needFetch.length; i += 5) {
+                          const chunk = needFetch.slice(i, i + 5);
+                          await Promise.all(chunk.map(id => fetchExecCount(id)));
+                      }
+                      console.log('[e8-calc] execCount загружены.');
+                      // После загрузки пересчитываем статистику
+                      if (window.__e8StatsUI && window.__e8StatsUI.renderStats) {
+                          window.__e8StatsUI.renderStats();
+                      }
+                  })();
+              } else {
+                  console.log('[e8-calc] Все execCount уже есть в localStorage');
+              }
+
+              // Пока запросы идут, используем то, что есть
+              for (let i = 0; i < palletsInRange; i++) {
+                  const child = childList[i] || null;
+                  const childId = child?.id || '';
+                  const execCount = Number(localStorage.getItem('e8_exec_count_' + childId)) || 1;
+                  const earnPerPalletDivided = earnPerPallet / execCount;
+                  window.__e8Stats.accumulate(label, holes, earnPerPalletDivided, child?.id || null, child?.cancelDateTime || null);
+              }
+          }
 
           let quantityInRange = 0;
           for (const c of childList) {
@@ -1122,16 +1198,6 @@
             else if (t != null && (from == null || t >= from) && (to == null || t <= to)) quantityInRange += Number(c.quantity) || 0;
           }
           totalQuantity += quantityInRange;
-
-                    if (window.__e8Stats && window.__e8Stats.accumulate) {
-              const rule = getSpecialRule(label);
-              const earnPerPallet = rule ? holes * rule.rate : holes * settings.rate * (1 - settings.tax / 100);
-              for (let i = 0; i < palletsInRange; i++) {
-                  const child = childList[i] || null;
-                  // Передаем дату паллеты (5-м аргументом)
-                  window.__e8Stats.accumulate(label, holes, earnPerPallet, child?.id || null, child?.cancelDateTime || null);
-              }
-          }
 
           debugRows.push({ order: order.label, label, holes, pallets, palletsInRange, firstDate: toMskString(firstDateIso), sum, times: timesInRange, firstDateMs: firstDateIso ? new Date(firstDateIso).getTime() : Infinity });
         }
@@ -1546,6 +1612,9 @@
   function boot() { ensureBox(); }
   if (document.body) boot();
   else window.addEventListener('DOMContentLoaded', boot);
+    window.__e8Recalculate = function() {
+      if (lastJson) processJobs(lastJson);
+  };
 })();
 
 // ==================================================================
@@ -1615,8 +1684,7 @@
               if (typeof item.holes !== 'number') return;
               const name = item.name.trim();
               let price;
-              if (isB002Color(name)) price = item.holes * B002_RATE;
-              else price = item.holes * RATE * TAX_MULTIPLIER;
+              price = item.holes * RATE * TAX_MULTIPLIER;
               priceByName[name] = price;
             });
             priceLoaded = true;
@@ -2034,7 +2102,7 @@
     const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
 
     // --- НАСТРОЙКИ ---
-    const GITHUB_TOKEN = localStorage.getItem('gh_token') || 'токенздесь';
+    const GITHUB_TOKEN = localStorage.getItem('gh_token') || 'здесьтокен';
     const OWNER = 'chucpe';
     const REPO = 'calc';
     const FILE_PATH = 'src/price.json';
@@ -2484,7 +2552,7 @@
 })();
 
 // ==================================================================
-// МОДУЛЬ «В РАБОТЕ» (ПОЛНЫЙ)
+// МОДУЛЬ «В РАБОТЕ» (ПЕРЕХВАТ ЗАПРОСА САЙТА)
 // ==================================================================
 (function() {
     'use strict';
@@ -2519,27 +2587,7 @@
         return null;
     }
 
-    function fetchCurrentJobs() {
-        return new Promise((resolve) => {
-            const token = getToken();
-            if (!token) { resolve(null); return; }
-            GM_xmlhttpRequest({
-                method: 'GET',
-                url: `${API_BASE}/projects/1/jobs?statusId=1`,
-                headers: { 'Accept': 'application/json', 'Authorization': token },
-                onload: (res) => {
-                    if (res.status === 200) {
-                        try { resolve(JSON.parse(res.responseText)); } catch (e) { resolve(null); }
-                    } else {
-                        resolve(null);
-                    }
-                },
-                onerror: () => resolve(null),
-                timeout: 15000
-            });
-        });
-    }
-
+    // Запрос по одному паллету (без /info)
     function fetchJobInfo(jobId) {
         return new Promise((resolve) => {
             const token = getToken();
@@ -2569,26 +2617,20 @@
         });
     }
 
-    // Отрисовка таблицы (сохраняет кнопки)
+    // Отрисовка таблицы в панели статистики (сохраняет кнопки)
     function renderInWorkTable() {
         const panel = document.getElementById('e8-stats-panel');
         if (!panel) return;
         const tabInWork = document.getElementById('e8-tab-inwork');
         if (!tabInWork || tabInWork.style.background !== 'rgb(59, 130, 246)') return;
 
-        // 1. Сохраняем кнопки вкладок
+        // Сохраняем кнопки
         const btnRow = panel.querySelector('div[style*="display:flex"]');
         const savedButtons = btnRow ? btnRow.outerHTML : '';
 
-        // 2. Очищаем панель
         panel.innerHTML = '';
+        if (savedButtons) panel.innerHTML += savedButtons;
 
-        // 3. Возвращаем кнопки
-        if (savedButtons) {
-            panel.innerHTML += savedButtons;
-        }
-
-        // 4. Добавляем таблицу
         const jobs = loadCache();
         const container = document.createElement('div');
         container.style.cssText = 'margin-top:6px;';
@@ -2596,6 +2638,7 @@
         if (jobs.length === 0) {
             container.innerHTML = `<div style="font-size:11px;opacity:.6;margin-top:4px;">Данные загружаются...</div>`;
         } else {
+            // Сортировка: "В работе" -> "Завершен" -> "Не назначен"
             jobs.sort((a, b) => {
                 const order = { 'В работе': 1, 'Завершен': 2, 'Не назначен': 3 };
                 const orderA = order[a.status] || 4;
@@ -2607,7 +2650,7 @@
             html += `<table style="width:100%;border-collapse:collapse;font-size:11px;">
                 <thead><tr style="border-bottom:1px solid #333;color:#aaa;">
                     <th style="text-align:left;padding:4px;">Название</th>
-                    <th style="text-align:left;padding:4px;">Работник</th>
+                    <th style="text-align:left;padding:4px;">Сотрудник</th>
                     <th style="text-align:left;padding:4px;">Статус</th>
                 </tr></thead><tbody>`;
 
@@ -2637,7 +2680,7 @@
 
         panel.appendChild(container);
 
-        // 5. Перевешиваем обработчики на кнопки
+        // Перевешиваем обработчики кнопок
         const newTabTop = panel.querySelector('#e8-tab-top');
         const newTabDaily = panel.querySelector('#e8-tab-daily');
         const newTabInWork = panel.querySelector('#e8-tab-inwork');
@@ -2647,9 +2690,32 @@
         if (newTabInWork) newTabInWork.addEventListener('click', () => { window.__e8SetStatsTab('inwork'); });
     }
 
-    async function updateInWork() {
+    // Основная логика: получает JSON из перехвата, сравнивает с кэшем, обновляет статусы
+    async function updateInWork(json) {
         console.log('[e8-inwork] Обновление...');
-        const json = await fetchCurrentJobs();
+
+        if (!json) {
+            // Если JSON не передан, делаем запрос сами
+            const token = getToken();
+            if (!token) return;
+            json = await new Promise((resolve) => {
+                GM_xmlhttpRequest({
+                    method: 'GET',
+                    url: `${API_BASE}/projects/1/jobs?statusId=1`,
+                    headers: { 'Accept': 'application/json', 'Authorization': token },
+                    onload: (res) => {
+                        if (res.status === 200) {
+                            try { resolve(JSON.parse(res.responseText)); } catch (e) { resolve(null); }
+                        } else {
+                            resolve(null);
+                        }
+                    },
+                    onerror: () => resolve(null),
+                    timeout: 15000
+                });
+            });
+        }
+
         if (!json) { console.log('[e8-inwork] Нет данных от API'); return; }
 
         const items = json.items || json.data?.items || [];
@@ -2714,6 +2780,13 @@
                 }
                 job.worker = worker;
 
+                // Сохраняем количество исполнителей (для деления суммы)
+                let execCount = 1;
+                if (d.executors && Array.isArray(d.executors) && d.executors.length > 1) {
+                    execCount = d.executors.length;
+                }
+                localStorage.setItem('e8_exec_count_' + job.id, String(execCount));
+
                 let statusLabel = null;
                 if (d.status) {
                     if (typeof d.status === 'string') statusLabel = d.status;
@@ -2738,19 +2811,71 @@
         renderInWorkTable();
     }
 
+    // Перехват запросов fetch (для statusId=1)
+    function patchFetch(target) {
+        if (!target || !target.fetch || target.__e8InworkPatched) return;
+        target.__e8InworkPatched = true;
+        const orig = target.fetch;
+
+        target.fetch = async function (...args) {
+            const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
+            const res = await orig.apply(this, args);
+
+            if (url.includes('/jobs') && url.includes('statusId=1')) {
+                res.clone().json().then(data => {
+                    updateInWork(data);
+                }).catch(() => {});
+            }
+            return res;
+        };
+    }
+
+    // Перехват XHR
+    function patchXhr(target) {
+        if (!target || !target.XMLHttpRequest) return;
+        const XHR = target.XMLHttpRequest;
+        if (XHR.prototype.__e8InworkXhrPatched) return;
+        XHR.prototype.__e8InworkXhrPatched = true;
+
+        const origOpen = XHR.prototype.open;
+        const origSend = XHR.prototype.send;
+
+        XHR.prototype.open = function (method, url, ...rest) {
+            this.__e8url = url;
+            return origOpen.call(this, method, url, ...rest);
+        };
+        XHR.prototype.send = function (...args) {
+            this.addEventListener('load', function () {
+                try {
+                    const url = this.__e8url || '';
+                    if (url.includes('/jobs') && url.includes('statusId=1')) {
+                        updateInWork(JSON.parse(this.responseText));
+                    }
+                } catch (e) {}
+            });
+            return origSend.apply(this, args);
+        };
+    }
+
+    // Применяем перехват
+    patchFetch(window);
+    patchFetch(typeof unsafeWindow !== 'undefined' ? unsafeWindow : null);
+    patchXhr(window);
+    patchXhr(typeof unsafeWindow !== 'undefined' ? unsafeWindow : null);
+
+    // При клике на вкладку "В работе" перерисовываем таблицу
     document.addEventListener('click', (e) => {
         if (e.target && e.target.id === 'e8-tab-inwork') {
             setTimeout(() => {
                 renderInWorkTable();
-                updateInWork();
+                if (window.__e8Recalculate) {
+            window.__e8Recalculate();
+        }
             }, 100);
         }
     });
 
-    setTimeout(() => {
-        console.log('[e8-inwork] Автоматическое обновление при загрузке...');
-        updateInWork();
-    }, 2000);
+    // Принудительное обновление
+    window.__e8ForceInWorkUpdate = () => updateInWork();
 
-    window.__e8ForceInWorkUpdate = updateInWork;
 })();
