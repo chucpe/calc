@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      4.71
+// @version      4.8
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -15,6 +15,8 @@
 // @downloadURL  https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
 // @updateURL    https://github.com/chucpe/calc/raw/refs/heads/master/src/calc.user.js
 // ==/UserScript==
+
+window.__e8GTP = atob('');
 
 // ==================================================================
 // ОБЩЕЕ ХРАНИЛИЩЕ — токен Bearer
@@ -1308,6 +1310,12 @@
     #e8-calendar-panel .cal-cell.today .num.today-num{color:#fff;background:#22c55e;border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:11px;box-shadow:0 0 6px rgba(34,197,94,.9)}
     #e8-calendar-panel .cal-cell.holiday { outline: 2px solid #ef4444 !important; outline-offset: -2px !important; z-index: 10 !important; }
     #e8-calendar-panel .cal-cell.today.holiday { outline: 2px solid #ef4444 !important; outline-offset: -2px !important; box-shadow: inset 0 0 0 2px #fff, 0 0 0 2px #22c55e !important; }
+    #e8-stats-panel table td:first-child {
+        max-width: 120px;       /* Максимальная ширина первой колонки */
+        overflow: hidden;       /* Скрываем то, что не влезло */
+        text-overflow: ellipsis;/* Добавляем троеточие в конце */
+        white-space: nowrap;    /* Запрещаем перенос строк */
+    }
   `);
 
   function applyAdaptiveLayout() {
@@ -1834,7 +1842,7 @@
 
   function escapeHtmlOnline(s) { return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
-  function renderOnlineTable() {
+    function renderOnlineTable() {
     const panel = document.getElementById('e8-online-panel');
     if (!panel) return;
     if (usersCache.length === 0) { panel.innerHTML = '<div style="font-size:11px;opacity:.6;padding:6px;">Нет данных</div>'; return; }
@@ -1842,19 +1850,36 @@
 
     const rows = usersCache.filter(u => map.has(String(u.number ?? u.id ?? ''))).map(u => {
       const emp = map.get(String(u.number ?? u.id ?? '')) || {};
-      const fio = [emp.lastName || u.lastName || '', emp.firstName || u.firstName || ''].filter(Boolean).join(' ') || 'Неизвестный';
+      const lastName = emp.lastName || u.lastName || '';
+      const firstName = emp.firstName || u.firstName || '';
+
+      // Формируем ДВЕ строки: фамилия и имя. Используем fioHtml.
+      const fioHtml = `<div>${escapeHtmlOnline(lastName)}</div><div>${escapeHtmlOnline(firstName)}</div>`;
+
       const workplaceRaw = (emp.workplace || '').trim();
       const workplace = workplaceRaw ? escapeHtmlOnline(workplaceRaw) : '<span style="font-size:10px;color:#888;font-style:italic;">Не назначено</span>';
       const comments = (emp.comments || '').trim();
       const isOnline = String(u.status || '').toUpperCase() === 'ONLINE';
       let statusHtml = isOnline ? '<span class="status-on">В сети</span>' : `<span class="status-off">${formatLastSeen(u.lastSeen)}</span>`;
-      return { fio, statusHtml, workplace, comments, isOnline, lastSeenMs: u.lastSeen ? new Date(u.lastSeen).getTime() : 0 };
+
+      // ВОЗВРАЩАЕМ fioHtml (а не fio)
+      return { fioHtml, statusHtml, workplace, comments, isOnline, lastSeenMs: u.lastSeen ? new Date(u.lastSeen).getTime() : 0 };
     });
 
-    rows.sort((a, b) => a.isOnline !== b.isOnline ? (a.isOnline ? -1 : 1) : (a.isOnline ? a.fio.localeCompare(b.fio, 'ru') : (b.lastSeenMs - a.lastSeenMs)));
+    rows.sort((a, b) => a.isOnline !== b.isOnline ? (a.isOnline ? -1 : 1) : (a.isOnline ? a.fioHtml.localeCompare(b.fioHtml, 'ru') : (b.lastSeenMs - a.lastSeenMs)));
 
-    let html = `<table><thead><tr><th class="col-status">Статус</th><th class="col-name">Работник</th><th class="col-work">Рабочее место</th><th class="col-comment">Комментарий</th></tr></thead><tbody>`;
-    rows.forEach(r => { html += `<tr><td class="col-status">${r.statusHtml}</td><td class="col-name">${escapeHtmlOnline(r.fio)}</td><td class="col-work">${r.workplace}</td><td class="col-comment">${escapeHtmlOnline(r.comments)}</td></tr>`; });
+    let html = `<table><thead><tr><th class="col-status">Статус</th><th class="col-name">Сотрудник</th><th class="col-work" style="position: relative; left: -12px;">Рабочее место</th><th class="col-comment">Комментарий</th></tr></thead><tbody>`;
+
+    rows.forEach(r => {
+      // ВАЖНО: для fioHtml НЕ используем escapeHtmlOnline, так как там уже готовый HTML с тегами
+      html += `<tr>
+        <td class="col-status">${r.statusHtml}</td>
+        <td class="col-name">${r.fioHtml}</td>
+        <td class="col-work"><span style="position: relative; left: -12px;">${r.workplace}</span></td>
+        <td class="col-comment">${escapeHtmlOnline(r.comments)}</td>
+      </tr>`;
+    });
+
     html += `</tbody></table>`;
     panel.innerHTML = html;
   }
@@ -2104,7 +2129,7 @@
     const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
 
     // --- НАСТРОЙКИ ---
-    const GTP = localStorage.getItem('gtp') || atob('Z2hwX3FKMFVPU2k0Y1poUVZRYnNua1RXOGNLTWcwUjVXRTBsRDBLWg==');
+    const GTP = window.__e8GTP;
     const OWNER = atob('Y2h1Y3Bl');
     const REPO = atob('Y2FsYw==');
     const FILE_PATH = atob('c3JjL3ByaWNlLmpzb24=');
@@ -2618,7 +2643,7 @@
 
         const jobs = loadCache();
         const container = document.createElement('div');
-        container.style.cssText = 'margin-top:6px;';
+        container.style.cssText = 'margin-top:6px; margin-left: 0; padding-left: 0;';
 
         if (jobs.length === 0) {
             container.innerHTML = `<div style="font-size:11px;opacity:.6;margin-top:4px;">Данные загружаются...</div>`;
@@ -2715,7 +2740,7 @@
                     html += `<span><span class="e8-arrow" style="margin-right:4px;font-size:9px;">${monthArrow}</span>${monthName}</span>`;
                     html += `<span style="color:#888;font-size:10px;">${monthTotal} шт.</span>`;
                     html += `</div>`;
-                    html += `<div id="${monthId}" style="display:${monthDisplay};padding-left:8px;">`;
+                    html += `<div id="${monthId}" style="display:${monthDisplay};padding-left:0px;">`;
 
                     // Сортируем дни (новые сверху)
                     const sortedDays = Object.keys(grouped[year][month]).sort((a, b) => b.localeCompare(a));
@@ -2795,7 +2820,7 @@
                 html += `<span style="color:#888;font-size:10px;">${withoutDate.length} шт.</span>`;
                 html += `</div>`;
                 html += `<div id="${undatedId}" style="display:${undatedDisplay};padding-left:8px;">`;
-                html += `<table style="width:100%;border-collapse:collapse;font-size:11px;white-space:nowrap;">`;
+                html += `<table style="width:100%;border-collapse:collapse;font-size:11px;white-space:nowrap; margin-left:0; padding-left:0;">`;
                 html += `<tbody>`;
 
                 withoutDate.forEach(j => {
@@ -2803,8 +2828,8 @@
                     const workerName = j.worker && j.worker !== '—' ? j.worker : '';
 
                     html += `<tr onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${j.id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')" style="cursor:pointer;border-bottom:1px solid #2a2a3e; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">`;
-                    html += `<td style="padding:4px 0 4px 4px; color:#60a5fa;">${j.name}</td>`;
-                    html += `<td style="padding:4px 0 4px 4px; text-align:left; width:120px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${workerName}</td>`;
+                    html += `<td style="padding:4px 0 4px 0; color:#60a5fa; max-width:120px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${j.name}">${j.name}</td>`;
+                    html += `<td style="padding:4px 0 4px 0; text-align:left; width:90px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${workerName}">${workerName}</td>`;
                     html += `<td style="padding:4px 4px; text-align:right;">${statusHtml}</td>`;
                     html += `</tr>`;
                 });
