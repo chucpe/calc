@@ -521,10 +521,10 @@
     "name": "Б00Ш4Белый",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "05.11.2026 19:47",
+    "status": "Завершен",
+    "date": "05.11.2026 20:38",
     "startDateTime": "2026-11-05T16:47:59.541Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-05T17:38:08.183Z",
     "execCount": 1
   },
   {
