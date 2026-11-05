@@ -554,10 +554,10 @@
     "name": "Б004Белый",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "06.11.2026 01:12",
+    "status": "Завершен",
+    "date": "06.11.2026 02:07",
     "startDateTime": "2026-11-05T22:12:43.822Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-05T23:07:31.718Z",
     "execCount": 1
   },
   {
