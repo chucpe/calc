@@ -1,5 +1,16 @@
 [
   {
+    "id": "2737df95-9873-4f64-85b8-0ff189a90474",
+    "name": "Б00Ш3Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "f1d6d93c-0934-4dba-ad35-91cb430e1e59",
     "name": "Б00Ш13Белый",
     "firstName": "",
@@ -13,17 +24,6 @@
   {
     "id": "48bbd9ca-975b-4da3-9840-6e541d107310",
     "name": "Б00Ш13Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "2737df95-9873-4f64-85b8-0ff189a90474",
-    "name": "Б00Ш3Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -165,6 +165,17 @@
     "execCount": 1
   },
   {
+    "id": "0fed5c97-11f4-4946-b2db-99ddc4d28dea",
+    "name": "Б00Ш12Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "91914ec2-c460-4022-94c0-05bcb300c635",
     "name": "Б00Т29ВотанБелыйЗР",
     "firstName": "",
@@ -176,8 +187,52 @@
     "execCount": 1
   },
   {
-    "id": "0fed5c97-11f4-4946-b2db-99ddc4d28dea",
-    "name": "Б00Ш12Вотан",
+    "id": "7dee66d1-eb6f-408f-a775-ea15a7a160ea",
+    "name": "Б00Ш1Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "dc651798-6ba9-4366-b910-ea71c61c59fd",
+    "name": "Б00Т38БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "23ab0462-a977-4dc8-9e04-e0b88628e765",
+    "name": "Б00Т38БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "92cc4281-980e-4fd0-85cb-18014d006e8f",
+    "name": "Б0038Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "d93c8b5c-8b87-4e64-85bc-5776f583beff",
+    "name": "Б0038Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -264,83 +319,6 @@
     "execCount": 1
   },
   {
-    "id": "7dee66d1-eb6f-408f-a775-ea15a7a160ea",
-    "name": "Б00Ш1Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "92cc4281-980e-4fd0-85cb-18014d006e8f",
-    "name": "Б0038Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "d93c8b5c-8b87-4e64-85bc-5776f583beff",
-    "name": "Б0038Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "dc651798-6ba9-4366-b910-ea71c61c59fd",
-    "name": "Б00Т38БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "23ab0462-a977-4dc8-9e04-e0b88628e765",
-    "name": "Б00Т38БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "041e20ae-8603-4391-a802-438b3d763fe8",
-    "name": "Б00С4Бетон",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "196e3914-edc9-46a8-ac26-80a9a5a2727c",
-    "name": "СтолЦарга90*60БетонЧерныеНожки",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "31b00b94-83b4-4bf6-80f8-20bd11076659",
     "name": "КомпСтолЧерный-КромкаКрасная",
     "firstName": "",
@@ -418,17 +396,6 @@
     "execCount": 1
   },
   {
-    "id": "c0814fdc-86ae-4162-976a-80ada0b49f84",
-    "name": "Б00Ш10Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "6ea3977c-482e-4961-b210-eb685c5d9e89",
     "name": "Б0038ЧерныйВотан",
     "firstName": "",
@@ -480,6 +447,39 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "041e20ae-8603-4391-a802-438b3d763fe8",
+    "name": "Б00С4Бетон",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "196e3914-edc9-46a8-ac26-80a9a5a2727c",
+    "name": "СтолЦарга90*60БетонЧерныеНожки",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "c0814fdc-86ae-4162-976a-80ada0b49f84",
+    "name": "Б00Ш10Белый",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "05.11.2026 21:30",
+    "startDateTime": "2026-11-05T18:30:13.035Z",
     "cancelDateTime": null,
     "execCount": 1
   },
