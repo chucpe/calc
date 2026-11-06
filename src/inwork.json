@@ -532,10 +532,10 @@
     "name": "Б00Т31Белый",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "06.11.2026 09:35",
+    "status": "Завершен",
+    "date": "06.11.2026 11:09",
     "startDateTime": "2026-11-06T06:35:07.452Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-06T08:09:48.861Z",
     "execCount": 1
   },
   {
