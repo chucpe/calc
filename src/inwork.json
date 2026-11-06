@@ -499,10 +499,10 @@
     "name": "Б00Т44СономаБелыйЗР",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "06.11.2026 09:39",
+    "status": "Завершен",
+    "date": "06.11.2026 11:00",
     "startDateTime": "2026-11-06T06:39:53.251Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-06T08:00:42.531Z",
     "execCount": 1
   },
   {
