@@ -429,6 +429,17 @@
     "execCount": 1
   },
   {
+    "id": "a3fa8658-e1af-4be5-b6b3-4fb7489b95e1",
+    "name": "Б00С6Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "d72247c3-a924-4617-9336-53120fca7360",
     "name": "Б00Т41БелыйЧР",
     "firstName": "Дмитрий",
