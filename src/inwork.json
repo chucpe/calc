@@ -275,17 +275,6 @@
     "execCount": 1
   },
   {
-    "id": "d72247c3-a924-4617-9336-53120fca7360",
-    "name": "Б00Т41БелыйЧР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "bfe86e80-833d-4abb-ac44-a9a2afe0ce0c",
     "name": "Б00Т41БелыйЗР",
     "firstName": "",
@@ -310,17 +299,6 @@
   {
     "id": "99d93e27-f082-4e9d-9ce7-110d3f564928",
     "name": "Б00Ш3Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "e7d323cc-4317-4149-aff2-c6c201640809",
-    "name": "Б00Ш13Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -374,17 +352,6 @@
     "execCount": 1
   },
   {
-    "id": "59b71cdd-aeba-438f-9b5e-ab6f146bdc2f",
-    "name": "Б00С6Сонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "1c4ba493-f1d0-4b83-98ab-b5e0cdb23507",
     "name": "Б00С6Сонома",
     "firstName": "",
@@ -418,13 +385,79 @@
     "execCount": 1
   },
   {
-    "id": "ab12cd1a-996b-42fe-93ce-9868b80d5438",
-    "name": "Б004Сонома",
+    "id": "ef863ff4-a040-490f-9561-64640b58e1a4",
+    "name": "Б00С6Сонома",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "c838c184-7885-4b23-b54a-8fc12f83a756",
+    "name": "Б00С6Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "14a77ad8-4320-4610-99bd-8d38e4e79eb1",
+    "name": "Б00С6Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "d72247c3-a924-4617-9336-53120fca7360",
+    "name": "Б00Т41БелыйЧР",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "06.11.2026 21:12",
+    "startDateTime": "2026-11-06T18:12:05.396Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e7d323cc-4317-4149-aff2-c6c201640809",
+    "name": "Б00Ш13Белый",
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "В работе",
+    "date": "06.11.2026 20:55",
+    "startDateTime": "2026-11-06T17:55:40.885Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "59b71cdd-aeba-438f-9b5e-ab6f146bdc2f",
+    "name": "Б00С6Сонома",
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "06.11.2026 21:06",
+    "startDateTime": "2026-11-06T18:06:42.342Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "ab12cd1a-996b-42fe-93ce-9868b80d5438",
+    "name": "Б004Сонома",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "06.11.2026 21:09",
+    "startDateTime": "2026-11-06T18:09:19.123Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -444,10 +477,10 @@
     "name": "Б007Вотан",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
-    "status": "В работе",
-    "date": "06.11.2026 20:21",
+    "status": "Завершен",
+    "date": "06.11.2026 21:11",
     "startDateTime": "2026-11-06T17:21:13.582Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-06T18:11:21.993Z",
     "execCount": 1
   },
   {
@@ -455,10 +488,10 @@
     "name": "Б00С6Сонома",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "06.11.2026 20:40",
+    "status": "Завершен",
+    "date": "06.11.2026 21:06",
     "startDateTime": "2026-11-06T17:40:48.393Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-06T18:06:34.819Z",
     "execCount": 1
   },
   {
@@ -466,10 +499,10 @@
     "name": "Б004Сонома",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "06.11.2026 20:29",
+    "status": "Завершен",
+    "date": "06.11.2026 21:05",
     "startDateTime": "2026-11-06T17:29:03.858Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-06T18:05:20.326Z",
     "execCount": 1
   },
   {
