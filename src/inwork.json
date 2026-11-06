@@ -330,6 +330,17 @@
     "execCount": 1
   },
   {
+    "id": "02ff706e-a25d-44a2-b23f-72a898762f04",
+    "name": "Б00Ш5Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "23f5876e-f734-43ba-b59c-4b7deda4549c",
     "name": "Б0073Сонома",
     "firstName": "",
@@ -455,10 +466,10 @@
     "name": "Б00Ш13Белый",
     "firstName": "Федор",
     "lastName": "Привалихин",
-    "status": "В работе",
-    "date": "06.11.2026 20:55",
+    "status": "Завершен",
+    "date": "06.11.2026 22:11",
     "startDateTime": "2026-11-06T17:55:40.885Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-06T19:11:05.459Z",
     "execCount": 1
   },
   {
