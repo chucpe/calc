@@ -132,17 +132,6 @@
     "execCount": 1
   },
   {
-    "id": "dd9b8e5c-530f-4207-bcdf-f874d552947f",
-    "name": "Б00Т45БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "3e242c3c-b64c-454d-91bc-bc3ef5238cb4",
     "name": "Б00Т45БелыйЗР",
     "firstName": "",
@@ -264,8 +253,19 @@
     "execCount": 1
   },
   {
-    "id": "2a52ddfc-140d-4d50-9fe5-3d09b9f25504",
-    "name": "Б004Белый",
+    "id": "196e3914-edc9-46a8-ac26-80a9a5a2727c",
+    "name": "СтолЦарга90*60БетонЧерныеНожки",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "967868cd-4fea-4dac-8a52-11c916e921f5",
+    "name": "Б00Т31Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -297,7 +297,7 @@
     "execCount": 1
   },
   {
-    "id": "e43a778f-a583-4975-b0bc-3b92e2b39bf4",
+    "id": "d72247c3-a924-4617-9336-53120fca7360",
     "name": "Б00Т41БелыйЧР",
     "firstName": "",
     "lastName": "",
@@ -440,13 +440,46 @@
     "execCount": 1
   },
   {
-    "id": "196e3914-edc9-46a8-ac26-80a9a5a2727c",
-    "name": "СтолЦарга90*60БетонЧерныеНожки",
+    "id": "bfe86e80-833d-4abb-ac44-a9a2afe0ce0c",
+    "name": "Б00Т41БелыйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "dd9b8e5c-530f-4207-bcdf-f874d552947f",
+    "name": "Б00Т45БелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "06.11.2026 08:06",
+    "startDateTime": "2026-11-06T05:06:45.123Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "2a52ddfc-140d-4d50-9fe5-3d09b9f25504",
+    "name": "Б004Белый",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "06.11.2026 08:23",
+    "startDateTime": "2026-11-06T05:23:39.194Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e43a778f-a583-4975-b0bc-3b92e2b39bf4",
+    "name": "Б00Т41БелыйЧР",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "В работе",
+    "date": "06.11.2026 08:20",
+    "startDateTime": "2026-11-06T05:20:11.743Z",
     "cancelDateTime": null,
     "execCount": 1
   },
