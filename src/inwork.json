@@ -455,10 +455,10 @@
     "name": "Б007Вотан",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "06.11.2026 16:40",
+    "status": "Завершен",
+    "date": "06.11.2026 17:24",
     "startDateTime": "2026-11-06T13:40:07.590Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-06T14:24:58.990Z",
     "execCount": 1
   },
   {
