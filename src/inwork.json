@@ -420,11 +420,11 @@
   {
     "id": "1c4ba493-f1d0-4b83-98ab-b5e0cdb23507",
     "name": "Б00С6Сонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "06.11.2026 22:46",
+    "startDateTime": "2026-11-06T19:46:39.900Z",
     "cancelDateTime": null,
     "execCount": 1
   },
