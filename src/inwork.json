@@ -187,17 +187,6 @@
     "execCount": 1
   },
   {
-    "id": "196e3914-edc9-46a8-ac26-80a9a5a2727c",
-    "name": "СтолЦарга90*60БетонЧерныеНожки",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "83052a86-78da-4906-adb0-0d110226effd",
     "name": "Б00Ш8",
     "firstName": "",
@@ -319,17 +308,6 @@
     "execCount": 1
   },
   {
-    "id": "52d14992-7fe4-466f-807d-c0cbb6905ea3",
-    "name": "Б00Т41БелыйЗР",
-    "firstName": "Сергей",
-    "lastName": "Коцеруба",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "bfe86e80-833d-4abb-ac44-a9a2afe0ce0c",
     "name": "Б00Т41БелыйЗР",
     "firstName": "",
@@ -418,6 +396,28 @@
     "execCount": 1
   },
   {
+    "id": "5cc14f9c-5647-41cc-970c-4ff08c773468",
+    "name": "Б007Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f7d7ecca-801b-47cb-8916-17b172e3923c",
+    "name": "Б007Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "29a1c697-04ab-49a0-8755-dc6112fb42b6",
     "name": "Б0036Вотан",
     "firstName": "",
@@ -429,8 +429,19 @@
     "execCount": 1
   },
   {
-    "id": "5777d554-032c-4e86-9404-d525cb288bf0",
-    "name": "Б00Т39СономаБелыйЗР",
+    "id": "6d9490c7-7e6d-4c48-8238-d1a2ec0888a2",
+    "name": "Б0078Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "283c133d-4738-47cc-9dea-c04fd3d03cfb",
+    "name": "Б0078Сонома",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -462,6 +473,39 @@
     "execCount": 1
   },
   {
+    "id": "196e3914-edc9-46a8-ac26-80a9a5a2727c",
+    "name": "СтолЦарга90*60БетонЧерныеНожки",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "Завершен",
+    "date": "06.11.2026 16:25",
+    "startDateTime": "2026-11-06T13:08:22.733Z",
+    "cancelDateTime": "2026-11-06T13:25:04.344Z",
+    "execCount": 1
+  },
+  {
+    "id": "52d14992-7fe4-466f-807d-c0cbb6905ea3",
+    "name": "Б00Т41БелыйЗР",
+    "firstName": "Сергей",
+    "lastName": "Коцеруба",
+    "status": "В работе",
+    "date": "06.11.2026 15:43",
+    "startDateTime": "2026-11-06T12:43:44.812Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "5777d554-032c-4e86-9404-d525cb288bf0",
+    "name": "Б00Т39СономаБелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "06.11.2026 15:35",
+    "startDateTime": "2026-11-06T12:35:49.847Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "ba234026-3820-44eb-853f-308a1add2f6f",
     "name": "Б00Т39СономаБелыйЗР",
     "firstName": "Александр",
@@ -477,10 +521,10 @@
     "name": "Б0036Вотан",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "06.11.2026 14:58",
+    "status": "Завершен",
+    "date": "06.11.2026 16:04",
     "startDateTime": "2026-11-06T11:58:00.040Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-06T13:04:49.515Z",
     "execCount": 1
   },
   {
