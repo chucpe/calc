@@ -407,7 +407,29 @@
     "execCount": 1
   },
   {
+    "id": "23f5876e-f734-43ba-b59c-4b7deda4549c",
+    "name": "Б0073Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "283c133d-4738-47cc-9dea-c04fd3d03cfb",
+    "name": "Б0078Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "9c1d13b0-2763-4769-8256-17a10361a31b",
     "name": "Б0078Сонома",
     "firstName": "",
     "lastName": "",
@@ -420,11 +442,11 @@
   {
     "id": "ab1754a0-41b4-486e-9f49-6c7c79aa34a7",
     "name": "Б0037Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "06.11.2026 18:18",
+    "startDateTime": "2026-11-06T15:18:16.596Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -444,10 +466,10 @@
     "name": "Б007Вотан",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "06.11.2026 17:28",
+    "status": "Завершен",
+    "date": "06.11.2026 18:11",
     "startDateTime": "2026-11-06T14:28:14.511Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-06T15:11:24.067Z",
     "execCount": 1
   },
   {
@@ -3511,23 +3533,23 @@
   {
     "id": "c0814fdc-86ae-4162-976a-80ada0b49f84",
     "name": "Б00Ш10Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "Завершен",
+    "date": "05.11.2026 22:27",
+    "startDateTime": "2026-11-05T18:30:13.035Z",
+    "cancelDateTime": "2026-11-05T19:27:24.348Z",
     "execCount": 1
   },
   {
     "id": "cc0af7e3-b569-4684-b607-0d02cd946ef8",
     "name": "Б00Т38БелыйЗР",
-    "firstName": "Шеин",
-    "lastName": "Алексей",
-    "status": "В работе",
-    "date": "05.11.2026 18:57",
-    "startDateTime": null,
-    "cancelDateTime": null,
+    "firstName": "Алексей",
+    "lastName": "Шеин",
+    "status": "Завершен",
+    "date": "05.11.2026 20:26",
+    "startDateTime": "2026-11-05T15:57:26.675Z",
+    "cancelDateTime": "2026-11-05T17:26:05.116Z",
     "execCount": 1
   },
   {
