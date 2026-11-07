@@ -187,17 +187,6 @@
     "execCount": 1
   },
   {
-    "id": "8f0d41fb-f2d5-4955-b22a-13f3140405a2",
-    "name": "Б00Т33БелыйЧР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "d69af6e6-4807-4182-bab2-5bd02d0baf31",
     "name": "Б00Т33БелыйЧР",
     "firstName": "",
@@ -503,6 +492,17 @@
     "date": "",
     "startDateTime": null,
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "8f0d41fb-f2d5-4955-b22a-13f3140405a2",
+    "name": "Б00Т33БелыйЧР",
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "Завершен",
+    "date": "07.11.2026 03:12",
+    "startDateTime": "2026-11-07T00:06:11.206Z",
+    "cancelDateTime": "2026-11-07T00:12:30.867Z",
     "execCount": 1
   },
   {
