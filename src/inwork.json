@@ -275,6 +275,28 @@
     "execCount": 1
   },
   {
+    "id": "41d73ba0-3084-4ed3-a595-042e930e651c",
+    "name": "Б0073Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e5302161-acc3-4056-b15e-c925d6a40690",
+    "name": "Б0078Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "b47154f9-86dc-48fc-ace6-46760cc7ce2c",
     "name": "Б00Т29МолочныйЗР",
     "firstName": "",
@@ -299,17 +321,6 @@
   {
     "id": "17fe67dd-928e-458c-a233-1a40415ec104",
     "name": "Б00Т29МолочныйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "e5302161-acc3-4056-b15e-c925d6a40690",
-    "name": "Б0078Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
