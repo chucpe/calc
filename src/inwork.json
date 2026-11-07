@@ -319,6 +319,17 @@
     "execCount": 1
   },
   {
+    "id": "0946c275-c979-4d07-9870-63dc6df88372",
+    "name": "Б00Т37БелыйЧР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "66032cbd-8966-47f4-8eda-1402c76df80d",
     "name": "Б00Т37БелыйЧР",
     "firstName": "",
@@ -345,10 +356,10 @@
     "name": "Б00С6Вотан",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "08.11.2026 01:02",
+    "status": "Завершен",
+    "date": "08.11.2026 02:04",
     "startDateTime": "2026-11-07T22:02:04.739Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T23:04:21.515Z",
     "execCount": 1
   },
   {
@@ -356,10 +367,10 @@
     "name": "Б00Ш11Сонома",
     "firstName": "Федор",
     "lastName": "Привалихин",
-    "status": "В работе",
-    "date": "08.11.2026 01:06",
+    "status": "Завершен",
+    "date": "08.11.2026 02:17",
     "startDateTime": "2026-11-07T22:06:01.825Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T23:17:54.319Z",
     "execCount": 1
   },
   {
