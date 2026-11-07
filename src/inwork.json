@@ -697,10 +697,10 @@
     "name": "Б00Т31Молочный",
     "firstName": "Сергей",
     "lastName": "Коцеруба",
-    "status": "В работе",
-    "date": "07.11.2026 15:48",
+    "status": "Завершен",
+    "date": "07.11.2026 23:30",
     "startDateTime": "2026-11-07T12:48:26.473Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T20:30:00.410Z",
     "execCount": 1
   },
   {
