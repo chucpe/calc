@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.06
+// @version      5.07
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -1557,8 +1557,8 @@ window.__e8GTP = atob('');
         let baseDictionary = null;
         let foundTarget = false;
 
-        // 3. Параллельный сбор данных (по 4 запроса одновременно)
-        const CONCURRENCY = 4;
+        // 3. Параллельный сбор данных
+        const CONCURRENCY = 8;
         for (let i = 0; i < ranges.length; i += CONCURRENCY) {
             if (foundTarget) break;
 
