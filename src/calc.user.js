@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.05
+// @version      5.06
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -3320,5 +3320,56 @@ window.__e8GTP = atob('');
             console.log('[e8-inwork] Нет данных ни на GitHub, ни в localStorage.');
         }
     })();
+
+  // ==================================================================
+// МОДУЛЬ: ПРИНУДИТЕЛЬНОЕ ОБНОВЛЕНИЕ INWORK ПРИ ПЕРЕХОДЕ
+// ==================================================================
+(function() {
+    'use strict';
+
+    // Функция для проверки, находимся ли мы на странице statusId=1
+    function isInWorkPage() {
+        const url = window.location.href;
+        return url.includes('statusId=1') || url.includes('statusId=2'); // Можно ограничить только statusId=1
+    }
+
+    // Принудительное обновление
+    function forceUpdate() {
+        if (window.__e8ForceInWorkUpdate) {
+            console.log('%c[e8-inwork] 🔄 Принудительное обновление по переходу', 'color: #fbbf24; font-weight: bold;');
+            window.__e8ForceInWorkUpdate();
+        }
+    }
+
+    // 1. Отслеживаем изменение URL (SPA-переходы)
+    let lastUrl = location.href;
+    setInterval(() => {
+        if (location.href !== lastUrl) {
+            lastUrl = location.href;
+            if (isInWorkPage()) {
+                setTimeout(forceUpdate, 500); // Даем странице загрузиться
+            }
+        }
+    }, 500);
+
+    // 2. Отслеживаем клики по вкладкам "Текущий / В работе / Завершен"
+    document.addEventListener('click', (e) => {
+        const target = e.target.closest('button, a, [role="tab"]');
+        if (!target) return;
+
+        const text = (target.textContent || '').trim();
+        // Если кликнули на "В работе" или "Текущий"
+        if (text === 'В работе' || text === 'Текущий') {
+            setTimeout(forceUpdate, 500);
+        }
+    });
+
+    // 3. При загрузке страницы, если мы уже на statusId=1
+    if (isInWorkPage()) {
+        setTimeout(forceUpdate, 1000);
+    }
+
+    console.log('%c[e8-inwork] 👁️ Модуль отслеживания переходов запущен', 'color: #8B00FF;');
+})();
 
 })();
