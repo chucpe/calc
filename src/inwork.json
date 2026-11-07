@@ -165,8 +165,19 @@
     "execCount": 1
   },
   {
-    "id": "eb0b6ecf-2278-4ed5-92d4-e70612df6d13",
-    "name": "Б00Т14(Ш14)Белый",
+    "id": "b06530bd-03a4-4483-a146-9090eb7d66e8",
+    "name": "Б00Ш3Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "99d93e27-f082-4e9d-9ce7-110d3f564928",
+    "name": "Б00Ш3Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -187,19 +198,8 @@
     "execCount": 1
   },
   {
-    "id": "b06530bd-03a4-4483-a146-9090eb7d66e8",
-    "name": "Б00Ш3Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "99d93e27-f082-4e9d-9ce7-110d3f564928",
-    "name": "Б00Ш3Белый",
+    "id": "eb0b6ecf-2278-4ed5-92d4-e70612df6d13",
+    "name": "Б00Т14(Ш14)Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -231,6 +231,17 @@
     "execCount": 1
   },
   {
+    "id": "5fcf99cb-286b-49df-9270-87008b30f527",
+    "name": "Б00С6Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "86f71779-45bc-432b-9c63-fcc223f6a4fc",
     "name": "Б00Ш11Сонома",
     "firstName": "",
@@ -244,17 +255,6 @@
   {
     "id": "e967a529-481b-457d-8063-347bfbe4a8b1",
     "name": "Б00Ш8",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "5893e248-1fd9-4705-88e9-e9ecee540faf",
-    "name": "Б00Т38ГрафитЧР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -293,6 +293,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "5893e248-1fd9-4705-88e9-e9ecee540faf",
+    "name": "Б00Т38ГрафитЧР",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "08.11.2026 00:26",
+    "startDateTime": "2026-11-07T21:26:07.602Z",
     "cancelDateTime": null,
     "execCount": 1
   },
