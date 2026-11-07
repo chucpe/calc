@@ -334,10 +334,10 @@
     "name": "Б00Т29МолочныйЗР",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
-    "status": "В работе",
-    "date": "07.11.2026 23:01",
+    "status": "Завершен",
+    "date": "08.11.2026 00:10",
     "startDateTime": "2026-11-07T20:01:09.927Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T21:10:10.385Z",
     "execCount": 1
   },
   {
