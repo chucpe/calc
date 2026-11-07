@@ -363,17 +363,6 @@
     "execCount": 1
   },
   {
-    "id": "931870d2-a650-4973-8b5b-60745a5a5231",
-    "name": "Б00Т31Молочный",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "38d3b8c0-0719-4a57-bfa7-bf31a0dde453",
     "name": "Б00Т31Молочный",
     "firstName": "",
@@ -469,6 +458,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "931870d2-a650-4973-8b5b-60745a5a5231",
+    "name": "Б00Т31Молочный",
+    "firstName": "Сергей",
+    "lastName": "Коцеруба",
+    "status": "В работе",
+    "date": "07.11.2026 13:52",
+    "startDateTime": "2026-11-07T10:52:28.177Z",
     "cancelDateTime": null,
     "execCount": 1
   },
