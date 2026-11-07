@@ -209,17 +209,6 @@
     "execCount": 1
   },
   {
-    "id": "2978049a-a560-4600-85c1-082149392f17",
-    "name": "Б00Ж1Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "fc25e609-06e1-41a0-9a18-7848e98369f9",
     "name": "Б00С11Вотан",
     "firstName": "",
@@ -231,8 +220,8 @@
     "execCount": 1
   },
   {
-    "id": "8ac72d7e-9669-4370-ba9a-beadb661f809",
-    "name": "Б00С8Вотан",
+    "id": "1498d1b8-d30c-457f-ab7b-dcfdce47ef43",
+    "name": "Б00С11Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -242,8 +231,19 @@
     "execCount": 1
   },
   {
-    "id": "718e2c94-fb86-4b60-b7c5-fac39fefb855",
-    "name": "Б00Т29МолочныйЗР",
+    "id": "35d89100-d7bd-42dc-9fd6-78b1486f8e1a",
+    "name": "Б0073Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "2135d7ac-6ec0-4d68-81dc-021e1620ee73",
+    "name": "Б00Ш5Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -286,8 +286,8 @@
     "execCount": 1
   },
   {
-    "id": "35d89100-d7bd-42dc-9fd6-78b1486f8e1a",
-    "name": "Б0073Вотан",
+    "id": "aced7dec-a004-4190-a56a-c628fa15c924",
+    "name": "Б00Ш12Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -297,13 +297,35 @@
     "execCount": 1
   },
   {
-    "id": "aced7dec-a004-4190-a56a-c628fa15c924",
-    "name": "Б00Ш12Вотан",
+    "id": "8ac72d7e-9669-4370-ba9a-beadb661f809",
+    "name": "Б00С8Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "2978049a-a560-4600-85c1-082149392f17",
+    "name": "Б00Ж1Вотан",
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "В работе",
+    "date": "07.11.2026 21:42",
+    "startDateTime": "2026-11-07T18:42:22.527Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "718e2c94-fb86-4b60-b7c5-fac39fefb855",
+    "name": "Б00Т29МолочныйЗР",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "07.11.2026 21:51",
+    "startDateTime": "2026-11-07T18:51:33.049Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -323,10 +345,10 @@
     "name": "Б0073Вотан",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "07.11.2026 21:11",
+    "status": "Завершен",
+    "date": "07.11.2026 21:59",
     "startDateTime": "2026-11-07T18:11:49.362Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T18:59:13.346Z",
     "execCount": 1
   },
   {
@@ -334,10 +356,10 @@
     "name": "Б00С8Вотан",
     "firstName": "Александр",
     "lastName": "Курбатов",
-    "status": "В работе",
-    "date": "07.11.2026 21:05",
+    "status": "Завершен",
+    "date": "07.11.2026 22:04",
     "startDateTime": "2026-11-07T18:05:27.711Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T19:04:07.485Z",
     "execCount": 1
   },
   {
@@ -345,10 +367,10 @@
     "name": "Б0083ЧерныйВотан",
     "firstName": "Федор",
     "lastName": "Привалихин",
-    "status": "В работе",
-    "date": "07.11.2026 20:31",
+    "status": "Завершен",
+    "date": "07.11.2026 21:42",
     "startDateTime": "2026-11-07T17:31:16.602Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T18:42:09.665Z",
     "execCount": 1
   },
   {
