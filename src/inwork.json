@@ -356,10 +356,10 @@
     "name": "Б00Ш7Вотан",
     "firstName": "Александр",
     "lastName": "Курбатов",
-    "status": "В работе",
-    "date": "07.11.2026 20:24",
+    "status": "Завершен",
+    "date": "07.11.2026 20:57",
     "startDateTime": "2026-11-07T17:24:07.086Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T17:57:12.891Z",
     "execCount": 1
   },
   {
