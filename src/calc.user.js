@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.08
+// @version      5.10
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -2794,13 +2794,20 @@ window.__e8GTP = atob('');
                 GM_xmlhttpRequest({
                     method: 'PUT', url: GH_API, headers,
                     data: JSON.stringify(body),
-                    onload: (res) => {
+                      onload: (res) => {
                         if (res.status === 200 || res.status === 201) {
                             const j = JSON.parse(res.responseText);
                             githubSha = j.content?.sha || githubSha;
                             isDirty = false;
                             console.log('[e8-inwork] ✅ Записано на GitHub:', memoryCache.length);
                             resolve();
+                        } else if (res.status === 409) {
+                            // Ошибка конфликта версий (SHA устарел)
+                            console.warn('[e8-inwork] ⚠️ Конфликт версий (409). Сбрасываем SHA и пробуем снова...');
+                            githubSha = null; // Сбрасываем SHA, чтобы при следующей попытке получить актуальный
+                            isWriting = false;
+                            scheduleWrite(); // Планируем повторную запись
+                            reject(new Error('409'));
                         } else {
                             console.error('[e8-inwork] Ошибка записи:', res.status, res.responseText);
                             reject(new Error(String(res.status)));
