@@ -231,17 +231,6 @@
     "execCount": 1
   },
   {
-    "id": "fc25e609-06e1-41a0-9a18-7848e98369f9",
-    "name": "Б00С11Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "1498d1b8-d30c-457f-ab7b-dcfdce47ef43",
     "name": "Б00С11Вотан",
     "firstName": "",
@@ -326,6 +315,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "fc25e609-06e1-41a0-9a18-7848e98369f9",
+    "name": "Б00С11Вотан",
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "07.11.2026 23:55",
+    "startDateTime": "2026-11-07T20:55:25.800Z",
     "cancelDateTime": null,
     "execCount": 1
   },
