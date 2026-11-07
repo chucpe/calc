@@ -374,6 +374,28 @@
     "execCount": 1
   },
   {
+    "id": "28d56edb-4262-4821-8d06-aba4516da6bf",
+    "name": "Б0078Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e0da5715-4591-44c8-8c78-1041e4a2491e",
+    "name": "Б0078Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "b47154f9-86dc-48fc-ace6-46760cc7ce2c",
     "name": "Б00Т29МолочныйЗР",
     "firstName": "",
@@ -440,17 +462,6 @@
     "execCount": 1
   },
   {
-    "id": "28d56edb-4262-4821-8d06-aba4516da6bf",
-    "name": "Б0078Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "38d3b8c0-0719-4a57-bfa7-bf31a0dde453",
     "name": "Б00Т31Молочный",
     "firstName": "",
@@ -499,10 +510,10 @@
     "name": "Б005Вотан",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "07.11.2026 13:35",
+    "status": "Завершен",
+    "date": "07.11.2026 14:39",
     "startDateTime": "2026-11-07T10:35:53.136Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T11:39:37.519Z",
     "execCount": 1
   },
   {
