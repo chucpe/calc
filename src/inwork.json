@@ -264,17 +264,6 @@
     "execCount": 1
   },
   {
-    "id": "56a7f532-03e6-4e8d-a2ec-07765fdf736a",
-    "name": "Б00С4Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "718e2c94-fb86-4b60-b7c5-fac39fefb855",
     "name": "Б00Т29МолочныйЗР",
     "firstName": "",
@@ -297,8 +286,8 @@
     "execCount": 1
   },
   {
-    "id": "aced7dec-a004-4190-a56a-c628fa15c924",
-    "name": "Б00Ш12Вотан",
+    "id": "56a7f532-03e6-4e8d-a2ec-07765fdf736a",
+    "name": "Б00С4Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -308,8 +297,8 @@
     "execCount": 1
   },
   {
-    "id": "ab0a7a20-7fb8-4d03-b4b1-d32f6a3dc771",
-    "name": "Б00С8Вотан",
+    "id": "aced7dec-a004-4190-a56a-c628fa15c924",
+    "name": "Б00Ш12Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -326,6 +315,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "ab0a7a20-7fb8-4d03-b4b1-d32f6a3dc771",
+    "name": "Б00С8Вотан",
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "07.11.2026 21:05",
+    "startDateTime": "2026-11-07T18:05:27.711Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -378,10 +378,10 @@
     "name": "Б00Ш1Белый",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "07.11.2026 20:19",
+    "status": "Завершен",
+    "date": "07.11.2026 21:06",
     "startDateTime": "2026-11-07T17:19:22.491Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T18:06:44.206Z",
     "execCount": 1
   },
   {
