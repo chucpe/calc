@@ -11,8 +11,8 @@
     "execCount": 1
   },
   {
-    "id": "a60454eb-7244-4d43-bdf9-4a38cb0a372d",
-    "name": "Б00С7Белый",
+    "id": "2737df95-9873-4f64-85b8-0ff189a90474",
+    "name": "Б00Ш3Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -22,8 +22,8 @@
     "execCount": 1
   },
   {
-    "id": "2737df95-9873-4f64-85b8-0ff189a90474",
-    "name": "Б00Ш3Белый",
+    "id": "a60454eb-7244-4d43-bdf9-4a38cb0a372d",
+    "name": "Б00С7Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -198,13 +198,24 @@
     "execCount": 1
   },
   {
-    "id": "3045dac9-015b-4bbb-a7dc-4718833ce10e",
-    "name": "Б00Ш13Белый",
-    "firstName": "Федор",
-    "lastName": "Привалихин",
+    "id": "b06530bd-03a4-4483-a146-9090eb7d66e8",
+    "name": "Б00Ш3Белый",
+    "firstName": "",
+    "lastName": "",
     "status": "Не назначен",
     "date": "",
-    "startDateTime": "2026-11-06T19:11:24.303Z",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "99d93e27-f082-4e9d-9ce7-110d3f564928",
+    "name": "Б00Ш3Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -266,28 +277,6 @@
   {
     "id": "bfe86e80-833d-4abb-ac44-a9a2afe0ce0c",
     "name": "Б00Т41БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "b06530bd-03a4-4483-a146-9090eb7d66e8",
-    "name": "Б00Ш3Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "99d93e27-f082-4e9d-9ce7-110d3f564928",
-    "name": "Б00Ш3Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -480,6 +469,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "3045dac9-015b-4bbb-a7dc-4718833ce10e",
+    "name": "Б00Ш13Белый",
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "В работе",
+    "date": "07.11.2026 03:35",
+    "startDateTime": "2026-11-07T00:35:03.835Z",
     "cancelDateTime": null,
     "execCount": 1
   },
