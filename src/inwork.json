@@ -231,8 +231,8 @@
     "execCount": 1
   },
   {
-    "id": "5fcf99cb-286b-49df-9270-87008b30f527",
-    "name": "Б00С6Вотан",
+    "id": "d062a103-261a-4bd8-b10a-5c27f6cfc2da",
+    "name": "Б00Ш8",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -242,8 +242,8 @@
     "execCount": 1
   },
   {
-    "id": "86f71779-45bc-432b-9c63-fcc223f6a4fc",
-    "name": "Б00Ш11Сонома",
+    "id": "f4e19803-5984-4d28-90d8-ee78f7b859de",
+    "name": "Б00Т32ВотанГрафитЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -319,6 +319,28 @@
     "execCount": 1
   },
   {
+    "id": "5fcf99cb-286b-49df-9270-87008b30f527",
+    "name": "Б00С6Вотан",
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "08.11.2026 01:02",
+    "startDateTime": "2026-11-07T22:02:04.739Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "86f71779-45bc-432b-9c63-fcc223f6a4fc",
+    "name": "Б00Ш11Сонома",
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "В работе",
+    "date": "08.11.2026 01:06",
+    "startDateTime": "2026-11-07T22:06:01.825Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "5893e248-1fd9-4705-88e9-e9ecee540faf",
     "name": "Б00Т38ГрафитЧР",
     "firstName": "Дмитрий",
@@ -334,10 +356,10 @@
     "name": "Б00Ш8",
     "firstName": "Федор",
     "lastName": "Привалихин",
-    "status": "В работе",
-    "date": "08.11.2026 00:16",
+    "status": "Завершен",
+    "date": "08.11.2026 01:05",
     "startDateTime": "2026-11-07T21:16:38.985Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T22:05:41.590Z",
     "execCount": 1
   },
   {
