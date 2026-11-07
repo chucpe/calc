@@ -264,30 +264,8 @@
     "execCount": 1
   },
   {
-    "id": "5c083e10-bbca-4717-a7cb-2b36fc92d068",
-    "name": "Б0044СономаБелый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "3bc92532-9808-4ad4-a78b-85813a74f9e6",
-    "name": "Б0044СономаБелый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "0b08b778-4347-4476-9775-d1c88f0edde3",
-    "name": "Б0044СономаБелый",
+    "id": "f52b6522-2981-4499-9645-c1c635f8232d",
+    "name": "Б0073Сонома",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -319,17 +297,6 @@
     "execCount": 1
   },
   {
-    "id": "f52b6522-2981-4499-9645-c1c635f8232d",
-    "name": "Б0073Сонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "1aca86c9-4450-49e9-9b4f-f50321aa8fd6",
     "name": "Б00Ш1Сонома",
     "firstName": "",
@@ -341,41 +308,19 @@
     "execCount": 1
   },
   {
-    "id": "22413506-a24a-48ac-872f-2d820f48b9e8",
-    "name": "Б00Т48Молочный",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "47d7e6eb-f45b-47ef-a14e-a20a10a38392",
-    "name": "Б00С4Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "1ce9e6f4-38c6-41b6-a442-ffad84648f55",
-    "name": "Б00С4Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "9034690a-6ebf-4055-b6f7-66389e02e692",
     "name": "Б00Ш5Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "22413506-a24a-48ac-872f-2d820f48b9e8",
+    "name": "Б00Т48Молочный",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -418,6 +363,61 @@
     "execCount": 1
   },
   {
+    "id": "47d7e6eb-f45b-47ef-a14e-a20a10a38392",
+    "name": "Б00С4Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "1ce9e6f4-38c6-41b6-a442-ffad84648f55",
+    "name": "Б00С4Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "5c083e10-bbca-4717-a7cb-2b36fc92d068",
+    "name": "Б0044СономаБелый",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "Завершен",
+    "date": "07.11.2026 17:02",
+    "startDateTime": "2026-11-07T13:57:09.510Z",
+    "cancelDateTime": "2026-11-07T14:02:48.215Z",
+    "execCount": 1
+  },
+  {
+    "id": "3bc92532-9808-4ad4-a78b-85813a74f9e6",
+    "name": "Б0044СономаБелый",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "Завершен",
+    "date": "07.11.2026 17:08",
+    "startDateTime": "2026-11-07T14:03:45.189Z",
+    "cancelDateTime": "2026-11-07T14:08:53.143Z",
+    "execCount": 1
+  },
+  {
+    "id": "0b08b778-4347-4476-9775-d1c88f0edde3",
+    "name": "Б0044СономаБелый",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "07.11.2026 17:09",
+    "startDateTime": "2026-11-07T14:09:22.464Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "2fea1632-efed-43b3-ad9c-bbf1db02921b",
     "name": "Б0078Вотан",
     "firstName": "Дмитрий",
@@ -433,10 +433,10 @@
     "name": "Б0038ЧерныйВотан",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "07.11.2026 16:33",
+    "status": "Завершен",
+    "date": "07.11.2026 16:56",
     "startDateTime": "2026-11-07T13:33:46.284Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T13:56:27.143Z",
     "execCount": 1
   },
   {
