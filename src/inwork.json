@@ -176,19 +176,8 @@
     "execCount": 1
   },
   {
-    "id": "b06530bd-03a4-4483-a146-9090eb7d66e8",
-    "name": "Б00Ш3Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "99d93e27-f082-4e9d-9ce7-110d3f564928",
-    "name": "Б00Ш3Белый",
+    "id": "eb0b6ecf-2278-4ed5-92d4-e70612df6d13",
+    "name": "Б00Т14(Ш14)Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -209,8 +198,8 @@
     "execCount": 1
   },
   {
-    "id": "eb0b6ecf-2278-4ed5-92d4-e70612df6d13",
-    "name": "Б00Т14(Ш14)Белый",
+    "id": "b06530bd-03a4-4483-a146-9090eb7d66e8",
+    "name": "Б00Ш3Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -220,8 +209,8 @@
     "execCount": 1
   },
   {
-    "id": "3a381d90-8391-47e4-89b4-977cc71282ba",
-    "name": "Б00Ш7Вотан",
+    "id": "99d93e27-f082-4e9d-9ce7-110d3f564928",
+    "name": "Б00Ш3Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -326,6 +315,28 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "8ac72d7e-9669-4370-ba9a-beadb661f809",
+    "name": "Б00С8Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "3a381d90-8391-47e4-89b4-977cc71282ba",
+    "name": "Б00Ш7Вотан",
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "07.11.2026 20:24",
+    "startDateTime": "2026-11-07T17:24:07.086Z",
     "cancelDateTime": null,
     "execCount": 1
   },
