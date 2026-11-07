@@ -488,10 +488,10 @@
     "name": "Б00Т33БелыйЧР",
     "firstName": "Федор",
     "lastName": "Привалихин",
-    "status": "В работе",
-    "date": "07.11.2026 03:12",
+    "status": "Завершен",
+    "date": "07.11.2026 03:34",
     "startDateTime": "2026-11-07T00:12:37.946Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T00:34:53.209Z",
     "execCount": 1
   },
   {
