@@ -488,10 +488,10 @@
     "name": "Б00Ст1Вотан",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "07.11.2026 12:49",
+    "status": "Завершен",
+    "date": "07.11.2026 13:48",
     "startDateTime": "2026-11-07T09:49:45.795Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T10:48:54.255Z",
     "execCount": 1
   },
   {
