@@ -444,10 +444,10 @@
     "name": "Б00Т31Белый",
     "firstName": "Сергей",
     "lastName": "Коцеруба",
-    "status": "В работе",
-    "date": "07.11.2026 10:15",
+    "status": "Завершен",
+    "date": "07.11.2026 11:26",
     "startDateTime": "2026-11-07T07:15:52.872Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T08:26:20.959Z",
     "execCount": 1
   },
   {
