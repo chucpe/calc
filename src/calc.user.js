@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.01
+// @version      5.05
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -204,14 +204,10 @@ window.__e8GTP = atob('');
 
         let html = `
             <div style="padding-top:6px;border-top:1px dashed #444;margin-top:6px;">
-                <div style="display:flex;justify-content:space-between;color:#7CFC9B;font-weight:700;"><span>Заработок:</span><span>${money(totalEarn)}</span></div>
-                <div style="display:flex;justify-content:space-between;color:#fbbf24;font-weight:700;margin-top:2px;"><span>Время:</span><span>${formatHours(totalHours)}</span></div>
-                <div style="display:flex;justify-content:space-between;color:#a78bfa;font-weight:700;margin-top:2px;"><span>Паллет:</span><span>${totalCount}</span></div>
                 ${progress.active ? `<div style="margin-top:6px;font-size:11px;color:#60a5fa;">Загружаем время: ${progress.done} / ${progress.total}…</div>` : ''}
 
                 <div style="display:flex;gap:6px;margin-top:10px;margin-bottom:8px;">
                     <button id="e8-tab-daily" style="flex:1;margin:0;padding:4px;font-size:11px;background:${currentTab === 'daily' ? '#3b82f6' : '#334155'};border-radius:4px;">По дням</button>
-                    <button id="e8-tab-top" style="flex:1;margin:0;padding:4px;font-size:11px;background:${currentTab === 'top' ? '#3b82f6' : '#334155'};border-radius:4px;">Топ 10</button>
                     <button id="e8-tab-inwork" style="flex:1;margin:0;padding:4px;font-size:11px;background:${currentTab === 'inwork' ? '#3b82f6' : '#334155'};border-radius:4px;">В работе</button>
                 </div>
         `;
@@ -679,9 +675,9 @@ window.__e8GTP = atob('');
         target.fetch = async function (...args) {
             const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
             const res = await orig.apply(this, args);
-            if (url.includes('/jobs') && url.includes('statusId=2')) {
-                res.clone().json().then(processPallets).catch(() => {});
-            }
+            //if (url.includes('/jobs') && url.includes('statusId=2')) {
+            //    res.clone().json().then(processPallets).catch(() => {});
+            // }
             return res;
         };
     }
@@ -697,9 +693,8 @@ window.__e8GTP = atob('');
         XHR.prototype.send = function (...args) {
             this.addEventListener('load', function () {
                 try {
-                    if ((this.__e8url || '').includes('/jobs') && (this.__e8url || '').includes('statusId=2')) {
-                        processPallets(JSON.parse(this.responseText));
-                    }
+                    //if ((this.__e8url || '').includes('/jobs') && (this.__e8url || '').includes('statusId=2')) {
+                      //  processPallets(JSON.parse(this.responseText)); }
                 } catch (e) {}
             });
             return origSend.apply(this, args);
@@ -1225,7 +1220,7 @@ window.__e8GTP = atob('');
     target.fetch = async function (...args) {
       const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
       const res = await orig.apply(this, args);
-      if (url.includes('/jobs') && url.includes('statusId=2')) res.clone().json().then(processJobs).catch(() => {});
+      //if (url.includes('/jobs') && url.includes('statusId=2')) res.clone().json().then(processJobs).catch(() => {});
       return res;
     };
   }
@@ -1494,25 +1489,157 @@ window.__e8GTP = atob('');
       box.style.opacity = settings.opacity; saveSettings(); if (lastJson) processJobs(lastJson);
     });
 
-    box.querySelector('#e8-calc-recalc').addEventListener('click', async () => {
+        box.querySelector('#e8-calc-recalc').addEventListener('click', async () => {
       const btn = box.querySelector('#e8-calc-recalc'); const orig = btn.textContent;
       btn.textContent = 'Обновление…'; btn.disabled = true;
+
       try {
         let token = W.__e8Token || window.__e8Token || localStorage.getItem('auth_token');
         if (token && /^eyJ/.test(token)) token = /^Bearer\s+/i.test(token) ? token : ('Bearer ' + token);
         if (!token) throw new Error('Нет токена');
 
-        const res = await new Promise((resolve) => {
-          GM_xmlhttpRequest({
-            method: 'GET', url: 'https://backoffice-e8.ffa.su/api/v1/admin/projects/1/jobs?statusId=2&page=1&take=100',
-            headers: { 'Accept': 'application/json', 'Authorization': token },
-            onload: resolve, onerror: () => resolve(null), timeout: 15000
-          });
+        // 1. Узнаем номер ТЕКУЩЕЙ заявки (statusId=1)
+        let currentMaxNum = 0;
+        const currentRes = await new Promise((resolve) => {
+            GM_xmlhttpRequest({
+                method: 'GET',
+                url: 'https://backoffice-e8.ffa.su/api/v1/admin/projects/1/jobs?statusId=1&page=1&take=100',
+                headers: { 'Accept': 'application/json', 'Authorization': token },
+                onload: resolve, onerror: () => resolve(null), timeout: 15000
+            });
         });
-        if (!res || res.status !== 200) throw new Error('Ошибка сети');
-        processJobs(JSON.parse(res.responseText));
+
+        if (currentRes && currentRes.status === 200) {
+            const json = JSON.parse(currentRes.responseText);
+            const items = extractItems(json) || [];
+            for (const order of items) {
+                const m = String(order.label || '').match(/(\d+)/);
+                if (m) {
+                    const num = parseInt(m[1], 10);
+                    if (num > currentMaxNum) currentMaxNum = num;
+                }
+            }
+            console.log(`%c[e8-calc] 🎯 Целевая заявка: №${currentMaxNum}`, 'color: #7CFC9B;');
+        }
+
+        // 2. Подготовка диапазонов дат
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        let start = new Date(2026, 8, 1); // 1 сентября 2026
+        const end = new Date();
+
+        const formatDate = (d) => {
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        };
+
+        // Создаем список диапазонов
+        const ranges = [];
+        let currentStart = new Date(start);
+        while (currentStart <= end) {
+            let currentEnd = new Date(currentStart);
+            currentEnd.setDate(currentEnd.getDate() + 9);
+            if (currentEnd > end) currentEnd = end;
+
+            ranges.push({
+                startStr: formatDate(currentStart),
+                endStr: formatDate(currentEnd)
+            });
+
+            currentStart.setDate(currentStart.getDate() + 10);
+        }
+
+        console.log(`%c[e8-calc] 🚀 Запуск параллельных запросов (всего диапазонов: ${ranges.length})`, 'color: #60a5fa; font-weight: bold;');
+
+        const allItems = [];
+        let baseDictionary = null;
+        let foundTarget = false;
+
+        // 3. Параллельный сбор данных (по 4 запроса одновременно)
+        const CONCURRENCY = 4;
+        for (let i = 0; i < ranges.length; i += CONCURRENCY) {
+            if (foundTarget) break;
+
+            const chunk = ranges.slice(i, i + CONCURRENCY);
+            const results = await Promise.all(chunk.map(range => {
+                return new Promise((resolve) => {
+                    GM_xmlhttpRequest({
+                        method: 'GET',
+                        url: `https://backoffice-e8.ffa.su/api/v1/admin/projects/1/jobs?statusId=2&page=1&take=100&startCancelDateTime=${range.startStr}&endCancelDateTime=${range.endStr}`,
+                        headers: { 'Accept': 'application/json', 'Authorization': token },
+                        onload: resolve, onerror: () => resolve(null), timeout: 15000
+                    });
+                });
+            }));
+
+            for (let j = 0; j < results.length; j++) {
+                const res = results[j];
+                const range = chunk[j];
+
+                if (res && res.status === 200) {
+                    try {
+                        const json = JSON.parse(res.responseText);
+
+                        // Собираем справочник продуктов
+                        const dict = json?.other?.dictionary || json?.data?.other?.dictionary;
+                        if (dict && dict.products) {
+                            if (!baseDictionary) baseDictionary = { products: [] };
+                            const existingIds = new Set(baseDictionary.products.map(p => p.id));
+                            for (const p of dict.products) {
+                                if (!existingIds.has(p.id)) {
+                                    baseDictionary.products.push(p);
+                                    existingIds.add(p.id);
+                                }
+                            }
+                        }
+
+                        const items = extractItems(json) || [];
+                        if (items.length > 0) {
+                            // Добавляем заявки, проверяя на целевую
+                            for (const order of items) {
+                                const m = String(order.label || '').match(/(\d+)/);
+                                const num = m ? parseInt(m[1], 10) : -1;
+
+                                if (num !== -1 && currentMaxNum > 0 && num >= currentMaxNum) {
+                                    allItems.push(order);
+                                    foundTarget = true;
+                                    break;
+                                }
+                                allItems.push(order);
+                            }
+                            console.log(`%c[e8-calc] 📅 ${range.startStr} - ${range.endStr}: +${items.length} заявок`, 'color: #a78bfa;');
+                        }
+                    } catch(e) {
+                        console.error('Ошибка парсинга', e);
+                    }
+                }
+            }
+
+            // Небольшая пауза между пачками (чтобы не спамить сервер)
+            if (!foundTarget) await new Promise(r => setTimeout(r, 100));
+        }
+
+        if (allItems.length === 0) throw new Error('Нет данных');
+
+        console.log(`%c[e8-calc] 🏁 Сбор завершен. Всего заявок: ${allItems.length}`, 'color: #fbbf24; font-weight: bold;');
+
+        // 4. Формируем итоговый JSON с полным справочником
+        const finalJson = {
+            items: allItems,
+            other: { dictionary: baseDictionary || {} },
+            data: { dictionary: baseDictionary || {} }
+        };
+
+        processJobs(finalJson);
         btn.textContent = 'Обновлено ✓';
-      } catch (e) { btn.textContent = 'Ошибка'; }
+
+      } catch (e) {
+          console.error(e);
+          btn.textContent = 'Ошибка';
+      }
+
       setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 1500);
     });
 
@@ -2187,14 +2314,18 @@ window.__e8GTP = atob('');
         return holes;
     }
 
-    // 3. Запрос параметров паллета
+                // 3. Запрос параметров паллета
     function fetchProductParams(productId, jobId) {
         return new Promise((resolve) => {
             let token = W.__e8Token || window.__e8Token || localStorage.getItem('auth_token');
             if (token && /^eyJ/.test(token)) token = /^Bearer\s+/i.test(token) ? token : ('Bearer ' + token);
-            if (!token) { resolve(0); return; }
+            if (!token) {
+                resolve(0);
+                return;
+            }
 
-            const url = `${API_BASE}/api/v1/admin/products/${productId}/1/params?jobId=${jobId}`;
+            const url = `${API_BASE}/api/v1/admin/projects/1/jobs/${jobId}/params`;
+
             GM_xmlhttpRequest({
                 method: 'GET',
                 url: url,
@@ -2203,8 +2334,17 @@ window.__e8GTP = atob('');
                     if (res.status !== 200) { resolve(0); return; }
                     try {
                         const json = JSON.parse(res.responseText);
-                        resolve(countHoles(json));
-                    } catch (e) { resolve(0); }
+
+                        const holes = countHoles(json);
+
+                        if (holes === 0) {
+                            console.warn(`[e8-autoprice] Отверстия не найдены (0) для ${jobId}. Ответ API:`, json);
+                        }
+                        resolve(holes);
+                    } catch (e) {
+                        console.error('[e8-autoprice] Ошибка парсинга', e);
+                        resolve(0);
+                    }
                 },
                 onerror: () => resolve(0),
                 timeout: 10000
@@ -2212,7 +2352,7 @@ window.__e8GTP = atob('');
         });
     }
 
-    // 4. ЕДИНСТВЕННЫЙ запрос на обновление файла
+    // 4. Запрос на обновление файла
     async function updateGitHubJson(newData) {
         if (!GTP || GTP === 'ВАШ_ТОКЕН_ЗДЕСЬ') {
         console.warn('[e8-autoprice] Не указан gtp.');
@@ -2390,7 +2530,7 @@ window.__e8GTP = atob('');
                     const url = this.__e8url || '';
                     if (url.includes('/jobs') && (url.includes('statusId=1') || url.includes('statusId=2'))) {
                         processJobs(JSON.parse(this.responseText));
-                    }
+                     }
                 } catch (e) {}
             });
             return origSend.apply(this, args);
@@ -2399,7 +2539,7 @@ window.__e8GTP = atob('');
 })();
 
 // ==================================================================
-// МОДУЛЬ: ОТВЕРСТИЯ ИЗ PRICE.JSON И СУММА (С ИСКЛЮЧЕНИЕМ Б002)
+// МОДУЛЬ: ОТВЕРСТИЯ ИЗ PRICE.JSON И СУММА
 // ==================================================================
 (function() {
     'use strict';
@@ -3073,18 +3213,16 @@ window.__e8GTP = atob('');
     // Перехват fetch/XHR
     // ------------------------------------------------------------------
     function patchFetch(target) {
-        if (!target || !target.fetch || target.__e8InworkPatched) return;
-        target.__e8InworkPatched = true;
-        const orig = target.fetch;
-        target.fetch = async function (...args) {
-            const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
-            const res = await orig.apply(this, args);
-            if (url.includes('/jobs') && url.includes('statusId=1')) {
-                res.clone().json().then(data => updateInWork(data)).catch(() => {});
-            }
-            return res;
-        };
-    }
+    if (!target || !target.fetch || target.__e8patched) return;
+    target.__e8patched = true;
+    const orig = target.fetch;
+    target.fetch = async function (...args) {
+      const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
+      const res = await orig.apply(this, args);
+      // if (url.includes('/jobs') && url.includes('statusId=2')) res.clone().json().then(processJobs).catch(() => {});
+      return res;
+    };
+  }
 
     function patchXhr(target) {
         if (!target || !target.XMLHttpRequest) return;
