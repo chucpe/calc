@@ -308,6 +308,17 @@
     "execCount": 1
   },
   {
+    "id": "33d19840-a6d8-43b4-947b-6060e64b383a",
+    "name": "Б00Т37БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "5893e248-1fd9-4705-88e9-e9ecee540faf",
     "name": "Б00Т38ГрафитЧР",
     "firstName": "Дмитрий",
@@ -334,10 +345,10 @@
     "name": "Б00С11Вотан",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "08.11.2026 00:05",
+    "status": "Завершен",
+    "date": "08.11.2026 00:58",
     "startDateTime": "2026-11-07T21:05:44.051Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T21:58:54.909Z",
     "execCount": 1
   },
   {
