@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.0
+// @version      5.01
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -1504,7 +1504,7 @@ window.__e8GTP = atob('');
 
         const res = await new Promise((resolve) => {
           GM_xmlhttpRequest({
-            method: 'GET', url: 'https://backoffice-e8.ffa.su/api/v1/admin/projects/1/jobs?statusId=2',
+            method: 'GET', url: 'https://backoffice-e8.ffa.su/api/v1/admin/projects/1/jobs?statusId=2&page=1&take=100',
             headers: { 'Accept': 'application/json', 'Authorization': token },
             onload: resolve, onerror: () => resolve(null), timeout: 15000
           });
