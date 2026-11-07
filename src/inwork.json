@@ -275,6 +275,17 @@
     "execCount": 1
   },
   {
+    "id": "4abeb82d-23fa-4da5-96d8-fe5bf6dac92d",
+    "name": "Б00С4Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "35d89100-d7bd-42dc-9fd6-78b1486f8e1a",
     "name": "Б0073Вотан",
     "firstName": "",
@@ -301,10 +312,10 @@
     "name": "Б0038Белый",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "07.11.2026 21:15",
+    "status": "Завершен",
+    "date": "07.11.2026 21:37",
     "startDateTime": "2026-11-07T18:15:43.180Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-07T18:37:34.638Z",
     "execCount": 1
   },
   {
