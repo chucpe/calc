@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.10
+// @version      5.11
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -152,7 +152,13 @@ window.__e8GTP = atob('');
 
         if (dateIso) {
             const dateStr = dateIso.split('T')[0];
-            if (!dailyStats[dateStr]) dailyStats[dateStr] = { earn: 0, count: 0, times: [] };
+            if (!dailyStats[dateStr]) {
+                dailyStats[dateStr] = { earn: 0, count: 0, times: [] };
+            }
+            // ЗАЩИТА: если times не массив (например, старые данные в localStorage), создаем его
+            if (!Array.isArray(dailyStats[dateStr].times)) {
+                dailyStats[dateStr].times = [];
+            }
             dailyStats[dateStr].earn += Number(earn) || 0;
             dailyStats[dateStr].count += 1;
             dailyStats[dateStr].times.push(dateIso);
