@@ -242,6 +242,17 @@
     "execCount": 1
   },
   {
+    "id": "e967a529-481b-457d-8063-347bfbe4a8b1",
+    "name": "Б00Ш8",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "2234ba75-a8a1-453b-a880-1eb73d2001c8",
     "name": "КомпСтолБелый-КромкаЧерная",
     "firstName": "",
@@ -297,8 +308,8 @@
     "execCount": 1
   },
   {
-    "id": "e967a529-481b-457d-8063-347bfbe4a8b1",
-    "name": "Б00Ш8",
+    "id": "dfe2f963-76a1-4a1f-9b0d-e56e9a89b43f",
+    "name": "Б00С13Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -310,22 +321,11 @@
   {
     "id": "33d19840-a6d8-43b4-947b-6060e64b383a",
     "name": "Б00Т37БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "dfe2f963-76a1-4a1f-9b0d-e56e9a89b43f",
-    "name": "Б00С13Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Павел",
+    "lastName": "Щеглов",
+    "status": "В работе",
+    "date": "08.11.2026 11:14",
+    "startDateTime": "2026-11-08T08:14:48.309Z",
     "cancelDateTime": null,
     "execCount": 1
   },
