@@ -301,10 +301,10 @@
     "name": "КомпСтолБелый-КромкаЧерная",
     "firstName": "Павел",
     "lastName": "Щеглов",
-    "status": "В работе",
-    "date": "08.11.2026 13:39",
+    "status": "Завершен",
+    "date": "08.11.2026 13:50",
     "startDateTime": "2026-11-08T10:39:40.911Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T10:50:44.312Z",
     "execCount": 1
   },
   {
