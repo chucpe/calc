@@ -312,10 +312,10 @@
     "name": "Б00ШК4(А)400Белый",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "08.11.2026 23:41",
+    "status": "Завершен",
+    "date": "09.11.2026 00:11",
     "startDateTime": "2026-11-08T20:41:58.590Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T21:11:00.676Z",
     "execCount": 1
   },
   {
@@ -334,10 +334,10 @@
     "name": "Б0083Белый",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "08.11.2026 23:06",
+    "status": "Завершен",
+    "date": "09.11.2026 00:17",
     "startDateTime": "2026-11-08T20:06:29.714Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T21:17:33.900Z",
     "execCount": 1
   },
   {
