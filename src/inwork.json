@@ -286,6 +286,17 @@
     "execCount": 1
   },
   {
+    "id": "556de4f2-e5b2-408f-8c8b-50f231a8a6bb",
+    "name": "КомпСтолГрафит-КромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "dfe2f963-76a1-4a1f-9b0d-e56e9a89b43f",
     "name": "Б00С13Белый",
     "firstName": "",
@@ -323,10 +334,10 @@
     "name": "КомпСтолБелый-КромкаЧерная",
     "firstName": "Павел",
     "lastName": "Щеглов",
-    "status": "В работе",
-    "date": "08.11.2026 12:21",
+    "status": "Завершен",
+    "date": "08.11.2026 12:48",
     "startDateTime": "2026-11-08T09:21:47.275Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T09:48:06.320Z",
     "execCount": 1
   },
   {
