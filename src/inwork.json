@@ -220,19 +220,8 @@
     "execCount": 1
   },
   {
-    "id": "51140a3d-3aa0-4b4b-be03-ef36b921b56e",
+    "id": "833ce22d-cdac-4d9c-82f4-29f03bafe117",
     "name": "Б00Т29БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "e967a529-481b-457d-8063-347bfbe4a8b1",
-    "name": "Б00Ш8",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -315,6 +304,28 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "51140a3d-3aa0-4b4b-be03-ef36b921b56e",
+    "name": "Б00Т29БелыйЗР",
+    "firstName": "Алексей",
+    "lastName": "Шеин",
+    "status": "В работе",
+    "date": "08.11.2026 13:09",
+    "startDateTime": "2026-11-08T10:09:24.627Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e967a529-481b-457d-8063-347bfbe4a8b1",
+    "name": "Б00Ш8",
+    "firstName": "Владислав",
+    "lastName": "Суслов",
+    "status": "В работе",
+    "date": "08.11.2026 13:08",
+    "startDateTime": "2026-11-08T10:08:49.943Z",
     "cancelDateTime": null,
     "execCount": 1
   },
