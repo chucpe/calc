@@ -187,19 +187,8 @@
     "execCount": 1
   },
   {
-    "id": "9c7189be-4db7-4792-b6fd-9609de4e7d4c",
-    "name": "Б0044ГрафитВотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "c8f54f49-9415-4998-a97e-42bdf199a233",
-    "name": "Б0044ГрафитВотан",
+    "id": "49722bf8-6e0b-4e7e-b7ba-4c01c99bcec8",
+    "name": "Б00Т50БелыйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -211,6 +200,17 @@
   {
     "id": "9273a343-f63b-4b7a-94e1-78640cc66f88",
     "name": "Б00Т44БелыйЧР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "40adb724-02b3-4565-90c7-fadfd2c63cc2",
+    "name": "Б00С8ГрафитКромкаЧерная",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -264,8 +264,19 @@
     "execCount": 1
   },
   {
-    "id": "40adb724-02b3-4565-90c7-fadfd2c63cc2",
-    "name": "Б00С8ГрафитКромкаЧерная",
+    "id": "9c7189be-4db7-4792-b6fd-9609de4e7d4c",
+    "name": "Б0044ГрафитВотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "c8f54f49-9415-4998-a97e-42bdf199a233",
+    "name": "Б0044ГрафитВотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -301,10 +312,10 @@
     "name": "Б0083Белый",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "08.11.2026 21:41",
+    "status": "Завершен",
+    "date": "08.11.2026 22:55",
     "startDateTime": "2026-11-08T18:41:42.436Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T19:55:57.698Z",
     "execCount": 1
   },
   {
