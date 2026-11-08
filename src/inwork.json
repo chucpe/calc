@@ -198,6 +198,17 @@
     "execCount": 1
   },
   {
+    "id": "08c56f48-a4f8-4ad1-86e0-81599a1224fd",
+    "name": "Б00С6Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "ed3b346a-7fb6-42ce-9883-c72ed20990c6",
     "name": "Б00С8ГрафитКромкаЧерная",
     "firstName": "",
@@ -268,10 +279,10 @@
     "name": "Б00ШК4(А)400Белый",
     "firstName": "Владислав",
     "lastName": "Суслов",
-    "status": "В работе",
-    "date": "08.11.2026 15:56",
+    "status": "Завершен",
+    "date": "08.11.2026 16:11",
     "startDateTime": "2026-11-08T12:56:49.730Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T13:11:10.905Z",
     "execCount": 1
   },
   {
@@ -279,10 +290,10 @@
     "name": "КомпСтолГрафит-КромкаЧерная",
     "firstName": "Павел",
     "lastName": "Щеглов",
-    "status": "В работе",
-    "date": "08.11.2026 15:55",
+    "status": "Завершен",
+    "date": "08.11.2026 16:24",
     "startDateTime": "2026-11-08T12:55:49.650Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T13:24:51.887Z",
     "execCount": 1
   },
   {
@@ -301,10 +312,10 @@
     "name": "КомпСтолБелый-КромкаЧерная",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "08.11.2026 15:48",
+    "status": "Завершен",
+    "date": "08.11.2026 16:25",
     "startDateTime": "2026-11-08T12:48:35.138Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T13:25:29.153Z",
     "execCount": 1
   },
   {
@@ -312,10 +323,10 @@
     "name": "Б00Ш3Белый",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "08.11.2026 15:18",
+    "status": "Завершен",
+    "date": "08.11.2026 16:19",
     "startDateTime": "2026-11-08T12:18:29.423Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T13:19:28.469Z",
     "execCount": 1
   },
   {
