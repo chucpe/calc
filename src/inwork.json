@@ -275,17 +275,6 @@
     "execCount": 1
   },
   {
-    "id": "5c47cf5b-e333-4d0b-8faa-e68b465745bb",
-    "name": "Б00Т38ГрафитЧР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "f90dd744-a287-4309-9c61-987c038d4a7d",
     "name": "Б00Т38ГрафитЧР",
     "firstName": "",
@@ -341,14 +330,25 @@
     "execCount": 1
   },
   {
-    "id": "0ec97607-d4e4-495c-a0c6-9525142febc5",
+    "id": "5c47cf5b-e333-4d0b-8faa-e68b465745bb",
     "name": "Б00Т38ГрафитЧР",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
     "status": "В работе",
-    "date": "08.11.2026 01:46",
-    "startDateTime": "2026-11-07T22:46:14.136Z",
+    "date": "08.11.2026 03:06",
+    "startDateTime": "2026-11-08T00:06:12.273Z",
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "0ec97607-d4e4-495c-a0c6-9525142febc5",
+    "name": "Б00Т38ГрафитЧР",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "Завершен",
+    "date": "08.11.2026 03:05",
+    "startDateTime": "2026-11-07T22:46:14.136Z",
+    "cancelDateTime": "2026-11-08T00:05:53.724Z",
     "execCount": 1
   },
   {
