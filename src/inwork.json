@@ -334,10 +334,10 @@
     "name": "Б00Т38ГрафитЧР",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
-    "status": "В работе",
-    "date": "08.11.2026 03:06",
+    "status": "Завершен",
+    "date": "08.11.2026 04:26",
     "startDateTime": "2026-11-08T00:06:12.273Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T01:26:14.193Z",
     "execCount": 1
   },
   {
