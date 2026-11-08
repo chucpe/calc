@@ -242,17 +242,6 @@
     "execCount": 1
   },
   {
-    "id": "01912f81-6f91-4ad6-b0ca-b95265829940",
-    "name": "КомпСтолБелый-КромкаЧерная",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "93a0d69e-4871-48f5-af9e-523da81986ac",
     "name": "КомпСтолБелый-КромкаЧерная",
     "firstName": "",
@@ -315,6 +304,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "01912f81-6f91-4ad6-b0ca-b95265829940",
+    "name": "КомпСтолБелый-КромкаЧерная",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "08.11.2026 12:38",
+    "startDateTime": "2026-11-08T09:38:26.042Z",
     "cancelDateTime": null,
     "execCount": 1
   },
