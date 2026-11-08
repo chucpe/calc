@@ -1,16 +1,5 @@
 [
   {
-    "id": "3ac7d0c8-0f72-4ef7-936a-cd2d7b4de401",
-    "name": "Б00ШК4(А)400Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "708b884c-7b16-451c-b308-ce3b0c8cf2c4",
     "name": "Б00ШК4(А)400Белый",
     "firstName": "",
@@ -121,28 +110,6 @@
     "execCount": 1
   },
   {
-    "id": "e6838429-b901-4bf0-bee9-ffca1982c95c",
-    "name": "СтолЦарга110*60БелыйБелыеНожки",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "d986d911-ee52-48bb-bfa6-a65ebb51d164",
-    "name": "СтолЦарга110*60БелыйБелыеНожки",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "62484ab1-40ea-457e-9c39-98b911207b17",
     "name": "Б0073Бетон",
     "firstName": "",
@@ -156,17 +123,6 @@
   {
     "id": "48bb65ac-41cd-4d87-b75f-4368f4f0a5cd",
     "name": "Б00С6Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "4e84df41-6af2-45ee-bbdf-91ec00892420",
-    "name": "Б00Т81СономаБелыйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -275,17 +231,6 @@
     "execCount": 1
   },
   {
-    "id": "97a32055-7527-47a4-9d95-6ec1b27592ca",
-    "name": "Б0073Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "9c7189be-4db7-4792-b6fd-9609de4e7d4c",
     "name": "Б0044ГрафитВотан",
     "firstName": "",
@@ -304,6 +249,61 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "3ac7d0c8-0f72-4ef7-936a-cd2d7b4de401",
+    "name": "Б00ШК4(А)400Белый",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "09.11.2026 01:02",
+    "startDateTime": "2026-11-08T21:44:09.559Z",
+    "cancelDateTime": "2026-11-08T22:02:28.487Z",
+    "execCount": 1
+  },
+  {
+    "id": "e6838429-b901-4bf0-bee9-ffca1982c95c",
+    "name": "СтолЦарга110*60БелыйБелыеНожки",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "Завершен",
+    "date": "09.11.2026 00:58",
+    "startDateTime": "2026-11-08T21:51:43.523Z",
+    "cancelDateTime": "2026-11-08T21:58:21.558Z",
+    "execCount": 1
+  },
+  {
+    "id": "d986d911-ee52-48bb-bfa6-a65ebb51d164",
+    "name": "СтолЦарга110*60БелыйБелыеНожки",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "09.11.2026 00:58",
+    "startDateTime": "2026-11-08T21:58:25.939Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "4e84df41-6af2-45ee-bbdf-91ec00892420",
+    "name": "Б00Т81СономаБелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "09.11.2026 00:44",
+    "startDateTime": "2026-11-08T21:44:58.007Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "97a32055-7527-47a4-9d95-6ec1b27592ca",
+    "name": "Б0073Белый",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "09.11.2026 00:45",
+    "startDateTime": "2026-11-08T21:45:32.178Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -345,10 +345,10 @@
     "name": "Б00Т44БелыйЧР",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "08.11.2026 23:32",
+    "status": "Завершен",
+    "date": "09.11.2026 00:48",
     "startDateTime": "2026-11-08T20:32:16.570Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T21:48:40.780Z",
     "execCount": 1
   },
   {
