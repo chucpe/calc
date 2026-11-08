@@ -301,10 +301,10 @@
     "name": "Б00С8ГрафитКромкаЧерная",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "08.11.2026 19:02",
+    "status": "Завершен",
+    "date": "08.11.2026 19:45",
     "startDateTime": "2026-11-08T16:02:18.000Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T16:45:53.259Z",
     "execCount": 1
   },
   {
