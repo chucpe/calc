@@ -345,10 +345,10 @@
     "name": "Б00Ш3Белый",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "08.11.2026 12:46",
+    "status": "Завершен",
+    "date": "08.11.2026 13:49",
     "startDateTime": "2026-11-08T09:46:15.783Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T10:49:03.928Z",
     "execCount": 1
   },
   {
