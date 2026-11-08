@@ -209,6 +209,39 @@
     "execCount": 1
   },
   {
+    "id": "79e0f0b3-36da-427d-b889-a2e3732e26fb",
+    "name": "Б00С1Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "51140a3d-3aa0-4b4b-be03-ef36b921b56e",
+    "name": "Б00Т29БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e967a529-481b-457d-8063-347bfbe4a8b1",
+    "name": "Б00Ш8",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "01912f81-6f91-4ad6-b0ca-b95265829940",
     "name": "КомпСтолБелый-КромкаЧерная",
     "firstName": "",
@@ -275,30 +308,8 @@
     "execCount": 1
   },
   {
-    "id": "79e0f0b3-36da-427d-b889-a2e3732e26fb",
-    "name": "Б00С1Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "dfe2f963-76a1-4a1f-9b0d-e56e9a89b43f",
     "name": "Б00С13Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "e967a529-481b-457d-8063-347bfbe4a8b1",
-    "name": "Б00Ш8",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -323,10 +334,10 @@
     "name": "КомпСтолБелый-КромкаЧерная",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "08.11.2026 11:46",
+    "status": "Завершен",
+    "date": "08.11.2026 12:28",
     "startDateTime": "2026-11-08T08:46:31.893Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T09:28:08.839Z",
     "execCount": 1
   },
   {
@@ -345,10 +356,10 @@
     "name": "Б00Ш12Вотан",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "08.11.2026 11:24",
+    "status": "Завершен",
+    "date": "08.11.2026 12:26",
     "startDateTime": "2026-11-08T08:24:30.291Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T09:26:36.596Z",
     "execCount": 1
   },
   {
