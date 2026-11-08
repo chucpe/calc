@@ -345,10 +345,10 @@
     "name": "Б00Т29БелыйЗР",
     "firstName": "Алексей",
     "lastName": "Шеин",
-    "status": "В работе",
-    "date": "08.11.2026 14:47",
+    "status": "Завершен",
+    "date": "08.11.2026 16:55",
     "startDateTime": "2026-11-08T11:47:56.297Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T13:55:09.737Z",
     "execCount": 1
   },
   {
