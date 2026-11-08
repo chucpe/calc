@@ -220,17 +220,6 @@
     "execCount": 1
   },
   {
-    "id": "7f4a6011-3009-40a1-8f4c-4e9fda5c234e",
-    "name": "Б00Т44БелыйЧР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "9273a343-f63b-4b7a-94e1-78640cc66f88",
     "name": "Б00Т44БелыйЧР",
     "firstName": "",
@@ -293,6 +282,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "7f4a6011-3009-40a1-8f4c-4e9fda5c234e",
+    "name": "Б00Т44БелыйЧР",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "08.11.2026 22:50",
+    "startDateTime": "2026-11-08T19:50:23.117Z",
     "cancelDateTime": null,
     "execCount": 1
   },
