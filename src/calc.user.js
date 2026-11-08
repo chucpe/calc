@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Калькулейшин
-// @namespace    Калькулейшин
-// @version      5.13
+// @name         prod.Калькулейшин
+// @namespace    prod.Калькулейшин
+// @version      5.15
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -2726,8 +2726,61 @@
                     const jsonString = JSON.stringify(memoryCache, null, 2);
                     const base64Content = btoa(unescape(encodeURIComponent(jsonString)));
 
+                     let authorName = 'unknown';
+
+                    let login = '';
+                    try {
+                        const l = localStorage.getItem('auth_login');
+                        if (l) login = l.trim();
+                    } catch (e) {}
+
+                    try {
+                        const token = localStorage.getItem('auth_token');
+                        if (token) {
+                            const authHeader = /^Bearer\s+/i.test(token) ? token : ('Bearer ' + token);
+
+                            const profileRes = await new Promise((resolve) => {
+                                GM_xmlhttpRequest({
+                                    method: 'GET',
+                                    url: 'https://backoffice-e8.ffa.su/api/v1/admin/profile',
+                                    headers: { 'Accept': 'application/json', 'Authorization': authHeader },
+                                    onload: resolve,
+                                    onerror: () => resolve(null),
+                                    timeout: 5000
+                                });
+                            });
+
+                            if (profileRes && profileRes.status === 200) {
+                                const profile = JSON.parse(profileRes.responseText);
+                                const fName = profile.firstName || '';
+                                const lName = profile.lastName || '';
+
+                                const fullName = `${fName} ${lName}`.trim();
+
+                                if (fullName && login) {
+                                    authorName = `${fullName} (${login})`;
+                                } else if (fullName) {
+                                    authorName = fullName;
+                                } else if (login) {
+                                    authorName = login;
+                                }
+                            }
+                        }
+                    } catch (e) {
+                        console.warn('[e8-inwork] Не удалось получить профиль:', e);
+                    }
+
+                    if (authorName === 'unknown' && login) {
+                        authorName = login;
+                    }
+
+                    const now = new Date();
+                    const msk = new Date(now.getTime() + 3 * 60 * 60 * 1000);
+                    const p = (x) => String(x).padStart(2, '0');
+                    const timeStr = `${p(msk.getUTCDate())}.${p(msk.getUTCMonth() + 1)}.${msk.getUTCFullYear()} ${p(msk.getUTCHours())}:${p(msk.getUTCMinutes())}`;
+
                     const body = {
-                        message: 'Update inwork.json [auto]',
+                        message: `Update inwork.json by ${authorName} at ${timeStr} MSK`,
                         content: base64Content,
                         branch: 'master'
                     };
