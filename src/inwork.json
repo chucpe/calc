@@ -154,8 +154,8 @@
     "execCount": 1
   },
   {
-    "id": "99d93e27-f082-4e9d-9ce7-110d3f564928",
-    "name": "Б00Ш3Белый",
+    "id": "8ac72d7e-9669-4370-ba9a-beadb661f809",
+    "name": "Б00С8Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -165,8 +165,30 @@
     "execCount": 1
   },
   {
-    "id": "8ac72d7e-9669-4370-ba9a-beadb661f809",
-    "name": "Б00С8Вотан",
+    "id": "79e0f0b3-36da-427d-b889-a2e3732e26fb",
+    "name": "Б00С1Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "7e8eb079-6e1d-4f74-a244-37f2b853bb3c",
+    "name": "Б00С1Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "97d5496a-7277-4861-954c-a89142945a61",
+    "name": "Б00Т40БелыйЧР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -187,6 +209,17 @@
     "execCount": 1
   },
   {
+    "id": "90012e34-0e5e-4e1a-92d3-85a195819e71",
+    "name": "Б00С6Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "36b2dc5e-4079-49da-8aa6-29a4ca2d4422",
     "name": "КомпСтолГрафит-КромкаЧерная",
     "firstName": "",
@@ -198,40 +231,18 @@
     "execCount": 1
   },
   {
-    "id": "537f3874-8221-4e74-a62a-a03694bf183a",
-    "name": "КомпСтолБелый-КромкаЧерная",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "3f243afe-f0bc-4d1d-8a55-9f2baf8bc548",
-    "name": "КомпСтолБелый-КромкаЧерная",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "12928008-ae46-474d-9340-a1559265d2a5",
-    "name": "КомпСтолБелый-КромкаЧерная",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "ed3b346a-7fb6-42ce-9883-c72ed20990c6",
+    "name": "Б00С8ГрафитКромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "40adb724-02b3-4565-90c7-fadfd2c63cc2",
     "name": "Б00С8ГрафитКромкаЧерная",
     "firstName": "",
     "lastName": "",
@@ -264,8 +275,8 @@
     "execCount": 1
   },
   {
-    "id": "79e0f0b3-36da-427d-b889-a2e3732e26fb",
-    "name": "Б00С1Белый",
+    "id": "3f243afe-f0bc-4d1d-8a55-9f2baf8bc548",
+    "name": "КомпСтолБелый-КромкаЧерная",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -275,14 +286,36 @@
     "execCount": 1
   },
   {
-    "id": "7e8eb079-6e1d-4f74-a244-37f2b853bb3c",
-    "name": "Б00С1Белый",
+    "id": "12928008-ae46-474d-9340-a1559265d2a5",
+    "name": "КомпСтолБелый-КромкаЧерная",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "99d93e27-f082-4e9d-9ce7-110d3f564928",
+    "name": "Б00Ш3Белый",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "08.11.2026 15:18",
+    "startDateTime": "2026-11-08T12:18:29.423Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "537f3874-8221-4e74-a62a-a03694bf183a",
+    "name": "КомпСтолБелый-КромкаЧерная",
+    "firstName": "Павел",
+    "lastName": "Щеглов",
+    "status": "Завершен",
+    "date": "08.11.2026 15:17",
+    "startDateTime": "2026-11-08T12:10:33.103Z",
+    "cancelDateTime": "2026-11-08T12:17:12.233Z",
     "execCount": 1
   },
   {
@@ -312,10 +345,10 @@
     "name": "Б00Ш3Белый",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "08.11.2026 14:02",
+    "status": "Завершен",
+    "date": "08.11.2026 15:08",
     "startDateTime": "2026-11-08T11:02:00.947Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T12:08:16.335Z",
     "execCount": 1
   },
   {
@@ -323,10 +356,10 @@
     "name": "Б00Ш8",
     "firstName": "Владислав",
     "lastName": "Суслов",
-    "status": "В работе",
-    "date": "08.11.2026 14:14",
+    "status": "Завершен",
+    "date": "08.11.2026 15:19",
     "startDateTime": "2026-11-08T11:14:20.858Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T12:19:50.734Z",
     "execCount": 1
   },
   {
