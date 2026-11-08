@@ -286,6 +286,17 @@
     "execCount": 1
   },
   {
+    "id": "44f34b69-ab2b-4a4f-acdb-26da7eba5fdd",
+    "name": "КомпСтолБелый-КромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "e967a529-481b-457d-8063-347bfbe4a8b1",
     "name": "Б00Ш8",
     "firstName": "",
