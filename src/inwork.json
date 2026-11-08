@@ -176,17 +176,6 @@
     "execCount": 1
   },
   {
-    "id": "f197ff9e-b4e2-4679-a0a9-3fdfb957d724",
-    "name": "Б0061Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "90012e34-0e5e-4e1a-92d3-85a195819e71",
     "name": "Б00С6Белый",
     "firstName": "",
@@ -233,11 +222,11 @@
   {
     "id": "c61f8e42-e3f7-456a-b479-cfde986a5922",
     "name": "Б00С6Графит",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "В работе",
+    "date": "08.11.2026 17:01",
+    "startDateTime": "2026-11-08T14:01:49.155Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -260,6 +249,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f197ff9e-b4e2-4679-a0a9-3fdfb957d724",
+    "name": "Б0061Белый",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "08.11.2026 16:57",
+    "startDateTime": "2026-11-08T13:57:54.788Z",
     "cancelDateTime": null,
     "execCount": 1
   },
