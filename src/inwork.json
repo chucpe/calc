@@ -110,6 +110,17 @@
     "execCount": 1
   },
   {
+    "id": "d986d911-ee52-48bb-bfa6-a65ebb51d164",
+    "name": "СтолЦарга110*60БелыйБелыеНожки",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "62484ab1-40ea-457e-9c39-98b911207b17",
     "name": "Б0073Бетон",
     "firstName": "",
@@ -257,10 +268,10 @@
     "name": "Б00ШК4(А)400Белый",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "Завершен",
-    "date": "09.11.2026 01:02",
+    "status": "В работе",
+    "date": "09.11.2026 00:44",
     "startDateTime": "2026-11-08T21:44:09.559Z",
-    "cancelDateTime": "2026-11-08T22:02:28.487Z",
+    "cancelDateTime": null,
     "execCount": 1
   },
   {
@@ -272,17 +283,6 @@
     "date": "09.11.2026 00:58",
     "startDateTime": "2026-11-08T21:51:43.523Z",
     "cancelDateTime": "2026-11-08T21:58:21.558Z",
-    "execCount": 1
-  },
-  {
-    "id": "d986d911-ee52-48bb-bfa6-a65ebb51d164",
-    "name": "СтолЦарга110*60БелыйБелыеНожки",
-    "firstName": "Алишер",
-    "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "09.11.2026 00:58",
-    "startDateTime": "2026-11-08T21:58:25.939Z",
-    "cancelDateTime": null,
     "execCount": 1
   },
   {
