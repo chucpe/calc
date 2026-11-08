@@ -213,10 +213,10 @@
     "name": "Б0044ГрафитВотан",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "09.11.2026 02:21",
+    "status": "Завершен",
+    "date": "09.11.2026 02:46",
     "startDateTime": "2026-11-08T23:21:01.953Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T23:46:09.001Z",
     "execCount": 1
   },
   {
