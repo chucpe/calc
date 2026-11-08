@@ -121,17 +121,6 @@
     "execCount": 1
   },
   {
-    "id": "9ba8209b-2c74-4a73-90b1-ec964722cd32",
-    "name": "Б00Т81СономаБелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "87a3d0aa-31f3-45fe-a1ed-21bf773c4dd8",
     "name": "Б00Т50БелыйЗР",
     "firstName": "",
@@ -154,6 +143,28 @@
     "execCount": 1
   },
   {
+    "id": "9c7189be-4db7-4792-b6fd-9609de4e7d4c",
+    "name": "Б0044ГрафитВотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "c8f54f49-9415-4998-a97e-42bdf199a233",
+    "name": "Б0044ГрафитВотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "79e0f0b3-36da-427d-b889-a2e3732e26fb",
     "name": "Б00С1Белый",
     "firstName": "",
@@ -167,17 +178,6 @@
   {
     "id": "7e8eb079-6e1d-4f74-a244-37f2b853bb3c",
     "name": "Б00С1Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "40adb724-02b3-4565-90c7-fadfd2c63cc2",
-    "name": "Б00С8ГрафитКромкаЧерная",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -220,8 +220,8 @@
     "execCount": 1
   },
   {
-    "id": "9c7189be-4db7-4792-b6fd-9609de4e7d4c",
-    "name": "Б0044ГрафитВотан",
+    "id": "40adb724-02b3-4565-90c7-fadfd2c63cc2",
+    "name": "Б00С8ГрафитКромкаЧерная",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -231,13 +231,13 @@
     "execCount": 1
   },
   {
-    "id": "c8f54f49-9415-4998-a97e-42bdf199a233",
-    "name": "Б0044ГрафитВотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "id": "9ba8209b-2c74-4a73-90b1-ec964722cd32",
+    "name": "Б00Т81СономаБелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "09.11.2026 01:13",
+    "startDateTime": "2026-11-08T22:13:22.012Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -257,10 +257,10 @@
     "name": "СтолЦарга110*60БелыйБелыеНожки",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "09.11.2026 00:58",
+    "status": "Завершен",
+    "date": "09.11.2026 01:16",
     "startDateTime": "2026-11-08T21:58:25.939Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-08T22:16:11.920Z",
     "execCount": 1
   },
   {
