@@ -44,8 +44,8 @@
     "execCount": 1
   },
   {
-    "id": "f96f00d2-9ef0-448c-9b50-721d4ba64ff7",
-    "name": "Б00О1ГрафитЧР",
+    "id": "81624dde-e6d8-466d-823b-a646dbecdd2c",
+    "name": "Б00О2БелыйЧР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -66,17 +66,6 @@
     "execCount": 1
   },
   {
-    "id": "4a48d0a6-86ac-42e7-af88-957fd74c36f0",
-    "name": "Б0079Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "d3320651-4a20-4a75-a1b8-ec3e74f39dec",
     "name": "Б00Т14(Ш14)Белый",
     "firstName": "",
@@ -88,8 +77,8 @@
     "execCount": 1
   },
   {
-    "id": "cfb452ff-2ab3-4dda-9aad-f42e94538459",
-    "name": "Б0078Белый",
+    "id": "8943a28c-0bfb-4290-a8c0-b69e58a283c3",
+    "name": "Б00Т38БелыйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -154,6 +143,39 @@
     "execCount": 1
   },
   {
+    "id": "f96f00d2-9ef0-448c-9b50-721d4ba64ff7",
+    "name": "Б00О1ГрафитЧР",
+    "firstName": "Владислав",
+    "lastName": "Суслов",
+    "status": "В работе",
+    "date": "09.11.2026 17:17",
+    "startDateTime": "2026-11-09T14:17:24.432Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "4a48d0a6-86ac-42e7-af88-957fd74c36f0",
+    "name": "Б0079Белый",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "09.11.2026 17:19",
+    "startDateTime": "2026-11-09T14:19:55.740Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "cfb452ff-2ab3-4dda-9aad-f42e94538459",
+    "name": "Б0078Белый",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "В работе",
+    "date": "09.11.2026 17:17",
+    "startDateTime": "2026-11-09T14:17:33.436Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "18a0173e-59c1-409f-a138-bf6ac4e34335",
     "name": "Б0079Белый",
     "firstName": "Алишер",
@@ -169,10 +191,10 @@
     "name": "Б00О1МолочныйЗР",
     "firstName": "Владислав",
     "lastName": "Суслов",
-    "status": "В работе",
-    "date": "09.11.2026 17:11",
+    "status": "Завершен",
+    "date": "09.11.2026 17:17",
     "startDateTime": "2026-11-09T14:11:09.018Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-09T14:17:10.783Z",
     "execCount": 1
   },
   {
