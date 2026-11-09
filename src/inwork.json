@@ -24,8 +24,8 @@
   {
     "id": "44bd837b-41d9-44f6-8127-f311ae7b174d",
     "name": "Б00ШК4(А)400Белый",
-    "firstName": "",
-    "lastName": "",
+    "firstName": "Александр",
+    "lastName": "Маматов",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
@@ -169,10 +169,10 @@
     "name": "Б00Т45БелыйЗР",
     "firstName": "Александр",
     "lastName": "Алманцев",
-    "status": "В работе",
-    "date": "10.11.2026 01:45",
+    "status": "Завершен",
+    "date": "10.11.2026 02:21",
     "startDateTime": "2026-11-09T22:45:03.864Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-09T23:21:02.136Z",
     "execCount": 1
   },
   {
@@ -180,10 +180,10 @@
     "name": "Б00Т45БелыйЗР",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "10.11.2026 01:49",
+    "status": "Завершен",
+    "date": "10.11.2026 02:23",
     "startDateTime": "2026-11-09T22:49:28.281Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-09T23:23:52.675Z",
     "execCount": 1
   },
   {
