@@ -55,6 +55,17 @@
     "execCount": 1
   },
   {
+    "id": "d3320651-4a20-4a75-a1b8-ec3e74f39dec",
+    "name": "Б00Т14(Ш14)Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "8943a28c-0bfb-4290-a8c0-b69e58a283c3",
     "name": "Б00Т38БелыйЗР",
     "firstName": "",
@@ -88,8 +99,19 @@
     "execCount": 1
   },
   {
-    "id": "d3320651-4a20-4a75-a1b8-ec3e74f39dec",
-    "name": "Б00Т14(Ш14)Белый",
+    "id": "9622b4f2-50a2-4517-b92a-572d8a4e2ba2",
+    "name": "Б00Т38БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "4ffe818a-9dd3-46e8-872a-d49d64862e45",
+    "name": "Б00Т38БелыйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -136,10 +158,10 @@
     "name": "Б00О2БелыйЧР",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "09.11.2026 17:55",
+    "status": "Завершен",
+    "date": "09.11.2026 18:28",
     "startDateTime": "2026-11-09T14:55:45.972Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-09T15:28:21.855Z",
     "execCount": 1
   },
   {
@@ -147,10 +169,10 @@
     "name": "Б0078Белый",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "09.11.2026 17:28",
+    "status": "Завершен",
+    "date": "09.11.2026 18:26",
     "startDateTime": "2026-11-09T14:28:36.758Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-09T15:26:53.372Z",
     "execCount": 1
   },
   {
@@ -158,10 +180,10 @@
     "name": "Б0078Белый",
     "firstName": "Александр",
     "lastName": "Алманцев",
-    "status": "В работе",
-    "date": "09.11.2026 17:58",
+    "status": "Завершен",
+    "date": "09.11.2026 18:12",
     "startDateTime": "2026-11-09T14:58:27.038Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-09T15:12:37.391Z",
     "execCount": 1
   },
   {
@@ -191,10 +213,10 @@
     "name": "Б0078Белый",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "09.11.2026 17:17",
+    "status": "Завершен",
+    "date": "09.11.2026 18:28",
     "startDateTime": "2026-11-09T14:17:33.436Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-09T15:28:53.338Z",
     "execCount": 1
   },
   {
