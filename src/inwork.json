@@ -1,5 +1,16 @@
 [
   {
+    "id": "010fcfcc-097b-4989-a7f4-cc6cd164ea2b",
+    "name": "Б00О1МолочныйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "977f2ba0-c5b7-4373-b9ea-c18f3779bee9",
     "name": "Б00ШК4(А)400Белый",
     "firstName": "",
@@ -55,8 +66,8 @@
     "execCount": 1
   },
   {
-    "id": "18a0173e-59c1-409f-a138-bf6ac4e34335",
-    "name": "Б0079Белый",
+    "id": "8629a554-8d05-4411-a3b7-a28467d6e9ab",
+    "name": "Б00О1ГрафитЧР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -66,8 +77,19 @@
     "execCount": 1
   },
   {
-    "id": "99bf4d44-1733-4202-95fd-732df87433db",
-    "name": "Б0078Белый",
+    "id": "d3320651-4a20-4a75-a1b8-ec3e74f39dec",
+    "name": "Б00Т14(Ш14)Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "18a0173e-59c1-409f-a138-bf6ac4e34335",
+    "name": "Б0079Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -143,14 +165,25 @@
     "execCount": 1
   },
   {
+    "id": "99bf4d44-1733-4202-95fd-732df87433db",
+    "name": "Б0078Белый",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "09.11.2026 15:51",
+    "startDateTime": "2026-11-09T12:51:48.193Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "ee8b78c8-5c1c-402d-a1e0-98e1198135b2",
     "name": "Б0078Белый",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "09.11.2026 14:55",
+    "status": "Завершен",
+    "date": "09.11.2026 16:05",
     "startDateTime": "2026-11-09T11:55:03.123Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-09T13:05:43.261Z",
     "execCount": 1
   },
   {
@@ -158,10 +191,10 @@
     "name": "Б0078Белый",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "09.11.2026 14:59",
+    "status": "Завершен",
+    "date": "09.11.2026 15:47",
     "startDateTime": "2026-11-09T11:59:54.877Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-09T12:47:11.906Z",
     "execCount": 1
   },
   {
