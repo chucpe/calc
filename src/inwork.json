@@ -68,11 +68,11 @@
   {
     "id": "adf607c0-a13f-4d51-9bc6-db0df4d0b67d",
     "name": "Б00Т38БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "09.11.2026 19:52",
+    "startDateTime": "2026-11-09T16:52:22.021Z",
     "cancelDateTime": null,
     "execCount": 1
   },
