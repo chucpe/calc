@@ -44,8 +44,8 @@
     "execCount": 1
   },
   {
-    "id": "a4028f6d-4283-42f6-b88a-7b5f65abcb61",
-    "name": "Б0042ВотанГрафит",
+    "id": "cc2c0574-278d-4ece-9d5d-48c7b0f60133",
+    "name": "Б00Ш2Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -66,8 +66,19 @@
     "execCount": 1
   },
   {
-    "id": "cc2c0574-278d-4ece-9d5d-48c7b0f60133",
-    "name": "Б00Ш2Вотан",
+    "id": "a4028f6d-4283-42f6-b88a-7b5f65abcb61",
+    "name": "Б0042ВотанГрафит",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "aa0a0dee-1fed-4328-9397-009eb35e1274",
+    "name": "Б0042ВотанГрафит",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
