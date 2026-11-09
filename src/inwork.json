@@ -66,39 +66,6 @@
     "execCount": 1
   },
   {
-    "id": "ee8b78c8-5c1c-402d-a1e0-98e1198135b2",
-    "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "508a53b7-fd66-41f7-8c7d-a08423ef3cdb",
-    "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "b6a1cd32-d67e-44f1-b695-5d68f1b68c12",
-    "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "99bf4d44-1733-4202-95fd-732df87433db",
     "name": "Б0078Белый",
     "firstName": "",
@@ -172,6 +139,39 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "ee8b78c8-5c1c-402d-a1e0-98e1198135b2",
+    "name": "Б0078Белый",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "09.11.2026 14:55",
+    "startDateTime": "2026-11-09T11:55:03.123Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "508a53b7-fd66-41f7-8c7d-a08423ef3cdb",
+    "name": "Б0078Белый",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "09.11.2026 14:59",
+    "startDateTime": "2026-11-09T11:59:54.877Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "b6a1cd32-d67e-44f1-b695-5d68f1b68c12",
+    "name": "Б0078Белый",
+    "firstName": "Сергей",
+    "lastName": "Коцеруба",
+    "status": "В работе",
+    "date": "09.11.2026 15:11",
+    "startDateTime": "2026-11-09T12:11:12.554Z",
     "cancelDateTime": null,
     "execCount": 1
   },
