@@ -88,6 +88,17 @@
     "execCount": 1
   },
   {
+    "id": "4a48d0a6-86ac-42e7-af88-957fd74c36f0",
+    "name": "Б0079Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "d3320651-4a20-4a75-a1b8-ec3e74f39dec",
     "name": "Б00Т14(Ш14)Белый",
     "firstName": "",
@@ -213,10 +224,10 @@
     "name": "Б00С6Графит",
     "firstName": "Владислав",
     "lastName": "Суслов",
-    "status": "В работе",
-    "date": "09.11.2026 14:40",
+    "status": "Завершен",
+    "date": "09.11.2026 17:11",
     "startDateTime": "2026-11-09T11:40:13.551Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-09T14:11:02.009Z",
     "execCount": 1
   },
   {
