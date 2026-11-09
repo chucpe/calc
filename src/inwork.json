@@ -1,16 +1,5 @@
 [
   {
-    "id": "010fcfcc-097b-4989-a7f4-cc6cd164ea2b",
-    "name": "Б00О1МолочныйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "977f2ba0-c5b7-4373-b9ea-c18f3779bee9",
     "name": "Б00ШК4(А)400Белый",
     "firstName": "",
@@ -172,6 +161,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "010fcfcc-097b-4989-a7f4-cc6cd164ea2b",
+    "name": "Б00О1МолочныйЗР",
+    "firstName": "Владислав",
+    "lastName": "Суслов",
+    "status": "В работе",
+    "date": "09.11.2026 17:11",
+    "startDateTime": "2026-11-09T14:11:09.018Z",
     "cancelDateTime": null,
     "execCount": 1
   },
