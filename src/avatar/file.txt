@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         дев.Калькулейшин
 // @namespace    дев.Калькулейшин
-// @version      5.15
+// @version      5.20
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -405,7 +405,8 @@
 
                             for (let i = 0; i < count; i++) {
                                 const pricePerPallet = r.sum / count;
-                                const time = formatToMsk(times[i] || r.firstDate);
+                                const timeItem = times[i];
+                                const time = formatToMsk((timeItem && timeItem.iso) ? timeItem.iso : r.firstDate);
                                 csv += [esc(r.order), esc(r.label), esc(i + 1), esc(r.holes), esc(pricePerPallet.toFixed(2)), esc(time)].join(';') + '\n';
                             }
                         }
@@ -469,7 +470,8 @@
                 const allPallets = [];
                 for (const row of res.debugRows) {
                     if (!row.times) continue;
-                    for (const iso of row.times) {
+                    for (const item of row.times) {
+                        const iso = (typeof item === 'object' && item !== null) ? item.iso : item;
                         if (!iso) continue;
                         allPallets.push({ iso, earn: row.sum / (row.palletsInRange || 1) });
                     }
@@ -1159,7 +1161,25 @@
                             }
                             totalQuantity += quantityInRange;
 
-                            debugRows.push({ order: order.label, label, holes, pallets, palletsInRange, firstDate: toMskString(firstDateIso), sum, times: timesInRange, firstDateMs: firstDateIso ? new Date(firstDateIso).getTime() : Infinity });
+                            const timesWithIds = [];
+                            for (let i = 0; i < palletsInRange; i++) {
+                                const child = childList[i];
+                                timesWithIds.push({
+                                    iso: child?.cancelDateTime,
+                                    id: child?.id
+                                });
+                            }
+                            debugRows.push({
+                                order: order.label,
+                                label,
+                                holes,
+                                pallets,
+                                palletsInRange,
+                                firstDate: toMskString(firstDateIso),
+                                sum,
+                                times: timesWithIds,
+                                firstDateMs: firstDateIso ? new Date(firstDateIso).getTime() : Infinity
+                            });
                         }
                     }
                     byOrder.set(order.label, orderStat);
@@ -1634,12 +1654,50 @@
                         let palHtml = '';
                         if (rows.length === 0) palHtml = `<div class="pal-head">Нет данных</div>`;
                         else {
-                            rows.forEach((r, idx) => {
+                                                            rows.forEach((r, idx) => {
                                 if (idx > 0) palHtml += `<div class="pal-sep"></div>`;
-                                const times = (r.times && r.times.length) ? sortIsoAsc(r.times) : [];
-                                palHtml += `<div class="pal-head"><b>${escapeHtml(r.label)}</b> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
-                                if (times.length === 0) palHtml += `<div class="pal"><span class="t">время: —</span></div>`;
-                                else times.forEach(iso => palHtml += `<div class="pal"><span class="t">${toMskString(iso)}</span><span class="n">${escapeHtml(r.label)}</span></div>`);
+
+                                const times = (r.times && r.times.length) ? r.times.slice().sort((a, b) => {
+                                    const isoA = (typeof a === 'object' && a !== null) ? a.iso : a;
+                                    const isoB = (typeof b === 'object' && b !== null) ? b.iso : b;
+
+                                    const parseDate = (str) => {
+                                        if (!str) return 0;
+                                        if (str.includes('T') || str.includes('-')) {
+                                            return new Date(str).getTime() || 0;
+                                        }
+                                        const parts = str.match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
+                                        if (parts) {
+                                            return new Date(+parts[3], +parts[2] - 1, +parts[1], +parts[4], +parts[5]).getTime();
+                                        }
+                                        return 0;
+                                    };
+
+                                    return parseDate(isoA) - parseDate(isoB);
+                                }) : [];
+                                const firstItem = times.length > 0 ? times[0] : null;
+                                const firstId = (firstItem && typeof firstItem === 'object') ? firstItem.id : null;
+
+                                if (firstId) {
+                                    palHtml += `<div class="pal-head"><a href="https://e8.ffa.su/admin/projects/1/jobs/${firstId}/info?back=/admin/projects/1/jobs?statusId=1" target="_blank" style="color:#60a5fa; text-decoration:none;"><b>${escapeHtml(r.label)}</b></a> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
+                                } else {
+                                    palHtml += `<div class="pal-head"><b>${escapeHtml(r.label)}</b> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
+                                }
+
+                                if (times.length === 0) {
+                                    palHtml += `<div class="pal"><span class="t">время: —</span></div>`;
+                                } else {
+                                    times.forEach(item => {
+                                        const iso = (typeof item === 'object' && item !== null) ? item.iso : item;
+                                        const id = (typeof item === 'object' && item !== null) ? item.id : null;
+
+                                        if (id) {
+                                            palHtml += `<div class="pal" style="cursor:pointer;" onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')"><span class="t">${toMskString(iso)}</span><span class="n" style="color:#60a5fa; text-decoration:underline;">${escapeHtml(r.label)}</span></div>`;
+                                        } else {
+                                            palHtml += `<div class="pal"><span class="t">${toMskString(iso)}</span><span class="n">${escapeHtml(r.label)}</span></div>`;
+                                        }
+                                    });
+                                }
                             });
                         }
                         ordersHtml += `<div class="ord-head" data-target="${key}"><span><span class="arr">▶</span>${escapeHtml(label)}</span><span>${st.pallets} / ${money(st.sum)}</span></div><div class="ord-detail" id="${key}">${palHtml}</div>`;
@@ -1742,9 +1800,6 @@
             else start();
         })();
 
-        // ==================================================================
-        // МОДУЛЬ B. ПОДПИСЬ ЦЕНЫ СПРАВА ОТ НАЗВАНИЯ
-        // ==================================================================
         (function() {
             'use strict';
             const PRICE_URL = 'https://raw.githubusercontent.com/chucpe/calc/refs/heads/master/src/price.json';
@@ -1772,9 +1827,10 @@
                                 if (!Array.isArray(data)) throw new Error('not array');
                                 priceByName = {};
                                 data.forEach(item => {
-                                    if (!item || !item.name) return;
+                                    // Ищем по altName вместо name
+                                    if (!item || !item.altName) return;
                                     if (typeof item.holes !== 'number') return;
-                                    const name = item.name.trim();
+                                    const name = item.altName.trim();
                                     let price;
                                     price = item.holes * getRate() * getTaxMultiplier();
                                     priceByName[name] = price;
@@ -2128,7 +2184,7 @@
 
 
         // ==================================================================
-        // ЗАМЕНА ИКОНКИ
+        // ЗАМЕНА ИКОНКИ ПРИЛОЖЕНИЯ
         // ==================================================================
         (function() {
             'use strict';
@@ -2385,13 +2441,23 @@
                     const newItemsBatch = [];
                     const entries = Array.from(missingProducts.entries());
 
-                    for (let i = 0; i < entries.length; i += MAX_PARALLEL) {
+                        for (let i = 0; i < entries.length; i += MAX_PARALLEL) {
                         const chunk = entries.slice(i, i + MAX_PARALLEL);
                         await Promise.all(chunk.map(async ([label, data]) => {
                             const holes = await fetchProductParams(data.productId, data.jobId);
                             if (holes > 0) {
-                                newItemsBatch.push({ name: label, holes: holes });
-                                console.log(`[e8-autoprice] Данные собраны: ${label} (${holes} отв.)`);
+                                 let altName = label;
+
+                                if (/^Б00\d/.test(altName)) {
+                                    altName = altName.replace(/^Б00/, 'А');
+                                } else if (/^Б00[А-ЯЁA-Z]/i.test(altName)) {
+                                    altName = altName.replace(/^Б00/, '');
+                                } else {
+                                    altName = label;
+                                }
+
+                                newItemsBatch.push({ name: label, altName: altName, holes: holes });
+                                console.log(`[e8-autoprice] Данные собраны: ${label} (${holes} отв.) -> ${altName}`);
                             } else {
                                 console.warn(`[e8-autoprice] Не удалось посчитать отверстия для ${label}`);
                             }
@@ -3360,21 +3426,16 @@
             'use strict';
 
             function processTree() {
-                // Проверяем настройку. Если пользователь выключил скрытие — выходим.
                 if (window.__e8Settings && window.__e8Settings.hideOrders === false) return;
 
-                // Ищем все кнопки-заголовки заявок
                 const buttons = document.querySelectorAll('button[data-slot="link"]');
 
                 buttons.forEach(btn => {
-                    // Проверяем, что это именно заголовок "Заявка № ..."
                     const text = (btn.textContent || '').trim();
                     if (!text.startsWith('Заявка №')) return;
 
-                    // Прячем саму кнопку-заголовок
                     btn.style.setProperty('display', 'none', 'important');
 
-                    // Если заявка свернута, кликаем, чтобы раскрыть паллеты
                     if (btn.getAttribute('aria-expanded') === 'false') {
                         btn.click();
                     }
@@ -3400,93 +3461,96 @@
         })();
 
         // ==================================================================
-        // МОДУЛЬ: ОЧИСТКА НАЗВАНИЙ ПАЛЛЕТ
+        // МОДУЛЬ: ПЕРЕИМЕНОВАНИЕ ПАЛЛЕТ
         // ==================================================================
         (function() {
             'use strict';
 
-            function cleanTextNodes() {
+            function renamePallets() {
                 const elements = document.querySelectorAll('.text-sm.font-semibold.break-all');
 
                 elements.forEach(el => {
                     if (el.textContent.includes('Заявка №')) return;
-                    if (el.dataset.e8Cleaned === '1') return;
 
-                    let node = el.childNodes[0];
+                    Array.from(el.childNodes).forEach(node => {
+                        if (node.nodeType === Node.TEXT_NODE) {
+                            let text = node.nodeValue;
 
-                    if (node && node.nodeType === Node.TEXT_NODE) {
-                        let text = node.nodeValue;
+                            if (text.includes('Б00')) {
+                                let newText = text;
 
-                        if (text.includes('Б00')) {
-                            let newText = text;
+                                newText = newText.replace(/Б00(?=\d)/g, 'А');
 
-                            // Заменяем Б00
-                            if (/\bБ00\d/.test(text)) {
-                                newText = text.replace(/Б00(?=\d)/g, 'А');
-                            } else if (/\bБ00[А-ЯЁA-Z]/i.test(text)) {
-                                newText = text.replace(/Б00/g, '');
-                            }
+                                newText = newText.replace(/Б00(?=[А-ЯЁA-Z])/gi, '');
 
-                            if (newText !== text) {
-                                node.nodeValue = newText;
-                                el.dataset.e8Cleaned = '1';
+                                if (newText !== text) {
+                                    node.nodeValue = newText;
+                                }
                             }
                         }
-                    } else {
-                    }
+                    });
                 });
             }
 
             function start() {
-                cleanTextNodes();
+                renamePallets();
                 const observer = new MutationObserver(() => {
-                    cleanTextNodes();
+                    renamePallets();
                 });
                 observer.observe(document.body || document.documentElement, { childList: true, subtree: true, characterData: true });
 
-                setInterval(cleanTextNodes, 1000);
+                setInterval(renamePallets, 1000);
             }
 
             if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
             else start();
         })();
 
-        // ==================================================================
-        // МОДУЛЬ: СОРТИРОВКА ПАЛЛЕТ ПО ЦЕНЕ
-        // ==================================================================
         (function() {
             'use strict';
 
             if (!window.location.href.includes('statusId=1')) return;
 
-            let sortDirection = Number(localStorage.getItem('e8_sort_direction')) || 1;
-            let observer = null;
+            let sortByPrice = Number(localStorage.getItem('e8_sort_price')) || 0;
+            let sortByName = Number(localStorage.getItem('e8_sort_name')) || 0;
 
             function createSortUI() {
                 if (document.getElementById('e8-sort-panel')) return;
 
-                if (window.__e8Settings && window.__e8Settings.hideOrders === false) {
-                    return;
-                }
+                if (window.__e8Settings && window.__e8Settings.hideOrders === false) return;
 
-                const buttons = Array.from(document.querySelectorAll('button'));
-                const tabBtn = buttons.find(b => b.textContent.trim() === 'Текущий');
+                const orderButtons = Array.from(document.querySelectorAll('button')).filter(b =>
+                    b.textContent.includes('Заявка №')
+                );
 
-                if (!tabBtn || !tabBtn.parentElement) return;
+                if (orderButtons.length === 0) return;
+
+                const firstOrderBtn = orderButtons[0];
+                const orderLi = firstOrderBtn.closest('li');
+
+                if (!orderLi || !orderLi.parentElement) return;
 
                 const panel = document.createElement('div');
                 panel.id = 'e8-sort-panel';
                 panel.className = 'flex items-center w-full py-2 mb-2 text-sm text-muted';
 
-                const arrowSymbol = sortDirection === 1 ? '↑' : '↓';
+                const marginLeft = window.innerWidth < 768 ? '275px' : '395px';
+
+                const arrowPrice = sortByPrice === 1 ? '↑' : (sortByPrice === -1 ? '↓' : '↕');
+                const arrowName = sortByName === 1 ? '↑' : (sortByName === -1 ? '↓' : '↕');
 
                 panel.innerHTML = `
-                    <button id="e8-sort-price" class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-elevated border border-default hover:bg-elevated/80 transition-colors text-sm" style="margin-left: 445px;">
-                        По цене <span id="e8-sort-arrow" class="text-primary font-bold" style="width: 12px; display: inline-block; text-align: center;">${arrowSymbol}</span>
-                    </button>
+                    <div style="margin-left: ${marginLeft}; display: flex; gap: 6px;">
+                        <button id="e8-sort-name" class="flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm ${sortByName !== 0 ? 'bg-primary text-white border-primary shadow-md' : 'bg-elevated text-muted border-default hover:bg-elevated/80'}">
+                            Название <span id="e8-sort-arrow-name" class="text-xs ${sortByName !== 0 ? 'text-white' : 'text-muted'}">${arrowName}</span>
+                        </button>
+                        <button id="e8-sort-price" class="flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm ${sortByPrice !== 0 ? 'bg-primary text-white border-primary shadow-md' : 'bg-elevated text-muted border-default hover:bg-elevated/80'}">
+                            Цена <span id="e8-sort-arrow-price" class="text-xs ${sortByPrice !== 0 ? 'text-white' : 'text-muted'}">${arrowPrice}</span>
+                        </button>
+                    </div>
                 `;
 
-                tabBtn.parentElement.parentElement.insertBefore(panel, tabBtn.parentElement.nextSibling);
+                orderLi.parentElement.insertBefore(panel, orderLi);
 
                 attachEvents();
                 setTimeout(applySort, 100);
@@ -3499,7 +3563,7 @@
 
                 const pallets = allNodes.filter(el => {
                     const text = el.textContent.trim();
-                    return text.match(/\(\d+(\.\d+)?\)/) && !text.includes('Заявка №');
+                    return text.length > 0 && !text.includes('Заявка №');
                 });
 
                 if (pallets.length < 2) return;
@@ -3512,13 +3576,33 @@
                 if (!parent) return;
 
                 pallets.sort((a, b) => {
+                    const fullTextA = a.textContent.replace(/\([\d.]+\)/, '').trim();
+                    const fullTextB = b.textContent.replace(/\([\d.]+\)/, '').trim();
+
                     const matchA = a.textContent.match(/\(([\d.]+)\)/);
                     const matchB = b.textContent.match(/\(([\d.]+)\)/);
-                    const priceA = matchA ? parseFloat(matchA[1]) : 0;
-                    const priceB = matchB ? parseFloat(matchB[1]) : 0;
+                    const priceA = matchA ? parseFloat(matchA[1]) : null;
+                    const priceB = matchB ? parseFloat(matchB[1]) : null;
 
-                    if (sortDirection === 1) return priceA - priceB;
-                    if (sortDirection === -1) return priceB - priceA;
+                    if (sortByName !== 0) {
+                        const prefixA = fullTextA.charAt(0);
+                        const prefixB = fullTextB.charAt(0);
+                        const cmp = prefixA.localeCompare(prefixB, 'ru');
+                        if (cmp !== 0) {
+                            return sortByName === 1 ? cmp : -cmp;
+                        }
+                    }
+
+                    if (sortByPrice !== 0) {
+                        if (priceA === null && priceB === null) return 0;
+                        if (priceA === null) return 1;
+                        if (priceB === null) return -1;
+
+                        if (priceA !== priceB) {
+                            return sortByPrice === 1 ? priceA - priceB : priceB - priceA;
+                        }
+                    }
+
                     return 0;
                 });
 
@@ -3537,17 +3621,68 @@
             }
 
             function attachEvents() {
-                const sortBtn = document.getElementById('e8-sort-price');
-                const arrow = document.getElementById('e8-sort-arrow');
-                if (!sortBtn) return;
+                const btnPrice = document.getElementById('e8-sort-price');
+                const btnName = document.getElementById('e8-sort-name');
 
-                sortBtn.addEventListener('click', (e) => {
+                if (!btnPrice || !btnName) return;
+
+                btnPrice.addEventListener('click', (e) => {
                     e.preventDefault();
-                    sortDirection = sortDirection === 1 ? -1 : 1;
-                    localStorage.setItem('e8_sort_direction', sortDirection);
-                    arrow.textContent = sortDirection === 1 ? '↑' : '↓';
-                    applySort();
+                    if (sortByPrice === 0) {
+                        sortByPrice = -1;
+                    } else if (sortByPrice === -1) {
+                        sortByPrice = 1;
+                    } else {
+                        sortByPrice = 0;
+                    }
+                    updateUI();
                 });
+
+                btnName.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (sortByName === 0) {
+                        sortByName = -1;
+                    } else if (sortByName === -1) {
+                        sortByName = 1;
+                    } else {
+                        sortByName = 0;
+                    }
+                    updateUI();
+                });
+            }
+
+            function updateUI() {
+                localStorage.setItem('e8_sort_price', sortByPrice);
+                localStorage.setItem('e8_sort_name', sortByName);
+
+                const btnPrice = document.getElementById('e8-sort-price');
+                const btnName = document.getElementById('e8-sort-name');
+                const arrowPrice = document.getElementById('e8-sort-arrow-price');
+                const arrowName = document.getElementById('e8-sort-arrow-name');
+
+                const arrP = sortByPrice === -1 ? '↓' : (sortByPrice === 1 ? '↑' : '↕');
+                const arrN = sortByName === -1 ? '↓' : (sortByName === 1 ? '↑' : '↕');
+
+                if (sortByName !== 0) {
+                    btnName.className = 'flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm bg-primary text-white border-primary shadow-md';
+                    arrowName.className = 'text-xs text-white';
+                } else {
+                    btnName.className = 'flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm bg-elevated text-muted border-default hover:bg-elevated/80';
+                    arrowName.className = 'text-xs text-muted';
+                }
+
+                if (sortByPrice !== 0) {
+                    btnPrice.className = 'flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm bg-primary text-white border-primary shadow-md';
+                    arrowPrice.className = 'text-xs text-white';
+                } else {
+                    btnPrice.className = 'flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm bg-elevated text-muted border-default hover:bg-elevated/80';
+                    arrowPrice.className = 'text-xs text-muted';
+                }
+
+                arrowPrice.textContent = arrP;
+                arrowName.textContent = arrN;
+
+                applySort();
             }
 
             function start() {
@@ -3560,7 +3695,7 @@
                     }
                 }, 500);
 
-                observer = new MutationObserver(() => {
+                const observer = new MutationObserver(() => {
                     if (!document.getElementById('e8-sort-panel')) {
                         createSortUI();
                     }
@@ -3568,17 +3703,12 @@
 
                 if (document.body) {
                     observer.observe(document.body, { childList: true, subtree: true });
-                } else {
-                    window.addEventListener('DOMContentLoaded', () => {
-                        observer.observe(document.body, { childList: true, subtree: true });
-                    });
                 }
             }
 
             if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
             else start();
         })();
-
 
     main();
 
