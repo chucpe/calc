@@ -134,11 +134,11 @@
   {
     "id": "751855c9-8a11-4269-8cb7-4ccac18d57b6",
     "name": "Б005Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "10.11.2026 20:43",
+    "startDateTime": "2026-11-10T17:43:02.917Z",
     "cancelDateTime": null,
     "execCount": 1
   },
