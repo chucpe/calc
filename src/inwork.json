@@ -1,16 +1,5 @@
 [
   {
-    "id": "7d3471b0-b1db-4099-a857-645e1702718e",
-    "name": "Б00Т39БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "08a94870-ae4c-4f33-b14e-4dcd2a6e868d",
     "name": "Б00С19Белый",
     "firstName": "",
@@ -123,6 +112,17 @@
   {
     "id": "201c256a-0769-488f-adea-a20e01781a89",
     "name": "СтолЛофт110*60ВотанЧерныеНожки",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "7d3471b0-b1db-4099-a857-645e1702718e",
+    "name": "Б00Т39БелыйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
