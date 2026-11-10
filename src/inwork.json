@@ -180,10 +180,10 @@
     "name": "Б005Белый",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "10.11.2026 20:43",
+    "status": "Завершен",
+    "date": "10.11.2026 21:44",
     "startDateTime": "2026-11-10T17:43:02.917Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T18:44:36.942Z",
     "execCount": 1
   },
   {
