@@ -77,17 +77,6 @@
     "execCount": 1
   },
   {
-    "id": "3e41198a-e92d-4743-a7ff-96ee89a28c9b",
-    "name": "Б00Т38БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "959a800b-c52c-4473-b665-0a5bc13b0a9e",
     "name": "Б00Т38БелыйЗР",
     "firstName": "",
@@ -132,14 +121,36 @@
     "execCount": 1
   },
   {
+    "id": "43a3cdcf-30e1-4b27-b285-31745dd20f5c",
+    "name": "Б00Т34Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "3e41198a-e92d-4743-a7ff-96ee89a28c9b",
+    "name": "Б00Т38БелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "10.11.2026 08:27",
+    "startDateTime": "2026-11-10T05:27:11.653Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "bfcf742b-9d70-4602-9345-b8cf55321f67",
     "name": "Б00Ш1Вотан",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "10.11.2026 08:02",
+    "status": "Завершен",
+    "date": "10.11.2026 08:51",
     "startDateTime": "2026-11-10T05:02:23.976Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T05:51:17.069Z",
     "execCount": 1
   },
   {
