@@ -22,30 +22,8 @@
     "execCount": 1
   },
   {
-    "id": "6226cdfb-a43f-4ba0-ad1b-1761000c7bf8",
-    "name": "Б00Т39БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "a38cecd6-746b-4fa1-b439-09ae61d9b1a4",
     "name": "Б00С19Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "4e5916ab-e68c-4395-8b29-2ad3a0a5fdbc",
-    "name": "Б00С8ЧерныйКромкаКрасная",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -121,14 +99,58 @@
     "execCount": 1
   },
   {
-    "id": "05a7f06e-f344-4ad5-b0f8-fc2f834554ee",
+    "id": "40fae2d2-3d03-40e9-9c0e-9bf9731d6f6f",
+    "name": "Б00Т37БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e27d66fa-ca62-4c61-b597-e9a60fa2b7bb",
+    "name": "Б00Т37БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "6226cdfb-a43f-4ba0-ad1b-1761000c7bf8",
+    "name": "Б00Т39БелыйЗР",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "10.11.2026 22:15",
+    "startDateTime": "2026-11-10T19:15:37.923Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "4e5916ab-e68c-4395-8b29-2ad3a0a5fdbc",
     "name": "Б00С8ЧерныйКромкаКрасная",
     "firstName": "Кирил",
     "lastName": "Глухов",
     "status": "В работе",
-    "date": "10.11.2026 22:05",
-    "startDateTime": "2026-11-10T19:05:24.219Z",
+    "date": "10.11.2026 22:12",
+    "startDateTime": "2026-11-10T19:12:39.431Z",
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "05a7f06e-f344-4ad5-b0f8-fc2f834554ee",
+    "name": "Б00С8ЧерныйКромкаКрасная",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "Завершен",
+    "date": "10.11.2026 22:12",
+    "startDateTime": "2026-11-10T19:05:24.219Z",
+    "cancelDateTime": "2026-11-10T19:12:36.200Z",
     "execCount": 1
   },
   {
