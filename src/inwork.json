@@ -110,6 +110,17 @@
     "execCount": 1
   },
   {
+    "id": "791ebe2f-b6c9-4363-bfff-8ae2fa657b66",
+    "name": "КомпСтолЧерный-КромкаКрасная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "3f9b7528-1806-405c-9916-d8a06f324f7d",
     "name": "Б00Т34Белый",
     "firstName": "Дмитрий",
@@ -125,10 +136,10 @@
     "name": "Б00Т34Белый",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "10.11.2026 14:46",
+    "status": "Завершен",
+    "date": "10.11.2026 15:35",
     "startDateTime": "2026-11-10T11:46:30.394Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T12:35:59.042Z",
     "execCount": 1
   },
   {
