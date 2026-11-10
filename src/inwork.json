@@ -88,17 +88,6 @@
     "execCount": 1
   },
   {
-    "id": "5c553e17-1ea7-4cb6-aa3e-7bf4519afeb4",
-    "name": "Б00Т38БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "3e41198a-e92d-4743-a7ff-96ee89a28c9b",
     "name": "Б00Т38БелыйЗР",
     "firstName": "",
@@ -154,14 +143,25 @@
     "execCount": 1
   },
   {
+    "id": "5c553e17-1ea7-4cb6-aa3e-7bf4519afeb4",
+    "name": "Б00Т38БелыйЗР",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "Завершен",
+    "date": "10.11.2026 07:55",
+    "startDateTime": "2026-11-10T03:48:44.949Z",
+    "cancelDateTime": "2026-11-10T04:55:34.931Z",
+    "execCount": 1
+  },
+  {
     "id": "1cc167d5-5948-44f8-9cda-6be8d7503faf",
     "name": "Б0038Вотан",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "10.11.2026 06:24",
+    "status": "Завершен",
+    "date": "10.11.2026 06:47",
     "startDateTime": "2026-11-10T03:24:42.930Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T03:47:11.719Z",
     "execCount": 1
   },
   {
