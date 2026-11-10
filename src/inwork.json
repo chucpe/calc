@@ -92,10 +92,10 @@
     "name": "СтолЛофт110*60ВотанЧерныеНожки",
     "firstName": "Сергей",
     "lastName": "Коцеруба",
-    "status": "В работе",
-    "date": "10.11.2026 22:57",
+    "status": "Завершен",
+    "date": "10.11.2026 23:18",
     "startDateTime": "2026-11-10T19:57:04.554Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T20:18:33.382Z",
     "execCount": 1
   },
   {
