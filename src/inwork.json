@@ -81,10 +81,10 @@
     "name": "Б00Т39БелыйЗР",
     "firstName": "Алексей",
     "lastName": "Шеин",
-    "status": "В работе",
-    "date": "10.11.2026 23:26",
+    "status": "Завершен",
+    "date": "10.11.2026 23:34",
     "startDateTime": "2026-11-10T20:26:10.157Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T20:34:31.771Z",
     "execCount": 1
   },
   {
@@ -147,10 +147,10 @@
     "name": "Б00С8ЧерныйКромкаКрасная",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "10.11.2026 22:12",
+    "status": "Завершен",
+    "date": "10.11.2026 23:36",
     "startDateTime": "2026-11-10T19:12:39.431Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T20:36:11.743Z",
     "execCount": 1
   },
   {
