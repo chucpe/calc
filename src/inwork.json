@@ -33,6 +33,17 @@
     "execCount": 1
   },
   {
+    "id": "06e17f2a-c6ea-4ae8-b468-82d79dda7c94",
+    "name": "Б00С19Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "dd4e2570-fba2-4a8e-8c14-0b9419266a4a",
     "name": "СтолЛофт110*60ВотанЧерныеНожки",
     "firstName": "",
