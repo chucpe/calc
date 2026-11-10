@@ -11,8 +11,8 @@
     "execCount": 1
   },
   {
-    "id": "132ed0d1-2518-49d4-9f12-2d6cfa3497ba",
-    "name": "Б005МБелый",
+    "id": "08a94870-ae4c-4f33-b14e-4dcd2a6e868d",
+    "name": "Б00С19Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -22,7 +22,7 @@
     "execCount": 1
   },
   {
-    "id": "08a94870-ae4c-4f33-b14e-4dcd2a6e868d",
+    "id": "a38cecd6-746b-4fa1-b439-09ae61d9b1a4",
     "name": "Б00С19Белый",
     "firstName": "",
     "lastName": "",
@@ -81,6 +81,17 @@
     "name": "СтолЛофт110*60ВотанЧерныеНожки",
     "firstName": "",
     "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "132ed0d1-2518-49d4-9f12-2d6cfa3497ba",
+    "name": "Б005МБелый",
+    "firstName": "Сергей",
+    "lastName": "Коцеруба",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
@@ -158,10 +169,10 @@
     "name": "Б00Т14(Ш14)Белый",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "10.11.2026 18:54",
+    "status": "Завершен",
+    "date": "10.11.2026 19:44",
     "startDateTime": "2026-11-10T15:54:37.146Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T16:44:22.891Z",
     "execCount": 1
   },
   {
