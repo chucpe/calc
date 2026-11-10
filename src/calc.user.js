@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.15
+// @version      5.20
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -25,7 +25,7 @@
     function _0x2c9c(_0x2bad0c,_0x31f1f1){const _0x13be9a=_0x24d4();return _0x2c9c=function(_0x137a2b,_0x4736a8){_0x137a2b=_0x137a2b-0x198;let _0x24d457=_0x13be9a[_0x137a2b];if(_0x2c9c['UCkzIq']===undefined){var _0x2c9c8e=function(_0x32c339){const _0x38f600='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x389b88='',_0x3d7c15='',_0x4503fa=_0x389b88+_0x2c9c8e;for(let _0x382be9=0x0,_0x4d78b1,_0x2c4fc4,_0x33413c=0x0;_0x2c4fc4=_0x32c339['charAt'](_0x33413c++);~_0x2c4fc4&&(_0x4d78b1=_0x382be9%0x4?_0x4d78b1*0x40+_0x2c4fc4:_0x2c4fc4,_0x382be9++%0x4)?_0x389b88+=_0x4503fa['charCodeAt'](_0x33413c+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x4d78b1>>(-0x2*_0x382be9&0x6)):_0x382be9:0x0){_0x2c4fc4=_0x38f600['indexOf'](_0x2c4fc4);}for(let _0xd91def=0x0,_0x2acdda=_0x389b88['length'];_0xd91def<_0x2acdda;_0xd91def++){_0x3d7c15+='%'+('00'+_0x389b88['charCodeAt'](_0xd91def)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x3d7c15);};_0x2c9c['OJPuXh']=_0x2c9c8e,_0x2bad0c=arguments,_0x2c9c['UCkzIq']=!![];}const _0x3b4b7d=_0x13be9a[0x0],_0x1fe4ae=_0x137a2b+_0x3b4b7d,_0x41fb32=_0x2bad0c[_0x1fe4ae];if(!_0x41fb32){const _0x2410df=function(_0x13eba3){this['ZuuvSy']=_0x13eba3,this['nIgMLt']=[0x1,0x0,0x0],this['cQjcCG']=function(){return'newState';},this['BTDYKZ']='\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*',this['NeSBjN']='[\x27|\x22].+[\x27|\x22];?\x20*}';};_0x2410df['prototype']['FunCyj']=function(){const _0x19710e=new RegExp(this['BTDYKZ']+this['NeSBjN']),_0x298e39=_0x19710e['test'](this['cQjcCG']['toString']())?--this['nIgMLt'][0x1]:--this['nIgMLt'][0x0];return this['VBqJQe'](_0x298e39);},_0x2410df['prototype']['VBqJQe']=function(_0x45e562){if(!Boolean(~_0x45e562))return _0x45e562;return this['HFtBUv'](this['ZuuvSy']);},_0x2410df['prototype']['HFtBUv']=function(_0xb76d5e){for(let _0x39782c=0x0,_0x4d0c07=this['nIgMLt']['length'];_0x39782c<_0x4d0c07;_0x39782c++){this['nIgMLt']['push'](Math['round'](Math['random']())),_0x4d0c07=this['nIgMLt']['length'];}return _0xb76d5e(this['nIgMLt'][0x0]);},new _0x2410df(_0x2c9c)['FunCyj'](),_0x24d457=_0x2c9c['OJPuXh'](_0x24d457),_0x2bad0c[_0x1fe4ae]=_0x24d457;}else _0x24d457=_0x41fb32;return _0x24d457;},_0x2c9c(_0x2bad0c,_0x31f1f1);}const _0x528889=_0x2c9c;(function(_0x1fd6b1,_0xd0d322){const _0x21f754=_0x2c9c,_0x42af6a=_0x1fd6b1();while(!![]){try{const _0x1b0453=parseInt(_0x21f754(0x1fd))/0x1+parseInt(_0x21f754(0x1a1))/0x2*(-parseInt(_0x21f754(0x1fb))/0x3)+parseInt(_0x21f754(0x1ac))/0x4*(-parseInt(_0x21f754(0x1a4))/0x5)+parseInt(_0x21f754(0x1f7))/0x6*(parseInt(_0x21f754(0x19b))/0x7)+parseInt(_0x21f754(0x217))/0x8*(parseInt(_0x21f754(0x1b2))/0x9)+parseInt(_0x21f754(0x1a9))/0xa*(-parseInt(_0x21f754(0x1c0))/0xb)+parseInt(_0x21f754(0x1b6))/0xc;if(_0x1b0453===_0xd0d322)break;else _0x42af6a['push'](_0x42af6a['shift']());}catch(_0x19c24a){_0x42af6a['push'](_0x42af6a['shift']());}}}(_0x24d4,0x832bd));function _0x24d4(){const _0x15b0fc=['ChjLDMvU','DxnLCMnV','iGOGicaG','oYbTyxjN','C3rLBs11','y29UC3rY','CxncEhq','icaGignV','Dg9tDhjP','0lxqVs4G0jhqUW','CgfYC2u','zMzMoWOG','Dg9ToIaX','EdSIpTcD0lu','ywXJl3jL','0l7qUI4','AMzREMq','w2u4lwfJ','CJOG','y2vUDgvY','0ylrG9c/inga0la','BNrfBgvT','ignLBNrL','BgLNBI1P','vLzRvLG','yxbWBhK','C3rHDhvZ','zgLYzwn0','y2vZC10G','DgvUDeXV','lY9YyxCU','CY1ZzxjP','0llrGDc10lWPoG','ywXSB3C','lMPZB24','zxjYB3i','ywrKrxzL','ig51BwjL','0yhrGDc40liUia','C2nYAxb0','sMjRu2y','EhbLsNa','DJ4kicaG','nKD1BwrjBG','DwnWzs9J','kcGOlISP','4PUupc9KAxy','mtu3mta3tgPLExzM','Aw4TyM90','nZmXmdmZwxvTBKzV','yY9SAxn0','zxHLy3v0','EwXLpsjM','C2vHCMnO','z2L0AhvI','C2L6Aw5N','DwiUincu0l4','zhmVBwfZ','nNb4oYi+','r2L0shvI','knc90lxqUnc30li','zw5LCG','BMC6idiW','EtOGzMXL','zg9JDw1L','ywrLza','icaGicaG','ywXSB3CU','Ag1ZENa','ihrLEhqT','zt0IzM9U','kYKRksSK','zxiTyM94','B250lxnP','incY0yhqTDc8lG','mta4odu4neHfqxvAAq','Dc1Myw1P','ve1m','icbIB3GT','0lxqVtWVAde','DerLzMf1','icaGicbO','zwLNAhq6','ica8l2rP','zvHkANG','C3rVCa','wvbwv3i','Dwn0B3i','CJSkicaG','ywXPz246','DgvYl3nY','CMvZCg9U','v0f1DhC','0l7rGDgc0ypqVYa','ihbHzgrP','CMvHzhLt','pGOGicaG','yM9KEq','y2rWvNm','incu0l7rGDgc0ym','inc90luG0liG','BNrLBNqU','icaGicbH','r0vu','0lFrGnc10yJrKDc9','ingb0lxrGTc4lG','EdSkicaG','0jtqVTgb0ylrG9c/','0luG0l3qSnc50lq','BNvTyMvY','icaGica','ntmZmJi5oxL6qNrfyW','ChG7cIaG','DgvTCZOG','D2fYBG','yxv0Af9S','sNDJtxi','mtHzEffPufm','0j7rInc40lhqUTcW','idXKAxyG','ntK0mtvUuwzMuvm','0l3qS9cWicJqTa','Bg9YoIaJ','oWOGicaG','0jhqSnc9inc/0l4','mZi0nZb0BLDhreK','Aw5Uzxji','0lxrGDgc0l3qVIK','mti4r3rVD0nm','zJSkicaG','zw50','AxnbCNjH','0l8G0llrGDc10lW','Bg9N','ovr0qxrmua','BhK6ihn5','CMDPBJOG','re9nq29U','nJC4mJK2nhzSs2P4rG','AgvHza','sKfpwM4','incr0lVqVTc6lG','inc90lxqTnc+0ye','y29Tl2nO','cIaGicaG','iZeXmtSk','icaIpGOG','rNrNzvC','mJCYoef6ueDIsq','0yhqTDc8lG','icaGzM9U','C2vuzxH0','zw50oIbJ','0khqV9c40yhqVTc6','z2v0sxrL','inc/0ldrGngb0lG','icaGpgrP','inc90luG0lZqSa','BM93','Es1JB250'];_0x24d4=function(){return _0x15b0fc;};return _0x24d4();}const NUMBER_LIST_URL='https:'+_0x528889(0x1ea)+_0x528889(0x202)+_0x528889(0x1cd)+_0x528889(0x231)+_0x528889(0x1bb)+_0x528889(0x1f8)+_0x528889(0x1da)+'fs/hea'+_0x528889(0x205)+_0x528889(0x226)+_0x528889(0x1fe)+_0x528889(0x1ee);function getAuthLogin(){const _0x577edd=_0x528889,_0x3689a3={'MgFQt':_0x577edd(0x19f)+'ogin'};try{const _0x41536a=localStorage[_0x577edd(0x1c6)+'m'](_0x3689a3['MgFQt']);if(_0x41536a)return _0x41536a['trim']();}catch(_0x220722){}return null;}function blockPage(_0xb91981){const _0x3b4458=_0x528889,_0x2bb413={'FtgeW':function(_0x32436a,_0x8d1b8c){return _0x32436a===_0x8d1b8c;}};window[_0x3b4458(0x221)]();const _0x53fa34=()=>{const _0x56db80=_0x3b4458;document[_0x56db80(0x20c)+_0x56db80(0x1e1)+_0x56db80(0x1ae)][_0x56db80(0x1aa)+_0x56db80(0x219)]='',document[_0x56db80(0x1b7)][_0x56db80(0x1aa)+_0x56db80(0x219)]='',document[_0x56db80(0x22d)][_0x56db80(0x1aa)+_0x56db80(0x219)]='\x0a\x20\x20\x20\x20\x20'+'\x20\x20\x20\x20\x20\x20'+_0x56db80(0x1a3)+'style='+_0x56db80(0x1ce)+_0x56db80(0x20e)+_0x56db80(0x20e)+'displa'+_0x56db80(0x20b)+_0x56db80(0x236)+'\x20\x20\x20\x20\x20\x20'+_0x56db80(0x20e)+'\x20flex-'+_0x56db80(0x1e7)+'ion:\x20c'+'olumn;'+_0x56db80(0x1bc)+_0x56db80(0x20e)+_0x56db80(0x232)+_0x56db80(0x1e3)+_0x56db80(0x19d)+_0x56db80(0x1df)+_0x56db80(0x1a7)+_0x56db80(0x20e)+_0x56db80(0x20e)+'justif'+_0x56db80(0x1cb)+_0x56db80(0x1c4)+'enter;'+_0x56db80(0x1bc)+'\x20\x20\x20\x20\x20\x20'+_0x56db80(0x21d)+_0x56db80(0x21e)+'\x20100vh'+_0x56db80(0x1a7)+'\x20\x20\x20\x20\x20\x20'+'\x20\x20\x20\x20\x20\x20'+'backgr'+'ound:\x20'+_0x56db80(0x1bd)+_0x56db80(0x20e)+_0x56db80(0x20e)+_0x56db80(0x1d3)+_0x56db80(0x1a6)+_0x56db80(0x1d7)+'\x20\x20\x20\x20\x20\x20'+'\x20\x20\x20\x20\x20\x20'+_0x56db80(0x1c2)+_0x56db80(0x218)+_0x56db80(0x1b3)+_0x56db80(0x1d0)+'i,\x20san'+_0x56db80(0x1eb)+_0x56db80(0x1ad)+_0x56db80(0x20e)+'\x20\x20\x20\x20\x20\x20'+_0x56db80(0x211)+_0x56db80(0x225)+_0x56db80(0x1e2)+_0x56db80(0x224)+'\x20\x20\x20\x20\x20\x20'+'\x20\x20\x20\x20\x20\x20'+_0x56db80(0x22a)+_0x56db80(0x20a)+_0x56db80(0x19c)+_0x56db80(0x20e)+_0x56db80(0x20e)+_0x56db80(0x21a)+_0x56db80(0x203)+':\x20bord'+_0x56db80(0x214)+_0x56db80(0x1a7)+_0x56db80(0x20e)+_0x56db80(0x1be)+_0x56db80(0x20e)+_0x56db80(0x20e)+_0x56db80(0x1c8)+'v\x20styl'+_0x56db80(0x212)+'t-size'+':\x2064px'+_0x56db80(0x1cf)+_0x56db80(0x1fc)+_0x56db80(0x1d8)+_0x56db80(0x206)+_0x56db80(0x1fa)+_0x56db80(0x22c)+'\x20\x20\x20\x20\x20\x20'+_0x56db80(0x20e)+'<h1\x20st'+_0x56db80(0x200)+_0x56db80(0x215)+'ze:\x2024'+'px;\x20ma'+_0x56db80(0x1b4)+'0\x200\x208p'+_0x56db80(0x1d9)+'доступ'+_0x56db80(0x21b)+_0x56db80(0x22c)+_0x56db80(0x20e)+_0x56db80(0x21f)+_0x56db80(0x1f6)+_0x56db80(0x19a);};_0x2bb413[_0x3b4458(0x1bf)](document[_0x3b4458(0x22b)+'tate'],'loadin'+'g')?document[_0x3b4458(0x1f0)+'ntList'+_0x3b4458(0x209)](_0x3b4458(0x1b5)+_0x3b4458(0x1e9)+_0x3b4458(0x20d),_0x53fa34):_0x53fa34(),document[_0x3b4458(0x1f0)+'ntList'+_0x3b4458(0x209)]('before'+_0x3b4458(0x1f3)+_0x3b4458(0x1ff)+'e',_0x3878f0=>{const _0x631ab5=_0x3b4458;_0x3878f0[_0x631ab5(0x1cc)+_0x631ab5(0x21c)+'lt']();},!![]);}function checkAccess(){const _0x35b173=_0x528889,_0x120a43={'JAOZn':_0x35b173(0x1f9)+_0x35b173(0x213),'JbkSf':_0x35b173(0x1dd)+_0x35b173(0x1e8)+_0x35b173(0x207)+_0x35b173(0x1ba)+'тупен.'+_0x35b173(0x22f)+_0x35b173(0x1b0)+'.','JScXW':function(_0x267205,_0x31aad1){return _0x267205(_0x31aad1);},'cdpVs':function(_0x2055be,_0x3d397e){return _0x2055be!==_0x3d397e;},'VSxTA':function(_0x43ad1d,_0x3a5756){return _0x43ad1d===_0x3a5756;},'hmszp':function(_0x55c6bf,_0x32a7a8){return _0x55c6bf&&_0x32a7a8;},'xpeJp':_0x35b173(0x1dd)+_0x35b173(0x1e8)+'Ошибка'+_0x35b173(0x1c7)+_0x35b173(0x1a5)+_0x35b173(0x229)+_0x35b173(0x1ec),'eXJjx':_0x35b173(0x1dd)+_0x35b173(0x1e8)+'Таймау'+'т\x20GitH'+_0x35b173(0x204)+'ступ\x20в'+_0x35b173(0x1c1),'WAutw':function(_0x15a7fc,_0x2c090c,_0x11f788){return _0x15a7fc(_0x2c090c,_0x11f788);},'YPVWr':function(_0x5d424a){return _0x5d424a();},'qsBxt':_0x35b173(0x208)+_0x35b173(0x1ab),'JwcMr':_0x35b173(0x233),'VVkVX':function(_0x2ec503,_0x4951e8){return _0x2ec503+_0x4951e8;},'jfkzd':'?t='},_0xb8e26=(function(){let _0x33fcf9=!![];return function(_0x574907,_0x16acb2){const _0x187f77=_0x33fcf9?function(){const _0x37767a=_0x2c9c;if(_0x16acb2){const _0x88142f=_0x16acb2[_0x37767a(0x1e5)](_0x574907,arguments);return _0x16acb2=null,_0x88142f;}}:function(){};return _0x33fcf9=![],_0x187f77;};}()),_0x12e7b7=_0x120a43[_0x35b173(0x228)](_0xb8e26,this,function(){const _0x1807c2=_0x35b173;return _0x12e7b7[_0x1807c2(0x1d4)+'ng']()[_0x1807c2(0x201)](_0x120a43[_0x1807c2(0x1b8)])[_0x1807c2(0x1d4)+'ng']()[_0x1807c2(0x1d1)+_0x1807c2(0x223)](_0x12e7b7)['search'](_0x120a43[_0x1807c2(0x1b8)]);});_0x12e7b7();const _0x3fecd6=_0x120a43[_0x35b173(0x222)](getAuthLogin);if(!_0x3fecd6){console[_0x35b173(0x19e)](_0x35b173(0x1dd)+'cess]\x20'+_0x35b173(0x19f)+'ogin\x20н'+_0x35b173(0x198)+_0x35b173(0x1d5)+_0x35b173(0x1db)),blockPage(_0x120a43[_0x35b173(0x1d2)]);return;}GM_xmlhttpRequest({'method':_0x120a43[_0x35b173(0x1a0)],'url':_0x120a43[_0x35b173(0x1e4)](_0x120a43[_0x35b173(0x1e4)](NUMBER_LIST_URL,_0x120a43[_0x35b173(0x1dc)]),Date[_0x35b173(0x1ca)]()),'onload':_0x204183=>{const _0x2b0009=_0x35b173;if(_0x204183[_0x2b0009(0x1e6)]!==0xc8){console[_0x2b0009(0x19e)](_0x120a43[_0x2b0009(0x1f4)]);return;}try{const _0x3714f3=JSON[_0x2b0009(0x1d6)](_0x204183[_0x2b0009(0x227)+_0x2b0009(0x1c3)]);if(!Array['isArra'+'y'](_0x3714f3)){console[_0x2b0009(0x19e)]('[e8-ac'+'cess]\x20'+_0x2b0009(0x1c5)+_0x2b0009(0x1c9)+_0x2b0009(0x1f2)+_0x2b0009(0x237)+_0x2b0009(0x216));return;}const _0x9ca57e=_0x3fecd6;for(const _0x27dfd8 of _0x3714f3){if(_0x27dfd8[_0x2b0009(0x199)]!==undefined){const _0x739dbd=Array[_0x2b0009(0x1af)+'y'](_0x27dfd8[_0x2b0009(0x199)])?_0x27dfd8[_0x2b0009(0x199)]:[_0x27dfd8[_0x2b0009(0x199)]];for(const _0x15c618 of _0x739dbd){if(_0x15c618===_0x9ca57e){console[_0x2b0009(0x1b1)](_0x2b0009(0x1dd)+_0x2b0009(0x1e8)+_0x2b0009(0x1a8)+_0x2b0009(0x1f1)+_0x2b0009(0x1de)+_0x9ca57e),_0x120a43['JScXW'](blockPage,_0x9ca57e);return;}}}}let _0x3bafc9=![],_0x5c2783=![];for(const _0x4fda75 of _0x3714f3){if(_0x120a43[_0x2b0009(0x22e)](_0x4fda75[_0x2b0009(0x1ed)],undefined)){_0x3bafc9=!![];const _0x4c6ce1=Array[_0x2b0009(0x1af)+'y'](_0x4fda75[_0x2b0009(0x1ed)])?_0x4fda75[_0x2b0009(0x1ed)]:[_0x4fda75[_0x2b0009(0x1ed)]];for(const _0x5dd8f9 of _0x4c6ce1){if(_0x120a43['VSxTA'](_0x5dd8f9,_0x9ca57e)){_0x5c2783=!![];break;}}if(_0x5c2783)break;}}if(_0x120a43[_0x2b0009(0x210)](_0x3bafc9,!_0x5c2783)){console[_0x2b0009(0x1b1)](_0x2b0009(0x1dd)+_0x2b0009(0x1e8)+_0x9ca57e+(_0x2b0009(0x230)+_0x2b0009(0x20f)+_0x2b0009(0x1b9))),blockPage(_0x9ca57e);return;}console[_0x2b0009(0x1b1)](_0x2b0009(0x1dd)+_0x2b0009(0x1e8)+_0x9ca57e+('\x20—\x20дос'+_0x2b0009(0x1e0)+_0x2b0009(0x234)+'.'));}catch(_0x3d2b7f){console[_0x2b0009(0x1ef)](_0x120a43[_0x2b0009(0x1f5)],_0x3d2b7f);}},'onerror':()=>{const _0x5e30db=_0x35b173;console[_0x5e30db(0x19e)]('[e8-ac'+_0x5e30db(0x1e8)+_0x5e30db(0x1a2)+_0x5e30db(0x235)+'\x20Досту'+'п\x20всем'+'.');},'ontimeout':()=>{const _0x33046d=_0x35b173;console[_0x33046d(0x19e)](_0x120a43[_0x33046d(0x220)]);},'timeout':0x2710});}checkAccess();
 
     function main() {
-
+32
         var _0x53fc53=_0x2493;(function(_0x1e045f,_0x5130bf){var _0x48db57=_0x2493,_0x9e8377=_0x1e045f();while(!![]){try{var _0x1a0622=parseInt(_0x48db57(0x141))/0x1+-parseInt(_0x48db57(0x133))/0x2*(-parseInt(_0x48db57(0x138))/0x3)+parseInt(_0x48db57(0x149))/0x4+parseInt(_0x48db57(0x13e))/0x5+-parseInt(_0x48db57(0x142))/0x6+parseInt(_0x48db57(0x148))/0x7+-parseInt(_0x48db57(0x137))/0x8;if(_0x1a0622===_0x5130bf)break;else _0x9e8377['push'](_0x9e8377['shift']());}catch(_0x55153f){_0x9e8377['push'](_0x9e8377['shift']());}}}(_0x3ec1,0xa6340));var _0x325e31=(function(){var _0x214815=!![];return function(_0x1299a8,_0x1968fd){var _0xd35a1a=_0x214815?function(){var _0x37c629=_0x2493;if(_0x1968fd){var _0x58aca6=_0x1968fd[_0x37c629(0x13a)](_0x1299a8,arguments);return _0x1968fd=null,_0x58aca6;}}:function(){};return _0x214815=![],_0xd35a1a;};}()),_0x1152c8=_0x325e31(this,function(){var _0x3f9a5d=_0x2493,_0x44a129={'cdXmt':_0x3f9a5d(0x134)+_0x3f9a5d(0x144)};return _0x1152c8[_0x3f9a5d(0x146)+'ng']()[_0x3f9a5d(0x13d)](_0x44a129[_0x3f9a5d(0x136)])['toStri'+'ng']()['constr'+'uctor'](_0x1152c8)['search']('(((.+)'+_0x3f9a5d(0x144));});function _0x2493(_0x2605b2,_0x4b6ffa){var _0x526ebb=_0x3ec1();return _0x2493=function(_0x1152c8,_0x325e31){_0x1152c8=_0x1152c8-0x133;var _0x3ec1cb=_0x526ebb[_0x1152c8];if(_0x2493['CjktyN']===undefined){var _0x24935f=function(_0x1cae62){var _0x31391d='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x198563='',_0x48a1eb='',_0x41c3d0=_0x198563+_0x24935f;for(var _0x237fc7=0x0,_0x5990ff,_0x120572,_0x446d98=0x0;_0x120572=_0x1cae62['charAt'](_0x446d98++);~_0x120572&&(_0x5990ff=_0x237fc7%0x4?_0x5990ff*0x40+_0x120572:_0x120572,_0x237fc7++%0x4)?_0x198563+=_0x41c3d0['charCodeAt'](_0x446d98+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x5990ff>>(-0x2*_0x237fc7&0x6)):_0x237fc7:0x0){_0x120572=_0x31391d['indexOf'](_0x120572);}for(var _0x218470=0x0,_0x1e29e6=_0x198563['length'];_0x218470<_0x1e29e6;_0x218470++){_0x48a1eb+='%'+('00'+_0x198563['charCodeAt'](_0x218470)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x48a1eb);};_0x2493['dnmjjv']=_0x24935f,_0x2605b2=arguments,_0x2493['CjktyN']=!![];}var _0xe23503=_0x526ebb[0x0],_0xa31d31=_0x1152c8+_0xe23503,_0x4d4f18=_0x2605b2[_0xa31d31];if(!_0x4d4f18){var _0x374ec8=function(_0x539f34){this['dlPLPr']=_0x539f34,this['HugliN']=[0x1,0x0,0x0],this['bWflqR']=function(){return'newState';},this['SBEoIj']='\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*',this['zALWfU']='[\x27|\x22].+[\x27|\x22];?\x20*}';};_0x374ec8['prototype']['oEqtGf']=function(){var _0x2cbcdb=new RegExp(this['SBEoIj']+this['zALWfU']),_0x4f932b=_0x2cbcdb['test'](this['bWflqR']['toString']())?--this['HugliN'][0x1]:--this['HugliN'][0x0];return this['PIbeeD'](_0x4f932b);},_0x374ec8['prototype']['PIbeeD']=function(_0x2bad01){if(!Boolean(~_0x2bad01))return _0x2bad01;return this['nUaFuM'](this['dlPLPr']);},_0x374ec8['prototype']['nUaFuM']=function(_0x39cb95){for(var _0x5ced2a=0x0,_0x1de5cb=this['HugliN']['length'];_0x5ced2a<_0x1de5cb;_0x5ced2a++){this['HugliN']['push'](Math['round'](Math['random']())),_0x1de5cb=this['HugliN']['length'];}return _0x39cb95(this['HugliN'][0x0]);},new _0x374ec8(_0x2493)['oEqtGf'](),_0x3ec1cb=_0x2493['dnmjjv'](_0x3ec1cb),_0x2605b2[_0xa31d31]=_0x3ec1cb;}else _0x3ec1cb=_0x4d4f18;return _0x3ec1cb;},_0x2493(_0x2605b2,_0x4b6ffa);}function _0x3ec1(){var _0x5e6d63=['nta4oduXmg90wgLdzG','EhnsBxr0','kYKRksSK','u2PgnfPT','Dg9tDhjP','zgfumhbp','otaYmdi2m3DnuuLiEG','mJeWmdeZnKrkt0PSuG','nJqWmZe2vKrNuxbP','kcGOlISP','Ag1uAKL5','y2ryBxq','mtiXmdC2otzeBuLqywu','m3njAKnIBq','yM1Ougnf','yxbWBhK','wvvsCLOX','wMTJBLzs','C2vHCMnO','odeZnZeWCeHlEfnb','v0DfD2jN','x19LoeDu','nZq1nZCYu3D4wKL2'];_0x3ec1=function(){return _0x5e6d63;};return _0x3ec1();}_0x1152c8(),window[_0x53fc53(0x140)+'P']=atob('Z2hwX1'+_0x53fc53(0x13c)+_0x53fc53(0x145)+_0x53fc53(0x143)+_0x53fc53(0x139)+_0x53fc53(0x147)+_0x53fc53(0x13b)+_0x53fc53(0x135)+_0x53fc53(0x13f)+'==');
 
         // ==================================================================
@@ -227,26 +227,7 @@
                         </div>
                 `;
 
-                if (currentTab === 'top') {
-                    const top = items
-                        .map(([label, s]) => ({ label, holes: s.holes || 0, earn: s.earn || 0, count: s.count || 0, hours: s.hours || 0 }))
-                        .sort((a, b) => b.holes - a.holes)
-                        .slice(0, 10);
-
-                    html += `<div style="font-size:11px;opacity:.7;">Топ-10 позиций (по отверстиям):</div>`;
-                    if (top.length === 0) {
-                        html += `<div style="font-size:11px;opacity:.6;margin-top:4px;">Пока нет данных</div>`;
-                    } else {
-                        top.forEach((t, i) => {
-                            html += `
-                                <div style="display:flex;justify-content:space-between;gap:8px;padding:3px 0;font-size:11px;border-top:1px solid #2a2a3e;margin-top:2px;">
-                                    <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><b>${i + 1}.</b> ${t.label}</span>
-                                    <span style="text-align:right;white-space:nowrap;"><span style="color:#60a5fa;">${t.holes} отв</span> · <span style="color:#fbbf24;">${formatHours(t.hours)}</span> · <span style="color:#7CFC9B;">${money(t.earn)}</span></span>
-                                </div>
-                            `;
-                        });
-                    }
-                } else if (currentTab === 'daily') {
+                if (currentTab === 'daily') {
                     html += `<div style="font-size:11px;opacity:.7;">История по дням:</div>`;
                     const sortedDates = Object.keys(dailyStats).sort((a, b) => b.localeCompare(a));
 
@@ -335,7 +316,6 @@
 
                 html += `</div>`;
                 html += `<button id="e8-stats-export" style="margin-top:10px;width:100%;cursor:pointer;background:#3b82f6;color:#fff;border:0;border-radius:5px;padding:4px 8px;font:600 11px system-ui,sans-serif;">Скачать CSV</button>`;
-                html += `<button id="e8-stats-clear" style="margin-top:6px;width:100%;cursor:pointer;background:#ef4444;color:#fff;border:0;border-radius:5px;padding:4px 8px;font:600 11px system-ui,sans-serif;">Очистить статистику</button>`;
 
                 return html;
             }
@@ -361,11 +341,9 @@
                 if (!panel) return;
                 panel.innerHTML = buildStatsHTML();
 
-                const tabTop = panel.querySelector('#e8-tab-top');
                 const tabDaily = panel.querySelector('#e8-tab-daily');
                 const tabInWork = panel.querySelector('#e8-tab-inwork');
 
-                if (tabTop) tabTop.addEventListener('click', () => { currentTab = 'top'; renderStats(); });
                 if (tabDaily) tabDaily.addEventListener('click', () => { currentTab = 'daily'; renderStats(); });
                 if (tabInWork) {
                     tabInWork.addEventListener('click', () => {
@@ -394,27 +372,6 @@
                         }
                     });
                 });
-
-                const clearBtn = panel.querySelector('#e8-stats-clear');
-                if (clearBtn) {
-                    let clearArmed = false;
-                    clearBtn.addEventListener('click', () => {
-                        if (!clearArmed) {
-                            clearArmed = true;
-                            clearBtn.textContent = 'Нажмите ещё раз для очистки';
-                            clearBtn.style.background = '#b91c1c';
-                            setTimeout(() => { clearArmed = false; clearBtn.textContent = 'Очистить статистику'; clearBtn.style.background = '#ef4444'; }, 3000);
-                            return;
-                        }
-                        stats = {};
-                        dailyStats = {};
-                        seenPallets = [];
-                        saveStats();
-                        saveSeen();
-                        try { localStorage.removeItem('e8_pallet_times'); } catch (e) {}
-                        panel.innerHTML = buildStatsHTML();
-                    });
-                }
 
                 const exportBtn = panel.querySelector('#e8-stats-export');
                 if (exportBtn) {
@@ -448,7 +405,8 @@
 
                             for (let i = 0; i < count; i++) {
                                 const pricePerPallet = r.sum / count;
-                                const time = formatToMsk(times[i] || r.firstDate);
+                                const timeItem = times[i];
+                                const time = formatToMsk((timeItem && timeItem.iso) ? timeItem.iso : r.firstDate);
                                 csv += [esc(r.order), esc(r.label), esc(i + 1), esc(r.holes), esc(pricePerPallet.toFixed(2)), esc(time)].join(';') + '\n';
                             }
                         }
@@ -512,7 +470,8 @@
                 const allPallets = [];
                 for (const row of res.debugRows) {
                     if (!row.times) continue;
-                    for (const iso of row.times) {
+                    for (const item of row.times) {
+                        const iso = (typeof item === 'object' && item !== null) ? item.iso : item;
                         if (!iso) continue;
                         allPallets.push({ iso, earn: row.sum / (row.palletsInRange || 1) });
                     }
@@ -733,7 +692,7 @@
             let filter = { from: null, to: null };
 
             let settings = {
-                opacity: 0.95, rate: 0.48, tax: 13, autoMinimize: false, orderFilter: '', activeCrew: null,
+                opacity: 100, rate: 0.48, tax: 13, autoMinimize: false, orderFilter: '', activeCrew: null, hideOrders: true
             };
 
             window.__e8Settings = settings;
@@ -758,6 +717,7 @@
                         if (typeof s.autoMinimize === 'boolean') settings.autoMinimize = s.autoMinimize;
                         if (typeof s.orderFilter === 'string') settings.orderFilter = s.orderFilter;
                         if (s.activeCrew === 'blue' || s.activeCrew === 'purple' || s.activeCrew === 'orange' || s.activeCrew === null) settings.activeCrew = s.activeCrew;
+                        if (typeof s.hideOrders === 'boolean') settings.hideOrders = s.hideOrders;
                     }
                 } catch (e) {}
             }
@@ -1201,7 +1161,25 @@
                             }
                             totalQuantity += quantityInRange;
 
-                            debugRows.push({ order: order.label, label, holes, pallets, palletsInRange, firstDate: toMskString(firstDateIso), sum, times: timesInRange, firstDateMs: firstDateIso ? new Date(firstDateIso).getTime() : Infinity });
+                            const timesWithIds = [];
+                            for (let i = 0; i < palletsInRange; i++) {
+                                const child = childList[i];
+                                timesWithIds.push({
+                                    iso: child?.cancelDateTime,
+                                    id: child?.id
+                                });
+                            }
+                            debugRows.push({
+                                order: order.label,
+                                label,
+                                holes,
+                                pallets,
+                                palletsInRange,
+                                firstDate: toMskString(firstDateIso),
+                                sum,
+                                times: timesWithIds,
+                                firstDateMs: firstDateIso ? new Date(firstDateIso).getTime() : Infinity
+                            });
                         }
                     }
                     byOrder.set(order.label, orderStat);
@@ -1365,6 +1343,7 @@
                         <label>НДФЛ, %:</label><input type="number" id="e8-tax-input" step="1" min="0" max="99" value="${settings.tax}">
                         <label>Заявки:</label><input type="text" id="e8-order-filter" placeholder="пусто = все" value="${escapeAttr(settings.orderFilter)}">
                         <label class="chk"><input type="checkbox" id="e8-automin" ${settings.autoMinimize ? 'checked' : ''}> Автоматически сворачивать после загрузки</label>
+                        <label class="chk"><input type="checkbox" id="e8-hide-orders" ${settings.hideOrders !== false ? 'checked' : ''}> Скрывать заголовки заявок</label>
                         <div style="display:flex;justify-content:space-between;font-size:11px;opacity:.85;margin-top:8px;"><span>localStorage:</span><span id="e8-storage-info" style="font-weight:600;">— MB / —%</span></div>
                         <div class="btns"><button id="e8-settings-apply">Применить</button><button id="e8-settings-reset" class="secondary">Сбросить</button></div>
                     </div>
@@ -1478,15 +1457,17 @@
                     if (Number.isFinite(tax) && tax >= 0 && tax < 100) settings.tax = tax;
                     settings.autoMinimize = box.querySelector('#e8-automin').checked;
                     settings.orderFilter = box.querySelector('#e8-order-filter').value.trim();
+                    settings.hideOrders = box.querySelector('#e8-hide-orders').checked;
                     saveSettings(); if (lastJson) processJobs(lastJson);
                     window.__e8Settings = settings;
                 });
 
                 box.querySelector('#e8-settings-reset').addEventListener('click', () => {
-                    settings = { opacity: 0.95, rate: 0.48, tax: 13, autoMinimize: settings.autoMinimize, orderFilter: '', activeCrew: null };
-                    box.querySelector('#e8-op-range').value = 95; box.querySelector('#e8-op-val').textContent = '95%';
+                    settings = { opacity: 100, rate: 0.48, tax: 13, autoMinimize: settings.autoMinimize, orderFilter: '', activeCrew: null };
+                    box.querySelector('#e8-op-range').value = 100; box.querySelector('#e8-op-val').textContent = '100%';
                     box.querySelector('#e8-rate-input').value = 0.48; box.querySelector('#e8-tax-input').value = 13;
                     box.querySelector('#e8-order-filter').value = ''; box.querySelector('#e8-automin').checked = settings.autoMinimize;
+                    box.querySelector('#e8-hide-orders').checked = true;
                     box.style.opacity = settings.opacity; saveSettings(); if (lastJson) processJobs(lastJson);
                 });
 
@@ -1666,18 +1647,57 @@
                 let ordersHtml = '';
                 if (byOrder) {
                     for (const [label, st] of byOrder) {
+                      if (!st || st.pallets === 0) continue;
                         let rows = rowsByOrder.get(label) || [];
                         rows = rows.slice().sort((a, b) => (a.firstDateMs ?? Infinity) - (b.firstDateMs ?? Infinity));
                         const key = 'ord-' + Math.random().toString(36).slice(2, 8);
                         let palHtml = '';
                         if (rows.length === 0) palHtml = `<div class="pal-head">Нет данных</div>`;
                         else {
-                            rows.forEach((r, idx) => {
+                                                            rows.forEach((r, idx) => {
                                 if (idx > 0) palHtml += `<div class="pal-sep"></div>`;
-                                const times = (r.times && r.times.length) ? sortIsoAsc(r.times) : [];
-                                palHtml += `<div class="pal-head"><b>${escapeHtml(r.label)}</b> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
-                                if (times.length === 0) palHtml += `<div class="pal"><span class="t">время: —</span></div>`;
-                                else times.forEach(iso => palHtml += `<div class="pal"><span class="t">${toMskString(iso)}</span><span class="n">${escapeHtml(r.label)}</span></div>`);
+
+                                const times = (r.times && r.times.length) ? r.times.slice().sort((a, b) => {
+                                    const isoA = (typeof a === 'object' && a !== null) ? a.iso : a;
+                                    const isoB = (typeof b === 'object' && b !== null) ? b.iso : b;
+
+                                    const parseDate = (str) => {
+                                        if (!str) return 0;
+                                        if (str.includes('T') || str.includes('-')) {
+                                            return new Date(str).getTime() || 0;
+                                        }
+                                        const parts = str.match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
+                                        if (parts) {
+                                            return new Date(+parts[3], +parts[2] - 1, +parts[1], +parts[4], +parts[5]).getTime();
+                                        }
+                                        return 0;
+                                    };
+
+                                    return parseDate(isoA) - parseDate(isoB);
+                                }) : [];
+                                const firstItem = times.length > 0 ? times[0] : null;
+                                const firstId = (firstItem && typeof firstItem === 'object') ? firstItem.id : null;
+
+                                if (firstId) {
+                                    palHtml += `<div class="pal-head"><a href="https://e8.ffa.su/admin/projects/1/jobs/${firstId}/info?back=/admin/projects/1/jobs?statusId=1" target="_blank" style="color:#60a5fa; text-decoration:none;"><b>${escapeHtml(r.label)}</b></a> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
+                                } else {
+                                    palHtml += `<div class="pal-head"><b>${escapeHtml(r.label)}</b> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
+                                }
+
+                                if (times.length === 0) {
+                                    palHtml += `<div class="pal"><span class="t">время: —</span></div>`;
+                                } else {
+                                    times.forEach(item => {
+                                        const iso = (typeof item === 'object' && item !== null) ? item.iso : item;
+                                        const id = (typeof item === 'object' && item !== null) ? item.id : null;
+
+                                        if (id) {
+                                            palHtml += `<div class="pal" style="cursor:pointer;" onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')"><span class="t">${toMskString(iso)}</span><span class="n" style="color:#60a5fa; text-decoration:underline;">${escapeHtml(r.label)}</span></div>`;
+                                        } else {
+                                            palHtml += `<div class="pal"><span class="t">${toMskString(iso)}</span><span class="n">${escapeHtml(r.label)}</span></div>`;
+                                        }
+                                    });
+                                }
                             });
                         }
                         ordersHtml += `<div class="ord-head" data-target="${key}"><span><span class="arr">▶</span>${escapeHtml(label)}</span><span>${st.pallets} / ${money(st.sum)}</span></div><div class="ord-detail" id="${key}">${palHtml}</div>`;
@@ -1780,9 +1800,6 @@
             else start();
         })();
 
-        // ==================================================================
-        // МОДУЛЬ B. ПОДПИСЬ ЦЕНЫ СПРАВА ОТ НАЗВАНИЯ
-        // ==================================================================
         (function() {
             'use strict';
             const PRICE_URL = 'https://raw.githubusercontent.com/chucpe/calc/refs/heads/master/src/price.json';
@@ -1810,9 +1827,10 @@
                                 if (!Array.isArray(data)) throw new Error('not array');
                                 priceByName = {};
                                 data.forEach(item => {
-                                    if (!item || !item.name) return;
+                                    // Ищем по altName вместо name
+                                    if (!item || !item.altName) return;
                                     if (typeof item.holes !== 'number') return;
-                                    const name = item.name.trim();
+                                    const name = item.altName.trim();
                                     let price;
                                     price = item.holes * getRate() * getTaxMultiplier();
                                     priceByName[name] = price;
@@ -2166,7 +2184,7 @@
 
 
         // ==================================================================
-        // ЗАМЕНА ИКОНКИ
+        // ЗАМЕНА ИКОНКИ ПРИЛОЖЕНИЯ
         // ==================================================================
         (function() {
             'use strict';
@@ -2423,13 +2441,23 @@
                     const newItemsBatch = [];
                     const entries = Array.from(missingProducts.entries());
 
-                    for (let i = 0; i < entries.length; i += MAX_PARALLEL) {
+                        for (let i = 0; i < entries.length; i += MAX_PARALLEL) {
                         const chunk = entries.slice(i, i + MAX_PARALLEL);
                         await Promise.all(chunk.map(async ([label, data]) => {
                             const holes = await fetchProductParams(data.productId, data.jobId);
                             if (holes > 0) {
-                                newItemsBatch.push({ name: label, holes: holes });
-                                console.log(`[e8-autoprice] Данные собраны: ${label} (${holes} отв.)`);
+                                 let altName = label;
+
+                                if (/^Б00\d/.test(altName)) {
+                                    altName = altName.replace(/^Б00/, 'А');
+                                } else if (/^Б00[А-ЯЁA-Z]/i.test(altName)) {
+                                    altName = altName.replace(/^Б00/, '');
+                                } else {
+                                    altName = label;
+                                }
+
+                                newItemsBatch.push({ name: label, altName: altName, holes: holes });
+                                console.log(`[e8-autoprice] Данные собраны: ${label} (${holes} отв.) -> ${altName}`);
                             } else {
                                 console.warn(`[e8-autoprice] Не удалось посчитать отверстия для ${label}`);
                             }
@@ -3337,6 +3365,350 @@
 
         })();
     }
+
+        // ==================================================================
+        // МОДУЛЬ: Замена автарок
+        // ==================================================================
+        (function() {
+            'use strict';
+
+            const OLD_PREFIX = 'https://backoffice-e8.ffa.su/api/v1/admin/avatar/initials/svg';
+
+            const TARGET_USERS = [
+                'Александр Маматов'
+                // 'Иван Иванов',
+            ];
+
+            const DEFAULT_AVATAR = 'https://raw.githubusercontent.com/chucpe/calc/refs/heads/master/src/avatar/67.jpg';
+            const CUSTOM_AVATARS = {
+                // 'Иван Иванов': 'https://example.com/ivan.jpg'
+            };
+
+            function replaceAvatars() {
+                document.querySelectorAll('img').forEach(img => {
+                    const src = img.getAttribute('src') || '';
+                    if (!src.startsWith(OLD_PREFIX)) return;
+                    if (img.dataset.e8AvatarReplaced === '1') return;
+
+                    let seed = '';
+                    try {
+                        const urlParams = new URLSearchParams(src.split('?')[1]);
+                        seed = urlParams.get('seed') || '';
+                    } catch (e) {
+                        const match = src.match(/[?&]seed=([^&]+)/);
+                        if (match) seed = decodeURIComponent(match[1]);
+                    }
+
+                    if (!seed) return;
+
+                    if (TARGET_USERS.includes(seed)) {
+                        img.src = CUSTOM_AVATARS[seed] || DEFAULT_AVATAR;
+                        img.dataset.e8AvatarReplaced = '1';
+                    }
+                });
+            }
+
+            function start() {
+                replaceAvatars();
+                const observer = new MutationObserver(() => replaceAvatars());
+                observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
+                setInterval(replaceAvatars, 1000);
+            }
+
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+            else start();
+        })();
+
+        // ==================================================================
+        // МОДУЛЬ: Скрываем заявки
+        // ==================================================================
+        (function() {
+            'use strict';
+
+            function processTree() {
+                if (window.__e8Settings && window.__e8Settings.hideOrders === false) return;
+
+                const buttons = document.querySelectorAll('button[data-slot="link"]');
+
+                buttons.forEach(btn => {
+                    const text = (btn.textContent || '').trim();
+                    if (!text.startsWith('Заявка №')) return;
+
+                    btn.style.setProperty('display', 'none', 'important');
+
+                    if (btn.getAttribute('aria-expanded') === 'false') {
+                        btn.click();
+                    }
+                });
+            }
+
+            function start() {
+                const url = window.location.href;
+                if (!url.includes('statusId=1')) return;
+
+                processTree();
+
+                const observer = new MutationObserver(() => {
+                    processTree();
+                });
+                observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
+
+                setInterval(processTree, 1000);
+            }
+
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+            else start();
+        })();
+
+        // ==================================================================
+        // МОДУЛЬ: ПЕРЕИМЕНОВАНИЕ ПАЛЛЕТ
+        // ==================================================================
+        (function() {
+            'use strict';
+
+            function renamePallets() {
+                const elements = document.querySelectorAll('.text-sm.font-semibold.break-all');
+
+                elements.forEach(el => {
+                    if (el.textContent.includes('Заявка №')) return;
+
+                    Array.from(el.childNodes).forEach(node => {
+                        if (node.nodeType === Node.TEXT_NODE) {
+                            let text = node.nodeValue;
+
+                            if (text.includes('Б00')) {
+                                let newText = text;
+
+                                newText = newText.replace(/Б00(?=\d)/g, 'А');
+
+                                newText = newText.replace(/Б00(?=[А-ЯЁA-Z])/gi, '');
+
+                                if (newText !== text) {
+                                    node.nodeValue = newText;
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            function start() {
+                renamePallets();
+                const observer = new MutationObserver(() => {
+                    renamePallets();
+                });
+                observer.observe(document.body || document.documentElement, { childList: true, subtree: true, characterData: true });
+
+                setInterval(renamePallets, 1000);
+            }
+
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+            else start();
+        })();
+
+        (function() {
+            'use strict';
+
+            if (!window.location.href.includes('statusId=1')) return;
+
+            let sortByPrice = Number(localStorage.getItem('e8_sort_price')) || 0;
+            let sortByName = Number(localStorage.getItem('e8_sort_name')) || 0;
+
+            function createSortUI() {
+                if (document.getElementById('e8-sort-panel')) return;
+
+                if (window.__e8Settings && window.__e8Settings.hideOrders === false) return;
+
+                const orderButtons = Array.from(document.querySelectorAll('button')).filter(b =>
+                    b.textContent.includes('Заявка №')
+                );
+
+                if (orderButtons.length === 0) return;
+
+                const firstOrderBtn = orderButtons[0];
+                const orderLi = firstOrderBtn.closest('li');
+
+                if (!orderLi || !orderLi.parentElement) return;
+
+                const panel = document.createElement('div');
+                panel.id = 'e8-sort-panel';
+                panel.className = 'flex items-center w-full py-2 mb-2 text-sm text-muted';
+
+                const marginLeft = window.innerWidth < 768 ? '190px' : '395px';
+
+                const arrowPrice = sortByPrice === 1 ? '↑' : (sortByPrice === -1 ? '↓' : '↕');
+                const arrowName = sortByName === 1 ? '↑' : (sortByName === -1 ? '↓' : '↕');
+
+                panel.innerHTML = `
+                    <div style="margin-left: ${marginLeft}; display: flex; gap: 6px;">
+                        <button id="e8-sort-name" class="flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm ${sortByName !== 0 ? 'bg-primary text-white border-primary shadow-md' : 'bg-elevated text-muted border-default hover:bg-elevated/80'}">
+                            Название <span id="e8-sort-arrow-name" class="text-xs ${sortByName !== 0 ? 'text-white' : 'text-muted'}">${arrowName}</span>
+                        </button>
+                        <button id="e8-sort-price" class="flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm ${sortByPrice !== 0 ? 'bg-primary text-white border-primary shadow-md' : 'bg-elevated text-muted border-default hover:bg-elevated/80'}">
+                            Цена <span id="e8-sort-arrow-price" class="text-xs ${sortByPrice !== 0 ? 'text-white' : 'text-muted'}">${arrowPrice}</span>
+                        </button>
+                    </div>
+                `;
+
+                orderLi.parentElement.insertBefore(panel, orderLi);
+
+                attachEvents();
+                setTimeout(applySort, 100);
+            }
+
+            function applySort() {
+                if (window.__e8Settings && window.__e8Settings.hideOrders === false) return;
+
+                const allNodes = Array.from(document.querySelectorAll('.text-sm.font-semibold.break-all'));
+
+                const pallets = allNodes.filter(el => {
+                    const text = el.textContent.trim();
+                    return text.length > 0 && !text.includes('Заявка №');
+                });
+
+                if (pallets.length < 2) return;
+
+                let parent = pallets[0].parentElement;
+                while (parent && !parent.contains(pallets[pallets.length - 1])) {
+                    parent = parent.parentElement;
+                }
+
+                if (!parent) return;
+
+                pallets.sort((a, b) => {
+                    const fullTextA = a.textContent.replace(/\([\d.]+\)/, '').trim();
+                    const fullTextB = b.textContent.replace(/\([\d.]+\)/, '').trim();
+
+                    const matchA = a.textContent.match(/\(([\d.]+)\)/);
+                    const matchB = b.textContent.match(/\(([\d.]+)\)/);
+                    const priceA = matchA ? parseFloat(matchA[1]) : null;
+                    const priceB = matchB ? parseFloat(matchB[1]) : null;
+
+                    if (sortByName !== 0) {
+                        const prefixA = fullTextA.charAt(0);
+                        const prefixB = fullTextB.charAt(0);
+                        const cmp = prefixA.localeCompare(prefixB, 'ru');
+                        if (cmp !== 0) {
+                            return sortByName === 1 ? cmp : -cmp;
+                        }
+                    }
+
+                    if (sortByPrice !== 0) {
+                        if (priceA === null && priceB === null) return 0;
+                        if (priceA === null) return 1;
+                        if (priceB === null) return -1;
+
+                        if (priceA !== priceB) {
+                            return sortByPrice === 1 ? priceA - priceB : priceB - priceA;
+                        }
+                    }
+
+                    return 0;
+                });
+
+                const containers = pallets.map(el => {
+                    return el.closest('li') || el.closest('div.flex-1.overflow-hidden') || el.parentElement;
+                });
+
+                const uniqueContainers = [...new Set(containers)];
+
+                if (uniqueContainers.length > 1 && uniqueContainers[0].parentElement) {
+                    const parentOfContainers = uniqueContainers[0].parentElement;
+                    uniqueContainers.forEach(container => {
+                        parentOfContainers.appendChild(container);
+                    });
+                }
+            }
+
+            function attachEvents() {
+                const btnPrice = document.getElementById('e8-sort-price');
+                const btnName = document.getElementById('e8-sort-name');
+
+                if (!btnPrice || !btnName) return;
+
+                btnPrice.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (sortByPrice === 0) {
+                        sortByPrice = -1;
+                    } else if (sortByPrice === -1) {
+                        sortByPrice = 1;
+                    } else {
+                        sortByPrice = 0;
+                    }
+                    updateUI();
+                });
+
+                btnName.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (sortByName === 0) {
+                        sortByName = -1;
+                    } else if (sortByName === -1) {
+                        sortByName = 1;
+                    } else {
+                        sortByName = 0;
+                    }
+                    updateUI();
+                });
+            }
+
+            function updateUI() {
+                localStorage.setItem('e8_sort_price', sortByPrice);
+                localStorage.setItem('e8_sort_name', sortByName);
+
+                const btnPrice = document.getElementById('e8-sort-price');
+                const btnName = document.getElementById('e8-sort-name');
+                const arrowPrice = document.getElementById('e8-sort-arrow-price');
+                const arrowName = document.getElementById('e8-sort-arrow-name');
+
+                const arrP = sortByPrice === -1 ? '↓' : (sortByPrice === 1 ? '↑' : '↕');
+                const arrN = sortByName === -1 ? '↓' : (sortByName === 1 ? '↑' : '↕');
+
+                if (sortByName !== 0) {
+                    btnName.className = 'flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm bg-primary text-white border-primary shadow-md';
+                    arrowName.className = 'text-xs text-white';
+                } else {
+                    btnName.className = 'flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm bg-elevated text-muted border-default hover:bg-elevated/80';
+                    arrowName.className = 'text-xs text-muted';
+                }
+
+                if (sortByPrice !== 0) {
+                    btnPrice.className = 'flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm bg-primary text-white border-primary shadow-md';
+                    arrowPrice.className = 'text-xs text-white';
+                } else {
+                    btnPrice.className = 'flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm bg-elevated text-muted border-default hover:bg-elevated/80';
+                    arrowPrice.className = 'text-xs text-muted';
+                }
+
+                arrowPrice.textContent = arrP;
+                arrowName.textContent = arrN;
+
+                applySort();
+            }
+
+            function start() {
+                let attempts = 0;
+                const interval = setInterval(() => {
+                    createSortUI();
+                    attempts++;
+                    if (document.getElementById('e8-sort-panel') || attempts > 20) {
+                        clearInterval(interval);
+                    }
+                }, 500);
+
+                const observer = new MutationObserver(() => {
+                    if (!document.getElementById('e8-sort-panel')) {
+                        createSortUI();
+                    }
+                });
+
+                if (document.body) {
+                    observer.observe(document.body, { childList: true, subtree: true });
+                }
+            }
+
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+            else start();
+        })();
 
     main();
 
