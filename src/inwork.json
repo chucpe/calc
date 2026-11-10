@@ -55,17 +55,6 @@
     "execCount": 1
   },
   {
-    "id": "3ff5aa6b-3265-41fa-ab92-f53bc17d2c5e",
-    "name": "СтолЛофт110*60ВотанЧерныеНожки",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "d69e56c1-83e5-4ffc-9f2d-b45fb7baf772",
     "name": "Б00Т34Белый",
     "firstName": "",
@@ -129,6 +118,17 @@
     "date": "10.11.2026 22:45",
     "startDateTime": "2026-11-10T19:34:04.539Z",
     "cancelDateTime": "2026-11-10T19:45:00.145Z",
+    "execCount": 1
+  },
+  {
+    "id": "3ff5aa6b-3265-41fa-ab92-f53bc17d2c5e",
+    "name": "СтолЛофт110*60ВотанЧерныеНожки",
+    "firstName": "Сергей",
+    "lastName": "Коцеруба",
+    "status": "В работе",
+    "date": "10.11.2026 22:45",
+    "startDateTime": "2026-11-10T19:45:15.907Z",
+    "cancelDateTime": null,
     "execCount": 1
   },
   {
