@@ -158,10 +158,10 @@
     "name": "Б00Т34Белый",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "10.11.2026 14:09",
+    "status": "Завершен",
+    "date": "10.11.2026 14:34",
     "startDateTime": "2026-11-10T11:09:16.942Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T11:34:28.262Z",
     "execCount": 1
   },
   {
@@ -202,10 +202,10 @@
     "name": "Б0036Вотан",
     "firstName": "Александр",
     "lastName": "Курбатов",
-    "status": "В работе",
-    "date": "10.11.2026 13:22",
+    "status": "Завершен",
+    "date": "10.11.2026 14:32",
     "startDateTime": "2026-11-10T10:22:55.521Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T11:32:48.952Z",
     "execCount": 1
   },
   {
