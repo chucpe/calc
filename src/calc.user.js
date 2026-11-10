@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.20
+// @version      5.21
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -1675,14 +1675,9 @@
 
                                     return parseDate(isoA) - parseDate(isoB);
                                 }) : [];
-                                const firstItem = times.length > 0 ? times[0] : null;
-                                const firstId = (firstItem && typeof firstItem === 'object') ? firstItem.id : null;
 
-                                if (firstId) {
-                                    palHtml += `<div class="pal-head"><a href="https://e8.ffa.su/admin/projects/1/jobs/${firstId}/info?back=/admin/projects/1/jobs?statusId=1" target="_blank" style="color:#60a5fa; text-decoration:none;"><b>${escapeHtml(r.label)}</b></a> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
-                                } else {
-                                    palHtml += `<div class="pal-head"><b>${escapeHtml(r.label)}</b> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
-                                }
+                                   palHtml += `<div class="pal-head"><b>${escapeHtml(r.label)}</b> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
+
 
                                 if (times.length === 0) {
                                     palHtml += `<div class="pal"><span class="t">время: —</span></div>`;
@@ -1692,8 +1687,8 @@
                                         const id = (typeof item === 'object' && item !== null) ? item.id : null;
 
                                         if (id) {
-                                            palHtml += `<div class="pal" style="cursor:pointer;" onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')"><span class="t">${toMskString(iso)}</span><span class="n" style="color:#60a5fa; text-decoration:underline;">${escapeHtml(r.label)}</span></div>`;
-                                        } else {
+                                            palHtml += `<div class="pal" style="cursor:pointer; transition: background 0.2s; border-radius: 4px; padding: 2px 4px; margin: 0 -4px;" onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'"><span class="t">${toMskString(iso)}</span><span class="n" style="color:#60a5fa; text-decoration:underline;">${escapeHtml(r.label)}</span></div>`;
+                                            } else {
                                             palHtml += `<div class="pal"><span class="t">${toMskString(iso)}</span><span class="n">${escapeHtml(r.label)}</span></div>`;
                                         }
                                     });
