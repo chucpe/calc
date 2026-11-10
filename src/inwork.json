@@ -136,10 +136,10 @@
     "name": "Б00Т39БелыйЗР",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "10.11.2026 22:15",
+    "status": "Завершен",
+    "date": "10.11.2026 23:14",
     "startDateTime": "2026-11-10T19:15:37.923Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T20:14:27.668Z",
     "execCount": 1
   },
   {
