@@ -1,16 +1,5 @@
 [
   {
-    "id": "27905445-1c45-4534-8616-11c299d7be3d",
-    "name": "Б00Т14(Ш14)Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "08a94870-ae4c-4f33-b14e-4dcd2a6e868d",
     "name": "Б00С19Белый",
     "firstName": "",
@@ -24,6 +13,17 @@
   {
     "id": "a38cecd6-746b-4fa1-b439-09ae61d9b1a4",
     "name": "Б00С19Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "c13e6381-7cef-47a2-9454-922b999c6e95",
+    "name": "Б00Т34Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -110,6 +110,17 @@
     "execCount": 1
   },
   {
+    "id": "27905445-1c45-4534-8616-11c299d7be3d",
+    "name": "Б00Т14(Ш14)Белый",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "10.11.2026 19:56",
+    "startDateTime": "2026-11-10T16:56:34.029Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "977f2ba0-c5b7-4373-b9ea-c18f3779bee9",
     "name": "Б00ШК4(А)400Белый",
     "firstName": "Валерий",
@@ -191,10 +202,10 @@
     "name": "Б00Т34Белый",
     "firstName": "Алексей",
     "lastName": "Шеин",
-    "status": "В работе",
-    "date": "10.11.2026 18:44",
+    "status": "Завершен",
+    "date": "10.11.2026 19:55",
     "startDateTime": "2026-11-10T15:44:03.389Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T16:55:07.454Z",
     "execCount": 1
   },
   {
