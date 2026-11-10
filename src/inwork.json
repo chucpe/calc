@@ -158,10 +158,10 @@
     "name": "Б00Т14(Ш14)Белый",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "10.11.2026 19:56",
+    "status": "Завершен",
+    "date": "10.11.2026 20:57",
     "startDateTime": "2026-11-10T16:56:34.029Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-10T17:57:58.356Z",
     "execCount": 1
   },
   {
