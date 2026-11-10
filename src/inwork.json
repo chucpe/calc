@@ -77,17 +77,6 @@
     "execCount": 1
   },
   {
-    "id": "3f9b7528-1806-405c-9916-d8a06f324f7d",
-    "name": "Б00Т34Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "f49eed4d-2d2d-4880-8225-1709c1ffc252",
     "name": "Б00Т34Белый",
     "firstName": "",
@@ -106,6 +95,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "3f9b7528-1806-405c-9916-d8a06f324f7d",
+    "name": "Б00Т34Белый",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "10.11.2026 15:24",
+    "startDateTime": "2026-11-10T12:24:44.969Z",
     "cancelDateTime": null,
     "execCount": 1
   },
