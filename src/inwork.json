@@ -44,17 +44,6 @@
     "execCount": 1
   },
   {
-    "id": "05a7f06e-f344-4ad5-b0f8-fc2f834554ee",
-    "name": "Б00С8ЧерныйКромкаКрасная",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "4e5916ab-e68c-4395-8b29-2ad3a0a5fdbc",
     "name": "Б00С8ЧерныйКромкаКрасная",
     "firstName": "",
@@ -128,6 +117,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "05a7f06e-f344-4ad5-b0f8-fc2f834554ee",
+    "name": "Б00С8ЧерныйКромкаКрасная",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "10.11.2026 22:05",
+    "startDateTime": "2026-11-10T19:05:24.219Z",
     "cancelDateTime": null,
     "execCount": 1
   },
