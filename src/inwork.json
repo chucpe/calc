@@ -88,17 +88,6 @@
     "execCount": 1
   },
   {
-    "id": "132ed0d1-2518-49d4-9f12-2d6cfa3497ba",
-    "name": "Б005МБелый",
-    "firstName": "Сергей",
-    "lastName": "Коцеруба",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "751855c9-8a11-4269-8cb7-4ccac18d57b6",
     "name": "Б005Белый",
     "firstName": "",
@@ -106,6 +95,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "132ed0d1-2518-49d4-9f12-2d6cfa3497ba",
+    "name": "Б005МБелый",
+    "firstName": "Сергей",
+    "lastName": "Коцеруба",
+    "status": "В работе",
+    "date": "10.11.2026 20:04",
+    "startDateTime": "2026-11-10T17:04:02.226Z",
     "cancelDateTime": null,
     "execCount": 1
   },
