@@ -114,10 +114,10 @@
     "name": "Б00Т34Графит",
     "firstName": "Сергей",
     "lastName": "Коцеруба",
-    "status": "В работе",
-    "date": "11.11.2026 21:51",
+    "status": "Завершен",
+    "date": "11.11.2026 23:12",
     "startDateTime": "2026-11-11T18:51:50.772Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-11T20:12:47.551Z",
     "execCount": 1
   },
   {
