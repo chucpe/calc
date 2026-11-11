@@ -125,10 +125,10 @@
     "name": "Б00Т98Белый",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "11.11.2026 18:38",
+    "status": "Завершен",
+    "date": "11.11.2026 19:22",
     "startDateTime": "2026-11-11T15:38:27.506Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-11T16:22:46.756Z",
     "execCount": 1
   },
   {
