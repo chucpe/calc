@@ -125,10 +125,10 @@
     "name": "Б00С11Бетон",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "11.11.2026 21:48",
+    "status": "Завершен",
+    "date": "11.11.2026 22:42",
     "startDateTime": "2026-11-11T18:48:53.122Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-11T19:42:12.389Z",
     "execCount": 1
   },
   {
