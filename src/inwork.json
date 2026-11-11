@@ -11,17 +11,6 @@
     "execCount": 1
   },
   {
-    "id": "e56eec7b-a60a-4cf4-9d6a-d4927427fbdf",
-    "name": "Б00Т98Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "f4313690-67d7-41e7-a557-03a84a40b94d",
     "name": "Б00Т98Белый",
     "firstName": "",
@@ -44,6 +33,17 @@
     "execCount": 1
   },
   {
+    "id": "e56eec7b-a60a-4cf4-9d6a-d4927427fbdf",
+    "name": "Б00Т98Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "1bccc0c4-0540-4b52-b344-affaf2709701",
     "name": "Б0083Графит",
     "firstName": "",
@@ -56,6 +56,17 @@
   },
   {
     "id": "5d8f2b44-6880-4275-8315-0941973b1d97",
+    "name": "Б0083Графит",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "a38718e1-d8da-402c-b87f-0a687b737f9b",
     "name": "Б0083Графит",
     "firstName": "",
     "lastName": "",
