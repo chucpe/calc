@@ -1,16 +1,5 @@
 [
   {
-    "id": "e56eec7b-a60a-4cf4-9d6a-d4927427fbdf",
-    "name": "Б00Т98Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "a38718e1-d8da-402c-b87f-0a687b737f9b",
     "name": "Б0083Графит",
     "firstName": "",
@@ -106,6 +95,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e56eec7b-a60a-4cf4-9d6a-d4927427fbdf",
+    "name": "Б00Т98Белый",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "11.11.2026 19:48",
+    "startDateTime": "2026-11-11T16:48:07.506Z",
     "cancelDateTime": null,
     "execCount": 1
   },
