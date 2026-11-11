@@ -44,6 +44,17 @@
     "execCount": 1
   },
   {
+    "id": "647f2252-969e-4577-aa62-13bdd5fbd94d",
+    "name": "Б0044Бетон",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "323c024d-6fbc-423a-baf4-678f0cef5c8b",
     "name": "Б0036Сонома",
     "firstName": "Александр",
@@ -103,10 +114,10 @@
     "name": "Б0021Сонома",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "11.11.2026 09:01",
+    "status": "Завершен",
+    "date": "11.11.2026 10:10",
     "startDateTime": "2026-11-11T06:01:08.541Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-11T07:10:19.909Z",
     "execCount": 1
   },
   {
