@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.23
+// @version      5.25
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -732,6 +732,18 @@
             }
 
             const log = (...a) => console.log('%c[e8-calc]', 'color:#09f;font-weight:bold', ...a);
+            function cleanLabel(label) {
+                if (!label) return '';
+                let newLabel = label;
+                if (/^Б00\d/.test(newLabel)) {
+                    newLabel = newLabel.replace(/^Б00/, 'А');
+                } else if (/^Б00[А-ЯЁA-Z]/i.test(newLabel)) {
+                    newLabel = newLabel.replace(/^Б00/, '');
+                }
+                return newLabel;
+            }
+            window.__e8CleanLabel = cleanLabel;
+
             function round2(n) { return Math.round((Number(n) + Number.EPSILON) * 100) / 100; }
             function sortIsoAsc(arr) { return arr.slice().sort((a, b) => new Date(a).getTime() - new Date(b).getTime()); }
             function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
@@ -1235,7 +1247,7 @@
             }
 
             GM_addStyle(`
-                #e8-calc-box{position:fixed;right:20px;bottom:20px;left:auto;z-index:2147483647;width:360px;max-width:calc(100vw - 24px);box-sizing:border-box;background:#1e1e2e;color:#eee;border:1px solid #444;border-radius:10px;font:13px/1.4 system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.5);padding:12px 14px;pointer-events:auto}
+                #e8-calc-box{position:fixed;right:20px;bottom:20px;left:auto;z-index:2147483647;width:360px;max-width:calc(100vw - 24px);box-sizing:border-box;background:#1e1e2e;color:#eee;border:1px solid #444;border-radius:10px;font:13px/1.4 system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.5);padding:12px 14px;pointer-events:auto;overflow:hidden}
                 #e8-calc-box.hidden{display:none}
                 #e8-calc-box .btn-row{display:flex;gap:6px;margin-top:8px}
                 #e8-calc-box .btn-row button{margin-top:0;flex:1;width:auto}
@@ -1250,17 +1262,20 @@
                 #e8-calc-box button:hover{background:#2563eb}
                 #e8-calc-box button.secondary{background:#334155}
                 #e8-calc-box button.secondary:hover{background:#475569}
-                #e8-calc-box .ord{font-size:11px;opacity:.85;border-top:1px solid #333;margin-top:6px;padding-top:6px;max-height:240px;overflow:auto}
+                #e8-calc-box .ord{font-size:11px;opacity:.85;border-top:1px solid #333;margin-top:6px;padding-top:6px;width:100%;box-sizing:border-box;max-height:300px;overflow-y:auto;overflow-x:hidden}
                 #e8-calc-box .ord-head{display:flex;justify-content:space-between;padding:3px 4px;border-radius:4px;cursor:pointer}
-                #e8-calc-box .ord-head:hover{background:#2a2a3e}
+                #e8-calc-box .ord-head:hover{background:rgba(255,255,255,0.25) !important}
                 #e8-calc-box .ord-head .arr{opacity:.5;margin-right:4px;transition:transform .15s;display:inline-block}
                 #e8-calc-box .ord-head.open .arr{transform:rotate(90deg)}
                 #e8-calc-box .ord-detail{display:none;padding:2px 4px 6px 18px;background:#161622;border-left:2px solid #334155;margin:2px 0 4px 4px;border-radius:0 4px 4px 0}
                 #e8-calc-box .ord-detail.open{display:block}
-                #e8-calc-box .pal{display:flex;justify-content:space-between;gap:8px;padding:2px 0;font-size:11px}
-                #e8-calc-box .pal .t{opacity:.7;white-space:nowrap}
-                #e8-calc-box .pal .n{flex:1;text-align:right;opacity:.95}
+                #e8-calc-box .pal{display:flex;align-items:center;padding:4px 4px;font-size:11px;width:100%;box-sizing:border-box;border-radius:4px;transition:background 0.2s;margin:0 -4px;}
+                #e8-calc-box .pal:hover { background: rgba(255, 255, 255, 0.35) !important; }
+                #e8-calc-box .pal .t{opacity:1;white-space:nowrap;font-size:11px;flex:0 0 130px;text-align:left;padding-left: 10px;}
+                #e8-calc-box .pal .n{flex:1 1 auto;text-align:right;opacity:.95;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;min-width:0}
+                #e8-calc-box .pal .n { text-decoration: none !important; }
                 #e8-calc-box .pal-head{font-size:11px;padding:2px 0;text-align:left}
+                #e8-calc-box .pal-head { color: #f1f5f9; }
                 #e8-calc-box .pal-sep{border-top:1px dashed #333;margin:4px 0}
                 #e8-calc-box .unk-reason{font-size:10px;color:#ffb86c;opacity:.9}
                 #e8-calc-dates,#e8-calc-settings,#e8-stats-panel,#e8-online-panel,#e8-calendar-panel{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed #444}
@@ -1666,41 +1681,31 @@
                     rowsByOrder.get(r.order).push(r);
                 }
 
+                const isDateFilterActive = !!(filter.from || filter.to);
+
                 let ordersHtml = '';
                 if (byOrder) {
-                    for (const [label, st] of byOrder) {
-                      if (!st || st.pallets === 0) continue;
-                        let rows = rowsByOrder.get(label) || [];
-                        rows = rows.slice().sort((a, b) => (a.firstDateMs ?? Infinity) - (b.firstDateMs ?? Infinity));
-                        const key = 'ord-' + Math.random().toString(36).slice(2, 8);
-                        let palHtml = '';
-                        if (rows.length === 0) palHtml = `<div class="pal-head">Нет данных</div>`;
-                        else {
-                                                            rows.forEach((r, idx) => {
-                                if (idx > 0) palHtml += `<div class="pal-sep"></div>`;
+                    if (isDateFilterActive) {
+                        const allRows = [];
+                        for (const [label, st] of byOrder) {
+                            if (!st || st.pallets === 0) continue;
+                            const rows = rowsByOrder.get(label) || [];
+                            rows.forEach(r => allRows.push({ ...r, order: label }));
+                        }
 
+                        allRows.sort((a, b) => (a.firstDateMs ?? Infinity) - (b.firstDateMs ?? Infinity));
+
+                        if (allRows.length > 0) {
+                            let palHtml = '';
+                            allRows.forEach((r, idx) => {
+                                if (idx > 0) palHtml += `<div class="pal-sep"></div>`;
                                 const times = (r.times && r.times.length) ? r.times.slice().sort((a, b) => {
                                     const isoA = (typeof a === 'object' && a !== null) ? a.iso : a;
                                     const isoB = (typeof b === 'object' && b !== null) ? b.iso : b;
-
-                                    const parseDate = (str) => {
-                                        if (!str) return 0;
-                                        if (str.includes('T') || str.includes('-')) {
-                                            return new Date(str).getTime() || 0;
-                                        }
-                                        const parts = str.match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
-                                        if (parts) {
-                                            return new Date(+parts[3], +parts[2] - 1, +parts[1], +parts[4], +parts[5]).getTime();
-                                        }
-                                        return 0;
-                                    };
-
-                                    return parseDate(isoA) - parseDate(isoB);
+                                    return new Date(isoA).getTime() - new Date(isoB).getTime();
                                 }) : [];
 
-                                   palHtml += `<div class="pal-head"><b>${escapeHtml(r.label)}</b> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
-
-
+                                    palHtml += `<div class="pal-head"><b>${escapeHtml(cleanLabel(r.label))}</b> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
                                 if (times.length === 0) {
                                     palHtml += `<div class="pal"><span class="t">время: —</span></div>`;
                                 } else {
@@ -1708,16 +1713,52 @@
                                         const iso = (typeof item === 'object' && item !== null) ? item.iso : item;
                                         const id = (typeof item === 'object' && item !== null) ? item.id : null;
 
-                                        if (id) {
-                                            palHtml += `<div class="pal" style="cursor:pointer; transition: background 0.2s; border-radius: 4px; padding: 2px 4px; margin: 0 -4px;" onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'"><span class="t">${toMskString(iso)}</span><span class="n" style="color:#60a5fa; text-decoration:underline;">${escapeHtml(r.label)}</span></div>`;
-                                            } else {
-                                            palHtml += `<div class="pal"><span class="t">${toMskString(iso)}</span><span class="n">${escapeHtml(r.label)}</span></div>`;
-                                        }
+                                  if (id) {
+                                       palHtml += `<div class="pal hover:bg-elevated/20 rounded transition-colors px-1 -mx-1" style="cursor:pointer;" onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')"><span class="t" style="color:#e2e8f0;">${toMskString(iso)}</span><span class="n" style="color:#7dd3fc; font-weight:600;">${escapeHtml(cleanLabel(r.label))}</span></div>`;
+                                     } else {
+                                       palHtml += `<div class="pal"><span class="t" style="color:#e2e8f0;">${toMskString(iso)}</span><span class="n" style="color:#7dd3fc; font-weight:600;">${escapeHtmlescapeHtml(cleanLabel(r.label))}</span></div>`;
+                                     }
                                     });
                                 }
                             });
+                            ordersHtml = `<div class="ord">${palHtml}</div>`;
                         }
-                        ordersHtml += `<div class="ord-head" data-target="${key}"><span><span class="arr">▶</span>${escapeHtml(label)}</span><span>${st.pallets} / ${money(st.sum)}</span></div><div class="ord-detail" id="${key}">${palHtml}</div>`;
+                    } else {
+                        for (const [label, st] of byOrder) {
+                            if (!st || st.pallets === 0) continue;
+                            let rows = rowsByOrder.get(label) || [];
+                            rows = rows.slice().sort((a, b) => (a.firstDateMs ?? Infinity) - (b.firstDateMs ?? Infinity));
+                            const key = 'ord-' + Math.random().toString(36).slice(2, 8);
+                            let palHtml = '';
+                            if (rows.length === 0) palHtml = `<div class="pal-head">Нет данных</div>`;
+                            else {
+                                rows.forEach((r, idx) => {
+                                    if (idx > 0) palHtml += `<div class="pal-sep"></div>`;
+                                    const times = (r.times && r.times.length) ? r.times.slice().sort((a, b) => {
+                                        const isoA = (typeof a === 'object' && a !== null) ? a.iso : a;
+                                        const isoB = (typeof b === 'object' && b !== null) ? b.iso : b;
+                                        return new Date(isoA).getTime() - new Date(isoB).getTime();
+                                    }) : [];
+
+                                    palHtml += `<div class="pal-head"><b>${escapeHtml(cleanLabel(r.label))}</b> × ${r.palletsInRange}${r.holes && r.holes !== '—' ? ` (${r.holes} отв.)` : ''} = ${money(r.sum)}</div>`;
+                                    if (times.length === 0) {
+                                        palHtml += `<div class="pal"><span class="t">время: —</span></div>`;
+                                    } else {
+                                        times.forEach(item => {
+                                            const iso = (typeof item === 'object' && item !== null) ? item.iso : item;
+                                            const id = (typeof item === 'object' && item !== null) ? item.id : null;
+
+                                    if (id) {
+                                      palHtml += `<div class="pal hover:bg-elevated/20 rounded transition-colors px-1 -mx-1" style="cursor:pointer;" onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')"><span class="t" style="color:#e2e8f0;">${toMskString(iso)}</span><span class="n" style="color:#7dd3fc; font-weight:600;">${escapeHtml(cleanLabel(r.label))}</span></div>`;
+                                   } else {
+                                       palHtml += `<div class="pal"><span class="t" style="color:#e2e8f0;">${toMskString(iso)}</span><span class="n" style="color:#7dd3fc; font-weight:600;">${escapeHtmlescapeHtml(cleanLabel(r.label))}</span></div>`;
+                                         }
+                                        });
+                                    }
+                                });
+                            }
+                            ordersHtml += `<div class="ord-head" data-target="${key}"><span><span class="arr">▶</span>${escapeHtml(label)}</span><span>${st.pallets} / ${money(st.sum)}</span></div><div class="ord-detail" id="${key}">${palHtml}</div>`;
+                        }
                     }
                 }
 
@@ -2756,10 +2797,10 @@
             const style = document.createElement('style');
             style.textContent = `
                 .e8-day-row:hover {
-                    background-color: rgba(255, 255, 255, 0.1) !important;
+                    background-color: rgba(255, 255, 255, 0.25) !important;
                 }
                 .e8-toggle-group:hover {
-                    background-color: rgba(255, 255, 255, 0.05) !important;
+                    background-color: rgba(255, 255, 255, 0.25) !important;
                     border-radius: 4px;
                 }
             `;
@@ -2785,6 +2826,13 @@
             let isDirty = false;
             let writeTimer = null;
             let isWriting = false;
+
+            function escapeHtmlLocal(s) {
+                return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            }
+            function cleanLabelW(label) {
+                return window.__e8CleanLabel ? window.__e8CleanLabel(label) : label;
+            }
 
             function getGithubHeaders() {
                 const GTP = window.__e8GTP;
@@ -3124,7 +3172,7 @@
 
                                     const workerName = `${j.firstName || ''} ${j.lastName || ''}`.trim();
                                     html += `<tr onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${j.id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')" style="cursor:pointer;border-bottom:1px solid #2a2a3e; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">`;
-                                    html += `<td style="padding:4px 0 4px 4px; color:#60a5fa;">${j.name}</td>`;
+                                    html += `<td style="padding:4px 0 4px 4px; color:#60a5fa;">${escapeHtmlLocal((window.__e8CleanLabel || (x => x))(j.name))}</td>`;
                                     html += `<td style="padding:4px 0 4px 4px; text-align:left; width:120px;">${workerName}</td>`;
                                     html += `<td style="padding:4px 4px; text-align:right;">${statusHtml}</td>`;
                                     html += `</tr>`;
@@ -3151,7 +3199,7 @@
                         withoutDate.forEach(j => {
                             const workerName = `${j.firstName || ''} ${j.lastName || ''}`.trim();
                             html += `<tr onclick="window.open('https://e8.ffa.su/admin/projects/1/jobs/${j.id}/info?back=/admin/projects/1/jobs?statusId=1', '_blank')" style="cursor:pointer;border-bottom:1px solid #2a2a3e; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">`;
-                            html += `<td style="padding:4px 0 4px 0; color:#60a5fa; max-width:120px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${j.name}">${j.name}</td>`;
+                            html += `<td style="padding:4px 0 4px 0; color:#60a5fa; max-width:120px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${cleanLabelW(j.name)}">${cleanLabelW(j.name)}</td>`;
                             html += `<td style="padding:4px 0 4px 0; text-align:left; width:90px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${workerName}">${workerName}</td>`;
                             html += `<td style="padding:4px 4px; text-align:right;"><span style="color:#fbbf24;">Не назначен</span></td>`;
                             html += `</tr>`;
