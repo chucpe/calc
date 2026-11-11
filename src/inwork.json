@@ -22,13 +22,35 @@
     "execCount": 1
   },
   {
-    "id": "323c024d-6fbc-423a-baf4-678f0cef5c8b",
-    "name": "Б0036Сонома",
+    "id": "35a2be72-b4d1-4169-b150-50e55249ab0f",
+    "name": "Б00С11Бетон",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "a8ec3b2e-c9c3-472e-83bc-c81907c877a9",
+    "name": "Б00С11Бетон",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "323c024d-6fbc-423a-baf4-678f0cef5c8b",
+    "name": "Б0036Сонома",
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "11.11.2026 09:57",
+    "startDateTime": "2026-11-11T06:57:05.547Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -70,10 +92,10 @@
     "name": "Б00Т34Белый",
     "firstName": "Александр",
     "lastName": "Курбатов",
-    "status": "В работе",
-    "date": "11.11.2026 09:03",
+    "status": "Завершен",
+    "date": "11.11.2026 09:56",
     "startDateTime": "2026-11-11T06:03:32.772Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-11T06:56:52.417Z",
     "execCount": 1
   },
   {
