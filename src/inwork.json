@@ -191,10 +191,10 @@
     "name": "Б0083Графит",
     "firstName": "Алексей",
     "lastName": "Шеин",
-    "status": "В работе",
-    "date": "11.11.2026 18:39",
+    "status": "Завершен",
+    "date": "11.11.2026 20:26",
     "startDateTime": "2026-11-11T15:39:35.330Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-11T17:26:13.354Z",
     "execCount": 1
   },
   {
