@@ -44,6 +44,17 @@
     "execCount": 1
   },
   {
+    "id": "f6bf884f-768b-41b3-8977-d3cc73f31ded",
+    "name": "Б0021Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "c492b30c-abf0-4258-a001-54093e3a4f8e",
     "name": "Б0044Сонома",
     "firstName": "",
