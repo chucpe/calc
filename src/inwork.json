@@ -11,17 +11,6 @@
     "execCount": 1
   },
   {
-    "id": "39051f1a-de85-4da6-9417-775a9bd3efab",
-    "name": "Б00Т34Графит",
-    "firstName": "Сергей",
-    "lastName": "Коцеруба",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "1e49172e-7ca1-4c2b-871d-c0ab3052d854",
     "name": "Б00Т34Графит",
     "firstName": "",
@@ -121,13 +110,24 @@
     "execCount": 1
   },
   {
+    "id": "39051f1a-de85-4da6-9417-775a9bd3efab",
+    "name": "Б00Т34Графит",
+    "firstName": "Сергей",
+    "lastName": "Коцеруба",
+    "status": "В работе",
+    "date": "11.11.2026 21:51",
+    "startDateTime": "2026-11-11T18:51:50.772Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "a8ec3b2e-c9c3-472e-83bc-c81907c877a9",
     "name": "Б00С11Бетон",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "11.11.2026 21:48",
+    "startDateTime": "2026-11-11T18:48:53.122Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -147,10 +147,10 @@
     "name": "Б00С11Бетон",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "11.11.2026 20:55",
+    "status": "Завершен",
+    "date": "11.11.2026 21:48",
     "startDateTime": "2026-11-11T17:55:59.947Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-11T18:48:15.717Z",
     "execCount": 1
   },
   {
