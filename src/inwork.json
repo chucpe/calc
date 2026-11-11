@@ -1,51 +1,7 @@
 [
   {
-    "id": "0667bfd7-811f-40aa-bc0c-abbfd5dc8335",
-    "name": "СтолЦарга110*60СономаБелыеНожки",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "f4313690-67d7-41e7-a557-03a84a40b94d",
-    "name": "Б00Т98Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "693837cf-7dae-49ef-a9f0-1d9325372340",
-    "name": "Б00Т98Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "e56eec7b-a60a-4cf4-9d6a-d4927427fbdf",
     "name": "Б00Т98Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "1bccc0c4-0540-4b52-b344-affaf2709701",
-    "name": "Б0083Графит",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -128,6 +84,50 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "0667bfd7-811f-40aa-bc0c-abbfd5dc8335",
+    "name": "СтолЦарга110*60СономаБелыеНожки",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "Завершен",
+    "date": "11.11.2026 18:39",
+    "startDateTime": "2026-11-11T15:33:20.228Z",
+    "cancelDateTime": "2026-11-11T15:39:14.038Z",
+    "execCount": 1
+  },
+  {
+    "id": "f4313690-67d7-41e7-a557-03a84a40b94d",
+    "name": "Б00Т98Белый",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "11.11.2026 18:38",
+    "startDateTime": "2026-11-11T15:38:27.506Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "693837cf-7dae-49ef-a9f0-1d9325372340",
+    "name": "Б00Т98Белый",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "11.11.2026 18:39",
+    "startDateTime": "2026-11-11T15:39:19.086Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "1bccc0c4-0540-4b52-b344-affaf2709701",
+    "name": "Б0083Графит",
+    "firstName": "Алексей",
+    "lastName": "Шеин",
+    "status": "В работе",
+    "date": "11.11.2026 18:39",
+    "startDateTime": "2026-11-11T15:39:35.330Z",
     "cancelDateTime": null,
     "execCount": 1
   },
