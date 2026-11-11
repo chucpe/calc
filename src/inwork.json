@@ -46,11 +46,11 @@
   {
     "id": "647f2252-969e-4577-aa62-13bdd5fbd94d",
     "name": "Б0044Бетон",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "11.11.2026 10:24",
+    "startDateTime": "2026-11-11T07:24:32.581Z",
     "cancelDateTime": null,
     "execCount": 1
   },
