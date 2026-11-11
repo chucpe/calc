@@ -1,29 +1,7 @@
 [
   {
-    "id": "a38cecd6-746b-4fa1-b439-09ae61d9b1a4",
-    "name": "Б00С19Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "06e17f2a-c6ea-4ae8-b468-82d79dda7c94",
     "name": "Б00С19Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "57b31c76-4ad4-40c6-b85b-a7a76742bfd5",
-    "name": "Б00Т34Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -44,8 +22,8 @@
     "execCount": 1
   },
   {
-    "id": "f6bf884f-768b-41b3-8977-d3cc73f31ded",
-    "name": "Б0021Сонома",
+    "id": "c492b30c-abf0-4258-a001-54093e3a4f8e",
+    "name": "Б0044Сонома",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -55,13 +33,35 @@
     "execCount": 1
   },
   {
-    "id": "c492b30c-abf0-4258-a001-54093e3a4f8e",
-    "name": "Б0044Сонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "id": "a38cecd6-746b-4fa1-b439-09ae61d9b1a4",
+    "name": "Б00С19Белый",
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "В работе",
+    "date": "11.11.2026 09:15",
+    "startDateTime": "2026-11-11T06:15:05.657Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "57b31c76-4ad4-40c6-b85b-a7a76742bfd5",
+    "name": "Б00Т34Белый",
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "11.11.2026 09:03",
+    "startDateTime": "2026-11-11T06:03:32.772Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f6bf884f-768b-41b3-8977-d3cc73f31ded",
+    "name": "Б0021Сонома",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "11.11.2026 09:01",
+    "startDateTime": "2026-11-11T06:01:08.541Z",
     "cancelDateTime": null,
     "execCount": 1
   },
