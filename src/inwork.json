@@ -22,13 +22,24 @@
     "execCount": 1
   },
   {
-    "id": "c492b30c-abf0-4258-a001-54093e3a4f8e",
-    "name": "Б0044Сонома",
+    "id": "323c024d-6fbc-423a-baf4-678f0cef5c8b",
+    "name": "Б0036Сонома",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "c492b30c-abf0-4258-a001-54093e3a4f8e",
+    "name": "Б0044Сонома",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "11.11.2026 09:47",
+    "startDateTime": "2026-11-11T06:47:38.771Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -103,10 +114,10 @@
     "name": "Б00Т37БелыйЗР",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
-    "status": "В работе",
-    "date": "11.11.2026 08:26",
+    "status": "Завершен",
+    "date": "11.11.2026 09:46",
     "startDateTime": "2026-11-11T05:26:50.882Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-11T06:46:37.239Z",
     "execCount": 1
   },
   {
