@@ -35,11 +35,11 @@
   {
     "id": "a8be7b6d-dd8a-4ff6-b52e-c9fd0ea990de",
     "name": "Б0044Сонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "11.11.2026 09:40",
+    "startDateTime": "2026-11-11T06:40:25.976Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -92,10 +92,10 @@
     "name": "Б00Т34Белый",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "11.11.2026 07:58",
+    "status": "Завершен",
+    "date": "11.11.2026 09:30",
     "startDateTime": "2026-11-11T04:58:43.121Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-11T06:30:28.161Z",
     "execCount": 1
   },
   {
