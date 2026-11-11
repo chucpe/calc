@@ -1,16 +1,5 @@
 [
   {
-    "id": "06e17f2a-c6ea-4ae8-b468-82d79dda7c94",
-    "name": "Б00С19Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "e27d66fa-ca62-4c61-b597-e9a60fa2b7bb",
     "name": "Б00Т37БелыйЗР",
     "firstName": "",
@@ -66,6 +55,17 @@
     "execCount": 1
   },
   {
+    "id": "06e17f2a-c6ea-4ae8-b468-82d79dda7c94",
+    "name": "Б00С19Белый",
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "В работе",
+    "date": "11.11.2026 10:34",
+    "startDateTime": "2026-11-11T07:34:29.225Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "647f2252-969e-4577-aa62-13bdd5fbd94d",
     "name": "Б0044Бетон",
     "firstName": "Осман",
@@ -114,10 +114,10 @@
     "name": "Б00С19Белый",
     "firstName": "Федор",
     "lastName": "Привалихин",
-    "status": "В работе",
-    "date": "11.11.2026 09:15",
+    "status": "Завершен",
+    "date": "11.11.2026 10:34",
     "startDateTime": "2026-11-11T06:15:05.657Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-11T07:34:19.128Z",
     "execCount": 1
   },
   {
