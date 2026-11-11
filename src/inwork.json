@@ -11,17 +11,6 @@
     "execCount": 1
   },
   {
-    "id": "5d8f2b44-6880-4275-8315-0941973b1d97",
-    "name": "Б0083Графит",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "a38718e1-d8da-402c-b87f-0a687b737f9b",
     "name": "Б0083Графит",
     "firstName": "",
@@ -84,6 +73,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "5d8f2b44-6880-4275-8315-0941973b1d97",
+    "name": "Б0083Графит",
+    "firstName": "Сергей",
+    "lastName": "Коцеруба",
+    "status": "В работе",
+    "date": "11.11.2026 18:52",
+    "startDateTime": "2026-11-11T15:52:10.743Z",
     "cancelDateTime": null,
     "execCount": 1
   },
