@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.21
+// @version      5.23
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -692,7 +692,7 @@
             let filter = { from: null, to: null };
 
             let settings = {
-                opacity: 100, rate: 0.48, tax: 13, autoMinimize: false, orderFilter: '', activeCrew: null, hideOrders: true
+                opacity: 100, rate: 0.48, tax: 13, grooveRate: 6.52, autoMinimize: false, orderFilter: '', activeCrew: null, hideOrders: true
             };
 
             window.__e8Settings = settings;
@@ -714,6 +714,7 @@
                         if (typeof s.opacity === 'number') settings.opacity = Math.min(1, Math.max(0.05, s.opacity));
                         if (typeof s.rate === 'number' && s.rate > 0) settings.rate = s.rate;
                         if (typeof s.tax === 'number' && s.tax >= 0 && s.tax < 100) settings.tax = s.tax;
+                        if (typeof s.grooveRate === 'number' && s.grooveRate >= 0) settings.grooveRate = s.grooveRate;
                         if (typeof s.autoMinimize === 'boolean') settings.autoMinimize = s.autoMinimize;
                         if (typeof s.orderFilter === 'string') settings.orderFilter = s.orderFilter;
                         if (s.activeCrew === 'blue' || s.activeCrew === 'purple' || s.activeCrew === 'orange' || s.activeCrew === null) settings.activeCrew = s.activeCrew;
@@ -723,9 +724,11 @@
             }
             function saveSettings() { try { localStorage.setItem(LS_SETTINGS_KEY, JSON.stringify(settings)); } catch (e) {} }
 
-            function calcSum(label, holes, pallets) {
+            function calcSum(label, holes, grooveM, pallets) {
                 if (holes == null) return 0;
-                return round2(holes * settings.rate * (1 - settings.tax / 100) * pallets);
+                const safeGroove = (typeof grooveM === 'number' && isFinite(grooveM) && grooveM > 0) ? grooveM : 0;
+                const baseSum = holes * settings.rate + safeGroove * settings.grooveRate;
+                return round2(baseSum * (1 - settings.tax / 100) * pallets);
             }
 
             const log = (...a) => console.log('%c[e8-calc]', 'color:#09f;font-weight:bold', ...a);
@@ -799,10 +802,13 @@
                             try {
                                 const arr = JSON.parse(res.responseText);
                                 const map = new Map();
-                                for (const it of arr) {
+                                 for (const it of arr) {
                                     if (!it || !it.name) continue;
-                                    map.set(normalize(it.name), it.holes);
-                                    map.set(baseName(it.name), it.holes);
+                                    const holes = Number(it.holes) || 0;
+                                    const grooveM = Number(it.totalGrooveM) || 0;
+                                    const value = { holes, grooveM };
+                                    map.set(normalize(it.name), value);
+                                    map.set(baseName(it.name), value);
                                 }
                                 priceMap = map;
                                 log('Прайс загружен, записей:', arr.length);
@@ -814,13 +820,19 @@
                 });
             }
 
-            function findHoles(label) {
+            function findParams(label) {
                 if (!priceMap) return null;
                 const n = normalize(label);
-                if (priceMap.has(n)) return priceMap.get(n);
-                const b = baseName(label);
-                if (priceMap.has(b)) return priceMap.get(b);
-                for (const [k, v] of priceMap) if (b && k.startsWith(b) && b.length > 4) return v;
+                let v = priceMap.get(n);
+                if (!v) { const b = baseName(label); v = priceMap.get(b); }
+                if (!v) { for (const [k, v2] of priceMap) { const b = baseName(label); if (b && k.startsWith(b) && b.length > 4) { v = v2; break; } } }
+
+                if (typeof v === 'number') return { holes: v, grooveM: 0 };
+                if (v && typeof v === 'object') {
+                    const holes = Number(v.holes) || 0;
+                    const grooveM = Number(v.grooveM) || 0;
+                    return { holes, grooveM: grooveM > 0 ? grooveM : 0 };
+                }
                 return null;
             }
 
@@ -1023,7 +1035,9 @@
                             const pallets = Number(wp.count) || 0;
                             if (!pallets) continue;
                             const label = productMap.get(group.productId) || group.productId;
-                            const holes = findHoles(label);
+                            const params = findParams(label);
+                            const holes = params ? params.holes : null;
+                            const grooveM = params ? params.grooveM : 0;
                             const childList = wp.children || [];
 
                             const timesInRange = [];
@@ -1070,7 +1084,7 @@
                                 const child = childList[i] || null;
                                 const childId = child?.id || '';
                                 const execCount = Number(localStorage.getItem('e8_exec_count_' + childId)) || 1;
-                                const palletSum = calcSum(label, holes, 1) / execCount;
+                                const palletSum = calcSum(label, holes, grooveM, 1) / execCount;
                                 sum += palletSum;
                             }
                             sum = round2(sum);
@@ -1083,7 +1097,8 @@
                             if (window.__e8Stats && window.__e8Stats.accumulate) {
                                 const rate = window.__e8Settings ? window.__e8Settings.rate : 0.48;
                                 const tax = window.__e8Settings ? window.__e8Settings.tax : 13;
-                                const earnPerPallet = holes * rate * (1 - tax / 100);
+                                const safeGroove = (typeof grooveM === 'number' && isFinite(grooveM) && grooveM > 0) ? grooveM : 0;
+                                const earnPerPallet = (holes * rate + safeGroove * (window.__e8Settings?.grooveRate || 6.52)) * (1 - tax / 100);
 
                                 const needFetch = [];
                                 for (let i = 0; i < palletsInRange; i++) {
@@ -1340,6 +1355,7 @@
                         <input type="range" id="e8-op-range" min="5" max="100" step="1" value="${Math.round(settings.opacity * 100)}">
                         <label>Ставка калькулятора:</label><input type="number" id="e8-rate-input" step="0.01" min="0.01" value="${settings.rate}">
                         <div class="hint">Сумма = отверстия × ставка × (1 − НДФЛ) × паллеты</div>
+                        <label>Цена паза за 1п/м:</label><input type="number" id="e8-groove-rate-input" step="0.01" min="0" value="${settings.grooveRate}">
                         <label>НДФЛ, %:</label><input type="number" id="e8-tax-input" step="1" min="0" max="99" value="${settings.tax}">
                         <label>Заявки:</label><input type="text" id="e8-order-filter" placeholder="пусто = все" value="${escapeAttr(settings.orderFilter)}">
                         <label class="chk"><input type="checkbox" id="e8-automin" ${settings.autoMinimize ? 'checked' : ''}> Автоматически сворачивать после загрузки</label>
@@ -1455,6 +1471,10 @@
                     const rate = Number(box.querySelector('#e8-rate-input').value), tax = Number(box.querySelector('#e8-tax-input').value);
                     if (Number.isFinite(rate) && rate > 0) settings.rate = rate;
                     if (Number.isFinite(tax) && tax >= 0 && tax < 100) settings.tax = tax;
+
+                    const grRate = Number(box.querySelector('#e8-groove-rate-input').value);
+                    if (Number.isFinite(grRate) && grRate >= 0) settings.grooveRate = grRate;
+
                     settings.autoMinimize = box.querySelector('#e8-automin').checked;
                     settings.orderFilter = box.querySelector('#e8-order-filter').value.trim();
                     settings.hideOrders = box.querySelector('#e8-hide-orders').checked;
@@ -1463,12 +1483,14 @@
                 });
 
                 box.querySelector('#e8-settings-reset').addEventListener('click', () => {
-                    settings = { opacity: 100, rate: 0.48, tax: 13, autoMinimize: settings.autoMinimize, orderFilter: '', activeCrew: null };
+                    settings = { opacity: 100, rate: 0.48, tax: 13, grooveRate: 6.52, autoMinimize: settings.autoMinimize, orderFilter: '', activeCrew: null, hideOrders: true };
                     box.querySelector('#e8-op-range').value = 100; box.querySelector('#e8-op-val').textContent = '100%';
                     box.querySelector('#e8-rate-input').value = 0.48; box.querySelector('#e8-tax-input').value = 13;
+                    box.querySelector('#e8-groove-rate-input').value = 6.52;
                     box.querySelector('#e8-order-filter').value = ''; box.querySelector('#e8-automin').checked = settings.autoMinimize;
                     box.querySelector('#e8-hide-orders').checked = true;
-                    box.style.opacity = settings.opacity; saveSettings(); if (lastJson) processJobs(lastJson);
+                    box.style.opacity = settings.opacity;
+                    saveSettings(); if (lastJson) processJobs(lastJson);
                 });
 
                 box.querySelector('#e8-calc-recalc').addEventListener('click', async () => {
@@ -2111,47 +2133,81 @@
             const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
             const STORAGE_KEY_SUM = 'e8_hole_counter_sum';
             const STORAGE_KEY_PALLET = 'e8_pallet_counter_sum';
-            let totalSum = 0; let palletSum = 0; let waitingForCharData = false;
+            const STORAGE_KEY_GROOVE = 'e8_groove_counter_sum';
+            let totalSum = 0; let palletSum = 0; let totalGrooveSum = 0; let waitingForCharData = false;
 
             try {
                 const s = localStorage.getItem(STORAGE_KEY_SUM); if (s !== null) { const p = parseInt(s, 10); if (!isNaN(p)) totalSum = p; }
                 const p2 = localStorage.getItem(STORAGE_KEY_PALLET); if (p2 !== null) { const p = parseInt(p2, 10); if (!isNaN(p)) palletSum = p; }
+                const g = localStorage.getItem(STORAGE_KEY_GROOVE); if (g !== null) { const p = parseFloat(g); if (!isNaN(p)) totalGrooveSum = p; }
             } catch (e) {}
             function saveSum() { try { localStorage.setItem(STORAGE_KEY_SUM, String(totalSum)); } catch (e) {} }
             function savePallet() { try { localStorage.setItem(STORAGE_KEY_PALLET, String(palletSum)); } catch (e) {} }
+            function saveGrooveSum() { try { localStorage.setItem(STORAGE_KEY_GROOVE, String(totalGrooveSum)); } catch (e) {} }
 
             function createQuote() {
                 if (document.getElementById('hole-counter-quote')) return;
                 const q = document.createElement('div'); q.id = 'hole-counter-quote';
                 q.style.cssText = `position: fixed; right: 20px; bottom: 74px; z-index: 999999; background: #1e1e2e; color: #eee; border: 1px solid #444; border-radius: 8px; padding: 8px 26px 8px 12px; font: 12px/1.4 system-ui, sans-serif; box-shadow: 0 6px 18px rgba(0,0,0,.5); min-width: 170px; max-width: calc(100vw - 40px); box-sizing: border-box; display: none; user-select: none;`;
-                q.innerHTML = `<span id="hole-counter-quote-close" style="position:absolute; top:4px; right:6px; cursor:pointer; opacity:.6; font-size:14px; line-height:1;" title="Закрыть">×</span><div style="display:flex; justify-content:space-between; gap:14px; color:#7CFC9B;"><span>Заработок:</span><span id="hole-counter-earnings" style="font-weight:700;">0.00</span></div><div style="display:flex; justify-content:space-between; gap:14px; margin-top:2px; color:#fbbf24;"><span>Отверстий:</span><span id="hole-counter-value" style="font-weight:700;">0</span></div><button id="hole-counter-reset" style="margin-top:8px; width:100%; cursor:pointer; background:#ef4444; color:#fff; border:0; border-radius:5px; padding:4px 8px; font:600 11px system-ui,sans-serif;">Сброс</button>`;
+                q.innerHTML = `<span id="hole-counter-quote-close" style="position:absolute; top:4px; right:6px; cursor:pointer; opacity:.6; font-size:14px; line-height:1;" title="Закрыть">×</span><div style="display:flex; justify-content:space-between; gap:14px; color:#7CFC9B;"><span>Заработок:</span><span id="hole-counter-earnings" style="font-weight:700;">0.00</span></div><div style="display:flex; justify-content:space-between; gap:14px; margin-top:2px; color:#fbbf24;"><span>Отверстий:</span><span id="hole-counter-value" style="font-weight:700;">0</span></div><div style="display:flex; justify-content:space-between; gap:14px; margin-top:2px; color:#a78bfa;"><span>Пазы (м):</span><span id="hole-counter-groove" style="font-weight:700;">0.00</span></div><button id="hole-counter-reset" style="margin-top:8px; width:100%; cursor:pointer; background:#ef4444; color:#fff; border:0; border-radius:5px; padding:4px 8px; font:600 11px system-ui,sans-serif;">Сброс</button>`;
                 document.body.appendChild(q);
                 q.querySelector('#hole-counter-quote-close').addEventListener('click', () => { q.style.display = 'none'; });
-                q.querySelector('#hole-counter-reset').addEventListener('click', () => { totalSum = 0; palletSum = 0; saveSum(); savePallet(); updateDisplay(); });
+                q.querySelector('#hole-counter-reset').addEventListener('click', () => { totalSum = 0; palletSum = 0; totalGrooveSum = 0; saveSum(); savePallet(); saveGrooveSum(); updateDisplay(); });
                 updateDisplay();
             }
 
             function updateDisplay() {
                 const earningsSpan = document.getElementById('hole-counter-earnings');
                 const valueSpan = document.getElementById('hole-counter-value');
-                if (earningsSpan) earningsSpan.textContent = (totalSum * 0.48 * 0.87).toFixed(2);
+                const grooveSpan = document.getElementById('hole-counter-groove');
+
+                const rate = window.__e8Settings?.rate ?? 0.48;
+                const tax = window.__e8Settings?.tax ?? 13;
+                const grooveRate = window.__e8Settings?.grooveRate ?? 6.52;
+
+                const holesEarn = totalSum * rate * (1 - tax / 100);
+                const grooveEarn = totalGrooveSum * grooveRate * (1 - tax / 100);
+                const totalEarn = holesEarn + grooveEarn;
+
+                if (earningsSpan) earningsSpan.textContent = totalEarn.toFixed(2);
                 if (valueSpan) valueSpan.textContent = totalSum;
+                if (grooveSpan) {
+                    grooveSpan.textContent = totalGrooveSum.toFixed(2);
+                    const grooveRow = grooveSpan.parentElement;
+                if (grooveRow) {
+                    grooveRow.style.display = totalGrooveSum > 0 ? 'flex' : 'none';
+                    }
+                }
             }
+
             function showQuote() { const q = document.getElementById('hole-counter-quote'); if (q) q.style.display = 'block'; }
             function isRequired(item) { if (!item.category || !item.category.label) return false; return item.category.label.trim() === 'ЛДСП'; }
             function traverse(node, acc) {
                 if (!node || typeof node !== 'object') return;
                 if (typeof node.totalHole === 'number' && isRequired(node)) acc.holes += node.totalHole;
+                if (typeof node.totalGrooveM === 'number' && isFinite(node.totalGrooveM) && node.totalGrooveM > 0) {
+                    acc.grooveM += node.totalGrooveM;
+                }
                 if (typeof node.count === 'number') acc.pallets += node.count;
                 if (Array.isArray(node.children)) node.children.forEach(ch => traverse(ch, acc));
                 if (Array.isArray(node.items)) node.items.forEach(ch => traverse(ch, acc));
             }
             function processJsonData(data) {
-                if (!data) return; const acc = { holes: 0, pallets: 0 }; traverse(data, acc);
+                if (!data) return;
+                const acc = { holes: 0, pallets: 0, grooveM: 0 };
+                traverse(data, acc);
+
                 if (acc.holes > 0) { totalSum += acc.holes; saveSum(); }
+                if (acc.grooveM > 0) { totalGrooveSum += acc.grooveM; saveGrooveSum(); }
                 if (acc.pallets > 0) { palletSum += acc.pallets; savePallet(); }
-                if (waitingForCharData && (acc.holes > 0 || acc.pallets > 0)) { updateDisplay(); showQuote(); waitingForCharData = false; }
-                else if (acc.holes > 0 || acc.pallets > 0) updateDisplay();
+
+                if (waitingForCharData && (acc.holes > 0 || acc.pallets > 0 || acc.grooveM > 0)) {
+                    updateDisplay();
+                    showQuote();
+                    waitingForCharData = false;
+                } else if (acc.holes > 0 || acc.pallets > 0 || acc.grooveM > 0) {
+                    updateDisplay();
+                }
             }
             document.addEventListener('click', (e) => {
                 const btn = e.target.closest('button, [role="button"], a, div, span, [data-slot="trigger"]');
@@ -2284,18 +2340,22 @@
                 }
             }
 
-            function countHoles(obj) {
+            function countParams(obj) {
                 let holes = 0;
+                let grooveM = 0;
                 function traverse(node) {
                     if (!node || typeof node !== 'object') return;
                     if (typeof node.totalHole === 'number' && node.category && node.category.label && node.category.label.trim() === 'ЛДСП') {
                         holes += node.totalHole;
                     }
+                    if (typeof node.totalGrooveM === 'number') {
+                        grooveM += node.totalGrooveM;
+                    }
                     if (Array.isArray(node.children)) node.children.forEach(traverse);
                     if (Array.isArray(node.items)) node.items.forEach(traverse);
                 }
                 traverse(obj);
-                return holes;
+                return { holes, grooveM };
             }
 
             function fetchProductParams(productId, jobId) {
@@ -2314,22 +2374,22 @@
                         url: url,
                         headers: { 'Accept': 'application/json', 'Authorization': token },
                         onload: (res) => {
-                            if (res.status !== 200) { resolve(0); return; }
+                            if (res.status !== 200) { resolve({ holes: 0, grooveM: 0 }); return; }
                             try {
                                 const json = JSON.parse(res.responseText);
 
-                                const holes = countHoles(json);
+                                const params = countParams(json);
 
-                                if (holes === 0) {
+                                if (params.holes === 0) {
                                     console.warn(`[e8-autoprice] Отверстия не найдены (0) для ${jobId}. Ответ API:`, json);
                                 }
-                                resolve(holes);
+                                resolve(params);
                             } catch (e) {
                                 console.error('[e8-autoprice] Ошибка парсинга', e);
-                                resolve(0);
+                                resolve({ holes: 0, grooveM: 0 });
                             }
                         },
-                        onerror: () => resolve(0),
+                        onerror: () => resolve({ holes: 0, grooveM: 0 }),
                         timeout: 10000
                     });
                 });
@@ -2436,13 +2496,12 @@
                     const newItemsBatch = [];
                     const entries = Array.from(missingProducts.entries());
 
-                        for (let i = 0; i < entries.length; i += MAX_PARALLEL) {
+                    for (let i = 0; i < entries.length; i += MAX_PARALLEL) {
                         const chunk = entries.slice(i, i + MAX_PARALLEL);
                         await Promise.all(chunk.map(async ([label, data]) => {
-                            const holes = await fetchProductParams(data.productId, data.jobId);
-                            if (holes > 0) {
-                                 let altName = label;
-
+                            const params = await fetchProductParams(data.productId, data.jobId);
+                            if (params.holes > 0) {
+                                let altName = label;
                                 if (/^Б00\d/.test(altName)) {
                                     altName = altName.replace(/^Б00/, 'А');
                                 } else if (/^Б00[А-ЯЁA-Z]/i.test(altName)) {
@@ -2451,8 +2510,13 @@
                                     altName = label;
                                 }
 
-                                newItemsBatch.push({ name: label, altName: altName, holes: holes });
-                                console.log(`[e8-autoprice] Данные собраны: ${label} (${holes} отв.) -> ${altName}`);
+                                const newItem = { name: label, altName: altName, holes: params.holes };
+                                if (params.grooveM > 0) {
+                                    newItem.totalGrooveM = params.grooveM;
+                                }
+
+                                newItemsBatch.push(newItem);
+                                console.log(`[e8-autoprice] Данные собраны: ${label} (${params.holes} отв., ${params.grooveM.toFixed(2)} м паза)`);
                             } else {
                                 console.warn(`[e8-autoprice] Не удалось посчитать отверстия для ${label}`);
                             }
@@ -2539,8 +2603,12 @@
                                 const arr = JSON.parse(res.responseText);
                                 for (const item of arr) {
                                     if (item && item.name && typeof item.holes === 'number') {
-                                        priceMap.set(normalize(item.name), item.holes);
-                                        priceMap.set(baseName(item.name), item.holes);
+                                        const value = {
+                                            holes: Number(item.holes) || 0,
+                                            grooveM: (typeof item.totalGrooveM === 'number' && isFinite(item.totalGrooveM) && item.totalGrooveM > 0) ? item.totalGrooveM : 0
+                                        };
+                                        priceMap.set(normalize(item.name), value);
+                                        priceMap.set(baseName(item.name), value);
                                     }
                                 }
                                 isPriceLoaded = true;
@@ -2553,7 +2621,7 @@
                 });
             }
 
-            function findHoles(label) {
+            function findParams(label) {
                 if (!label) return null;
                 const norm = normalize(label);
                 if (priceMap.has(norm)) return priceMap.get(norm);
@@ -2566,14 +2634,20 @@
                 }
                 return null;
             }
-            function calculateSum(label, holes) {
-                if (holes === null) return null;
+
+            function calculateSum(params) {
+                if (!params) return null;
                 const rate = window.__e8Settings ? window.__e8Settings.rate : 0.48;
                 const tax = window.__e8Settings ? window.__e8Settings.tax : 13;
-                return (holes * rate * (1 - tax / 100)).toFixed(2);
+                const grooveRate = window.__e8Settings ? (window.__e8Settings.grooveRate ?? 6.52) : 6.52;
+
+                const holes = params.holes || 0;
+                const grooveM = params.grooveM || 0;
+                const baseSum = holes * rate + grooveM * grooveRate;
+                return (baseSum * (1 - tax / 100)).toFixed(2);
             }
 
-            function injectToDOM(holes, sum) {
+            function injectToDOM(params, sum) {
                 if (document.getElementById('e8-test-info')) return;
 
                 let stageEl = null;
@@ -2585,6 +2659,9 @@
 
                 const grid = stageEl.closest('.grid');
                 if (!grid) return;
+
+                const holes = params ? params.holes : null;
+                const grooveM = params ? params.grooveM : 0;
 
                 const l1 = document.createElement('div');
                 l1.className = 'text-sm text-muted';
@@ -2614,6 +2691,22 @@
                 wrapper.appendChild(v1);
                 wrapper.appendChild(l2);
                 wrapper.appendChild(v2);
+
+                if (grooveM > 0) {
+                    const l3 = document.createElement('div');
+                    l3.className = 'text-sm text-muted';
+                    l3.textContent = 'Пазы (м)';
+
+                    const v3 = document.createElement('div');
+                    v3.className = 'flex items-center justify-end text-right text-sm break-all whitespace-pre-wrap';
+                    v3.style.color = '#a78bfa';
+                    v3.style.fontWeight = 'bold';
+                    v3.textContent = grooveM.toFixed(2);
+
+                    wrapper.appendChild(l3);
+                    wrapper.appendChild(v3);
+                }
+
                 grid.appendChild(wrapper);
             }
 
@@ -2636,10 +2729,10 @@
                 if (!stageEl || !labelEl) return;
 
                 const productLabel = labelEl.textContent.trim();
-                const holes = findHoles(productLabel);
-                const sum = calculateSum(productLabel, holes);
+                const params = findParams(productLabel);
+                const sum = calculateSum(params);
 
-                injectToDOM(holes, sum);
+                injectToDOM(params, sum);
             }
 
             loadPrice();
