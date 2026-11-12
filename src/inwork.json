@@ -158,10 +158,10 @@
     "name": "Б00Т55Белый",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "12.11.2026 08:03",
+    "status": "Завершен",
+    "date": "12.11.2026 09:54",
     "startDateTime": "2026-11-12T05:03:29.372Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T06:54:13.583Z",
     "execCount": 1
   },
   {
