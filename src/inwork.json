@@ -88,17 +88,6 @@
     "execCount": 1
   },
   {
-    "id": "df9b702c-e3df-4fca-8d5d-bb71a2f7ca05",
-    "name": "Б00Т34Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "030570d1-58b3-450f-aeaa-4b3d7cca7252",
     "name": "Б00Т34Белый",
     "firstName": "",
@@ -133,6 +122,17 @@
   },
   {
     "id": "61b25c18-4cff-4aa2-871c-5e791a2d9d0e",
+    "name": "Б00Т34Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "fa3b9e8c-39ad-4bc9-bdf6-1c4984f19766",
     "name": "Б00Т34Белый",
     "firstName": "",
     "lastName": "",
@@ -180,9 +180,20 @@
     "name": "Б00Т55Белый",
     "firstName": "Федор",
     "lastName": "Привалихин",
-    "status": "В работе",
-    "date": "12.11.2026 20:45",
+    "status": "Завершен",
+    "date": "12.11.2026 21:28",
     "startDateTime": "2026-11-12T17:45:46.807Z",
+    "cancelDateTime": "2026-11-12T18:28:41.557Z",
+    "execCount": 1
+  },
+  {
+    "id": "df9b702c-e3df-4fca-8d5d-bb71a2f7ca05",
+    "name": "Б00Т34Белый",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "12.11.2026 21:09",
+    "startDateTime": "2026-11-12T18:09:37.022Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -202,10 +213,10 @@
     "name": "Б00С11Белый",
     "firstName": "Александр",
     "lastName": "Курбатов",
-    "status": "В работе",
-    "date": "12.11.2026 20:26",
+    "status": "Завершен",
+    "date": "12.11.2026 21:17",
     "startDateTime": "2026-11-12T17:26:39.198Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T18:17:39.321Z",
     "execCount": 1
   },
   {
@@ -213,10 +224,10 @@
     "name": "Б00Т34Белый",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
-    "status": "В работе",
-    "date": "12.11.2026 20:03",
+    "status": "Завершен",
+    "date": "12.11.2026 21:09",
     "startDateTime": "2026-11-12T17:03:10.137Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T18:09:29.110Z",
     "execCount": 1
   },
   {
