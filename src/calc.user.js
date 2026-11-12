@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Калькулейшин
-// @namespace    Калькулейшин
-// @version      5.25
+// @name         dev.Калькулейшин
+// @namespace    dev.Калькулейшин
+// @version      5.26
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -1189,13 +1189,27 @@
                             totalQuantity += quantityInRange;
 
                             const timesWithIds = [];
-                            for (let i = 0; i < palletsInRange; i++) {
-                                const child = childList[i];
-                                timesWithIds.push({
-                                    iso: child?.cancelDateTime,
-                                    id: child?.id
-                                });
+                            if (from == null && to == null) {
+                                for (let i = 0; i < palletsInRange; i++) {
+                                    const child = childList[i];
+                                    timesWithIds.push({
+                                        iso: child?.cancelDateTime,
+                                        id: child?.id
+                                    });
+                                }
+                            } else {
+                                for (const c of childList) {
+                                    const t = palletTimeMs(c);
+                                    if (t == null) continue;
+                                    if ((from == null || t >= from) && (to == null || t <= to)) {
+                                        timesWithIds.push({
+                                            iso: c.cancelDateTime,
+                                            id: c.id
+                                        });
+                                    }
+                                }
                             }
+
                             debugRows.push({
                                 order: order.label,
                                 label,
@@ -1885,13 +1899,13 @@
                                 if (!Array.isArray(data)) throw new Error('not array');
                                 priceByName = {};
                                 data.forEach(item => {
-                                    // Ищем по altName вместо name
                                     if (!item || !item.altName) return;
                                     if (typeof item.holes !== 'number') return;
                                     const name = item.altName.trim();
-                                    let price;
-                                    price = item.holes * getRate() * getTaxMultiplier();
-                                    priceByName[name] = price;
+                                    const holes = item.holes;
+                                    const grooveM = (typeof item.totalGrooveM === 'number' && isFinite(item.totalGrooveM) && item.totalGrooveM > 0) ? item.totalGrooveM : 0;
+                                    const baseSum = holes * getRate() + grooveM * (window.__e8Settings?.grooveRate || 6.52);
+                                    priceByName[name] = baseSum * getTaxMultiplier();
                                 });
                                 priceLoaded = true;
                                 resolve(true);
