@@ -66,28 +66,6 @@
     "execCount": 1
   },
   {
-    "id": "8e37da6d-836e-4e78-ab20-4107020a0123",
-    "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "85537c85-d034-4aeb-a3c0-ec97748a3729",
-    "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "5279dd4b-5549-4749-8517-7f039468b3ad",
     "name": "Б0078Белый",
     "firstName": "",
@@ -154,17 +132,6 @@
     "execCount": 1
   },
   {
-    "id": "b56665b8-79c2-40ac-8bea-793c8e4773c5",
-    "name": "Б0078Белый",
-    "firstName": "Иван",
-    "lastName": "Шувалов",
-    "status": "Завершен",
-    "date": "12.11.2026 13:38",
-    "startDateTime": "2026-11-12T09:28:18.050Z",
-    "cancelDateTime": "2026-11-12T10:38:13.399Z",
-    "execCount": 1
-  },
-  {
     "id": "b8f540e2-ed43-4c89-96de-95afbf829191",
     "name": "Б0078Белый",
     "firstName": "Николай",
@@ -176,25 +143,25 @@
     "execCount": 1
   },
   {
-    "id": "db9d17f0-4411-4af8-941b-90e3aac2861f",
+    "id": "85537c85-d034-4aeb-a3c0-ec97748a3729",
     "name": "Б0078Белый",
-    "firstName": "Александр",
-    "lastName": "Маматов",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
     "status": "В работе",
-    "date": "12.11.2026 13:21",
-    "startDateTime": "2026-11-12T10:21:29.185Z",
+    "date": "12.11.2026 14:15",
+    "startDateTime": "2026-11-12T11:15:48.851Z",
     "cancelDateTime": null,
     "execCount": 1
   },
   {
-    "id": "b2c41356-027a-40c6-867b-8da2ad03690b",
+    "id": "db9d17f0-4411-4af8-941b-90e3aac2861f",
     "name": "Б0078Белый",
-    "firstName": "Алишер",
-    "lastName": "Абдуллаев",
+    "firstName": "Александр",
+    "lastName": "Маматов",
     "status": "Завершен",
-    "date": "12.11.2026 13:28",
-    "startDateTime": "2026-11-12T09:57:14.761Z",
-    "cancelDateTime": "2026-11-12T10:28:01.470Z",
+    "date": "12.11.2026 14:19",
+    "startDateTime": "2026-11-12T10:21:29.185Z",
+    "cancelDateTime": "2026-11-12T11:19:51.226Z",
     "execCount": 1
   },
   {
@@ -209,36 +176,25 @@
     "execCount": 1
   },
   {
-    "id": "1e49172e-7ca1-4c2b-871d-c0ab3052d854",
-    "name": "Б00Т34Графит",
-    "firstName": "Иван",
-    "lastName": "Шувалов",
-    "status": "Завершен",
-    "date": "12.11.2026 12:17",
-    "startDateTime": "2026-11-12T08:10:37.116Z",
-    "cancelDateTime": "2026-11-12T09:17:07.393Z",
-    "execCount": 1
-  },
-  {
-    "id": "0748d9da-aa9f-45d5-b10b-1ef3c94c0611",
+    "id": "8e37da6d-836e-4e78-ab20-4107020a0123",
     "name": "Б0078Белый",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "Завершен",
-    "date": "12.11.2026 11:56",
-    "startDateTime": "2026-11-12T08:15:01.471Z",
-    "cancelDateTime": "2026-11-12T08:56:47.136Z",
+    "status": "В работе",
+    "date": "12.11.2026 14:19",
+    "startDateTime": "2026-11-12T11:19:40.158Z",
+    "cancelDateTime": null,
     "execCount": 1
   },
   {
-    "id": "de767c5f-8290-430b-9506-059998565a8f",
+    "id": "b56665b8-79c2-40ac-8bea-793c8e4773c5",
     "name": "Б0078Белый",
-    "firstName": "Александр",
-    "lastName": "Маматов",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
     "status": "Завершен",
-    "date": "12.11.2026 12:21",
-    "startDateTime": "2026-11-12T08:36:20.204Z",
-    "cancelDateTime": "2026-11-12T09:21:08.756Z",
+    "date": "12.11.2026 13:38",
+    "startDateTime": "2026-11-12T09:28:18.050Z",
+    "cancelDateTime": "2026-11-12T10:38:13.399Z",
     "execCount": 1
   },
   {
@@ -253,6 +209,28 @@
     "execCount": 1
   },
   {
+    "id": "b2c41356-027a-40c6-867b-8da2ad03690b",
+    "name": "Б0078Белый",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "Завершен",
+    "date": "12.11.2026 13:28",
+    "startDateTime": "2026-11-12T09:57:14.761Z",
+    "cancelDateTime": "2026-11-12T10:28:01.470Z",
+    "execCount": 1
+  },
+  {
+    "id": "de767c5f-8290-430b-9506-059998565a8f",
+    "name": "Б0078Белый",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "Завершен",
+    "date": "12.11.2026 12:21",
+    "startDateTime": "2026-11-12T08:36:20.204Z",
+    "cancelDateTime": "2026-11-12T09:21:08.756Z",
+    "execCount": 1
+  },
+  {
     "id": "c0934403-632a-4c31-b2d2-c4b0ea3975c7",
     "name": "Б0078Белый",
     "firstName": "Николай",
@@ -264,6 +242,17 @@
     "execCount": 1
   },
   {
+    "id": "1e49172e-7ca1-4c2b-871d-c0ab3052d854",
+    "name": "Б00Т34Графит",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "12.11.2026 12:17",
+    "startDateTime": "2026-11-12T08:10:37.116Z",
+    "cancelDateTime": "2026-11-12T09:17:07.393Z",
+    "execCount": 1
+  },
+  {
     "id": "2dea52cb-72f5-4a61-91fb-cbb3ed29ab11",
     "name": "Б0078Белый",
     "firstName": "Александр",
@@ -272,6 +261,17 @@
     "date": "12.11.2026 11:34",
     "startDateTime": "2026-11-12T07:47:50.867Z",
     "cancelDateTime": "2026-11-12T08:34:34.451Z",
+    "execCount": 1
+  },
+  {
+    "id": "0748d9da-aa9f-45d5-b10b-1ef3c94c0611",
+    "name": "Б0078Белый",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "Завершен",
+    "date": "12.11.2026 11:56",
+    "startDateTime": "2026-11-12T08:15:01.471Z",
+    "cancelDateTime": "2026-11-12T08:56:47.136Z",
     "execCount": 1
   },
   {
