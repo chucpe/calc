@@ -121,17 +121,6 @@
     "execCount": 1
   },
   {
-    "id": "afd5dbbd-2466-4dc0-97e2-4ec243b4e2b4",
-    "name": "Б00Т34Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "305146de-21e7-450f-be20-5c961f05887e",
     "name": "Б00Т34Белый",
     "firstName": "",
@@ -161,6 +150,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "afd5dbbd-2466-4dc0-97e2-4ec243b4e2b4",
+    "name": "Б00Т34Белый",
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "12.11.2026 19:19",
+    "startDateTime": "2026-11-12T16:19:15.957Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -213,10 +213,10 @@
     "name": "Б00С11Белый",
     "firstName": "Александр",
     "lastName": "Курбатов",
-    "status": "В работе",
-    "date": "12.11.2026 18:20",
+    "status": "Завершен",
+    "date": "12.11.2026 19:14",
     "startDateTime": "2026-11-12T15:20:26.173Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T16:14:14.417Z",
     "execCount": 1
   },
   {
