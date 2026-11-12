@@ -66,17 +66,6 @@
     "execCount": 1
   },
   {
-    "id": "bde30931-e6bd-4b89-a290-16406dae881b",
-    "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "70153018-507f-4d08-9b9f-c41d62347fd0",
     "name": "Б0078Белый",
     "firstName": "",
@@ -143,14 +132,47 @@
     "execCount": 1
   },
   {
+    "id": "0b1cae13-d229-4b01-854b-e0f7ff0df54d",
+    "name": "Б0078Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "593a9f61-e7a1-4b70-8b62-98ad199bd95d",
+    "name": "Б0078Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "bde30931-e6bd-4b89-a290-16406dae881b",
+    "name": "Б0078Белый",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "12.11.2026 15:01",
+    "startDateTime": "2026-11-12T12:01:49.484Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "5279dd4b-5549-4749-8517-7f039468b3ad",
     "name": "Б0078Белый",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "12.11.2026 14:19",
+    "status": "Завершен",
+    "date": "12.11.2026 15:18",
     "startDateTime": "2026-11-12T11:19:56.765Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T12:18:19.940Z",
     "execCount": 1
   },
   {
@@ -202,10 +224,10 @@
     "name": "Б0078Белый",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "12.11.2026 14:19",
+    "status": "Завершен",
+    "date": "12.11.2026 15:00",
     "startDateTime": "2026-11-12T11:19:40.158Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T12:00:51.976Z",
     "execCount": 1
   },
   {
