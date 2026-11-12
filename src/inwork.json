@@ -1,6 +1,6 @@
 [
   {
-    "id": "f63a7267-08a9-40b3-af9f-8c0d7874697d",
+    "id": "e2ff3a46-a6d9-45a0-9cfc-97e56a96a377",
     "name": "Б00Т38ГрафитЧР",
     "firstName": "",
     "lastName": "",
@@ -11,7 +11,7 @@
     "execCount": 1
   },
   {
-    "id": "e2ff3a46-a6d9-45a0-9cfc-97e56a96a377",
+    "id": "6ad2d252-00c1-435e-9e68-783985aafe05",
     "name": "Б00Т38ГрафитЧР",
     "firstName": "",
     "lastName": "",
@@ -110,6 +110,28 @@
     "execCount": 1
   },
   {
+    "id": "7e040d1e-1925-41e6-a016-0f498db02e46",
+    "name": "Б00С8Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f63a7267-08a9-40b3-af9f-8c0d7874697d",
+    "name": "Б00Т38ГрафитЧР",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "12.11.2026 22:58",
+    "startDateTime": "2026-11-12T19:58:41.508Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "593a9f61-e7a1-4b70-8b62-98ad199bd95d",
     "name": "Б0078Белый",
     "firstName": "Федор",
@@ -169,10 +191,10 @@
     "name": "Б00Т34Белый",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "12.11.2026 22:00",
+    "status": "Завершен",
+    "date": "12.11.2026 22:57",
     "startDateTime": "2026-11-12T19:00:36.417Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T19:57:02.109Z",
     "execCount": 1
   },
   {
