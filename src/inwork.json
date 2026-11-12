@@ -55,17 +55,6 @@
     "execCount": 1
   },
   {
-    "id": "2dea52cb-72f5-4a61-91fb-cbb3ed29ab11",
-    "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "0748d9da-aa9f-45d5-b10b-1ef3c94c0611",
     "name": "Б0078Белый",
     "firstName": "",
@@ -128,6 +117,39 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "c0934403-632a-4c31-b2d2-c4b0ea3975c7",
+    "name": "Б0078Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f4da3d92-2893-4c58-96b7-225eaee165bd",
+    "name": "Б0078Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "2dea52cb-72f5-4a61-91fb-cbb3ed29ab11",
+    "name": "Б0078Белый",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "12.11.2026 10:47",
+    "startDateTime": "2026-11-12T07:47:50.867Z",
     "cancelDateTime": null,
     "execCount": 1
   },
