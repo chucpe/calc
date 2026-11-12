@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         dev.Калькулейшин
 // @namespace    dev.Калькулейшин
-// @version      5.26
+// @version      5.27
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -800,7 +800,12 @@
             function mskLocalToUtcMs(s) {
                 const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
                 if (!m) return null;
-                return Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], 0) - MSK_OFFSET_MIN * 60 * 1000;
+                const y = +m[1], mo = +m[2] - 1, d = +m[3], h = +m[4], mi = +m[5];
+                const test = new Date(Date.UTC(y, mo, d, h, mi, 0));
+                if (test.getUTCFullYear() !== y || test.getUTCMonth() !== mo || test.getUTCDate() !== d) {
+                    return NaN;
+                }
+                return Date.UTC(y, mo, d, h, mi, 0) - MSK_OFFSET_MIN * 60 * 1000;
             }
 
             function normalize(s) { return String(s || '').toLowerCase().replace(/\s+/g, '').replace(/[«»"']/g, '').trim(); }
@@ -1697,8 +1702,17 @@
 
                 const isDateFilterActive = !!(filter.from || filter.to);
 
+                const isInvalidDate =
+                    (filter.from != null && isNaN(filter.from)) ||
+                    (filter.to != null && isNaN(filter.to)) ||
+                    (filter.from != null && filter.to != null && filter.from > filter.to);
+
                 let ordersHtml = '';
-                if (byOrder) {
+                if (isInvalidDate) {
+                    ordersHtml = `<div class="row" style="color:#ff5555;font-weight:600;padding:12px 0;justify-content:center;">⚠️ Неверно указана дата</div>`;
+                } else if (isDateFilterActive && totalPallets === 0) {
+                    ordersHtml = `<div class="row" style="color:#fbbf24;font-weight:600;padding:12px 0;justify-content:center;">📭 В выбранном диапазоне нет данных</div>`;
+                } else if (byOrder) {
                     if (isDateFilterActive) {
                         const allRows = [];
                         for (const [label, st] of byOrder) {
