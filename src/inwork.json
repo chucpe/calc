@@ -112,11 +112,11 @@
   {
     "id": "593a9f61-e7a1-4b70-8b62-98ad199bd95d",
     "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "В работе",
+    "date": "12.11.2026 22:36",
+    "startDateTime": "2026-11-12T19:36:24.276Z",
     "cancelDateTime": null,
     "execCount": 1
   },
