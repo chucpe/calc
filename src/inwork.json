@@ -121,7 +121,7 @@
     "execCount": 1
   },
   {
-    "id": "fcb26454-a2d1-4511-a6dd-88154b79c7cb",
+    "id": "8d5d0365-7f3f-477f-9e75-5678d699c6cc",
     "name": "Б00Т34Белый",
     "firstName": "",
     "lastName": "",
@@ -154,6 +154,17 @@
     "execCount": 1
   },
   {
+    "id": "305146de-21e7-450f-be20-5c961f05887e",
+    "name": "Б00Т34Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "801600e3-ba6c-412a-a807-f209fd9fd7f2",
     "name": "Б00С8Белый",
     "firstName": "",
@@ -176,14 +187,25 @@
     "execCount": 1
   },
   {
+    "id": "fcb26454-a2d1-4511-a6dd-88154b79c7cb",
+    "name": "Б00Т34Белый",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "12.11.2026 18:49",
+    "startDateTime": "2026-11-12T15:49:49.406Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "52943bba-a0b7-44bd-8a08-79bc91de052e",
     "name": "Б00Т34Графит",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "12.11.2026 18:23",
+    "status": "Завершен",
+    "date": "12.11.2026 19:00",
     "startDateTime": "2026-11-12T15:23:25.456Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T16:00:47.452Z",
     "execCount": 1
   },
   {
@@ -202,10 +224,10 @@
     "name": "Б00Т34Графит",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "12.11.2026 17:52",
+    "status": "Завершен",
+    "date": "12.11.2026 18:59",
     "startDateTime": "2026-11-12T14:52:22.002Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T15:59:35.345Z",
     "execCount": 1
   },
   {
@@ -246,10 +268,10 @@
     "name": "Б0078Белый",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
-    "status": "В работе",
-    "date": "12.11.2026 17:32",
+    "status": "Завершен",
+    "date": "12.11.2026 18:49",
     "startDateTime": "2026-11-12T14:32:59.740Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T15:49:30.144Z",
     "execCount": 1
   },
   {
