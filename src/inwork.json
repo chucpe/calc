@@ -66,7 +66,62 @@
     "execCount": 1
   },
   {
+    "id": "b51e807e-4980-4faa-a223-bdafd96f6604",
+    "name": "Б0078Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "c879b600-cfd7-4966-b253-fe5c7ee58e6b",
+    "name": "Б0078Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "2dea52cb-72f5-4a61-91fb-cbb3ed29ab11",
+    "name": "Б0078Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "0748d9da-aa9f-45d5-b10b-1ef3c94c0611",
+    "name": "Б0078Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "b56665b8-79c2-40ac-8bea-793c8e4773c5",
+    "name": "Б0078Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "b8f540e2-ed43-4c89-96de-95afbf829191",
     "name": "Б0078Белый",
     "firstName": "",
     "lastName": "",
@@ -81,10 +136,10 @@
     "name": "Б00О2БелыйЗР",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "12.11.2026 08:45",
+    "status": "Завершен",
+    "date": "12.11.2026 09:37",
     "startDateTime": "2026-11-12T05:45:21.195Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T06:37:42.215Z",
     "execCount": 1
   },
   {
