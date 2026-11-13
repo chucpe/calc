@@ -55,17 +55,6 @@
     "execCount": 1
   },
   {
-    "id": "e2118ad8-567f-44df-b43a-7ad3514f0b0b",
-    "name": "Б00Т42СономаБелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "646b9d51-c97f-4089-96e1-3693d6d31086",
     "name": "Б00Т34Молочный",
     "firstName": "",
@@ -99,8 +88,41 @@
     "execCount": 1
   },
   {
-    "id": "f638a373-18f6-4c8d-8d85-9e543e7ef66a",
-    "name": "Б0037Венге",
+    "id": "dbb5a1ed-2102-48d4-a097-e268cbfa40e6",
+    "name": "Б0078Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "63f99ca7-4820-45c0-b5ee-89d9000a5818",
+    "name": "Б0078Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "70387a19-6b47-4517-a620-7be9428acfee",
+    "name": "Б0078Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "a9a1e26a-6211-45b0-966d-c587f65c02a0",
+    "name": "Б0078Венге",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -121,14 +143,36 @@
     "execCount": 1
   },
   {
+    "id": "e2118ad8-567f-44df-b43a-7ad3514f0b0b",
+    "name": "Б00Т42СономаБелыйЗР",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "13.11.2026 12:41",
+    "startDateTime": "2026-11-13T09:41:02.140Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f638a373-18f6-4c8d-8d85-9e543e7ef66a",
+    "name": "Б0037Венге",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "13.11.2026 12:42",
+    "startDateTime": "2026-11-13T09:42:01.016Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "fa0252d9-ac23-40e4-9b1d-2ad2ebda16b2",
     "name": "Б004МВенге",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "13.11.2026 12:13",
+    "status": "Завершен",
+    "date": "13.11.2026 13:23",
     "startDateTime": "2026-11-13T09:13:27.562Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T10:23:11.012Z",
     "execCount": 1
   },
   {
