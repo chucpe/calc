@@ -1,5 +1,16 @@
 [
   {
+    "id": "cce668b2-7a15-4063-afeb-2544ebd318ed",
+    "name": "Б0074Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "623d382e-fc53-4a21-86ce-dfffce2d6b65",
     "name": "Б00С11Белый",
     "firstName": "",
@@ -24,17 +35,6 @@
   {
     "id": "03c4a783-d38a-4c71-93d9-b7ac25caf1c4",
     "name": "Б00С11Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "a65c5fc0-f1a9-4c0b-9c34-2e43b32bac0c",
-    "name": "Б00С11Сонома",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -77,6 +77,39 @@
     "execCount": 1
   },
   {
+    "id": "a65c5fc0-f1a9-4c0b-9c34-2e43b32bac0c",
+    "name": "Б00С11Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "8ae2ac40-7c54-4520-8e4c-d273f2a1f834",
+    "name": "Б0078Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "80d13785-c1a8-4c93-b251-bac8f0a5c5e9",
+    "name": "Б0078Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "b6acae1d-3447-444d-85be-b4d914fa36a0",
     "name": "Б007ДВенге",
     "firstName": "",
@@ -101,6 +134,17 @@
   {
     "id": "16b8a626-7161-4155-bb60-a836763e654d",
     "name": "Б00Ж1Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "1071d04d-8809-4490-9179-04ee0f5db36e",
+    "name": "Б0079Венге",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -147,10 +191,10 @@
     "name": "Б0079Венге",
     "firstName": "Федор",
     "lastName": "Привалихин",
-    "status": "В работе",
-    "date": "13.11.2026 17:44",
+    "status": "Завершен",
+    "date": "13.11.2026 18:49",
     "startDateTime": "2026-11-13T14:44:29.524Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T15:49:49.334Z",
     "execCount": 1
   },
   {
@@ -213,10 +257,10 @@
     "name": "Б0079Венге",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "13.11.2026 16:43",
+    "status": "Завершен",
+    "date": "13.11.2026 18:24",
     "startDateTime": "2026-11-13T13:43:25.217Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T15:24:26.780Z",
     "execCount": 1
   },
   {
