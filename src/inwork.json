@@ -77,7 +77,7 @@
     "execCount": 1
   },
   {
-    "id": "cab8696c-5180-4ee8-af9d-ddd50f0ef649",
+    "id": "646b9d51-c97f-4089-96e1-3693d6d31086",
     "name": "Б00Т34Молочный",
     "firstName": "",
     "lastName": "",
@@ -88,13 +88,68 @@
     "execCount": 1
   },
   {
-    "id": "f1631d01-5a7a-4c9a-8934-6fd714aef8c4",
+    "id": "e81c9df7-f475-4706-b6cd-77d38b151f88",
     "name": "Б00Т34Молочный",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "89d7a783-e152-4e1e-b458-b8a3ebad9c16",
+    "name": "Б00Т34Молочный",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "fcdd0f34-64a1-4b6f-abff-9879ccf82137",
+    "name": "Б005Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "1d8a4303-b635-40b1-adeb-73bbb6b6223d",
+    "name": "Б00Т34Молочный",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "13.11.2026 10:05",
+    "startDateTime": "2026-11-13T05:57:51.942Z",
+    "cancelDateTime": "2026-11-13T07:05:47.411Z",
+    "execCount": 1
+  },
+  {
+    "id": "85138b81-7f94-45c3-8cd6-bf2693943a89",
+    "name": "Б00Т34Молочный",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "Завершен",
+    "date": "13.11.2026 09:42",
+    "startDateTime": "2026-11-13T06:09:54.229Z",
+    "cancelDateTime": "2026-11-13T06:42:26.860Z",
+    "execCount": 1
+  },
+  {
+    "id": "cab8696c-5180-4ee8-af9d-ddd50f0ef649",
+    "name": "Б00Т34Молочный",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "13.11.2026 09:44",
+    "startDateTime": "2026-11-13T06:44:33.415Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -114,10 +169,10 @@
     "name": "Б00С13Сонома",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "13.11.2026 08:26",
+    "status": "Завершен",
+    "date": "13.11.2026 09:24",
     "startDateTime": "2026-11-13T05:26:52.098Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T06:24:20.233Z",
     "execCount": 1
   },
   {
