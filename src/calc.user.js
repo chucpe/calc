@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.29
+// @version      5.30
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -1394,7 +1394,8 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                         <label>Заявки:</label><input type="text" id="e8-order-filter" placeholder="пусто = все" value="${escapeAttr(settings.orderFilter)}">
                         <label class="chk"><input type="checkbox" id="e8-automin" ${settings.autoMinimize ? 'checked' : ''}> Автоматически сворачивать после загрузки</label>
                         <label class="chk"><input type="checkbox" id="e8-hide-orders" ${settings.hideOrders !== false ? 'checked' : ''}> Скрывать заголовки заявок</label>
-                        <div style="display:flex;justify-content:space-between;font-size:11px;opacity:.85;margin-top:8px;"><span>localStorage:</span><span id="e8-storage-info" style="font-weight:600;">— MB / —%</span></div>
+                        <div id="e8-storage-clear" title="Двойной клик — очистить e8_exec_count_*" style="display:flex;justify-content:space-between;font-size:11px;opacity:.85;margin-top:8px;cursor:pointer;user-select:none;">
+                        <span>localStorage:</span><span id="e8-storage-info" style="font-weight:600;">— MB / —%</span></div>
                         <div class="btns"><button id="e8-settings-apply">Применить</button><button id="e8-settings-reset" class="secondary">Сбросить</button></div>
                     </div>
                     <div id="e8-online-panel" style="display:none;"></div>
@@ -1515,6 +1516,31 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                     saveSettings(); if (lastJson) processJobs(lastJson);
                     window.__e8Settings = settings;
                 });
+
+               box.querySelector('#e8-storage-clear').addEventListener('dblclick', () => {
+    let removed = 0;
+    const keysToRemove = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith('e8_exec_count_')) keysToRemove.push(k);
+    }
+    keysToRemove.forEach(k => {
+        localStorage.removeItem(k);
+        removed++;
+    });
+    console.log(`%c[e8-calc] 🧹 Удалено ${removed} ключей e8_exec_count_`, 'color:#fbbf24;font-weight:bold');
+    renderStorageInfo();
+    const el = box.querySelector('#e8-storage-info');
+    if (el) {
+        const orig = el.textContent;
+        el.textContent = `🧹 Удалено: ${removed}`;
+        el.style.color = '#fbbf24';
+        setTimeout(() => {
+            el.textContent = orig;
+            renderStorageInfo();
+        }, 1500);
+    }
+});
 
                 box.querySelector('#e8-settings-reset').addEventListener('click', () => {
                     settings = { opacity: 100, rate: 0.48, tax: 13, grooveRate: 6.52, autoMinimize: settings.autoMinimize, orderFilter: '', activeCrew: null, hideOrders: true };
