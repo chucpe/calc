@@ -1,16 +1,5 @@
 [
   {
-    "id": "ead9d0c8-63af-4dea-b1c3-67a68f9ad129",
-    "name": "Б00С11Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "72fe2174-248b-48f5-a8c8-474412604c50",
     "name": "Б00С11Белый",
     "firstName": "",
@@ -55,17 +44,6 @@
     "execCount": 1
   },
   {
-    "id": "eaf8650e-7da1-48ec-915e-122ecf8617df",
-    "name": "Б00Т34Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "a65c5fc0-f1a9-4c0b-9c34-2e43b32bac0c",
     "name": "Б00С11Сонома",
     "firstName": "",
@@ -88,7 +66,18 @@
     "execCount": 1
   },
   {
-    "id": "ae30bfd0-0d79-45f3-a2b3-c03bebdd2290",
+    "id": "986683a0-3179-4f8f-8b50-1c2f62354502",
+    "name": "СтолЦарга90*60КрафтБелыеНожки",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "6c262b19-ab47-491c-9b2a-89be1258dc6f",
     "name": "СтолЦарга90*60КрафтБелыеНожки",
     "firstName": "",
     "lastName": "",
@@ -128,6 +117,50 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "355316ad-a986-4130-9f9f-d32379107ac3",
+    "name": "Б00Т42ВотанБелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "ead9d0c8-63af-4dea-b1c3-67a68f9ad129",
+    "name": "Б00С11Белый",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "В работе",
+    "date": "13.11.2026 10:23",
+    "startDateTime": "2026-11-13T07:23:55.356Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "eaf8650e-7da1-48ec-915e-122ecf8617df",
+    "name": "Б00Т34Белый",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "Завершен",
+    "date": "13.11.2026 10:57",
+    "startDateTime": "2026-11-13T07:24:03.883Z",
+    "cancelDateTime": "2026-11-13T07:57:17.416Z",
+    "execCount": 1
+  },
+  {
+    "id": "ae30bfd0-0d79-45f3-a2b3-c03bebdd2290",
+    "name": "СтолЦарга90*60КрафтБелыеНожки",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "13.11.2026 10:57",
+    "startDateTime": "2026-11-13T07:57:23.547Z",
     "cancelDateTime": null,
     "execCount": 1
   },
