@@ -235,10 +235,10 @@
     "name": "Б004Венге",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "13.11.2026 21:48",
+    "status": "Завершен",
+    "date": "13.11.2026 22:21",
     "startDateTime": "2026-11-13T18:48:39.889Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T19:21:13.808Z",
     "execCount": 1
   },
   {
