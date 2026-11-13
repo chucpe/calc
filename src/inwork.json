@@ -88,17 +88,6 @@
     "execCount": 1
   },
   {
-    "id": "dbb5a1ed-2102-48d4-a097-e268cbfa40e6",
-    "name": "Б0078Венге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "63f99ca7-4820-45c0-b5ee-89d9000a5818",
     "name": "Б0078Венге",
     "firstName": "",
@@ -140,6 +129,17 @@
     "date": "",
     "startDateTime": null,
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "dbb5a1ed-2102-48d4-a097-e268cbfa40e6",
+    "name": "Б0078Венге",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "Завершен",
+    "date": "13.11.2026 13:40",
+    "startDateTime": "2026-11-13T10:31:38.780Z",
+    "cancelDateTime": "2026-11-13T10:40:39.034Z",
     "execCount": 1
   },
   {
