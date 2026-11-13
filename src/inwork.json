@@ -92,10 +92,10 @@
     "name": "Б00Т38ГрафитЧР",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
-    "status": "В работе",
-    "date": "12.11.2026 23:20",
+    "status": "Завершен",
+    "date": "13.11.2026 00:35",
     "startDateTime": "2026-11-12T20:20:15.740Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T21:35:10.534Z",
     "execCount": 1
   },
   {
@@ -103,10 +103,10 @@
     "name": "Б00Т38ГрафитЧР",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "13.11.2026 00:13",
+    "status": "Завершен",
+    "date": "13.11.2026 01:15",
     "startDateTime": "2026-11-12T21:13:36.090Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T22:15:39.106Z",
     "execCount": 1
   },
   {
@@ -114,10 +114,10 @@
     "name": "Б00Т34Белый",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "12.11.2026 23:39",
+    "status": "Завершен",
+    "date": "13.11.2026 01:48",
     "startDateTime": "2026-11-12T20:39:59.497Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-12T22:48:50.901Z",
     "execCount": 1
   },
   {
