@@ -44,17 +44,6 @@
     "execCount": 1
   },
   {
-    "id": "a65c5fc0-f1a9-4c0b-9c34-2e43b32bac0c",
-    "name": "Б00С11Сонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "e2118ad8-567f-44df-b43a-7ad3514f0b0b",
     "name": "Б00Т42СономаБелыйЗР",
     "firstName": "",
@@ -66,7 +55,7 @@
     "execCount": 1
   },
   {
-    "id": "986683a0-3179-4f8f-8b50-1c2f62354502",
+    "id": "6c262b19-ab47-491c-9b2a-89be1258dc6f",
     "name": "СтолЦарга90*60КрафтБелыеНожки",
     "firstName": "",
     "lastName": "",
@@ -77,8 +66,8 @@
     "execCount": 1
   },
   {
-    "id": "6c262b19-ab47-491c-9b2a-89be1258dc6f",
-    "name": "СтолЦарга90*60КрафтБелыеНожки",
+    "id": "a65c5fc0-f1a9-4c0b-9c34-2e43b32bac0c",
+    "name": "Б00С11Сонома",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -132,6 +121,28 @@
     "execCount": 1
   },
   {
+    "id": "7b89cd00-18e5-4097-abd0-c2c98b8ca4fc",
+    "name": "Б004МВенге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "986683a0-3179-4f8f-8b50-1c2f62354502",
+    "name": "СтолЦарга90*60КрафтБелыеНожки",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "13.11.2026 11:03",
+    "startDateTime": "2026-11-13T08:03:04.692Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "ead9d0c8-63af-4dea-b1c3-67a68f9ad129",
     "name": "Б00С11Белый",
     "firstName": "Иван",
@@ -158,10 +169,10 @@
     "name": "СтолЦарга90*60КрафтБелыеНожки",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "13.11.2026 10:57",
+    "status": "Завершен",
+    "date": "13.11.2026 11:03",
     "startDateTime": "2026-11-13T07:57:23.547Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T08:03:01.124Z",
     "execCount": 1
   },
   {
