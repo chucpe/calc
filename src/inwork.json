@@ -99,8 +99,8 @@
     "execCount": 1
   },
   {
-    "id": "355316ad-a986-4130-9f9f-d32379107ac3",
-    "name": "Б00Т42ВотанБелыйЗР",
+    "id": "f638a373-18f6-4c8d-8d85-9e543e7ef66a",
+    "name": "Б0037Венге",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -110,8 +110,8 @@
     "execCount": 1
   },
   {
-    "id": "8abf40d0-e4ac-4d6c-9b4a-48f142cfc6fe",
-    "name": "Б0078Венге",
+    "id": "4bc63ae4-0542-438e-864e-9821e973bdb1",
+    "name": "Б0037Венге",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -121,36 +121,14 @@
     "execCount": 1
   },
   {
-    "id": "6c262b19-ab47-491c-9b2a-89be1258dc6f",
-    "name": "СтолЦарга90*60КрафтБелыеНожки",
-    "firstName": "Алишер",
-    "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "13.11.2026 11:25",
-    "startDateTime": "2026-11-13T08:25:53.095Z",
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "7b89cd00-18e5-4097-abd0-c2c98b8ca4fc",
+    "id": "fa0252d9-ac23-40e4-9b1d-2ad2ebda16b2",
     "name": "Б004МВенге",
-    "firstName": "Николай",
-    "lastName": "Хитров",
-    "status": "В работе",
-    "date": "13.11.2026 11:20",
-    "startDateTime": "2026-11-13T08:20:09.491Z",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
     "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "986683a0-3179-4f8f-8b50-1c2f62354502",
-    "name": "СтолЦарга90*60КрафтБелыеНожки",
-    "firstName": "Алишер",
-    "lastName": "Абдуллаев",
-    "status": "Завершен",
-    "date": "13.11.2026 11:25",
-    "startDateTime": "2026-11-13T08:03:04.692Z",
-    "cancelDateTime": "2026-11-13T08:25:42.208Z",
     "execCount": 1
   },
   {
