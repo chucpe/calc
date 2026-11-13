@@ -134,11 +134,11 @@
   {
     "id": "7b89cd00-18e5-4097-abd0-c2c98b8ca4fc",
     "name": "Б004МВенге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "13.11.2026 11:20",
+    "startDateTime": "2026-11-13T08:20:09.491Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -147,10 +147,10 @@
     "name": "СтолЦарга90*60КрафтБелыеНожки",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "13.11.2026 11:03",
+    "status": "Завершен",
+    "date": "13.11.2026 11:25",
     "startDateTime": "2026-11-13T08:03:04.692Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T08:25:42.208Z",
     "execCount": 1
   },
   {
@@ -158,10 +158,10 @@
     "name": "Б00С11Белый",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "13.11.2026 10:23",
+    "status": "Завершен",
+    "date": "13.11.2026 11:19",
     "startDateTime": "2026-11-13T07:23:55.356Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T08:19:31.680Z",
     "execCount": 1
   },
   {
