@@ -1,16 +1,5 @@
 [
   {
-    "id": "eaa47989-3371-458f-a99c-a373a5e5058b",
-    "name": "Б0083ЧерныйВенге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "623d382e-fc53-4a21-86ce-dfffce2d6b65",
     "name": "Б00С11Белый",
     "firstName": "",
@@ -88,17 +77,6 @@
     "execCount": 1
   },
   {
-    "id": "4bc63ae4-0542-438e-864e-9821e973bdb1",
-    "name": "Б0037Венге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "903c99fa-b2d2-47bf-a632-0a7b31400578",
     "name": "Б004Венге",
     "firstName": "",
@@ -132,6 +110,28 @@
     "execCount": 1
   },
   {
+    "id": "eaa47989-3371-458f-a99c-a373a5e5058b",
+    "name": "Б0083ЧерныйВенге",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "Завершен",
+    "date": "13.11.2026 15:47",
+    "startDateTime": "2026-11-13T12:11:19.915Z",
+    "cancelDateTime": "2026-11-13T12:47:11.719Z",
+    "execCount": 1
+  },
+  {
+    "id": "4bc63ae4-0542-438e-864e-9821e973bdb1",
+    "name": "Б0037Венге",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "13.11.2026 15:31",
+    "startDateTime": "2026-11-13T12:31:16.463Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "72fe2174-248b-48f5-a8c8-474412604c50",
     "name": "Б00С11Белый",
     "firstName": "Иван",
@@ -158,10 +158,10 @@
     "name": "Б0078Венге",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "13.11.2026 14:11",
+    "status": "Завершен",
+    "date": "13.11.2026 15:24",
     "startDateTime": "2026-11-13T11:11:43.332Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T12:24:39.756Z",
     "execCount": 1
   },
   {
