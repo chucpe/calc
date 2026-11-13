@@ -77,6 +77,28 @@
     "execCount": 1
   },
   {
+    "id": "e2118ad8-567f-44df-b43a-7ad3514f0b0b",
+    "name": "Б00Т42СономаБелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "ae30bfd0-0d79-45f3-a2b3-c03bebdd2290",
+    "name": "СтолЦарга90*60КрафтБелыеНожки",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "646b9d51-c97f-4089-96e1-3693d6d31086",
     "name": "Б00Т34Молочный",
     "firstName": "",
@@ -112,12 +134,34 @@
   {
     "id": "fcdd0f34-64a1-4b6f-abff-9879ccf82137",
     "name": "Б005Сонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "13.11.2026 10:18",
+    "startDateTime": "2026-11-13T07:18:45.096Z",
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "1d8a4303-b635-40b1-adeb-73bbb6b6223d",
+    "name": "Б00Т34Молочный",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "13.11.2026 10:05",
+    "startDateTime": "2026-11-13T05:57:51.942Z",
+    "cancelDateTime": "2026-11-13T07:05:47.411Z",
+    "execCount": 1
+  },
+  {
+    "id": "85138b81-7f94-45c3-8cd6-bf2693943a89",
+    "name": "Б00Т34Молочный",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "Завершен",
+    "date": "13.11.2026 09:42",
+    "startDateTime": "2026-11-13T06:09:54.229Z",
+    "cancelDateTime": "2026-11-13T06:42:26.860Z",
     "execCount": 1
   },
   {
@@ -129,17 +173,6 @@
     "date": "13.11.2026 10:14",
     "startDateTime": "2026-11-13T06:44:33.415Z",
     "cancelDateTime": "2026-11-13T07:14:28.693Z",
-    "execCount": 1
-  },
-  {
-    "id": "f1631d01-5a7a-4c9a-8934-6fd714aef8c4",
-    "name": "Б00Т34Молочный",
-    "firstName": "Александр",
-    "lastName": "Маматов",
-    "status": "Завершен",
-    "date": "13.11.2026 10:16",
-    "startDateTime": "2026-11-13T06:18:17.852Z",
-    "cancelDateTime": "2026-11-13T07:16:44.793Z",
     "execCount": 1
   },
   {
