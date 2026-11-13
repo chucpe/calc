@@ -121,6 +121,17 @@
     "execCount": 1
   },
   {
+    "id": "8abf40d0-e4ac-4d6c-9b4a-48f142cfc6fe",
+    "name": "Б0078Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "7b89cd00-18e5-4097-abd0-c2c98b8ca4fc",
     "name": "Б004МВенге",
     "firstName": "",
@@ -180,10 +191,10 @@
     "name": "Б005Сонома",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "13.11.2026 10:18",
+    "status": "Завершен",
+    "date": "13.11.2026 11:10",
     "startDateTime": "2026-11-13T07:18:45.096Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T08:10:45.424Z",
     "execCount": 1
   },
   {
