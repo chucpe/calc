@@ -77,18 +77,7 @@
     "execCount": 1
   },
   {
-    "id": "4a092c5a-68a2-48ce-9eb6-8333c75b6267",
-    "name": "Б0079Венге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "6bb1b39f-dbe6-45cf-8f72-a4bc38921cf6",
+    "id": "0e980c5f-b721-4cff-b7a8-b643df021c35",
     "name": "Б0079Венге",
     "firstName": "",
     "lastName": "",
@@ -101,6 +90,17 @@
   {
     "id": "939b83a6-c136-4599-9342-936d28b96ac9",
     "name": "Б0079Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "61c17bf8-c7b3-420b-b89a-1bd6840cf19f",
+    "name": "Б00Ж1Венге",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -139,6 +139,28 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "4a092c5a-68a2-48ce-9eb6-8333c75b6267",
+    "name": "Б0079Венге",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "13.11.2026 17:15",
+    "startDateTime": "2026-11-13T14:15:59.409Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "6bb1b39f-dbe6-45cf-8f72-a4bc38921cf6",
+    "name": "Б0079Венге",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "13.11.2026 17:28",
+    "startDateTime": "2026-11-13T14:28:03.137Z",
     "cancelDateTime": null,
     "execCount": 1
   },
