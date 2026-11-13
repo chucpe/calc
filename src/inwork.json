@@ -224,10 +224,10 @@
     "name": "Б00Ш11Венге",
     "firstName": "Александр",
     "lastName": "Курбатов",
-    "status": "В работе",
-    "date": "13.11.2026 21:07",
+    "status": "Завершен",
+    "date": "13.11.2026 23:06",
     "startDateTime": "2026-11-13T18:07:27.709Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-13T20:06:48.254Z",
     "execCount": 1
   },
   {
