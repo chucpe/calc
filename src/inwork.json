@@ -123,11 +123,11 @@
   {
     "id": "fa0252d9-ac23-40e4-9b1d-2ad2ebda16b2",
     "name": "Б004МВенге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "В работе",
+    "date": "13.11.2026 12:13",
+    "startDateTime": "2026-11-13T09:13:27.562Z",
     "cancelDateTime": null,
     "execCount": 1
   },
