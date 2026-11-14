@@ -1,5 +1,16 @@
 [
   {
+    "id": "1894a886-eb37-48fd-9d07-dce76bbcceb3",
+    "name": "Б00Т36БелыйЧР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "0ead0c2a-5b08-4d84-aa6f-27ffacddb932",
     "name": "Б00С8Белый",
     "firstName": "",
@@ -121,17 +132,6 @@
     "execCount": 1
   },
   {
-    "id": "61625d53-5c07-448f-92a6-3f27eb6525e2",
-    "name": "Б0036Венге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "e0142e7d-f77f-4dac-982a-3c9bb1da7b0f",
     "name": "Б0036Венге",
     "firstName": "",
@@ -209,6 +209,17 @@
     "execCount": 1
   },
   {
+    "id": "61625d53-5c07-448f-92a6-3f27eb6525e2",
+    "name": "Б0036Венге",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "14.11.2026 13:04",
+    "startDateTime": "2026-11-14T10:04:32.376Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "b1122108-e278-4095-ab7e-dbf187ea79dc",
     "name": "Б00Т36БелыйЗР",
     "firstName": "Алексей",
@@ -246,10 +257,10 @@
     "name": "Б0036Венге",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "14.11.2026 11:57",
+    "status": "Завершен",
+    "date": "14.11.2026 13:16",
     "startDateTime": "2026-11-14T08:57:39.490Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T10:16:21.168Z",
     "execCount": 1
   },
   {
