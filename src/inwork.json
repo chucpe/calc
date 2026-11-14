@@ -1,16 +1,5 @@
 [
   {
-    "id": "1377737d-3ff5-478f-9833-af91597eeaec",
-    "name": "Б004ДБелый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "54d2a30a-e744-4824-9bc3-57f6c0a643de",
     "name": "Б004ДБелый",
     "firstName": "",
@@ -150,6 +139,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "1377737d-3ff5-478f-9833-af91597eeaec",
+    "name": "Б004ДБелый",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "14.11.2026 17:01",
+    "startDateTime": "2026-11-14T14:01:59.410Z",
     "cancelDateTime": null,
     "execCount": 1
   },
