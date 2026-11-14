@@ -1,7 +1,29 @@
 [
   {
-    "id": "1894a886-eb37-48fd-9d07-dce76bbcceb3",
+    "id": "80cc8da0-8adc-44c3-9dc7-fc4eef9af5a9",
     "name": "Б00Т36БелыйЧР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "2a34e8be-c867-4198-971e-4cc6a5bf43c2",
+    "name": "Б00Т31Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "5bed49cb-948f-45e0-ac70-3530b711784c",
+    "name": "Б00Т31Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -132,17 +154,6 @@
     "execCount": 1
   },
   {
-    "id": "e0142e7d-f77f-4dac-982a-3c9bb1da7b0f",
-    "name": "Б0036Венге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "d5804889-5038-4ec9-89e6-7f93fc9113d5",
     "name": "СтолЛофт90*60ВенгеЧерныеНожки",
     "firstName": "",
@@ -198,13 +209,35 @@
     "execCount": 1
   },
   {
+    "id": "1894a886-eb37-48fd-9d07-dce76bbcceb3",
+    "name": "Б00Т36БелыйЧР",
+    "firstName": "Алексей",
+    "lastName": "Шеин",
+    "status": "В работе",
+    "date": "14.11.2026 13:49",
+    "startDateTime": "2026-11-14T10:49:59.190Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e0142e7d-f77f-4dac-982a-3c9bb1da7b0f",
+    "name": "Б0036Венге",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "14.11.2026 13:42",
+    "startDateTime": "2026-11-14T10:42:54.044Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "2da4ee56-69a5-43a6-a81f-41a7483514b4",
     "name": "Б00В1Венге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Владислав",
+    "lastName": "Суслов",
+    "status": "В работе",
+    "date": "14.11.2026 13:44",
+    "startDateTime": "2026-11-14T10:44:06.477Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -224,10 +257,10 @@
     "name": "Б00Т36БелыйЗР",
     "firstName": "Алексей",
     "lastName": "Шеин",
-    "status": "В работе",
-    "date": "14.11.2026 12:10",
+    "status": "Завершен",
+    "date": "14.11.2026 13:30",
     "startDateTime": "2026-11-14T09:10:21.098Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T10:30:34.630Z",
     "execCount": 1
   },
   {
@@ -235,10 +268,10 @@
     "name": "Б00Ст1Венге",
     "firstName": "Владислав",
     "lastName": "Суслов",
-    "status": "В работе",
-    "date": "14.11.2026 11:53",
+    "status": "Завершен",
+    "date": "14.11.2026 13:44",
     "startDateTime": "2026-11-14T08:53:20.077Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T10:44:00.502Z",
     "execCount": 1
   },
   {
