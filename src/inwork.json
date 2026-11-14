@@ -235,10 +235,10 @@
     "name": "Б0036Венге",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "14.11.2026 11:48",
+    "status": "Завершен",
+    "date": "14.11.2026 12:33",
     "startDateTime": "2026-11-14T08:48:05.307Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T09:33:35.024Z",
     "execCount": 1
   },
   {
