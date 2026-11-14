@@ -1,16 +1,5 @@
 [
   {
-    "id": "b1122108-e278-4095-ab7e-dbf187ea79dc",
-    "name": "Б00Т36БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "0ead0c2a-5b08-4d84-aa6f-27ffacddb932",
     "name": "Б00С8Белый",
     "firstName": "",
@@ -121,6 +110,50 @@
     "execCount": 1
   },
   {
+    "id": "ceeac75f-8ffc-4c57-8111-8d6d187c7afc",
+    "name": "Б00С13Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "61625d53-5c07-448f-92a6-3f27eb6525e2",
+    "name": "Б0036Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e0142e7d-f77f-4dac-982a-3c9bb1da7b0f",
+    "name": "Б0036Венге",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "d5804889-5038-4ec9-89e6-7f93fc9113d5",
+    "name": "СтолЛофт90*60ВенгеЧерныеНожки",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "0e2827d2-1137-4409-b7e9-23b3814365b3",
     "name": "СтолЛофт90*60ВенгеЧерныеНожки",
     "firstName": "",
@@ -143,8 +176,19 @@
     "execCount": 1
   },
   {
-    "id": "ceeac75f-8ffc-4c57-8111-8d6d187c7afc",
-    "name": "Б00С13Венге",
+    "id": "21db8634-7352-41bd-aac3-abfe0640fb62",
+    "name": "СтолЛофт90*60ВенгеЧерныеНожки",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "15fc50c5-0503-4855-aa82-9b27d2019b24",
+    "name": "СтолЛофт90*60ВенгеЧерныеНожки",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -165,35 +209,46 @@
     "execCount": 1
   },
   {
+    "id": "b1122108-e278-4095-ab7e-dbf187ea79dc",
+    "name": "Б00Т36БелыйЗР",
+    "firstName": "Алексей",
+    "lastName": "Шеин",
+    "status": "В работе",
+    "date": "14.11.2026 12:10",
+    "startDateTime": "2026-11-14T09:10:21.098Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "4966b79b-974d-4516-b447-d6a2c8de03bd",
     "name": "Б00Ст1Венге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Владислав",
+    "lastName": "Суслов",
+    "status": "В работе",
+    "date": "14.11.2026 11:53",
+    "startDateTime": "2026-11-14T08:53:20.077Z",
     "cancelDateTime": null,
     "execCount": 1
   },
   {
     "id": "cd5594a9-2a78-4113-b56c-54e0eee00d6c",
     "name": "Б0036Венге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "14.11.2026 11:48",
+    "startDateTime": "2026-11-14T08:48:05.307Z",
     "cancelDateTime": null,
     "execCount": 1
   },
   {
     "id": "93cd5e74-142f-450c-bda5-6c1ca368f124",
     "name": "Б0036Венге",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "14.11.2026 11:57",
+    "startDateTime": "2026-11-14T08:57:39.490Z",
     "cancelDateTime": null,
     "execCount": 1
   },
