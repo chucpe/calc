@@ -77,6 +77,17 @@
     "execCount": 1
   },
   {
+    "id": "18f35470-84e8-4c32-93b0-aa83cb602fd1",
+    "name": "Б00Ш3Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "f7d2f545-7c4f-439b-8b2f-b699af6f68e7",
     "name": "Б00Ш3Белый",
     "firstName": "",
@@ -88,8 +99,19 @@
     "execCount": 1
   },
   {
-    "id": "e7c27495-3299-41ae-a14a-638152284a88",
-    "name": "Б004ДБелый",
+    "id": "f3f51f63-4c82-4c4f-8d17-0a9fac462c16",
+    "name": "Б00Ш3Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "02bd0a85-5730-4fe8-886e-9437821bfe19",
+    "name": "Б00Т42БелыйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -132,6 +154,17 @@
     "execCount": 1
   },
   {
+    "id": "bae3f747-4892-4b9a-8968-e4d3f408a0d7",
+    "name": "Б00Т34Графит",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "8e718c96-f764-4fda-9c5d-30cababb9c8c",
     "name": "Б00С11Графит",
     "firstName": "",
@@ -154,14 +187,25 @@
     "execCount": 1
   },
   {
+    "id": "e7c27495-3299-41ae-a14a-638152284a88",
+    "name": "Б004ДБелый",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "14.11.2026 18:13",
+    "startDateTime": "2026-11-14T15:13:33.883Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "6d314715-d4a4-41ba-8aee-5971bb5c7566",
     "name": "Б007Вотан",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "14.11.2026 17:59",
+    "status": "Завершен",
+    "date": "14.11.2026 18:44",
     "startDateTime": "2026-11-14T14:59:54.736Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T15:44:07.836Z",
     "execCount": 1
   },
   {
@@ -169,10 +213,10 @@
     "name": "Б00Т34Графит",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "14.11.2026 18:06",
+    "status": "Завершен",
+    "date": "14.11.2026 18:19",
     "startDateTime": "2026-11-14T15:06:36.134Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T15:19:39.773Z",
     "execCount": 1
   },
   {
