@@ -191,10 +191,10 @@
     "name": "Б007Вотан",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "14.11.2026 17:05",
+    "status": "Завершен",
+    "date": "14.11.2026 17:48",
     "startDateTime": "2026-11-14T14:05:02.168Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T14:48:42.642Z",
     "execCount": 1
   },
   {
