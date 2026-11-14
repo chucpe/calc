@@ -22,17 +22,6 @@
     "execCount": 1
   },
   {
-    "id": "8e718c96-f764-4fda-9c5d-30cababb9c8c",
-    "name": "Б00С11Графит",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "58042746-a1a8-4eed-90cd-572a47e90596",
     "name": "Б00С11Графит",
     "firstName": "",
@@ -55,25 +44,14 @@
     "execCount": 1
   },
   {
-    "id": "bae3f747-4892-4b9a-8968-e4d3f408a0d7",
-    "name": "Б00Т34Графит",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "18f35470-84e8-4c32-93b0-aa83cb602fd1",
     "name": "Б00Ш3Белый",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "14.11.2026 21:27",
+    "status": "Завершен",
+    "date": "14.11.2026 23:07",
     "startDateTime": "2026-11-14T18:27:06.666Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T20:07:10.431Z",
     "execCount": 1
   },
   {
@@ -92,9 +70,31 @@
     "name": "Б00Т31Белый",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "14.11.2026 22:20",
+    "status": "Завершен",
+    "date": "14.11.2026 23:42",
     "startDateTime": "2026-11-14T19:20:17.905Z",
+    "cancelDateTime": "2026-11-14T20:42:12.631Z",
+    "execCount": 1
+  },
+  {
+    "id": "8e718c96-f764-4fda-9c5d-30cababb9c8c",
+    "name": "Б00С11Графит",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "14.11.2026 23:20",
+    "startDateTime": "2026-11-14T19:27:42.409Z",
+    "cancelDateTime": "2026-11-14T20:20:43.920Z",
+    "execCount": 1
+  },
+  {
+    "id": "bae3f747-4892-4b9a-8968-e4d3f408a0d7",
+    "name": "Б00Т34Графит",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "14.11.2026 23:57",
+    "startDateTime": "2026-11-14T20:57:10.370Z",
     "cancelDateTime": null,
     "execCount": 1
   },
