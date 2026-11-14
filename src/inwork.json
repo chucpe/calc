@@ -44,6 +44,28 @@
     "execCount": 1
   },
   {
+    "id": "b993bf6b-e60c-4005-a3e7-29b8f20e7c33",
+    "name": "Б00Т41БелыйЧР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "a9f6e75f-94b8-4340-a4bb-b231ed571c94",
+    "name": "Б00Т41БелыйЧР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "18f35470-84e8-4c32-93b0-aa83cb602fd1",
     "name": "Б00Ш3Белый",
     "firstName": "Александр",
@@ -92,10 +114,10 @@
     "name": "Б00Т34Графит",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "14.11.2026 23:57",
+    "status": "Завершен",
+    "date": "15.11.2026 00:58",
     "startDateTime": "2026-11-14T20:57:10.370Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T21:58:22.670Z",
     "execCount": 1
   },
   {
