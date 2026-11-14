@@ -110,19 +110,8 @@
     "execCount": 1
   },
   {
-    "id": "6d314715-d4a4-41ba-8aee-5971bb5c7566",
+    "id": "4a92abe1-a97e-4386-a415-d955e22d0a79",
     "name": "Б007Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "1d648b04-e708-46c5-a50a-5674e7a76ac7",
-    "name": "Б00Т34Графит",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -165,6 +154,28 @@
     "execCount": 1
   },
   {
+    "id": "6d314715-d4a4-41ba-8aee-5971bb5c7566",
+    "name": "Б007Вотан",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "В работе",
+    "date": "14.11.2026 17:59",
+    "startDateTime": "2026-11-14T14:59:54.736Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "1d648b04-e708-46c5-a50a-5674e7a76ac7",
+    "name": "Б00Т34Графит",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "14.11.2026 18:06",
+    "startDateTime": "2026-11-14T15:06:36.134Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "94d4d6ae-cd00-4cac-a033-cf2946db3f64",
     "name": "Б007Вотан",
     "firstName": "Иван",
@@ -180,10 +191,10 @@
     "name": "Б004ДБелый",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "14.11.2026 17:02",
+    "status": "Завершен",
+    "date": "14.11.2026 18:09",
     "startDateTime": "2026-11-14T14:02:10.617Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T15:09:26.151Z",
     "execCount": 1
   },
   {
