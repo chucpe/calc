@@ -33,17 +33,6 @@
     "execCount": 1
   },
   {
-    "id": "0ead0c2a-5b08-4d84-aa6f-27ffacddb932",
-    "name": "Б00С8Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "f8724106-cd29-481a-afe7-878e12c20f71",
     "name": "Б00С8Белый",
     "firstName": "",
@@ -89,6 +78,17 @@
   },
   {
     "id": "f58a13ea-5ad7-4873-a672-e9d18ec7f396",
+    "name": "Б00С8Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "0ead0c2a-5b08-4d84-aa6f-27ffacddb932",
     "name": "Б00С8Белый",
     "firstName": "",
     "lastName": "",
@@ -154,17 +154,6 @@
     "execCount": 1
   },
   {
-    "id": "d5804889-5038-4ec9-89e6-7f93fc9113d5",
-    "name": "СтолЛофт90*60ВенгеЧерныеНожки",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "0e2827d2-1137-4409-b7e9-23b3814365b3",
     "name": "СтолЛофт90*60ВенгеЧерныеНожки",
     "firstName": "",
@@ -209,6 +198,17 @@
     "execCount": 1
   },
   {
+    "id": "d5804889-5038-4ec9-89e6-7f93fc9113d5",
+    "name": "СтолЛофт90*60ВенгеЧерныеНожки",
+    "firstName": "Владислав",
+    "lastName": "Суслов",
+    "status": "В работе",
+    "date": "14.11.2026 14:00",
+    "startDateTime": "2026-11-14T11:00:45.659Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "1894a886-eb37-48fd-9d07-dce76bbcceb3",
     "name": "Б00Т36БелыйЧР",
     "firstName": "Алексей",
@@ -235,10 +235,10 @@
     "name": "Б00В1Венге",
     "firstName": "Владислав",
     "lastName": "Суслов",
-    "status": "В работе",
-    "date": "14.11.2026 13:44",
+    "status": "Завершен",
+    "date": "14.11.2026 13:52",
     "startDateTime": "2026-11-14T10:44:06.477Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T10:52:11.746Z",
     "execCount": 1
   },
   {
@@ -246,10 +246,10 @@
     "name": "Б0036Венге",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "14.11.2026 13:04",
+    "status": "Завершен",
+    "date": "14.11.2026 13:53",
     "startDateTime": "2026-11-14T10:04:32.376Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-14T10:53:24.646Z",
     "execCount": 1
   },
   {
