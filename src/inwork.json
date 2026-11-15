@@ -33,17 +33,6 @@
     "execCount": 1
   },
   {
-    "id": "162d8a0a-1e6e-4572-bde9-a30a10d65836",
-    "name": "Б00С13Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "9ae3e293-d645-4e1e-ba19-c236aece3405",
     "name": "Б00С13Вотан",
     "firstName": "",
@@ -128,6 +117,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "162d8a0a-1e6e-4572-bde9-a30a10d65836",
+    "name": "Б00С13Вотан",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "15.11.2026 13:43",
+    "startDateTime": "2026-11-15T10:43:10.998Z",
     "cancelDateTime": null,
     "execCount": 1
   },
