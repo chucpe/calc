@@ -1460,7 +1460,7 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                     <button id="e8-calc-calendar-toggle" class="secondary">Календарь</button>
                       </div>
                     <div id="e8-bottom-actions" style="display:flex;gap:6px;margin-top:8px;">
-                    <button id="e8-calc-webview" class="secondary" style="flex:1;margin-top:0;display:none;">Webview</button>
+                    <button id="e8-calc-webview" class="secondary" style="flex:1;margin-top:0;display:block;">Webview</button>
                     <button id="e8-calc-minimize" class="secondary" style="flex:1;margin-top:0;">Свернуть</button>
                       </div>
                 `;
@@ -1766,61 +1766,22 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                 else { box.classList.remove('hidden'); mini.classList.add('hidden'); localStorage.setItem(LS_MIN_KEY, '0'); }
             }
 
-                function loadUrl(url) {
-        if (!url) { statusEl.textContent = 'Укажите URL'; return; }
-        statusEl.textContent = 'Загрузка: ' + url;
+                function openWebview() {
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYzgyZTM0My1mOTIyLTRlY2YtYThiOS0wYTAzMjQwZjAyYzMiLCJ2IjoxLCJpYXQiOjE3OTQwODc2NTJ9.TYIaPoNk4lsiIM8so1yuwwagQFW12bqcT9iFArmLw_A';
+    const login = '2222';
 
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYzgyZTM0My1mOTIyLTRlY2YtYThiOS0wYTAzMjQwZjAyYzMiLCJ2IjoxLCJpYXQiOjE3OTQwODc2NTJ9.TYIaPoNk4lsiIM8so1yuwwagQFW12bqcT9iFArmLw_A';
-
-        const headers = {
-            'Authorization': 'Bearer ' + token,
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'
-        };
-
-        GM_xmlhttpRequest({
-            method: 'GET',
-            url: url,
-            headers: headers,
-            timeout: 20000,
-            onload: (res) => {
-                statusEl.textContent = `HTTP ${res.status} · ${res.responseText.length} байт`;
-                let txt = res.responseText || '';
-
-                if (txt.trim().startsWith('{') || txt.trim().startsWith('[')) {
-                    try {
-                        const obj = JSON.parse(txt);
-                        frame.srcdoc = '<pre style="padding:10px;font:12px/1.4 monospace;white-space:pre-wrap;word-break:break-all;">' + JSON.stringify(obj, null, 2) + '</pre>';
-                        return;
-                    } catch (e) {}
-                }
-
-                const baseHref = new URL(url).origin + '/';
-
-                // Блокируем history API, чтобы SPA не падало с ошибкой about:srcdoc
-                const patch = `<script>
-                    window.history.pushState = function(){};
-                    window.history.replaceState = function(){};
-                <\/script>`;
-
-                if (txt.includes('<head')) {
-                    txt = txt.replace(/<head([^>]*)>/i, `<head$1><base href="${baseHref}">${patch}`);
-                } else {
-                    txt = `<base href="${baseHref}">${patch}` + txt;
-                }
-
-                frame.srcdoc = txt;
-            },
-            onerror: () => {
-                statusEl.textContent = 'Ошибка сети';
-                frame.srcdoc = '<div style="padding:20px;font-family:sans-serif;color:#a00;">Ошибка загрузки</div>';
-            },
-            ontimeout: () => {
-                statusEl.textContent = 'Таймаут';
-                frame.srcdoc = '<div style="padding:20px;font-family:sans-serif;color:#a00;">Таймаут</div>';
-            }
-        });
+    try {
+        localStorage.setItem('auth_token', token);
+        localStorage.setItem('auth_login', login);
+    } catch (e) {
+        console.error('Ошибка записи в localStorage', e);
     }
-    
+
+    const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
+
+    W.location.reload();
+}
+
             function renderWindow() {
                 const box = ensureBox();
                 const body = box.querySelector('#e8-calc-body');
