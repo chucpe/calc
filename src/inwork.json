@@ -11,8 +11,41 @@
     "execCount": 1
   },
   {
-    "id": "4918bcee-773d-44c8-9f82-155fe695e20c",
-    "name": "Б00С6Белый",
+    "id": "71a2008a-4b48-4060-9fdc-a87a8355efd9",
+    "name": "Б00С11Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "74880cde-1767-4b4b-a247-951d0500823a",
+    "name": "Б00С11Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "80e2109a-a235-45d0-b4da-75f10fa7423e",
+    "name": "Б00Т14(Ш14)Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "01af28af-cdd2-4386-994a-52b9c0f012d9",
+    "name": "Б00Т14(Ш14)Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -66,41 +99,8 @@
     "execCount": 1
   },
   {
-    "id": "a15fdf36-74bd-4221-97ee-1d149e1dac14",
-    "name": "Б00Т39БелыйЗР",
-    "firstName": "Александр",
-    "lastName": "Маматов",
-    "status": "В работе",
-    "date": "15.11.2026 18:14",
-    "startDateTime": "2026-11-15T15:14:51.798Z",
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "0b94f594-84be-400c-b50d-ec8abba3bcba",
-    "name": "Б00С6Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "f164318e-4d98-425f-8d35-054e5bd541ad",
     "name": "Б00С6Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "768fa86d-63ec-4d45-8c72-a4cff0573c7d",
-    "name": "Б00С6Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -154,6 +154,50 @@
     "execCount": 1
   },
   {
+    "id": "4918bcee-773d-44c8-9f82-155fe695e20c",
+    "name": "Б00С6Белый",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "Завершен",
+    "date": "15.11.2026 18:48",
+    "startDateTime": "2026-11-15T15:15:19.095Z",
+    "cancelDateTime": "2026-11-15T15:48:17.957Z",
+    "execCount": 1
+  },
+  {
+    "id": "a15fdf36-74bd-4221-97ee-1d149e1dac14",
+    "name": "Б00Т39БелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "Завершен",
+    "date": "15.11.2026 19:37",
+    "startDateTime": "2026-11-15T15:14:51.798Z",
+    "cancelDateTime": "2026-11-15T16:37:32.599Z",
+    "execCount": 1
+  },
+  {
+    "id": "0b94f594-84be-400c-b50d-ec8abba3bcba",
+    "name": "Б00С6Вотан",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "15.11.2026 19:10",
+    "startDateTime": "2026-11-15T16:10:58.025Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "768fa86d-63ec-4d45-8c72-a4cff0573c7d",
+    "name": "Б00С6Белый",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "В работе",
+    "date": "15.11.2026 19:14",
+    "startDateTime": "2026-11-15T16:14:09.925Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "9529b2b7-df30-47a0-9ba4-44a3fa774511",
     "name": "Б00Т38БелыйЧР",
     "firstName": "Александр",
@@ -169,10 +213,10 @@
     "name": "Б0018Белый",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "15.11.2026 18:11",
+    "status": "Завершен",
+    "date": "15.11.2026 19:02",
     "startDateTime": "2026-11-15T15:11:09.889Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-15T16:02:20.326Z",
     "execCount": 1
   },
   {
@@ -202,10 +246,10 @@
     "name": "Б0018Белый",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "15.11.2026 17:56",
+    "status": "Завершен",
+    "date": "15.11.2026 18:47",
     "startDateTime": "2026-11-15T14:56:42.512Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-15T15:47:12.210Z",
     "execCount": 1
   },
   {
