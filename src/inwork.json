@@ -147,10 +147,10 @@
     "name": "Б00С13Сонома",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "15.11.2026 15:28",
+    "status": "Завершен",
+    "date": "15.11.2026 16:15",
     "startDateTime": "2026-11-15T12:28:05.100Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-15T13:15:56.950Z",
     "execCount": 1
   },
   {
@@ -169,10 +169,10 @@
     "name": "Б00Т39БелыйЗР",
     "firstName": "Владислав",
     "lastName": "Суслов",
-    "status": "В работе",
-    "date": "15.11.2026 15:54",
+    "status": "Завершен",
+    "date": "15.11.2026 16:32",
     "startDateTime": "2026-11-15T12:54:30.887Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-15T13:32:49.978Z",
     "execCount": 1
   },
   {
@@ -235,10 +235,10 @@
     "name": "Б00Т38БелыйЧР",
     "firstName": "Алексей",
     "lastName": "Шеин",
-    "status": "В работе",
-    "date": "15.11.2026 15:00",
+    "status": "Завершен",
+    "date": "15.11.2026 16:24",
     "startDateTime": "2026-11-15T12:00:25.973Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-15T13:24:10.147Z",
     "execCount": 1
   },
   {
