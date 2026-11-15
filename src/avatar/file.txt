@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         admКалькулейшин
 // @namespace    admКалькулейшин
-// @version      5.27
+// @version      5.33
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
