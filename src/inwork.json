@@ -110,8 +110,8 @@
     "execCount": 1
   },
   {
-    "id": "31ff69fa-82a0-4ab8-ba21-47c8ba1930ac",
-    "name": "Б00С6Белый",
+    "id": "5a812b9e-726d-43ce-bf04-75ea7a8a2e6d",
+    "name": "Б00В2Сонома",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -150,6 +150,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "31ff69fa-82a0-4ab8-ba21-47c8ba1930ac",
+    "name": "Б00С6Белый",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "В работе",
+    "date": "15.11.2026 20:33",
+    "startDateTime": "2026-11-15T17:33:54.972Z",
     "cancelDateTime": null,
     "execCount": 1
   },
