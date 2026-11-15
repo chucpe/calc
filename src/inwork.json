@@ -136,10 +136,10 @@
     "name": "Б00В2Вотан",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "15.11.2026 20:38",
+    "status": "Завершен",
+    "date": "15.11.2026 21:46",
     "startDateTime": "2026-11-15T17:38:33.519Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-15T18:46:24.056Z",
     "execCount": 1
   },
   {
@@ -158,10 +158,10 @@
     "name": "Б00С6Белый",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "15.11.2026 20:33",
+    "status": "Завершен",
+    "date": "15.11.2026 21:42",
     "startDateTime": "2026-11-15T17:33:54.972Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-15T18:42:43.090Z",
     "execCount": 1
   },
   {
