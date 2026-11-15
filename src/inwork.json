@@ -1,49 +1,5 @@
 [
   {
-    "id": "9529b2b7-df30-47a0-9ba4-44a3fa774511",
-    "name": "Б00Т38БелыйЧР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "a15fdf36-74bd-4221-97ee-1d149e1dac14",
-    "name": "Б00Т39БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "0b94f594-84be-400c-b50d-ec8abba3bcba",
-    "name": "Б00С6Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "f164318e-4d98-425f-8d35-054e5bd541ad",
-    "name": "Б00С6Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "11cb315a-7d85-4109-9d23-fa9b7ce733a6",
     "name": "Б00С11Сонома",
     "firstName": "",
@@ -101,6 +57,39 @@
   {
     "id": "09595e9b-32ac-4275-8f79-5ad1ce9222ae",
     "name": "Б00С6Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "a15fdf36-74bd-4221-97ee-1d149e1dac14",
+    "name": "Б00Т39БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "0b94f594-84be-400c-b50d-ec8abba3bcba",
+    "name": "Б00С6Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f164318e-4d98-425f-8d35-054e5bd541ad",
+    "name": "Б00С6Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -172,6 +161,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "9529b2b7-df30-47a0-9ba4-44a3fa774511",
+    "name": "Б00Т38БелыйЧР",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "15.11.2026 18:06",
+    "startDateTime": "2026-11-15T15:06:47.614Z",
     "cancelDateTime": null,
     "execCount": 1
   },
