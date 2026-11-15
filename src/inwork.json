@@ -1,7 +1,7 @@
 [
   {
-    "id": "6e92b52c-0775-47ab-a38f-85f22a44ed58",
-    "name": "Б00С13Сонома",
+    "id": "11f7c176-9827-426d-940c-d33c1bb6b9fb",
+    "name": "Б00С6Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -11,8 +11,19 @@
     "execCount": 1
   },
   {
-    "id": "c09b8703-423a-457f-8ee4-96dcc585cc29",
-    "name": "Б00Т38ГрафитЗР",
+    "id": "0b94f594-84be-400c-b50d-ec8abba3bcba",
+    "name": "Б00С6Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f164318e-4d98-425f-8d35-054e5bd541ad",
+    "name": "Б00С6Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -35,6 +46,17 @@
   {
     "id": "9ae3e293-d645-4e1e-ba19-c236aece3405",
     "name": "Б00С13Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "6e92b52c-0775-47ab-a38f-85f22a44ed58",
+    "name": "Б00С13Сонома",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -88,8 +110,8 @@
     "execCount": 1
   },
   {
-    "id": "11f7c176-9827-426d-940c-d33c1bb6b9fb",
-    "name": "Б00С6Вотан",
+    "id": "a6639902-3e03-4207-8f71-c1149e2ad27f",
+    "name": "Б00Т39БелыйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -99,24 +121,13 @@
     "execCount": 1
   },
   {
-    "id": "0b94f594-84be-400c-b50d-ec8abba3bcba",
-    "name": "Б00С6Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "f164318e-4d98-425f-8d35-054e5bd541ad",
-    "name": "Б00С6Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "id": "c09b8703-423a-457f-8ee4-96dcc585cc29",
+    "name": "Б00Т38ГрафитЗР",
+    "firstName": "Владислав",
+    "lastName": "Суслов",
+    "status": "В работе",
+    "date": "15.11.2026 13:46",
+    "startDateTime": "2026-11-15T10:46:21.633Z",
     "cancelDateTime": null,
     "execCount": 1
   },
