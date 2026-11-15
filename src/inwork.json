@@ -136,10 +136,10 @@
     "name": "Б00В2Вотан",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "Завершен",
-    "date": "15.11.2026 21:46",
+    "status": "В работе",
+    "date": "15.11.2026 20:38",
     "startDateTime": "2026-11-15T17:38:33.519Z",
-    "cancelDateTime": "2026-11-15T18:46:24.056Z",
+    "cancelDateTime": null,
     "execCount": 1
   },
   {
