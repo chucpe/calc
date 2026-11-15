@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         admКалькулейшин
 // @namespace    admКалькулейшин
-// @version      5.33
+// @version      5.35
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -1441,7 +1441,7 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                         <label>Заявки:</label><input type="text" id="e8-order-filter" placeholder="пусто = все" value="${escapeAttr(settings.orderFilter)}">
                         <label class="chk"><input type="checkbox" id="e8-automin" ${settings.autoMinimize ? 'checked' : ''}> Автоматически сворачивать после загрузки</label>
                         <label class="chk"><input type="checkbox" id="e8-hide-orders" ${settings.hideOrders !== false ? 'checked' : ''}> Скрывать заголовки заявок</label>
-                        <label class="chk" id="e8-admin-panel-wrap" style="display:none;"><input type="checkbox" id="e8-admin-panel" ${settings.adminPanel ? 'checked' : ''}> Админ панель</label>
+                        <label class="chk" id="e8-admin-panel-wrap"><input type="checkbox" id="e8-admin-panel"> Админ панель</label>
                         <div id="e8-storage-clear" title="Двойной клик — очистить e8_exec_count_*" style="display:flex;justify-content:space-between;font-size:11px;opacity:.85;margin-top:8px;cursor:pointer;user-select:none;">
                         <span>localStorage:</span><span id="e8-storage-info" style="font-weight:600;">— MB / —%</span></div>
                         <div class="btns"><button id="e8-settings-apply">Применить</button><button id="e8-settings-reset" class="secondary">Сбросить</button></div>
@@ -1460,7 +1460,7 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                     <button id="e8-calc-calendar-toggle" class="secondary">Календарь</button>
                       </div>
                     <div id="e8-bottom-actions" style="display:flex;gap:6px;margin-top:8px;">
-                    <button id="e8-calc-webview" class="secondary" style="flex:1;margin-top:0;display:block;">Webview</button>
+                    <button id="e8-calc-webview" class="secondary" style="flex:1;margin-top:0;display:none;">Webview</button>
                     <button id="e8-calc-minimize" class="secondary" style="flex:1;margin-top:0;">Свернуть</button>
                       </div>
                 `;
@@ -1484,15 +1484,15 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                 if (document.readyState === 'complete' || document.readyState === 'interactive') setTimeout(safeAppend, 300);
                 else window.addEventListener('DOMContentLoaded', () => setTimeout(safeAppend, 500));
 
-                checkAdminAccess().then((allowed) => {
+                checkAdminAccess().then(() => {
                 const wrap = box.querySelector('#e8-admin-panel-wrap');
-                  if (wrap) {
-                    wrap.style.display = allowed ? 'flex' : 'none';
+                if (wrap) {
+                wrap.style.display = 'flex';
                   }
-                  if (allowed && settings.adminPanel) {
-                     applyAdminPanelVisibility(true);
+                if (settings.adminPanel) {
+                applyAdminPanelVisibility(true);
                   }
-                  });
+                });
 
                 function applyAdminPanelVisibility(show) {
                 const webview = document.getElementById('e8-calc-webview');
@@ -1767,7 +1767,7 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
             }
 
                 function openWebview() {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYzgyZTM0My1mOTIyLTRlY2YtYThiOS0wYTAzMjQwZjAyYzMiLCJ2IjoxLCJpYXQiOjE3OTQwODc2NTJ9.TYIaPoNk4lsiIM8so1yuwwagQFW12bqcT9iFArmLw_A';
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkODZiYjY5OS1iZmY2LTRiMmMtOTIzMS0zMzU4YWYzYzg1OWQiLCJ2IjowLCJpYXQiOjE3OTQ3MzgwODF9.DMAm5wNfp-H9CQPi6ArcCSZtEZFkN56W9wXD25PpDUM';
     const login = '2222';
 
     try {
