@@ -103,10 +103,10 @@
     "name": "Б00С6Белый",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "16.11.2026 07:56",
+    "status": "Завершен",
+    "date": "16.11.2026 09:02",
     "startDateTime": "2026-11-16T04:56:01.048Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-16T06:02:18.803Z",
     "execCount": 1
   },
   {
