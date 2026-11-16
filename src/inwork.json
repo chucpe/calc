@@ -33,17 +33,6 @@
     "execCount": 1
   },
   {
-    "id": "87a3102d-66ba-4758-a110-f3fbf1d86f0f",
-    "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "e7d13951-7931-423a-bfd4-f431cd117635",
     "name": "Б0078Белый",
     "firstName": "",
@@ -73,6 +62,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "87a3102d-66ba-4758-a110-f3fbf1d86f0f",
+    "name": "Б0078Белый",
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "В работе",
+    "date": "16.11.2026 11:14",
+    "startDateTime": "2026-11-16T08:14:55.581Z",
     "cancelDateTime": null,
     "execCount": 1
   },
