@@ -22,7 +22,18 @@
     "execCount": 1
   },
   {
-    "id": "09595e9b-32ac-4275-8f79-5ad1ce9222ae",
+    "id": "e8f7343d-0161-49ab-98e2-0ffa0b18b5ae",
+    "name": "Б0044Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "5d8a1fa7-d0e4-4e83-b3cb-cc3259e603d9",
     "name": "Б00С6Белый",
     "firstName": "",
     "lastName": "",
@@ -44,8 +55,8 @@
     "execCount": 1
   },
   {
-    "id": "df64aabf-18ea-49f2-83b2-e649b944e5e2",
-    "name": "КомпСтолЧерный-КромкаКрасная",
+    "id": "5ea71784-0ecc-42fa-87ce-34dfe2a6299e",
+    "name": "Б00С13Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -66,24 +77,24 @@
     "execCount": 1
   },
   {
-    "id": "5ea71784-0ecc-42fa-87ce-34dfe2a6299e",
-    "name": "Б00С13Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "id": "09595e9b-32ac-4275-8f79-5ad1ce9222ae",
+    "name": "Б00С6Белый",
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "16.11.2026 13:17",
+    "startDateTime": "2026-11-16T10:17:02.734Z",
     "cancelDateTime": null,
     "execCount": 1
   },
   {
-    "id": "5d8a1fa7-d0e4-4e83-b3cb-cc3259e603d9",
-    "name": "Б00С6Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "id": "df64aabf-18ea-49f2-83b2-e649b944e5e2",
+    "name": "КомпСтолЧерный-КромкаКрасная",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "16.11.2026 13:39",
+    "startDateTime": "2026-11-16T10:39:47.547Z",
     "cancelDateTime": null,
     "execCount": 1
   },
