@@ -66,17 +66,6 @@
     "execCount": 1
   },
   {
-    "id": "cf5d89ae-151f-4988-9b25-7c0b06563dbb",
-    "name": "КомпСтолЧерный-КромкаБелая",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "9894bb59-3eed-4464-a2f2-6aef5a786e38",
     "name": "Б00С6Графит",
     "firstName": "",
@@ -118,6 +107,17 @@
     "date": "",
     "startDateTime": null,
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "cf5d89ae-151f-4988-9b25-7c0b06563dbb",
+    "name": "КомпСтолЧерный-КромкаБелая",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "Завершен",
+    "date": "17.11.2026 00:40",
+    "startDateTime": "2026-11-16T21:11:14.826Z",
+    "cancelDateTime": "2026-11-16T21:40:53.991Z",
     "execCount": 1
   },
   {
