@@ -44,28 +44,6 @@
     "execCount": 1
   },
   {
-    "id": "b6a33be5-21df-479c-ac7c-b8f6e77a6a99",
-    "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "4c718d8f-8918-440e-a2ca-95d545a02185",
-    "name": "Б0078Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "f750c20a-4a72-4983-8e46-6f2382d4cda3",
     "name": "Б0078Белый",
     "firstName": "",
@@ -84,6 +62,28 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "b6a33be5-21df-479c-ac7c-b8f6e77a6a99",
+    "name": "Б0078Белый",
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "В работе",
+    "date": "16.11.2026 08:50",
+    "startDateTime": "2026-11-16T05:50:40.769Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "4c718d8f-8918-440e-a2ca-95d545a02185",
+    "name": "Б0078Белый",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "16.11.2026 08:55",
+    "startDateTime": "2026-11-16T05:55:56.027Z",
     "cancelDateTime": null,
     "execCount": 1
   },
