@@ -103,10 +103,10 @@
     "name": "Б00С11Графит",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
-    "status": "В работе",
-    "date": "17.11.2026 14:43",
+    "status": "Завершен",
+    "date": "17.11.2026 14:56",
     "startDateTime": "2026-11-17T11:43:42.888Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-17T11:56:55.363Z",
     "execCount": 1
   },
   {
