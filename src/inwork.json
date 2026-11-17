@@ -92,10 +92,10 @@
     "name": "Б00С11Белый",
     "firstName": "Александр",
     "lastName": "Курбатов",
-    "status": "В работе",
-    "date": "17.11.2026 15:28",
+    "status": "Завершен",
+    "date": "17.11.2026 15:34",
     "startDateTime": "2026-11-17T12:28:47.859Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-17T12:34:16.349Z",
     "execCount": 1
   },
   {
