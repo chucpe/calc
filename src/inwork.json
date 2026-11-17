@@ -125,10 +125,10 @@
     "name": "Б007Вотан",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "17.11.2026 21:52",
+    "status": "Завершен",
+    "date": "17.11.2026 22:38",
     "startDateTime": "2026-11-17T18:52:19.383Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-17T19:38:09.430Z",
     "execCount": 1
   },
   {
