@@ -103,10 +103,10 @@
     "name": "Б00С19Сонома",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "17.11.2026 22:17",
+    "status": "Завершен",
+    "date": "17.11.2026 22:28",
     "startDateTime": "2026-11-17T19:17:54.064Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-17T19:28:09.536Z",
     "execCount": 1
   },
   {
