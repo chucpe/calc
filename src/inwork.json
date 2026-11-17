@@ -1,16 +1,5 @@
 [
   {
-    "id": "5d8a1fa7-d0e4-4e83-b3cb-cc3259e603d9",
-    "name": "Б00С6Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "671ee137-33b5-4994-ab84-f80616b4456f",
     "name": "Б00С11Белый",
     "firstName": "",
@@ -55,6 +44,17 @@
     "execCount": 1
   },
   {
+    "id": "5d8a1fa7-d0e4-4e83-b3cb-cc3259e603d9",
+    "name": "Б00С6Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "c3ce451c-7427-4ab8-b618-8824fa88a543",
     "name": "Б00Ш9Графит",
     "firstName": "",
@@ -88,17 +88,6 @@
     "execCount": 1
   },
   {
-    "id": "978e07fd-e5bd-4d99-9574-98403b6f88d5",
-    "name": "Б00С13Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "6aca4fa2-445e-4ddb-847a-eaec44beb201",
     "name": "Б00Ш7Молочный",
     "firstName": "",
@@ -117,6 +106,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "978e07fd-e5bd-4d99-9574-98403b6f88d5",
+    "name": "Б00С13Вотан",
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "17.11.2026 13:15",
+    "startDateTime": "2026-11-17T10:15:51.858Z",
     "cancelDateTime": null,
     "execCount": 1
   },
