@@ -66,17 +66,6 @@
     "execCount": 1
   },
   {
-    "id": "6aca4fa2-445e-4ddb-847a-eaec44beb201",
-    "name": "Б00Ш7Молочный",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "65ba7e8d-4e2b-45e7-bdc1-ae2f645a0ec5",
     "name": "Б00Ш7Молочный",
     "firstName": "",
@@ -88,14 +77,25 @@
     "execCount": 1
   },
   {
+    "id": "6aca4fa2-445e-4ddb-847a-eaec44beb201",
+    "name": "Б00Ш7Молочный",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "17.11.2026 15:07",
+    "startDateTime": "2026-11-17T12:07:21.136Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "671ee137-33b5-4994-ab84-f80616b4456f",
     "name": "Б00С11Белый",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "17.11.2026 14:44",
+    "status": "Завершен",
+    "date": "17.11.2026 15:04",
     "startDateTime": "2026-11-17T11:44:41.344Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-17T12:04:01.416Z",
     "execCount": 1
   },
   {
