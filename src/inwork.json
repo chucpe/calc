@@ -1,16 +1,5 @@
 [
   {
-    "id": "c3ce451c-7427-4ab8-b618-8824fa88a543",
-    "name": "Б00Ш9Графит",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "5d8a1fa7-d0e4-4e83-b3cb-cc3259e603d9",
     "name": "Б00С6Белый",
     "firstName": "",
@@ -44,6 +33,17 @@
     "execCount": 1
   },
   {
+    "id": "c3ce451c-7427-4ab8-b618-8824fa88a543",
+    "name": "Б00Ш9Графит",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "77d779f5-dab6-4406-8c51-22cbf413b7dc",
     "name": "Б00С19Сонома",
     "firstName": "",
@@ -66,6 +66,17 @@
     "execCount": 1
   },
   {
+    "id": "e662b706-a642-4fe7-82a7-667a83431ca8",
+    "name": "Б00Ж1Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "ab194246-46aa-4fd4-beba-a8ff244aa9e6",
     "name": "Б00О2ГрафитЧР",
     "firstName": "",
@@ -77,8 +88,8 @@
     "execCount": 1
   },
   {
-    "id": "e662b706-a642-4fe7-82a7-667a83431ca8",
-    "name": "Б00Ж1Сонома",
+    "id": "ee9de312-efcd-40da-9f7a-f89170584327",
+    "name": "Б00С19Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
