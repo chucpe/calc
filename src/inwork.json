@@ -55,6 +55,17 @@
     "execCount": 1
   },
   {
+    "id": "fd346e76-2f44-4e12-b29b-51834cc011df",
+    "name": "Б00С8БелыйКромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "ab194246-46aa-4fd4-beba-a8ff244aa9e6",
     "name": "Б00О2ГрафитЧР",
     "firstName": "",
