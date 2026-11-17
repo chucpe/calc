@@ -1,16 +1,5 @@
 [
   {
-    "id": "89375925-8afa-40f5-a94c-93a324de2695",
-    "name": "Б00С11Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "671ee137-33b5-4994-ab84-f80616b4456f",
     "name": "Б00С11Белый",
     "firstName": "",
@@ -66,17 +55,6 @@
     "execCount": 1
   },
   {
-    "id": "322f61d1-44dd-4426-92fe-2eae471de6b5",
-    "name": "Б00С6Графит",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "c3ce451c-7427-4ab8-b618-8824fa88a543",
     "name": "Б00Ш9Графит",
     "firstName": "",
@@ -96,6 +74,39 @@
     "date": "",
     "startDateTime": null,
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "27698aa4-a8ab-4d3b-81ce-9e8553f71e95",
+    "name": "Б007МВотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "89375925-8afa-40f5-a94c-93a324de2695",
+    "name": "Б00С11Белый",
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "Завершен",
+    "date": "17.11.2026 10:01",
+    "startDateTime": "2026-11-17T05:41:03.810Z",
+    "cancelDateTime": "2026-11-17T07:01:10.207Z",
+    "execCount": 1
+  },
+  {
+    "id": "322f61d1-44dd-4426-92fe-2eae471de6b5",
+    "name": "Б00С6Графит",
+    "firstName": "Федор",
+    "lastName": "Привалихин",
+    "status": "Завершен",
+    "date": "17.11.2026 09:06",
+    "startDateTime": "2026-11-17T05:22:08.912Z",
+    "cancelDateTime": "2026-11-17T06:06:05.358Z",
     "execCount": 1
   },
   {
