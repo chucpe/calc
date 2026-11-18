@@ -22,17 +22,6 @@
     "execCount": 1
   },
   {
-    "id": "ca23e12b-7ccf-40fa-b0cf-7da5950ff5a1",
-    "name": "Б00Т38БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "46ea34f0-0579-415b-a736-f703515b19cf",
     "name": "Б00Т38БелыйЗР",
     "firstName": "",
@@ -84,6 +73,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "ca23e12b-7ccf-40fa-b0cf-7da5950ff5a1",
+    "name": "Б00Т38БелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "18.11.2026 12:57",
+    "startDateTime": "2026-11-18T09:57:48.358Z",
     "cancelDateTime": null,
     "execCount": 1
   },
