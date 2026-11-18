@@ -81,10 +81,10 @@
     "name": "Б00Т38БелыйЗР",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "18.11.2026 15:38",
+    "status": "Завершен",
+    "date": "18.11.2026 16:58",
     "startDateTime": "2026-11-18T12:38:48.769Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-18T13:58:56.940Z",
     "execCount": 1
   },
   {
