@@ -59,10 +59,10 @@
     "name": "КомпСтолБелый-КромкаБелая",
     "firstName": "Федор",
     "lastName": "Привалихин",
-    "status": "В работе",
-    "date": "18.11.2026 23:42",
+    "status": "Завершен",
+    "date": "19.11.2026 00:31",
     "startDateTime": "2026-11-18T20:42:37.254Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-18T21:31:31.074Z",
     "execCount": 1
   },
   {
