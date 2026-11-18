@@ -1,7 +1,7 @@
 [
   {
-    "id": "079eb701-6d0c-426c-83f4-987b6db9db4c",
-    "name": "Б00С11Белый",
+    "id": "73bac98c-20b6-4730-8494-5e6a12d2d197",
+    "name": "КомпСтолБелый-КромкаБелая",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -11,8 +11,8 @@
     "execCount": 1
   },
   {
-    "id": "960b879e-2f9b-45ea-992c-ff5c86bedc1f",
-    "name": "Б00Ш1Белый",
+    "id": "079eb701-6d0c-426c-83f4-987b6db9db4c",
+    "name": "Б00С11Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -40,6 +40,28 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "832f78d9-ecda-45b5-9eef-e789f040dd64",
+    "name": "Б00Ш1Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "960b879e-2f9b-45ea-992c-ff5c86bedc1f",
+    "name": "Б00Ш1Белый",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "18.11.2026 21:25",
+    "startDateTime": "2026-11-18T18:25:01.376Z",
     "cancelDateTime": null,
     "execCount": 1
   },
