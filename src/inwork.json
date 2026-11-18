@@ -1,28 +1,6 @@
 [
   {
-    "id": "3751d6e4-bd54-4411-9e2d-c068f8bd3c11",
-    "name": "Б00Т34Графит",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "6c4c214d-2e28-445f-ae37-07926423012c",
-    "name": "Б00Т38БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "ddf556ea-1177-4288-97ee-97c827adfa46",
     "name": "Б00Т38БелыйЗР",
     "firstName": "",
     "lastName": "",
@@ -66,13 +44,24 @@
     "execCount": 1
   },
   {
-    "id": "46ea34f0-0579-415b-a736-f703515b19cf",
+    "id": "3751d6e4-bd54-4411-9e2d-c068f8bd3c11",
+    "name": "Б00Т34Графит",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "18.11.2026 14:24",
+    "startDateTime": "2026-11-18T11:24:05.569Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "ddf556ea-1177-4288-97ee-97c827adfa46",
     "name": "Б00Т38БелыйЗР",
     "firstName": "Александр",
-    "lastName": "Алманцев",
+    "lastName": "Маматов",
     "status": "В работе",
-    "date": "18.11.2026 13:37",
-    "startDateTime": "2026-11-18T10:37:30.125Z",
+    "date": "18.11.2026 14:26",
+    "startDateTime": "2026-11-18T11:26:23.526Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -81,10 +70,32 @@
     "name": "Б00С11Белый",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "18.11.2026 13:38",
+    "status": "Завершен",
+    "date": "18.11.2026 14:30",
     "startDateTime": "2026-11-18T10:38:32.452Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-18T11:30:36.154Z",
+    "execCount": 1
+  },
+  {
+    "id": "46ea34f0-0579-415b-a736-f703515b19cf",
+    "name": "Б00Т38БелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Алманцев",
+    "status": "Завершен",
+    "date": "18.11.2026 14:29",
+    "startDateTime": "2026-11-18T10:37:30.125Z",
+    "cancelDateTime": "2026-11-18T11:29:19.057Z",
+    "execCount": 1
+  },
+  {
+    "id": "e1d8484c-e704-4b40-a2c9-ddc434c6fd2d",
+    "name": "Е1Вотан",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "Завершен",
+    "date": "18.11.2026 14:26",
+    "startDateTime": "2026-11-18T10:28:50.340Z",
+    "cancelDateTime": "2026-11-18T11:26:16.031Z",
     "execCount": 1
   },
   {
