@@ -11,6 +11,39 @@
     "execCount": 1
   },
   {
+    "id": "4ad2172e-f2f7-4b51-80c3-6443938d77cb",
+    "name": "Б00Т38БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "70379173-c3bb-45c7-8524-63c5cb6c899a",
+    "name": "КомпСтолБелый-КромкаБелая",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "c283b8e0-0ac4-4be9-9f81-84542dd8913d",
+    "name": "КомпСтолБелый-КромкаБелая",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "079eb701-6d0c-426c-83f4-987b6db9db4c",
     "name": "Б00С11Белый",
     "firstName": "",
