@@ -1,7 +1,18 @@
 [
   {
-    "id": "439a2539-245c-4cef-8dfb-d554ac8c59d8",
-    "name": "Б00Т36БелыйЗР",
+    "id": "cdd5ad9c-1e1d-454f-a82d-74996dcf6a4f",
+    "name": "Б0073МБелый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "d19a182b-6a1c-468c-a2d3-d8992523fe91",
+    "name": "Б0073МБелый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -22,6 +33,28 @@
     "execCount": 1
   },
   {
+    "id": "bc3ba614-e3f5-4f55-9213-4840fa8fd041",
+    "name": "Б00Т36БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f5c3b877-a90c-412b-ace6-f4871314b7f7",
+    "name": "Б00Т36БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "5bb7b15d-1209-4666-a655-7bd097daa9c6",
     "name": "Б0034Белый",
     "firstName": "",
@@ -30,6 +63,28 @@
     "date": "",
     "startDateTime": null,
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "88e20a49-eef9-455e-93a6-1ed9e1eeae9e",
+    "name": "Б0034Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "439a2539-245c-4cef-8dfb-d554ac8c59d8",
+    "name": "Б00Т36БелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Алманцев",
+    "status": "Завершен",
+    "date": "19.11.2026 12:46",
+    "startDateTime": "2026-11-19T09:22:42.619Z",
+    "cancelDateTime": "2026-11-19T09:46:43.588Z",
     "execCount": 1
   },
   {
