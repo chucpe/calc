@@ -22,6 +22,17 @@
     "execCount": 1
   },
   {
+    "id": "5c63c33d-9f3c-444b-9a30-e18cc3217b42",
+    "name": "Б00Т31Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "3738def2-8ef5-4b20-b0f3-34a5642b2614",
     "name": "КомпСтолЧерный-КромкаБелая",
     "firstName": "",
@@ -34,6 +45,17 @@
   },
   {
     "id": "a980e112-9786-479d-9e08-c4245e35139e",
+    "name": "КомпСтолЧерный-КромкаБелая",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "1b9a246c-f088-4c4a-8323-8edd09742f59",
     "name": "КомпСтолЧерный-КромкаБелая",
     "firstName": "",
     "lastName": "",
@@ -68,17 +90,6 @@
   {
     "id": "10d417e0-c2c1-4870-8bfa-06abb7f9420c",
     "name": "Б00С8Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "83926e30-a246-41b9-9ff0-d84db5a1fe5a",
-    "name": "Б004Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -132,6 +143,17 @@
     "execCount": 1
   },
   {
+    "id": "83926e30-a246-41b9-9ff0-d84db5a1fe5a",
+    "name": "Б004Белый",
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "19.11.2026 17:57",
+    "startDateTime": "2026-11-19T14:57:55.025Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "20445c08-605e-4035-8a35-0fc76d902895",
     "name": "Б00С8Белый",
     "firstName": "Александр",
@@ -147,10 +169,10 @@
     "name": "Б004Белый",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "19.11.2026 17:11",
+    "status": "Завершен",
+    "date": "19.11.2026 17:53",
     "startDateTime": "2026-11-19T14:11:51.251Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T14:53:16.069Z",
     "execCount": 1
   },
   {
