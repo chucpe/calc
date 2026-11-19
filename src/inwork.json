@@ -1,7 +1,7 @@
 [
   {
-    "id": "832f78d9-ecda-45b5-9eef-e789f040dd64",
-    "name": "Б00Ш1Белый",
+    "id": "ec18c26a-e44b-402b-a647-c9c66e7701fc",
+    "name": "Б004МБелый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -11,13 +11,24 @@
     "execCount": 1
   },
   {
-    "id": "ec18c26a-e44b-402b-a647-c9c66e7701fc",
+    "id": "24ac1849-49ac-47de-8b05-c9bf9c9c5b92",
     "name": "Б004МБелый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "832f78d9-ecda-45b5-9eef-e789f040dd64",
+    "name": "Б00Ш1Белый",
+    "firstName": "Алишер",
+    "lastName": "Абдуллаев",
+    "status": "В работе",
+    "date": "19.11.2026 09:10",
+    "startDateTime": "2026-11-19T06:10:38.192Z",
     "cancelDateTime": null,
     "execCount": 1
   },
