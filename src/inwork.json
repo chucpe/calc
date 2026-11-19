@@ -92,10 +92,10 @@
     "name": "Б00Т32БелыйЧР",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
-    "status": "В работе",
-    "date": "19.11.2026 23:49",
+    "status": "Завершен",
+    "date": "20.11.2026 01:40",
     "startDateTime": "2026-11-19T20:49:30.389Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T22:40:52.987Z",
     "execCount": 1
   },
   {
