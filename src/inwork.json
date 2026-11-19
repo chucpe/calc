@@ -1,7 +1,7 @@
 [
   {
-    "id": "d19a182b-6a1c-468c-a2d3-d8992523fe91",
-    "name": "Б0073МБелый",
+    "id": "6b04608b-ba38-4c93-bf67-57faae3b4338",
+    "name": "Б00Т31Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -11,8 +11,30 @@
     "execCount": 1
   },
   {
-    "id": "20445c08-605e-4035-8a35-0fc76d902895",
-    "name": "Б00С8Белый",
+    "id": "b74d8f12-2dea-4ebf-bab3-4df8b14ae065",
+    "name": "Б00Т31Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "3738def2-8ef5-4b20-b0f3-34a5642b2614",
+    "name": "КомпСтолЧерный-КромкаБелая",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "d19a182b-6a1c-468c-a2d3-d8992523fe91",
+    "name": "Б0073МБелый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -44,17 +66,6 @@
     "execCount": 1
   },
   {
-    "id": "7463d7ac-3585-4506-8697-34774eb1aee1",
-    "name": "Б004Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "83926e30-a246-41b9-9ff0-d84db5a1fe5a",
     "name": "Б004Белый",
     "firstName": "",
@@ -68,17 +79,6 @@
   {
     "id": "a5f09375-586f-423e-a871-6566a8bd7880",
     "name": "Б004Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "09d2c40c-776b-4a13-8d7c-4d0295d2cece",
-    "name": "Б004МБелый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -121,14 +121,47 @@
     "execCount": 1
   },
   {
+    "id": "20445c08-605e-4035-8a35-0fc76d902895",
+    "name": "Б00С8Белый",
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "19.11.2026 17:21",
+    "startDateTime": "2026-11-19T14:21:42.613Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "7463d7ac-3585-4506-8697-34774eb1aee1",
+    "name": "Б004Белый",
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "19.11.2026 17:11",
+    "startDateTime": "2026-11-19T14:11:51.251Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "09d2c40c-776b-4a13-8d7c-4d0295d2cece",
+    "name": "Б004МБелый",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "Завершен",
+    "date": "19.11.2026 17:08",
+    "startDateTime": "2026-11-19T13:47:05.169Z",
+    "cancelDateTime": "2026-11-19T14:08:07.637Z",
+    "execCount": 1
+  },
+  {
     "id": "63dd29f8-4ff9-41d9-a6ef-49436cd40c3e",
     "name": "Б00С12Белый",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "19.11.2026 16:12",
+    "status": "Завершен",
+    "date": "19.11.2026 17:01",
     "startDateTime": "2026-11-19T13:12:33.662Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T14:01:58.636Z",
     "execCount": 1
   },
   {
