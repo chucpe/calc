@@ -1,5 +1,16 @@
 [
   {
+    "id": "439a2539-245c-4cef-8dfb-d554ac8c59d8",
+    "name": "Б00Т36БелыйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "ae1560c8-02e2-42f4-8d9f-bac4464a3604",
     "name": "Б00Ш7Белый",
     "firstName": "",
@@ -26,10 +37,10 @@
     "name": "Б004МБелый",
     "firstName": "Александр",
     "lastName": "Алманцев",
-    "status": "В работе",
-    "date": "19.11.2026 11:04",
+    "status": "Завершен",
+    "date": "19.11.2026 11:29",
     "startDateTime": "2026-11-19T08:04:49.628Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T08:29:14.323Z",
     "execCount": 1
   },
   {
