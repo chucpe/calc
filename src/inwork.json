@@ -1,7 +1,7 @@
 [
   {
-    "id": "6b04608b-ba38-4c93-bf67-57faae3b4338",
-    "name": "Б00Т31Белый",
+    "id": "4f2bf6ba-c934-43fd-814b-909bf63ace8e",
+    "name": "Б00С8ЧерныйКромкаЗеленая",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -11,7 +11,7 @@
     "execCount": 1
   },
   {
-    "id": "b74d8f12-2dea-4ebf-bab3-4df8b14ae065",
+    "id": "6b04608b-ba38-4c93-bf67-57faae3b4338",
     "name": "Б00Т31Белый",
     "firstName": "",
     "lastName": "",
@@ -99,8 +99,8 @@
     "execCount": 1
   },
   {
-    "id": "1bb2d46f-cb66-49b7-87bd-5195e3226c79",
-    "name": "Б00Т36БелыйЗР",
+    "id": "195a2d9e-1557-45b7-96c7-bd57c11f8f13",
+    "name": "Б00С8Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -132,6 +132,28 @@
     "execCount": 1
   },
   {
+    "id": "b74d8f12-2dea-4ebf-bab3-4df8b14ae065",
+    "name": "Б00Т31Белый",
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "19.11.2026 18:43",
+    "startDateTime": "2026-11-19T15:43:17.065Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "1bb2d46f-cb66-49b7-87bd-5195e3226c79",
+    "name": "Б00Т36БелыйЗР",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "19.11.2026 18:33",
+    "startDateTime": "2026-11-19T15:33:48.136Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "4057e3c8-b88f-4362-943f-f291f7c23f7c",
     "name": "Б00С8Белый",
     "firstName": "Александр",
@@ -147,10 +169,10 @@
     "name": "Б004Белый",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "19.11.2026 18:28",
+    "status": "Завершен",
+    "date": "19.11.2026 18:47",
     "startDateTime": "2026-11-19T15:28:18.452Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T15:47:33.386Z",
     "execCount": 1
   },
   {
@@ -158,10 +180,10 @@
     "name": "Б004Белый",
     "firstName": "Руслан",
     "lastName": "Аристархов",
-    "status": "В работе",
-    "date": "19.11.2026 17:57",
+    "status": "Завершен",
+    "date": "19.11.2026 18:38",
     "startDateTime": "2026-11-19T14:57:55.025Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T15:38:20.767Z",
     "execCount": 1
   },
   {
@@ -213,10 +235,10 @@
     "name": "Б0034Белый",
     "firstName": "Дмитрий",
     "lastName": "Плотников",
-    "status": "В работе",
-    "date": "19.11.2026 16:31",
+    "status": "Завершен",
+    "date": "19.11.2026 18:31",
     "startDateTime": "2026-11-19T13:31:29.597Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T15:31:06.168Z",
     "execCount": 1
   },
   {
