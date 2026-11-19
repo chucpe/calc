@@ -1,16 +1,5 @@
 [
   {
-    "id": "cdf82531-ea65-4c8b-a8ef-1a920bad84e5",
-    "name": "Б00Ш1Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "832f78d9-ecda-45b5-9eef-e789f040dd64",
     "name": "Б00Ш1Белый",
     "firstName": "",
@@ -22,7 +11,7 @@
     "execCount": 1
   },
   {
-    "id": "88603ce3-bd33-47b4-859c-bb7de7f8dcfd",
+    "id": "ec18c26a-e44b-402b-a647-c9c66e7701fc",
     "name": "Б004МБелый",
     "firstName": "",
     "lastName": "",
@@ -37,10 +26,10 @@
     "name": "Б00С11Белый",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "19.11.2026 08:06",
+    "status": "Завершен",
+    "date": "19.11.2026 09:00",
     "startDateTime": "2026-11-19T05:06:01.483Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T06:00:48.249Z",
     "execCount": 1
   },
   {
@@ -48,9 +37,20 @@
     "name": "Б00Ш1Белый",
     "firstName": "Алишер",
     "lastName": "Абдуллаев",
-    "status": "В работе",
-    "date": "19.11.2026 08:31",
+    "status": "Завершен",
+    "date": "19.11.2026 09:05",
     "startDateTime": "2026-11-19T05:31:51.709Z",
+    "cancelDateTime": "2026-11-19T06:05:23.967Z",
+    "execCount": 1
+  },
+  {
+    "id": "cdf82531-ea65-4c8b-a8ef-1a920bad84e5",
+    "name": "Б00Ш1Белый",
+    "firstName": "Александр",
+    "lastName": "Алманцев",
+    "status": "В работе",
+    "date": "19.11.2026 09:01",
+    "startDateTime": "2026-11-19T06:01:05.480Z",
     "cancelDateTime": null,
     "execCount": 1
   },
