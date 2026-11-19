@@ -33,6 +33,17 @@
     "execCount": 1
   },
   {
+    "id": "26eecc41-ba3e-4e46-a2d8-f4e06d603316",
+    "name": "Б00Т31Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "3738def2-8ef5-4b20-b0f3-34a5642b2614",
     "name": "КомпСтолЧерный-КромкаБелая",
     "firstName": "",
@@ -77,30 +88,8 @@
     "execCount": 1
   },
   {
-    "id": "4057e3c8-b88f-4362-943f-f291f7c23f7c",
-    "name": "Б00С8Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "10d417e0-c2c1-4870-8bfa-06abb7f9420c",
     "name": "Б00С8Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "a5f09375-586f-423e-a871-6566a8bd7880",
-    "name": "Б004Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -143,6 +132,28 @@
     "execCount": 1
   },
   {
+    "id": "4057e3c8-b88f-4362-943f-f291f7c23f7c",
+    "name": "Б00С8Белый",
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "19.11.2026 18:21",
+    "startDateTime": "2026-11-19T15:21:43.881Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "a5f09375-586f-423e-a871-6566a8bd7880",
+    "name": "Б004Белый",
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "19.11.2026 18:28",
+    "startDateTime": "2026-11-19T15:28:18.452Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "83926e30-a246-41b9-9ff0-d84db5a1fe5a",
     "name": "Б004Белый",
     "firstName": "Руслан",
@@ -158,10 +169,10 @@
     "name": "Б00С8Белый",
     "firstName": "Александр",
     "lastName": "Курбатов",
-    "status": "В работе",
-    "date": "19.11.2026 17:21",
+    "status": "Завершен",
+    "date": "19.11.2026 18:21",
     "startDateTime": "2026-11-19T14:21:42.613Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T15:21:36.387Z",
     "execCount": 1
   },
   {
