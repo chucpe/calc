@@ -22,6 +22,28 @@
     "execCount": 1
   },
   {
+    "id": "4057e3c8-b88f-4362-943f-f291f7c23f7c",
+    "name": "Б00С8Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "10d417e0-c2c1-4870-8bfa-06abb7f9420c",
+    "name": "Б00С8Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "7463d7ac-3585-4506-8697-34774eb1aee1",
     "name": "Б004Белый",
     "firstName": "",
@@ -77,8 +99,8 @@
     "execCount": 1
   },
   {
-    "id": "63dd29f8-4ff9-41d9-a6ef-49436cd40c3e",
-    "name": "Б00С12Белый",
+    "id": "f76e47d3-5873-4035-a9a4-febe10dc4542",
+    "name": "Б00С8ЧерныйКромкаБелая",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -88,13 +110,35 @@
     "execCount": 1
   },
   {
-    "id": "88e20a49-eef9-455e-93a6-1ed9e1eeae9e",
-    "name": "Б0034Белый",
+    "id": "0b976c78-b54e-485a-b938-0171aa42c7da",
+    "name": "Б00С8ЧерныйКромкаБелая",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "63dd29f8-4ff9-41d9-a6ef-49436cd40c3e",
+    "name": "Б00С12Белый",
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "19.11.2026 16:12",
+    "startDateTime": "2026-11-19T13:12:33.662Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "88e20a49-eef9-455e-93a6-1ed9e1eeae9e",
+    "name": "Б0034Белый",
+    "firstName": "Дмитрий",
+    "lastName": "Плотников",
+    "status": "В работе",
+    "date": "19.11.2026 16:31",
+    "startDateTime": "2026-11-19T13:31:29.597Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -125,10 +169,10 @@
     "name": "Б00Т36БелыйЗР",
     "firstName": "Александр",
     "lastName": "Алманцев",
-    "status": "В работе",
-    "date": "19.11.2026 15:19",
+    "status": "Завершен",
+    "date": "19.11.2026 15:53",
     "startDateTime": "2026-11-19T12:19:07.047Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T12:53:11.251Z",
     "execCount": 1
   },
   {
@@ -147,10 +191,10 @@
     "name": "Б0034Белый",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "19.11.2026 14:19",
+    "status": "Завершен",
+    "date": "19.11.2026 15:41",
     "startDateTime": "2026-11-19T11:19:35.004Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-19T12:41:18.738Z",
     "execCount": 1
   },
   {
