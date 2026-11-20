@@ -11,17 +11,6 @@
     "execCount": 1
   },
   {
-    "id": "cf8cd0c8-f3a4-4077-b0d2-bed6afae8c39",
-    "name": "Б0044Бетон",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "8fdfd67a-7447-4629-8110-70fb5db5f903",
     "name": "Б0044Бетон",
     "firstName": "",
@@ -84,6 +73,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "cf8cd0c8-f3a4-4077-b0d2-bed6afae8c39",
+    "name": "Б0044Бетон",
+    "firstName": "Александр",
+    "lastName": "Алманцев",
+    "status": "В работе",
+    "date": "20.11.2026 15:28",
+    "startDateTime": "2026-11-20T12:28:27.550Z",
     "cancelDateTime": null,
     "execCount": 1
   },
