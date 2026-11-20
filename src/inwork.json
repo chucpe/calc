@@ -77,17 +77,6 @@
     "execCount": 1
   },
   {
-    "id": "87984b97-08a1-4d37-8584-11d177328f96",
-    "name": "Б0034Сонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "b99c5809-9cc0-40ba-b51f-4a96edf1fc74",
     "name": "Б00С14Сонома",
     "firstName": "",
@@ -96,17 +85,6 @@
     "date": "",
     "startDateTime": null,
     "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "c0766c19-4593-4b57-9d22-fb3d4b202ff8",
-    "name": "Б00С6Вотан",
-    "firstName": "Александр",
-    "lastName": "Алманцев",
-    "status": "Завершен",
-    "date": "20.11.2026 19:09",
-    "startDateTime": "2026-11-20T16:04:12.124Z",
-    "cancelDateTime": "2026-11-20T16:09:47.636Z",
     "execCount": 1
   },
   {
@@ -121,14 +99,14 @@
     "execCount": 1
   },
   {
-    "id": "483f81b0-bab2-4978-90f1-a58adfef4e41",
-    "name": "Б0083Вотан",
+    "id": "c0766c19-4593-4b57-9d22-fb3d4b202ff8",
+    "name": "Б00С6Вотан",
     "firstName": "Александр",
-    "lastName": "Маматов",
+    "lastName": "Алманцев",
     "status": "Завершен",
-    "date": "20.11.2026 19:59",
-    "startDateTime": "2026-11-20T15:43:56.074Z",
-    "cancelDateTime": "2026-11-20T16:59:27.193Z",
+    "date": "20.11.2026 19:09",
+    "startDateTime": "2026-11-20T16:04:12.124Z",
+    "cancelDateTime": "2026-11-20T16:09:47.636Z",
     "execCount": 1
   },
   {
