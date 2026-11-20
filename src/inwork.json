@@ -1,16 +1,5 @@
 [
   {
-    "id": "7d6d2cf1-0702-4898-b8c1-f2d03a94b486",
-    "name": "Б00Т35БелыйЧР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "a67ffc47-9c3f-4f20-b21f-f2943e4d630b",
     "name": "Б0036Вотан",
     "firstName": "",
@@ -95,6 +84,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "7d6d2cf1-0702-4898-b8c1-f2d03a94b486",
+    "name": "Б00Т35БелыйЧР",
+    "firstName": "Алексей",
+    "lastName": "Шеин",
+    "status": "В работе",
+    "date": "20.11.2026 14:28",
+    "startDateTime": "2026-11-20T11:28:30.587Z",
     "cancelDateTime": null,
     "execCount": 1
   },
