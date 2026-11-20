@@ -114,10 +114,10 @@
     "name": "Б0044Молочный",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "20.11.2026 21:58",
+    "status": "Завершен",
+    "date": "20.11.2026 22:53",
     "startDateTime": "2026-11-20T18:58:32.176Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-20T19:53:11.226Z",
     "execCount": 1
   },
   {
@@ -125,10 +125,10 @@
     "name": "Б00Т35МолочныйЗР",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "20.11.2026 21:25",
+    "status": "Завершен",
+    "date": "20.11.2026 22:37",
     "startDateTime": "2026-11-20T18:25:16.494Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-20T19:37:21.410Z",
     "execCount": 1
   },
   {
