@@ -1,5 +1,16 @@
 [
   {
+    "id": "f9d1a75f-0d54-4708-a43a-6b6258240e0f",
+    "name": "Б00Т44ВотанМолочныйЗР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "23f7cfd2-0d6a-46b8-b0db-2cda501d4265",
     "name": "Б0044Молочный",
     "firstName": "",
@@ -13,17 +24,6 @@
   {
     "id": "d3764cbd-199d-4c04-977e-49384949c2b8",
     "name": "Б00Ш9Сонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "6f0e7763-0445-4807-8859-e127e24bb5ec",
-    "name": "Б00С6Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -77,13 +77,46 @@
     "execCount": 1
   },
   {
-    "id": "b99c5809-9cc0-40ba-b51f-4a96edf1fc74",
-    "name": "Б00С14Сонома",
+    "id": "d1388cc2-2c42-40da-ba83-fcaf9acfc94b",
+    "name": "Б00Т35МолочныйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "87984b97-08a1-4d37-8584-11d177328f96",
+    "name": "Б0034Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "6f0e7763-0445-4807-8859-e127e24bb5ec",
+    "name": "Б00С6Вотан",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "20.11.2026 21:13",
+    "startDateTime": "2026-11-20T17:26:03.229Z",
+    "cancelDateTime": "2026-11-20T18:13:39.235Z",
+    "execCount": 1
+  },
+  {
+    "id": "b99c5809-9cc0-40ba-b51f-4a96edf1fc74",
+    "name": "Б00С14Сонома",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "20.11.2026 20:19",
+    "startDateTime": "2026-11-20T17:19:49.700Z",
     "cancelDateTime": null,
     "execCount": 1
   },
