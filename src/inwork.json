@@ -22,17 +22,6 @@
     "execCount": 1
   },
   {
-    "id": "5f75e925-0e0e-405b-81ea-762bed80f13c",
-    "name": "Б00Ш1Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "d3764cbd-199d-4c04-977e-49384949c2b8",
     "name": "Б00Ш9Сонома",
     "firstName": "",
@@ -117,6 +106,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "5f75e925-0e0e-405b-81ea-762bed80f13c",
+    "name": "Б00Ш1Вотан",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "20.11.2026 18:42",
+    "startDateTime": "2026-11-20T15:42:06.733Z",
     "cancelDateTime": null,
     "execCount": 1
   },
