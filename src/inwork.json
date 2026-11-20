@@ -103,10 +103,10 @@
     "name": "Б0034Сонома",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "20.11.2026 23:15",
+    "status": "Завершен",
+    "date": "21.11.2026 00:39",
     "startDateTime": "2026-11-20T20:15:19.096Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-20T21:39:19.526Z",
     "execCount": 1
   },
   {
