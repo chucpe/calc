@@ -125,10 +125,10 @@
     "name": "Б0044Бетон",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "В работе",
-    "date": "20.11.2026 15:29",
+    "status": "Завершен",
+    "date": "20.11.2026 16:51",
     "startDateTime": "2026-11-20T12:29:03.872Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-20T13:51:17.939Z",
     "execCount": 1
   },
   {
