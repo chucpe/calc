@@ -11,17 +11,6 @@
     "execCount": 1
   },
   {
-    "id": "c0766c19-4593-4b57-9d22-fb3d4b202ff8",
-    "name": "Б00С6Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "6f0e7763-0445-4807-8859-e127e24bb5ec",
     "name": "Б00С6Вотан",
     "firstName": "",
@@ -99,14 +88,14 @@
     "execCount": 1
   },
   {
-    "id": "483f81b0-bab2-4978-90f1-a58adfef4e41",
-    "name": "Б0083Вотан",
+    "id": "c0766c19-4593-4b57-9d22-fb3d4b202ff8",
+    "name": "Б00С6Вотан",
     "firstName": "Александр",
-    "lastName": "Маматов",
-    "status": "В работе",
-    "date": "20.11.2026 18:43",
-    "startDateTime": "2026-11-20T15:43:56.074Z",
-    "cancelDateTime": null,
+    "lastName": "Алманцев",
+    "status": "Завершен",
+    "date": "20.11.2026 19:09",
+    "startDateTime": "2026-11-20T16:04:12.124Z",
+    "cancelDateTime": "2026-11-20T16:09:47.636Z",
     "execCount": 1
   },
   {
