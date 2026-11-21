@@ -147,10 +147,10 @@
     "name": "Б00С14Сонома",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "21.11.2026 17:36",
+    "status": "Завершен",
+    "date": "21.11.2026 19:04",
     "startDateTime": "2026-11-21T14:36:39.510Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-21T16:04:02.667Z",
     "execCount": 1
   },
   {
