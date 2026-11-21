@@ -66,17 +66,6 @@
     "execCount": 1
   },
   {
-    "id": "b2ac41e9-1bc5-4ad4-8edd-d2d61e87dc33",
-    "name": "Б00С6Сонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "5182ce1f-8730-482c-92e5-f242bc46585c",
     "name": "Б00С6Сонома",
     "firstName": "",
@@ -128,6 +117,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "b2ac41e9-1bc5-4ad4-8edd-d2d61e87dc33",
+    "name": "Б00С6Сонома",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "В работе",
+    "date": "21.11.2026 20:16",
+    "startDateTime": "2026-11-21T17:16:16.258Z",
     "cancelDateTime": null,
     "execCount": 1
   },
