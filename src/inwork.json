@@ -44,28 +44,6 @@
     "execCount": 1
   },
   {
-    "id": "43cc694a-ee43-4e30-909e-f971c1f3374a",
-    "name": "Б00Ш5Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "da2b5b8d-d8e0-48c5-b3b6-1451de05a9a3",
-    "name": "Б00Т85БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "ca6c31aa-3759-4687-8d7d-5897488674e4",
     "name": "Б0018Белый",
     "firstName": "",
@@ -88,14 +66,69 @@
     "execCount": 1
   },
   {
+    "id": "ece53ed5-6fa2-43e9-ad5e-0b288fa59e93",
+    "name": "Б0018Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "21782e14-d3ee-4423-ad49-806c47eba2e8",
+    "name": "Б0018Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "7656ef7e-c4a0-403a-91a2-16cccfef3bf3",
+    "name": "Б0018Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "43cc694a-ee43-4e30-909e-f971c1f3374a",
+    "name": "Б00Ш5Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "da2b5b8d-d8e0-48c5-b3b6-1451de05a9a3",
+    "name": "Б00Т85БелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "Завершен",
+    "date": "21.11.2026 16:35",
+    "startDateTime": "2026-11-21T12:41:21.284Z",
+    "cancelDateTime": "2026-11-21T13:35:11.580Z",
+    "execCount": 1
+  },
+  {
     "id": "cdc0207b-64ed-4546-9694-84dca612b2f9",
     "name": "Б00В2Сонома",
     "firstName": "Александр",
     "lastName": "Алманцев",
-    "status": "В работе",
-    "date": "21.11.2026 15:11",
+    "status": "Завершен",
+    "date": "21.11.2026 15:57",
     "startDateTime": "2026-11-21T12:11:39.966Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-21T12:57:52.853Z",
     "execCount": 1
   },
   {
