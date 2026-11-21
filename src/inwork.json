@@ -114,10 +114,10 @@
     "name": "Б0018Белый",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "21.11.2026 21:50",
+    "status": "Завершен",
+    "date": "21.11.2026 22:45",
     "startDateTime": "2026-11-21T18:50:34.741Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-21T19:45:00.190Z",
     "execCount": 1
   },
   {
