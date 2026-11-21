@@ -136,10 +136,10 @@
     "name": "Б00Ш4Белый",
     "firstName": "Алексей",
     "lastName": "Шеин",
-    "status": "В работе",
-    "date": "21.11.2026 12:21",
+    "status": "Завершен",
+    "date": "21.11.2026 13:14",
     "startDateTime": "2026-11-21T09:21:46.421Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-21T10:14:06.686Z",
     "execCount": 1
   },
   {
