@@ -125,10 +125,10 @@
     "name": "Б00Ш3Белый",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "21.11.2026 22:02",
+    "status": "Завершен",
+    "date": "21.11.2026 22:41",
     "startDateTime": "2026-11-21T19:02:22.487Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-21T19:41:00.750Z",
     "execCount": 1
   },
   {
