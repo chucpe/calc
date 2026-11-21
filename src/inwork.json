@@ -77,28 +77,6 @@
     "execCount": 1
   },
   {
-    "id": "7656ef7e-c4a0-403a-91a2-16cccfef3bf3",
-    "name": "Б0018Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "9a50f5fa-01dc-452a-9c61-6d17ff06321d",
-    "name": "Б00Т45БелыйЗР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "a873b92a-6d37-4013-a395-745ec0bb05b7",
     "name": "Б00Ш5Белый",
     "firstName": "",
@@ -121,13 +99,46 @@
     "execCount": 1
   },
   {
+    "id": "5182ce1f-8730-482c-92e5-f242bc46585c",
+    "name": "Б00С6Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "7656ef7e-c4a0-403a-91a2-16cccfef3bf3",
+    "name": "Б0018Белый",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "21.11.2026 19:40",
+    "startDateTime": "2026-11-21T16:40:44.645Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "e5fbb97b-2f55-47fa-819c-da729f15b15a",
     "name": "Б00С6Сонома",
     "firstName": "Иван",
     "lastName": "Шувалов",
-    "status": "В работе",
-    "date": "21.11.2026 19:18",
+    "status": "Завершен",
+    "date": "21.11.2026 19:54",
     "startDateTime": "2026-11-21T16:18:44.048Z",
+    "cancelDateTime": "2026-11-21T16:54:39.465Z",
+    "execCount": 1
+  },
+  {
+    "id": "9a50f5fa-01dc-452a-9c61-6d17ff06321d",
+    "name": "Б00Т45БелыйЗР",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "21.11.2026 19:22",
+    "startDateTime": "2026-11-21T16:22:52.510Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -136,10 +147,10 @@
     "name": "Б0018Белый",
     "firstName": "Николай",
     "lastName": "Хитров",
-    "status": "В работе",
-    "date": "21.11.2026 18:42",
+    "status": "Завершен",
+    "date": "21.11.2026 19:35",
     "startDateTime": "2026-11-21T15:42:13.314Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-21T16:35:45.866Z",
     "execCount": 1
   },
   {
