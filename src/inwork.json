@@ -136,10 +136,10 @@
     "name": "Б0042Белый",
     "firstName": "Валерий",
     "lastName": "Петров",
-    "status": "В работе",
-    "date": "21.11.2026 11:38",
+    "status": "Завершен",
+    "date": "21.11.2026 12:37",
     "startDateTime": "2026-11-21T08:38:45.671Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-21T09:37:43.027Z",
     "execCount": 1
   },
   {
@@ -147,10 +147,10 @@
     "name": "Б0042Белый",
     "firstName": "Владислав",
     "lastName": "Суслов",
-    "status": "В работе",
-    "date": "21.11.2026 12:05",
+    "status": "Завершен",
+    "date": "21.11.2026 12:31",
     "startDateTime": "2026-11-21T09:05:31.657Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-21T09:31:50.113Z",
     "execCount": 1
   },
   {
@@ -158,10 +158,10 @@
     "name": "Б00Ш4Белый",
     "firstName": "Кирил",
     "lastName": "Глухов",
-    "status": "В работе",
-    "date": "21.11.2026 11:41",
+    "status": "Завершен",
+    "date": "21.11.2026 12:31",
     "startDateTime": "2026-11-21T08:41:48.096Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-21T09:31:26.024Z",
     "execCount": 1
   },
   {
