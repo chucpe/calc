@@ -44,52 +44,8 @@
     "execCount": 1
   },
   {
-    "id": "5cf06800-46c7-45c4-b9aa-535b0be5e57b",
-    "name": "Б00Ш3Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "f7f24347-3b2c-4c01-a1cb-8105b3e5b0b7",
-    "name": "Б0021Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "60cbab53-543c-49c6-ae20-37788ed81f53",
-    "name": "Б00В2Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "a585e5c8-e905-4702-b38d-139297aaa7ce",
-    "name": "Б00Ш4Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "5d1f7cfa-8530-42af-be9e-328a4dc73ed3",
-    "name": "СтолЦарга90*60БелыйБелыеНожки",
+    "id": "da2b5b8d-d8e0-48c5-b3b6-1451de05a9a3",
+    "name": "Б00Т85БелыйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -110,6 +66,17 @@
     "execCount": 1
   },
   {
+    "id": "5d1f7cfa-8530-42af-be9e-328a4dc73ed3",
+    "name": "СтолЦарга90*60БелыйБелыеНожки",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "ac56535c-057a-439f-97d6-dd0aec5ce479",
     "name": "Б00Т30Белый",
     "firstName": "",
@@ -117,6 +84,50 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f7f24347-3b2c-4c01-a1cb-8105b3e5b0b7",
+    "name": "Б0021Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "5cf06800-46c7-45c4-b9aa-535b0be5e57b",
+    "name": "Б00Ш3Белый",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "21.11.2026 12:51",
+    "startDateTime": "2026-11-21T09:51:44.875Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "60cbab53-543c-49c6-ae20-37788ed81f53",
+    "name": "Б00В2Белый",
+    "firstName": "Александр",
+    "lastName": "Алманцев",
+    "status": "В работе",
+    "date": "21.11.2026 13:00",
+    "startDateTime": "2026-11-21T10:00:48.175Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "a585e5c8-e905-4702-b38d-139297aaa7ce",
+    "name": "Б00Ш4Белый",
+    "firstName": "Кирил",
+    "lastName": "Глухов",
+    "status": "В работе",
+    "date": "21.11.2026 12:46",
+    "startDateTime": "2026-11-21T09:46:58.049Z",
     "cancelDateTime": null,
     "execCount": 1
   },
