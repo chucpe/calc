@@ -33,17 +33,6 @@
     "execCount": 1
   },
   {
-    "id": "1efebec0-9606-47fb-b57d-719f6732cc56",
-    "name": "Б0018Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "6d21cabe-01a9-43d6-ae60-80cd11699f32",
     "name": "Б0018Белый",
     "firstName": "",
@@ -106,6 +95,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "1efebec0-9606-47fb-b57d-719f6732cc56",
+    "name": "Б0018Белый",
+    "firstName": "Николай",
+    "lastName": "Хитров",
+    "status": "В работе",
+    "date": "21.11.2026 23:09",
+    "startDateTime": "2026-11-21T20:09:58.184Z",
     "cancelDateTime": null,
     "execCount": 1
   },
