@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.31
+// @version      5.32
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -2273,7 +2273,7 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
             document.addEventListener('click', (e) => {
                 const btn = e.target.closest('button, [role="button"], a, div, span, [data-slot="trigger"]');
                 if (!btn) return; const text = (btn.textContent || '').trim();
-                if (!text.includes('Характеристики продукции')) return;
+                if (!text.includes('Характеристики')) return;
                 waitingForCharData = true; setTimeout(() => { waitingForCharData = false; }, 5000);
             }, true);
             const originalOpen = W.XMLHttpRequest.prototype.open;
