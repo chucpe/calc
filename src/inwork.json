@@ -81,10 +81,10 @@
     "name": "Б00Ш5Белый",
     "firstName": "Федор",
     "lastName": "Привалихин",
-    "status": "В работе",
-    "date": "22.11.2026 06:13",
+    "status": "Завершен",
+    "date": "22.11.2026 07:22",
     "startDateTime": "2026-11-22T03:13:56.473Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-22T04:22:43.189Z",
     "execCount": 1
   },
   {
