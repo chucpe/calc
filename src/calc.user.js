@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.30
+// @version      5.31
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -3295,6 +3295,10 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                 }
                 console.log('[e8-inwork] В statusId=1 найдено:', currentIds.size, 'паллетов');
 
+                window.__e8CurrentPalletsCount = currentIds.size;
+                const countEl = document.getElementById('e8-total-pallets-count');
+                if (countEl) countEl.textContent = window.__e8CurrentPalletsCount;
+
                 const oldCache = memoryCache.slice();
                 const cacheMap = new Map(oldCache.map(j => [j.id, j]));
                 const newJobsMap = new Map();
@@ -3662,7 +3666,7 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
             let sortByPrice = Number(localStorage.getItem('e8_sort_price')) || 0;
             let sortByName = Number(localStorage.getItem('e8_sort_name')) || 0;
 
-            function createSortUI() {
+                        function createSortUI() {
                 if (document.getElementById('e8-sort-panel')) return;
 
                 if (window.__e8Settings && window.__e8Settings.hideOrders === false) return;
@@ -3680,15 +3684,31 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
 
                 const panel = document.createElement('div');
                 panel.id = 'e8-sort-panel';
-                panel.className = 'flex items-center w-full py-2 mb-2 text-sm text-muted';
+                panel.className = 'flex items-center justify-between w-full py-2 mb-2 text-sm text-muted';
 
-                const marginLeft = window.innerWidth < 768 ? '190px' : '395px';
+                const marginLeft = window.innerWidth < 768 ? '5px' : '5px';
 
                 const arrowPrice = sortByPrice === 1 ? '↑' : (sortByPrice === -1 ? '↓' : '↕');
                 const arrowName = sortByName === 1 ? '↑' : (sortByName === -1 ? '↓' : '↕');
 
+                const totalMarginLeft = window.innerWidth < 768 ? '5px' : '5px';
+
                 panel.innerHTML = `
-                    <div style="margin-left: ${marginLeft}; display: flex; gap: 6px;">
+                    <div id="e8-total-pallets" style="
+                    margin-left: ${totalMarginLeft};
+                    display: inline-flex; align-items: center; gap: 6px;
+                    padding: 0 10px; height: 24px;
+                    background: #334155;
+                    border-radius: 6px;
+                    font-family: system-ui, sans-serif;
+                    font-size: 12px;
+                    color: #cbd5e1;
+                            ">
+                    <span>Всего паллет:</span>
+                    <span id="e8-total-pallets-count" style="font-weight: 700; font-size: 16px; color: #ffffff; line-height: 1; text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);">0</span>
+                    </div>
+
+                    <div style="margin-left: ${marginLeft}; display: flex; gap: 6px; align-items: center;">
                         <button id="e8-sort-name" class="flex items-center justify-center gap-1 px-2.5 h-6 rounded-md whitespace-nowrap transition-all duration-200 text-xs font-medium border shadow-sm ${sortByName !== 0 ? 'bg-primary text-white border-primary shadow-md' : 'bg-elevated text-muted border-default hover:bg-elevated/80'}">
                             Название <span id="e8-sort-arrow-name" class="text-xs ${sortByName !== 0 ? 'text-white' : 'text-muted'}">${arrowName}</span>
                         </button>
@@ -3699,6 +3719,17 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                 `;
 
                 orderLi.parentElement.insertBefore(panel, orderLi);
+
+                const interval = setInterval(() => {
+                    const countEl = document.getElementById('e8-total-pallets-count');
+                    if (!countEl) { clearInterval(interval); return; }
+
+                    const count = window.__e8CurrentPalletsCount;
+                    if (count !== undefined) {
+                        countEl.textContent = count;
+                        clearInterval(interval);
+                    }
+                }, 500);
 
                 attachEvents();
                 setTimeout(applySort, 100);
