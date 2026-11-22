@@ -22,17 +22,6 @@
     "execCount": 1
   },
   {
-    "id": "9f34c953-c0e9-4e1e-9052-20151aea2b1b",
-    "name": "Б007Бетон",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "977af86b-118e-49a8-8d72-0a52bf233f45",
     "name": "Б007Бетон",
     "firstName": "",
@@ -79,6 +68,17 @@
   {
     "id": "af5a82a2-aa1d-4641-bb34-4deada74d28f",
     "name": "Б005Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "9f34c953-c0e9-4e1e-9052-20151aea2b1b",
+    "name": "Б007Бетон",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
