@@ -123,12 +123,12 @@
   {
     "id": "3237f256-d19d-4a4c-a0f1-b845f91a19eb",
     "name": "Б0078ДБетон",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "Завершен",
+    "date": "22.11.2026 18:49",
+    "startDateTime": "2026-11-22T15:02:38.684Z",
+    "cancelDateTime": "2026-11-22T15:49:33.309Z",
     "execCount": 1
   },
   {
@@ -178,12 +178,12 @@
   {
     "id": "e833cf5e-6e1b-4447-a36f-757f2dabc33b",
     "name": "Б0074Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "Завершен",
+    "date": "22.11.2026 19:25",
+    "startDateTime": "2026-11-22T16:00:45.155Z",
+    "cancelDateTime": "2026-11-22T16:25:01.080Z",
     "execCount": 1
   },
   {
