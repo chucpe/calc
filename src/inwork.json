@@ -22,6 +22,39 @@
     "execCount": 1
   },
   {
+    "id": "30ecc259-8cc2-4401-aee7-76c5094d93ae",
+    "name": "Б00Т39БелыйЧР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "71f079e4-aada-465a-a8fa-a3ca09f70aec",
+    "name": "Б00Т39БелыйЧР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "3237f256-d19d-4a4c-a0f1-b845f91a19eb",
+    "name": "Б0078ДБетон",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "f95bd6a0-220e-4da8-91a3-d8e8753b0266",
     "name": "Б00С1Вотан",
     "firstName": "",
@@ -33,7 +66,29 @@
     "execCount": 1
   },
   {
-    "id": "e6dec75c-7470-40c0-9a71-ee25f82eee28",
+    "id": "bf82dfff-ef04-4fde-89d0-38818476a0c0",
+    "name": "Б007Бетон",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "9f34c953-c0e9-4e1e-9052-20151aea2b1b",
+    "name": "Б007Бетон",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "977af86b-118e-49a8-8d72-0a52bf233f45",
     "name": "Б007Бетон",
     "firstName": "",
     "lastName": "",
@@ -46,28 +101,6 @@
   {
     "id": "739b9aa8-f7da-41ff-9534-7468211c2d36",
     "name": "Б00Ст1Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "7d2e2238-09a1-4c16-bd2a-76636f77ddb5",
-    "name": "Б00С14Вотан",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "94262788-c73a-4352-a0bf-c54acd2adbbc",
-    "name": "Б00Т39БелыйЧР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -121,13 +154,68 @@
     "execCount": 1
   },
   {
-    "id": "ce8bbe13-6e8d-4ebb-be3b-bf0718b8533f",
-    "name": "Б00В2Бетон",
+    "id": "af5a82a2-aa1d-4641-bb34-4deada74d28f",
+    "name": "Б005Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "7d2e2238-09a1-4c16-bd2a-76636f77ddb5",
+    "name": "Б00С14Вотан",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "5e78ac90-6459-4287-92ae-1ead2befb3da",
+    "name": "Б0079Бетон",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e6dec75c-7470-40c0-9a71-ee25f82eee28",
+    "name": "Б007Бетон",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "Завершен",
+    "date": "22.11.2026 15:30",
+    "startDateTime": "2026-11-22T11:53:31.082Z",
+    "cancelDateTime": "2026-11-22T12:30:47.490Z",
+    "execCount": 1
+  },
+  {
+    "id": "94262788-c73a-4352-a0bf-c54acd2adbbc",
+    "name": "Б00Т39БелыйЧР",
+    "firstName": "Алексей",
+    "lastName": "Шеин",
+    "status": "В работе",
+    "date": "22.11.2026 15:00",
+    "startDateTime": "2026-11-22T12:00:33.929Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "ce8bbe13-6e8d-4ebb-be3b-bf0718b8533f",
+    "name": "Б00В2Бетон",
+    "firstName": "Валерий",
+    "lastName": "Петров",
+    "status": "В работе",
+    "date": "22.11.2026 15:45",
+    "startDateTime": "2026-11-22T12:45:39.002Z",
     "cancelDateTime": null,
     "execCount": 1
   },
