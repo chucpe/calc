@@ -22,8 +22,19 @@
     "execCount": 1
   },
   {
-    "id": "c052ea52-8072-43ab-95fc-b58c082cbbe5",
-    "name": "Б0073Вотан",
+    "id": "142a18ff-e011-46d4-bc4b-72076d008432",
+    "name": "Б00С14Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "f95bd6a0-220e-4da8-91a3-d8e8753b0266",
+    "name": "Б00С1Вотан",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -55,24 +66,35 @@
     "execCount": 1
   },
   {
+    "id": "c052ea52-8072-43ab-95fc-b58c082cbbe5",
+    "name": "Б0073Вотан",
+    "firstName": "Руслан",
+    "lastName": "Аристархов",
+    "status": "В работе",
+    "date": "22.11.2026 12:08",
+    "startDateTime": "2026-11-22T09:08:59.358Z",
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "896f753f-ab7e-4232-9c11-075751eda5a6",
     "name": "Б0045",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Александр",
+    "lastName": "Курбатов",
+    "status": "В работе",
+    "date": "22.11.2026 12:08",
+    "startDateTime": "2026-11-22T09:08:51.964Z",
     "cancelDateTime": null,
     "execCount": 1
   },
   {
     "id": "5dfc462e-f6c8-46bf-bdda-85ee5911f555",
     "name": "Б0045",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
+    "firstName": "Осман",
+    "lastName": "Мирзегаев",
+    "status": "В работе",
+    "date": "22.11.2026 12:17",
+    "startDateTime": "2026-11-22T09:17:19.779Z",
     "cancelDateTime": null,
     "execCount": 1
   },
@@ -81,10 +103,10 @@
     "name": "Б0045",
     "firstName": "Осман",
     "lastName": "Мирзегаев",
-    "status": "В работе",
-    "date": "22.11.2026 11:25",
+    "status": "Завершен",
+    "date": "22.11.2026 12:16",
     "startDateTime": "2026-11-22T08:25:17.954Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-22T09:16:59.975Z",
     "execCount": 1
   },
   {
