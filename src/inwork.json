@@ -44,6 +44,17 @@
     "execCount": 1
   },
   {
+    "id": "bf24623c-8a3f-41ad-b9e4-9ff632746b7f",
+    "name": "Б00С6Графит",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "9548e901-a018-4703-968c-3b28506f506e",
     "name": "Б00Т42ВотанГрафитЗР",
     "firstName": "",
