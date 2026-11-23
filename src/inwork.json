@@ -22,8 +22,8 @@
     "execCount": 1
   },
   {
-    "id": "de7d1573-ddf2-488a-ab22-5f39ab00ec3b",
-    "name": "Б00С6Графит",
+    "id": "c691764f-8fbe-41c7-9a46-acf149ccbcd1",
+    "name": "Б00Ш17Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -90,6 +90,17 @@
   {
     "id": "7e567ce2-4fae-48b5-9de5-ce5807705213",
     "name": "Б00С19Графит",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "de7d1573-ddf2-488a-ab22-5f39ab00ec3b",
+    "name": "Б00С6Графит",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
