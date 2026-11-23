@@ -1,7 +1,7 @@
 [
   {
-    "id": "e69b2808-a7bb-4930-8384-60453dfc9a91",
-    "name": "Б00Ш17Белый",
+    "id": "6487358a-56f6-43e9-8e5d-3c474c035b74",
+    "name": "Б0078ДСонома",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -11,8 +11,8 @@
     "execCount": 1
   },
   {
-    "id": "e644fa3c-6125-4397-915d-800bf490a2f4",
-    "name": "Б00Т42МолочныйЗР",
+    "id": "e69b2808-a7bb-4930-8384-60453dfc9a91",
+    "name": "Б00Ш17Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -90,6 +90,17 @@
   {
     "id": "7e567ce2-4fae-48b5-9de5-ce5807705213",
     "name": "Б00С19Графит",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e644fa3c-6125-4397-915d-800bf490a2f4",
+    "name": "Б00Т42МолочныйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
