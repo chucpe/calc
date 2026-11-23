@@ -22,17 +22,6 @@
     "execCount": 1
   },
   {
-    "id": "cddbeef6-bfff-48cc-b68b-a6b1c4b008de",
-    "name": "Б00С6Графит",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "de7d1573-ddf2-488a-ab22-5f39ab00ec3b",
     "name": "Б00С6Графит",
     "firstName": "",
@@ -101,6 +90,17 @@
   {
     "id": "42dc493c-9dd0-4355-a6a2-5bcf39688d6c",
     "name": "Б00Ст1Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "cddbeef6-bfff-48cc-b68b-a6b1c4b008de",
+    "name": "Б00С6Графит",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
