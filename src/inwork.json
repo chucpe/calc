@@ -77,6 +77,17 @@
     "execCount": 1
   },
   {
+    "id": "1485a2d2-597a-43aa-8b35-c1a32c58f7a0",
+    "name": "Б00Ст1Сонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "cd7c9f4d-57ec-4b40-85cf-61c543f40837",
     "name": "Б00Т42ГрафитЗР",
     "firstName": "",
