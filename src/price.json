@@ -12,7 +12,10 @@
   {
     "name": "Б00Т31Белый",
     "altName": "Т31Белый",
-    "holes": 1480
+    "holes": 1480,
+    "totalAreaM": 44.35,
+    "totalEdgeM": 220.18,
+    "totalCutM": 562.16
   },
   {
     "name": "Б00ШК3(А)400Белый",
@@ -62,7 +65,10 @@
   {
     "name": "Б002Бетон",
     "altName": "А2Бетон",
-    "holes": 2560
+    "holes": 2560,
+    "totalAreaM": 43.69,
+    "totalEdgeM": 570.24,
+    "totalCutM": 847.04
   },
   {
     "name": "Б00Ш11Сонома",
@@ -173,7 +179,10 @@
   {
     "name": "Б00Т38МолочныйЗР",
     "altName": "Т38МолочныйЗР",
-    "holes": 1960
+    "holes": 1960,
+    "totalAreaM": 46.55,
+    "totalEdgeM": 207.32,
+    "totalCutM": 602.24
   },
   {
     "name": "Б00С14Венге",
@@ -183,7 +192,10 @@
   {
     "name": "Б00Т38ГрафитЧР",
     "altName": "Т38ГрафитЧР",
-    "holes": 1960
+    "holes": 1960,
+    "totalAreaM": 46.55,
+    "totalEdgeM": 207.32,
+    "totalCutM": 602.24
   },
   {
     "name": "Б00Т36ГрафитЗР",
@@ -218,7 +230,10 @@
   {
     "name": "Б002Сонома",
     "altName": "А2Сонома",
-    "holes": 2560
+    "holes": 2560,
+    "totalAreaM": 43.69,
+    "totalEdgeM": 570.24,
+    "totalCutM": 847.04
   },
   {
     "name": "Б00Ш10Белый",
@@ -269,12 +284,18 @@
   {
     "name": "Б00Т38ГрафитЗР",
     "altName": "Т38ГрафитЗР",
-    "holes": 1960
+    "holes": 1960,
+    "totalAreaM": 46.55,
+    "totalEdgeM": 207.32,
+    "totalCutM": 602.24
   },
   {
     "name": "Б00Т39БелыйЗР",
     "altName": "Т39БелыйЗР",
-    "holes": 1960
+    "holes": 1960,
+    "totalAreaM": 46.55,
+    "totalEdgeM": 207.32,
+    "totalCutM": 602.24
   },
   {
     "name": "Б0043СономаБелый",
@@ -389,7 +410,10 @@
   {
     "name": "Б00Т32БелыйЗР",
     "altName": "Т32БелыйЗР",
-    "holes": 1600
+    "holes": 1600,
+    "totalAreaM": 40.82,
+    "totalEdgeM": 229.74,
+    "totalCutM": 563.48
   },
   {
     "name": "Б00О1БелыйЧР",
@@ -464,12 +488,18 @@
   {
     "name": "Б00Т29БелыйЗР",
     "altName": "Т29БелыйЗР",
-    "holes": 1600
+    "holes": 1600,
+    "totalAreaM": 40.82,
+    "totalEdgeM": 229.74,
+    "totalCutM": 563.48
   },
   {
     "name": "Б00Т38БелыйЧР",
     "altName": "Т38БелыйЧР",
-    "holes": 1960
+    "holes": 1960,
+    "totalAreaM": 46.55,
+    "totalEdgeM": 207.32,
+    "totalCutM": 602.24
   },
   {
     "name": "Б00Т92 Белый ЗР Ёлка",
@@ -1304,22 +1334,34 @@
   {
     "name": "Б00Т38БелыйЗР",
     "altName": "Т38БелыйЗР",
-    "holes": 1960
+    "holes": 1960,
+    "totalAreaM": 46.55,
+    "totalEdgeM": 207.32,
+    "totalCutM": 602.24
   },
   {
     "name": "Б00Т36БелыйЗР",
     "altName": "Т36БелыйЗР",
-    "holes": 1760
+    "holes": 1760,
+    "totalAreaM": 44.86,
+    "totalEdgeM": 207.32,
+    "totalCutM": 577.16
   },
   {
     "name": "Б00Т36БелыйЧР",
     "altName": "Т36БелыйЧР",
-    "holes": 1760
+    "holes": 1760,
+    "totalAreaM": 44.86,
+    "totalEdgeM": 207.32,
+    "totalCutM": 577.16
   },
   {
     "name": "Б00Т39МолочныйЗР",
     "altName": "Т39МолочныйЗР",
-    "holes": 1960
+    "holes": 1960,
+    "totalAreaM": 46.55,
+    "totalEdgeM": 207.32,
+    "totalCutM": 602.24
   },
   {
     "name": "Б00Т55Молочный",
