@@ -110,6 +110,17 @@
     "execCount": 1
   },
   {
+    "id": "c85bce28-c11f-4016-bc23-d51f4127bea4",
+    "name": "КомпСтолБелый-КромкаБелая",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "24.11.2026 12:02",
+    "startDateTime": "2026-11-24T08:22:22.625Z",
+    "cancelDateTime": "2026-11-24T09:02:38.547Z",
+    "execCount": 1
+  },
+  {
     "id": "617f5cf9-f754-4d13-9f88-35aff60f17bc",
     "name": "Б004МБелый",
     "firstName": "",
@@ -121,25 +132,14 @@
     "execCount": 1
   },
   {
-    "id": "f725999a-7937-4d82-bfb0-d5a22fa39cdc",
-    "name": "Б004МБелый",
-    "firstName": "Александр",
-    "lastName": "Маматов",
-    "status": "Завершен",
-    "date": "24.11.2026 12:05",
-    "startDateTime": "2026-11-24T08:19:44.002Z",
-    "cancelDateTime": "2026-11-24T09:05:29.031Z",
-    "execCount": 1
-  },
-  {
     "id": "a449916b-d88c-4a52-b946-55ae07ba354f",
     "name": "КомпСтолБелый-КромкаБелая",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "24.11.2026 11:20",
+    "startDateTime": "2026-11-24T07:38:11.268Z",
+    "cancelDateTime": "2026-11-24T08:20:00.356Z",
     "execCount": 1
   },
   {
@@ -156,12 +156,12 @@
   {
     "id": "545d6ac9-ef95-4f6c-8231-06c70d959617",
     "name": "Б00С6Графит",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "24.11.2026 10:22",
+    "startDateTime": "2026-11-24T06:21:35.199Z",
+    "cancelDateTime": "2026-11-24T07:22:44.646Z",
     "execCount": 1
   },
   {
@@ -178,12 +178,12 @@
   {
     "id": "06e9f890-d80a-4874-92ce-f6fff9d97513",
     "name": "КомпСтолБелый-КромкаБелая",
-    "firstName": "Александр",
-    "lastName": "Маматов",
-    "status": "Завершен",
-    "date": "24.11.2026 10:04",
-    "startDateTime": "2026-11-24T06:47:47.341Z",
-    "cancelDateTime": "2026-11-24T07:04:00.394Z",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
     "execCount": 1
   },
   {
@@ -202,10 +202,10 @@
     "name": "Б0078ДСонома",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "Завершен",
-    "date": "24.11.2026 08:00",
+    "status": "Не назначен",
+    "date": "24.11.2026 07:19",
     "startDateTime": "2026-11-24T04:19:16.957Z",
-    "cancelDateTime": "2026-11-24T05:00:19.427Z",
+    "cancelDateTime": null,
     "execCount": 1
   },
   {
