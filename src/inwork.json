@@ -33,17 +33,6 @@
     "execCount": 1
   },
   {
-    "id": "7e567ce2-4fae-48b5-9de5-ce5807705213",
-    "name": "Б00С19Графит",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "e69b2808-a7bb-4930-8384-60453dfc9a91",
     "name": "Б00Ш17Белый",
     "firstName": "",
@@ -66,7 +55,7 @@
     "execCount": 1
   },
   {
-    "id": "06e9f890-d80a-4874-92ce-f6fff9d97513",
+    "id": "a449916b-d88c-4a52-b946-55ae07ba354f",
     "name": "КомпСтолБелый-КромкаБелая",
     "firstName": "",
     "lastName": "",
@@ -77,14 +66,25 @@
     "execCount": 1
   },
   {
-    "id": "a449916b-d88c-4a52-b946-55ae07ba354f",
-    "name": "КомпСтолБелый-КромкаБелая",
+    "id": "7e567ce2-4fae-48b5-9de5-ce5807705213",
+    "name": "Б00С19Графит",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "06e9f890-d80a-4874-92ce-f6fff9d97513",
+    "name": "КомпСтолБелый-КромкаБелая",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "Завершен",
+    "date": "24.11.2026 10:04",
+    "startDateTime": "2026-11-24T06:47:47.341Z",
+    "cancelDateTime": "2026-11-24T07:04:00.394Z",
     "execCount": 1
   },
   {
