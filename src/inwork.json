@@ -92,10 +92,10 @@
     "name": "Б0078ДСонома",
     "firstName": "Александр",
     "lastName": "Маматов",
-    "status": "Не назначен",
-    "date": "24.11.2026 07:19",
+    "status": "Завершен",
+    "date": "24.11.2026 08:00",
     "startDateTime": "2026-11-24T04:19:16.957Z",
-    "cancelDateTime": null,
+    "cancelDateTime": "2026-11-24T05:00:19.427Z",
     "execCount": 1
   },
   {
