@@ -55,17 +55,6 @@
     "execCount": 1
   },
   {
-    "id": "6487358a-56f6-43e9-8e5d-3c474c035b74",
-    "name": "Б0078ДСонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "7e567ce2-4fae-48b5-9de5-ce5807705213",
     "name": "Б00С19Графит",
     "firstName": "",
@@ -95,6 +84,17 @@
     "status": "Не назначен",
     "date": "",
     "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "6487358a-56f6-43e9-8e5d-3c474c035b74",
+    "name": "Б0078ДСонома",
+    "firstName": "Александр",
+    "lastName": "Маматов",
+    "status": "В работе",
+    "date": "24.11.2026 07:19",
+    "startDateTime": "2026-11-24T04:19:16.957Z",
     "cancelDateTime": null,
     "execCount": 1
   },
