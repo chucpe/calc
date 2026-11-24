@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Калькулейшин
 // @namespace    Калькулейшин
-// @version      5.32
+// @version      5.35
 // @description  Подсчёт паллет/суммы + реальное время + фильтр по датам + настройки + фиолетовые заявки + цены + статистика + онлайн + календарь
 // @match        https://e8.ffa.su/*
 // @grant        GM_xmlhttpRequest
@@ -223,7 +223,6 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
 
                         <div style="display:flex;gap:6px;margin-top:10px;margin-bottom:8px;">
                             <button id="e8-tab-daily" style="flex:1;margin:0;padding:4px;font-size:11px;background:${currentTab === 'daily' ? '#3b82f6' : '#334155'};border-radius:4px;">По дням</button>
-                            <button id="e8-tab-inwork" style="flex:1;margin:0;padding:4px;font-size:11px;background:${currentTab === 'inwork' ? '#3b82f6' : '#334155'};border-radius:4px;">В работе</button>
                         </div>
                 `;
 
@@ -310,8 +309,6 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                             `;
                         }
                     }
-                } else if (currentTab === 'inwork') {
-                    // Таблицу рисует модуль "В работе"
                 }
 
                 html += `</div>`;
@@ -342,18 +339,8 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                 panel.innerHTML = buildStatsHTML();
 
                 const tabDaily = panel.querySelector('#e8-tab-daily');
-                const tabInWork = panel.querySelector('#e8-tab-inwork');
 
                 if (tabDaily) tabDaily.addEventListener('click', () => { currentTab = 'daily'; renderStats(); });
-                if (tabInWork) {
-                    tabInWork.addEventListener('click', () => {
-                        currentTab = 'inwork';
-                        renderStats();
-                        if (window.__e8ForceInWorkUpdate) {
-                            window.__e8ForceInWorkUpdate();
-                        }
-                    });
-                }
 
                 panel.querySelectorAll('.e8-toggle-group').forEach(el => {
                     el.addEventListener('click', (e) => {
@@ -1232,10 +1219,29 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                 }
 
                 lastResult = { totalPallets, totalSum: round2(totalSum), unknownPallets, totalQuantity, unknownLabels: [...unknownLabels], byOrder, totalPalletsAll, debugRows, unknownDetails };
-                window.__e8LastResult = lastResult;
-                log('Результат:', lastResult);
-                renderWindow();
-                window.dispatchEvent(new Event('e8-stats-updated'));
+window.__e8LastResult = lastResult;
+
+try {
+    const byOrderObj = {};
+    if (byOrder instanceof Map) {
+        byOrder.forEach((v, k) => { byOrderObj[k] = v; });
+    } else {
+        Object.assign(byOrderObj, byOrder);
+    }
+    localStorage.setItem('e8_saved_last_result', JSON.stringify({
+        data: { ...lastResult, byOrder: byOrderObj },
+        filter: { from: filter.from, to: filter.to },
+        lastJson: lastJson,
+        timestamp: Date.now()
+    }));
+    console.log('[e8-calc] Результат сохранён в localStorage');
+} catch (e) {
+    console.error('[e8-calc] Ошибка сохранения результата:', e);
+}
+
+log('Результат:', lastResult);
+renderWindow();
+window.dispatchEvent(new Event('e8-stats-updated'));
             }
 
             function patchFetch(target) {
@@ -1840,9 +1846,56 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                 }
             });
 
-            function boot() { ensureBox(); }
+    function restoreSavedResult() {
+    try {
+        const raw = localStorage.getItem('e8_saved_last_result');
+        if (!raw) return false;
+
+        const saved = JSON.parse(raw);
+        if (!saved || !saved.data) return false;
+
+        if (saved.lastJson) {
+        lastJson = saved.lastJson;
+}
+
+        const restoredByOrder = new Map();
+        if (saved.data.byOrder) {
+            if (Array.isArray(saved.data.byOrder)) {
+                saved.data.byOrder.forEach(([k, v]) => restoredByOrder.set(k, v));
+            } else {
+                Object.entries(saved.data.byOrder).forEach(([k, v]) => restoredByOrder.set(k, v));
+            }
+        }
+
+        lastResult = { ...saved.data, byOrder: restoredByOrder };
+        window.__e8LastResult = lastResult;
+
+        if (saved.filter) {
+            filter.from = saved.filter.from;
+            filter.to = saved.filter.to;
+        }
+
+        const age = Date.now() - saved.timestamp;
+        const days = Math.floor(age / (1000 * 60 * 60 * 24));
+        log(`Восстановлен сохранённый результат (${days} дн. назад)`);
+
+        renderWindow();
+        window.dispatchEvent(new Event('e8-stats-updated'));
+        return true;
+    } catch (e) {
+        console.error('[e8-calc] Ошибка восстановления:', e);
+        return false;
+    }
+}
+
+            function boot() {
+                ensureBox();
+                setTimeout(restoreSavedResult, 500);
+            }
+
             if (document.body) boot();
             else window.addEventListener('DOMContentLoaded', boot);
+
             window.__e8Recalculate = function() {
                 if (lastJson) processJobs(lastJson);
             };
@@ -1955,189 +2008,344 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
             });
         })();
 
-        // ==================================================================
-        // МОДУЛЬ «ОНЛАЙН» — кто сейчас работает
-        // ==================================================================
-        (function() {
-            'use strict';
-            const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
-            const EMPLOYEES_URL = 'https://raw.githubusercontent.com/chucpe/calc/refs/heads/master/src/employees.json';
-            const API_BASE = 'https://backoffice-e8.ffa.su';
-            let usersCache = [], currentWorkPlanId = null, employeesMap = null;
+      // ==================================================================
+// МОДУЛЬ «ОНЛАЙН» — кто сейчас работает
+// ==================================================================
+(function() {
+    'use strict';
+    const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
+    const EMPLOYEES_URL = 'https://raw.githubusercontent.com/chucpe/calc/refs/heads/master/src/employees.json';
+    const API_BASE = 'https://backoffice-e8.ffa.su';
+    const BLOCKED_IDS = [5118, 9999, 7149, 8960, 9462, 1337];
 
-            function loadEmployees(force) {
-                return new Promise((resolve) => {
-                    if (force) employeesMap = null;
-                    else if (employeesMap) { resolve(employeesMap); return; }
-                    GM_xmlhttpRequest({
-                        method: 'GET', url: EMPLOYEES_URL + '?t=' + Date.now(), nocache: true,
-                        headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache' },
-                        onload: (res) => {
-                            if (res.status !== 200) { resolve(new Map()); return; }
-                            try {
-                                let text = res.responseText.replace(/,\s*}/g, '}').replace(/,\s*]/g, ']');
-                                const arr = JSON.parse(text);
-                                const map = new Map();
-                                (Array.isArray(arr) ? arr : Object.values(arr)).forEach(emp => {
-                                    if (!emp) return;
-                                    const key = String(emp.number ?? emp.id ?? '');
-                                    if (!key) return;
-                                    map.set(key, {
-                                        firstName: (emp.firstName || '').trim(), lastName: (emp.lastName || '').trim(),
-                                        workplace: (emp.workplace || emp.machine || '').trim(), comments: (emp.comments || '').trim()
-                                    });
-                                });
-                                employeesMap = map; resolve(map);
-                            } catch (e) { resolve(new Map()); }
-                        },
-                        onerror: () => resolve(new Map()), timeout: 10000
+    let usersCache = [], currentWorkPlanId = null, employeesMap = null;
+    let isUpdatingGitHub = false;
+
+    async function saveEmployeesToGitHub(newList) {
+        if (isUpdatingGitHub) return;
+        const GTP = window.__e8GTP;
+        if (!GTP) {
+            console.warn('[e8-online] Нет токена GitHub для сохранения');
+            return;
+        }
+        isUpdatingGitHub = true;
+
+        const OWNER = atob('Y2h1Y3Bl');
+        const REPO = atob('Y2FsYw==');
+        const FILE = 'src/employees.json';
+        const apiUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
+
+        const headers = {
+            'Authorization': `Bearer ${GTP}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+        };
+
+        try {
+            const getRes = await new Promise((resolve) => {
+                GM_xmlhttpRequest({ method: 'GET', url: apiUrl, headers, onload: resolve, onerror: () => resolve(null) });
+            });
+
+            if (!getRes || getRes.status !== 200) throw new Error('Не удалось получить файл');
+            const sha = JSON.parse(getRes.responseText).sha;
+
+            // --- ПОЛУЧАЕМ ИМЯ АВТОРА ---
+            let authorName = 'unknown';
+            let login = '';
+            try {
+                const l = localStorage.getItem('auth_login');
+                if (l) login = l.trim();
+            } catch (e) {}
+
+            try {
+                const token = localStorage.getItem('auth_token');
+                if (token) {
+                    const authHeader = /^Bearer\s+/i.test(token) ? token : ('Bearer ' + token);
+                    const profileRes = await new Promise((resolve) => {
+                        GM_xmlhttpRequest({
+                            method: 'GET',
+                            url: 'https://backoffice-e8.ffa.su/api/v1/admin/profile',
+                            headers: { 'Accept': 'application/json', 'Authorization': authHeader },
+                            onload: resolve,
+                            onerror: () => resolve(null),
+                            timeout: 5000
+                        });
                     });
-                });
-            }
 
-            function getToken() {
-                let t = W.__e8Token || window.__e8Token || localStorage.getItem('auth_token');
-                if (!t) return null;
-                return /^Bearer\s+/i.test(t) ? t : (/^eyJ/.test(t) ? 'Bearer ' + t : null);
-            }
+                    if (profileRes && profileRes.status === 200) {
+                        const profile = JSON.parse(profileRes.responseText);
+                        const fName = profile.firstName || '';
+                        const lName = profile.lastName || '';
+                        const fullName = `${fName} ${lName}`.trim();
 
-            function fetchWorkPlanId() {
-                return new Promise((resolve) => {
-                    const token = getToken(); if (!token) { resolve(null); return; }
-                    GM_xmlhttpRequest({
-                        method: 'GET', url: `${API_BASE}/api/v1/admin/projects/1/jobs?statusId=1`,
-                        headers: { 'Accept': 'application/json', 'Authorization': token },
-                        onload: (res) => {
-                            if (res.status !== 200) { resolve(null); return; }
-                            try {
-                                const j = JSON.parse(res.responseText);
-                                const workPlans = j?.other?.dictionary?.workPlans || j?.data?.other?.dictionary?.workPlans || [];
-                                if (workPlans.length > 0 && workPlans[0].id) { resolve(workPlans[0].id); return; }
-                                function findWpId(obj, depth) {
-                                    if (depth > 6 || !obj || typeof obj !== 'object') return null;
-                                    if (obj.workPlanId) return obj.workPlanId;
-                                    for (const k in obj) { if (typeof obj[k] === 'object') { const r = findWpId(obj[k], depth + 1); if (r) return r; } }
-                                    return null;
-                                }
-                                resolve(findWpId(j, 0));
-                            } catch (e) { resolve(null); }
-                        },
-                        onerror: () => resolve(null), timeout: 15000
-                    });
-                });
-            }
-
-            function fetchUsersPage(workPlanId, page) {
-                return new Promise((resolve) => {
-                    const token = getToken(); if (!token) { resolve([]); return; }
-                    GM_xmlhttpRequest({
-                        method: 'GET', url: `${API_BASE}/api/v1/admin/dictionary/users?page=${page}&take=20&projectId=1&workPlanId=${workPlanId}&label`,
-                        headers: { 'Accept': 'application/json', 'Authorization': token },
-                        onload: (res) => {
-                            if (res.status !== 200) { resolve([]); return; }
-                            try { const j = JSON.parse(res.responseText); resolve(j?.items || j?.data?.items || j?.data || []); }
-                            catch (e) { resolve([]); }
-                        }, onerror: () => resolve([]), timeout: 15000
-                    });
-                });
-            }
-
-            async function loadUsers(workPlanId) {
-                const [p1, p2] = await Promise.all([fetchUsersPage(workPlanId, 1), fetchUsersPage(workPlanId, 2)]);
-                usersCache = [...p1, ...p2]; return usersCache;
-            }
-
-            function formatLastSeen(iso) {
-                if (!iso) return '—';
-                let s = String(iso); if (!/[Zz]|[+\-]\d{2}:?\d{2}$/.test(s)) s += 'Z';
-                const d = new Date(s); if (isNaN(d)) return '—';
-                const msk = new Date(d.getTime() + 3 * 60 * 60 * 1000);
-                const p = (x) => String(x).padStart(2, '0');
-                return `${p(msk.getUTCHours())}:${p(msk.getUTCMinutes())} ${p(msk.getUTCDate())}.${p(msk.getUTCMonth() + 1)}.${String(msk.getUTCFullYear()).slice(-2)}`;
-            }
-
-            function escapeHtmlOnline(s) { return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
-
-            function renderOnlineTable() {
-                const panel = document.getElementById('e8-online-panel');
-                if (!panel) return;
-                if (usersCache.length === 0) { panel.innerHTML = '<div style="font-size:11px;opacity:.6;padding:6px;">Нет данных</div>'; return; }
-                const map = employeesMap || new Map();
-
-                const rows = usersCache.filter(u => map.has(String(u.number ?? u.id ?? ''))).map(u => {
-                    const emp = map.get(String(u.number ?? u.id ?? '')) || {};
-                    const lastName = emp.lastName || u.lastName || '';
-                    const firstName = emp.firstName || u.firstName || '';
-
-                    const fioHtml = `<div>${escapeHtmlOnline(lastName)}</div><div>${escapeHtmlOnline(firstName)}</div>`;
-
-                    const workplaceRaw = (emp.workplace || '').trim();
-                    const workplace = workplaceRaw ? escapeHtmlOnline(workplaceRaw) : '<span style="font-size:10px;color:#888;font-style:italic;">Не назначено</span>';
-                    const comments = (emp.comments || '').trim();
-                    const isOnline = String(u.status || '').toUpperCase() === 'ONLINE';
-                    let statusHtml = isOnline ? '<span class="status-on">В сети</span>' : `<span class="status-off">${formatLastSeen(u.lastSeen)}</span>`;
-
-                    return { fioHtml, statusHtml, workplace, comments, isOnline, lastSeenMs: u.lastSeen ? new Date(u.lastSeen).getTime() : 0 };
-                });
-
-                rows.sort((a, b) => a.isOnline !== b.isOnline ? (a.isOnline ? -1 : 1) : (a.isOnline ? a.fioHtml.localeCompare(b.fioHtml, 'ru') : (b.lastSeenMs - a.lastSeenMs)));
-
-                let html = `<table><thead><tr><th class="col-status">Статус</th><th class="col-name">Сотрудник</th><th class="col-work" style="position: relative; left: -12px;">Рабочее место</th><th class="col-comment">Комментарий</th></tr></thead><tbody>`;
-
-                rows.forEach(r => {
-                    html += `<tr>
-                        <td class="col-status">${r.statusHtml}</td>
-                        <td class="col-name">${r.fioHtml}</td>
-                        <td class="col-work"><span style="position: relative; left: -12px;">${r.workplace}</span></td>
-                        <td class="col-comment">${escapeHtmlOnline(r.comments)}</td>
-                    </tr>`;
-                });
-
-                html += `</tbody></table>`;
-                panel.innerHTML = html;
-            }
-
-            async function refreshOnline() {
-                await loadEmployees(true);
-                if (!currentWorkPlanId) currentWorkPlanId = await fetchWorkPlanId();
-                if (currentWorkPlanId) await loadUsers(currentWorkPlanId);
-                renderOnlineTable();
-            }
-
-            function attachOnlineButton() {
-                const btn = document.getElementById('e8-calc-online-toggle');
-                if (!btn || btn.dataset.e8OnlineBound === '1') return;
-                btn.dataset.e8OnlineBound = '1';
-
-                btn.addEventListener('click', async () => {
-                    const panel = document.getElementById('e8-online-panel');
-                    const visible = panel.style.display === 'block';
-
-                    ['e8-stats-panel', 'e8-calc-dates', 'e8-calc-settings', 'e8-calendar-panel'].forEach(id => { document.getElementById(id).style.display = 'none'; });
-                    document.getElementById('e8-calc-stats-toggle').textContent = 'Статистика';
-                    document.getElementById('e8-calc-settings-toggle').textContent = 'Настройка';
-                    document.getElementById('e8-calc-toggle').textContent = 'Считать по датам';
-                    document.getElementById('e8-calc-calendar-toggle').textContent = 'Календарь';
-
-                    if (visible) { panel.style.display = 'none'; btn.textContent = 'Онлайн'; }
-                    else {
-                        panel.style.display = 'block'; btn.textContent = 'Онлайн ✓';
-                        panel.innerHTML = '<div style="font-size:11px;opacity:.6;padding:6px;">Загрузка…</div>';
-                        try { await refreshOnline(); } catch (e) { panel.innerHTML = '<div style="font-size:11px;color:#ff5555;padding:6px;">Ошибка загрузки</div>'; }
+                        if (fullName && login) authorName = `${fullName} (${login})`;
+                        else if (fullName) authorName = fullName;
+                        else if (login) authorName = login;
                     }
-                });
+                }
+            } catch (e) {
+                console.warn('[e8-online] Не удалось получить профиль:', e);
             }
 
-            setInterval(attachOnlineButton, 1000);
-            attachOnlineButton();
+            // Формируем время в МСК
+            const now = new Date();
+            const msk = new Date(now.getTime() + 3 * 60 * 60 * 1000);
+            const p = (x) => String(x).padStart(2, '0');
+            const timeStr = `${p(msk.getUTCDate())}.${p(msk.getUTCMonth() + 1)}.${msk.getUTCFullYear()} ${p(msk.getUTCHours())}:${p(msk.getUTCMinutes())}`;
 
-            setTimeout(async () => {
-                await loadEmployees(true);
-                if (!currentWorkPlanId) currentWorkPlanId = await fetchWorkPlanId();
-            }, 2000);
+            // Формируем сообщение коммита
+            const commitMessage = `Update employees.json by ${authorName} at ${timeStr} MSK`;
 
-            window.__e8OnlineRefresh = refreshOnline;
-        })();
+            const jsonString = JSON.stringify(newList, null, 2);
+            const base64Content = btoa(unescape(encodeURIComponent(jsonString)));
+
+            await new Promise((resolve, reject) => {
+                GM_xmlhttpRequest({
+                    method: 'PUT',
+                    url: apiUrl,
+                    headers: headers,
+                    data: JSON.stringify({
+                        message: commitMessage,
+                        content: base64Content,
+                        sha: sha,
+                        branch: 'master'
+                    }),
+                    onload: (res) => {
+                        if (res.status === 200 || res.status === 201) {
+                            console.log('[e8-online] ✅ Файл employees.json обновлен');
+                            resolve();
+                        } else {
+                            reject(new Error(`Ошибка: ${res.status}`));
+                        }
+                    },
+                    onerror: () => reject(new Error('Сеть')),
+                });
+            });
+        } catch (e) {
+            console.error('[e8-online] ❌ Ошибка сохранения:', e.message);
+        } finally {
+            isUpdatingGitHub = false;
+        }
+    }
+
+    function loadEmployees(force) {
+        return new Promise((resolve) => {
+            if (force) employeesMap = null;
+            else if (employeesMap) { resolve(employeesMap); return; }
+
+            GM_xmlhttpRequest({
+                method: 'GET', url: EMPLOYEES_URL + '?t=' + Date.now(), nocache: true,
+                headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache' },
+                onload: (res) => {
+                    if (res.status !== 200) { resolve({ map: new Map(), raw: [] }); return; }
+                    try {
+                        let text = res.responseText.replace(/,\s*}/g, '}').replace(/,\s*]/g, ']');
+                        const arr = JSON.parse(text);
+                        const rawArr = Array.isArray(arr) ? arr : Object.values(arr);
+                        const map = new Map();
+
+                        rawArr.forEach(emp => {
+                            if (!emp) return;
+                            const key = String(emp.number ?? emp.id ?? '');
+                            if (!key) return;
+                            map.set(key, {
+                                firstName: (emp.firstName || '').trim(),
+                                lastName: (emp.lastName || '').trim(),
+                                workplace: (emp.workplace || emp.machine || '').trim(),
+                                comments: (emp.comments || '').trim()
+                            });
+                        });
+
+                        employeesMap = map;
+                        resolve({ map, raw: rawArr });
+                    } catch (e) {
+                        resolve({ map: new Map(), raw: [] });
+                    }
+                },
+                onerror: () => resolve({ map: new Map(), raw: [] }),
+                timeout: 10000
+            });
+        });
+    }
+
+    function getToken() {
+        let t = W.__e8Token || window.__e8Token || localStorage.getItem('auth_token');
+        if (!t) return null;
+        return /^Bearer\s+/i.test(t) ? t : (/^eyJ/.test(t) ? 'Bearer ' + t : null);
+    }
+
+    function fetchWorkPlanId() {
+        return new Promise((resolve) => {
+            const token = getToken(); if (!token) { resolve(null); return; }
+            GM_xmlhttpRequest({
+                method: 'GET', url: `${API_BASE}/api/v1/admin/projects/1/jobs?statusId=1`,
+                headers: { 'Accept': 'application/json', 'Authorization': token },
+                onload: (res) => {
+                    if (res.status !== 200) { resolve(null); return; }
+                    try {
+                        const j = JSON.parse(res.responseText);
+                        const workPlans = j?.other?.dictionary?.workPlans || j?.data?.other?.dictionary?.workPlans || [];
+                        if (workPlans.length > 0 && workPlans[0].id) { resolve(workPlans[0].id); return; }
+                        function findWpId(obj, depth) {
+                            if (depth > 6 || !obj || typeof obj !== 'object') return null;
+                            if (obj.workPlanId) return obj.workPlanId;
+                            for (const k in obj) { if (typeof obj[k] === 'object') { const r = findWpId(obj[k], depth + 1); if (r) return r; } }
+                            return null;
+                        }
+                        resolve(findWpId(j, 0));
+                    } catch (e) { resolve(null); }
+                },
+                onerror: () => resolve(null), timeout: 15000
+            });
+        });
+    }
+
+    function fetchUsersPage(workPlanId, page) {
+        return new Promise((resolve) => {
+            const token = getToken(); if (!token) { resolve([]); return; }
+            GM_xmlhttpRequest({
+                method: 'GET', url: `${API_BASE}/api/v1/admin/dictionary/users?page=${page}&take=20&projectId=1&workPlanId=${workPlanId}&label`,
+                headers: { 'Accept': 'application/json', 'Authorization': token },
+                onload: (res) => {
+                    if (res.status !== 200) { resolve([]); return; }
+                    try { const j = JSON.parse(res.responseText); resolve(j?.items || j?.data?.items || j?.data || []); }
+                    catch (e) { resolve([]); }
+                }, onerror: () => resolve([]), timeout: 15000
+            });
+        });
+    }
+
+    async function loadUsers(workPlanId) {
+        const [p1, p2] = await Promise.all([fetchUsersPage(workPlanId, 1), fetchUsersPage(workPlanId, 2)]);
+        usersCache = [...p1, ...p2]; return usersCache;
+    }
+
+    function formatLastSeen(iso) {
+        if (!iso) return '—';
+        let s = String(iso); if (!/[Zz]|[+\-]\d{2}:?\d{2}$/.test(s)) s += 'Z';
+        const d = new Date(s); if (isNaN(d)) return '—';
+        const msk = new Date(d.getTime() + 3 * 60 * 60 * 1000);
+        const p = (x) => String(x).padStart(2, '0');
+        return `${p(msk.getUTCHours())}:${p(msk.getUTCMinutes())} ${p(msk.getUTCDate())}.${p(msk.getUTCMonth() + 1)}.${String(msk.getUTCFullYear()).slice(-2)}`;
+    }
+
+    function escapeHtmlOnline(s) { return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+    function renderOnlineTable() {
+        const panel = document.getElementById('e8-online-panel');
+        if (!panel) return;
+
+        if (usersCache.length === 0) {
+            panel.innerHTML = '<div style="font-size:11px;opacity:.6;padding:6px;">Нет данных</div>';
+            return;
+        }
+
+        const rows = usersCache
+            .filter(u => !BLOCKED_IDS.includes(Number(u.number ?? u.id ?? 0)))
+            .map(u => {
+                const emp = employeesMap.get(String(u.number ?? u.id ?? '')) || {};
+                const lastName = emp.lastName || u.lastName || '';
+                const firstName = emp.firstName || u.firstName || '';
+
+                const fioHtml = `<div>${escapeHtmlOnline(lastName)}</div><div>${escapeHtmlOnline(firstName)}</div>`;
+
+                const workplaceRaw = (emp.workplace || '').trim();
+                const workplace = workplaceRaw ? escapeHtmlOnline(workplaceRaw) : '<span style="font-size:10px;color:#888;font-style:italic;">Не назначено</span>';
+                const comments = (emp.comments || '').trim();
+                const isOnline = String(u.status || '').toUpperCase() === 'ONLINE';
+                let statusHtml = isOnline ? '<span class="status-on">В сети</span>' : `<span class="status-off">${formatLastSeen(u.lastSeen)}</span>`;
+
+                return { fioHtml, statusHtml, workplace, comments, isOnline, lastSeenMs: u.lastSeen ? new Date(u.lastSeen).getTime() : 0 };
+            });
+
+        rows.sort((a, b) => a.isOnline !== b.isOnline ? (a.isOnline ? -1 : 1) : (a.isOnline ? a.fioHtml.localeCompare(b.fioHtml, 'ru') : (b.lastSeenMs - a.lastSeenMs)));
+
+        let html = `<table><thead><tr><th class="col-status">Статус</th><th class="col-name">Сотрудник</th><th class="col-work" style="position: relative; left: -12px;">Рабочее место</th><th class="col-comment">Комментарий</th></tr></thead><tbody>`;
+
+        rows.forEach(r => {
+            html += `<tr>
+                <td class="col-status">${r.statusHtml}</td>
+                <td class="col-name">${r.fioHtml}</td>
+                <td class="col-work"><span style="position: relative; left: -12px;">${r.workplace}</span></td>
+                <td class="col-comment">${escapeHtmlOnline(r.comments)}</td>
+            </tr>`;
+        });
+
+        html += `</tbody></table>`;
+        panel.innerHTML = html;
+    }
+
+    async function refreshOnline() {
+        const { map, raw } = await loadEmployees(true);
+
+        if (!currentWorkPlanId) currentWorkPlanId = await fetchWorkPlanId();
+        if (!currentWorkPlanId) return;
+
+        await loadUsers(currentWorkPlanId);
+
+        let hasChanges = false;
+        const newRawList = [...raw];
+
+        usersCache.forEach(u => {
+            const id = Number(u.number ?? u.id ?? 0);
+            if (!id || BLOCKED_IDS.includes(id)) return;
+
+            if (!map.has(String(id))) {
+                newRawList.push({
+                    number: id,
+                    firstName: u.firstName || '',
+                    lastName: u.lastName || '',
+                    workplace: '',
+                    comments: '',
+                    workshift: ''
+                });
+                hasChanges = true;
+                console.log(`[e8-online] Добавлен новый пользователь: ${u.lastName} ${u.firstName} (${id})`);
+            }
+        });
+
+        if (hasChanges) {
+            await saveEmployeesToGitHub(newRawList);
+            await loadEmployees(true);
+        }
+
+        renderOnlineTable();
+    }
+
+    function attachOnlineButton() {
+        const btn = document.getElementById('e8-calc-online-toggle');
+        if (!btn || btn.dataset.e8OnlineBound === '1') return;
+        btn.dataset.e8OnlineBound = '1';
+
+        btn.addEventListener('click', async () => {
+            const panel = document.getElementById('e8-online-panel');
+            const visible = panel.style.display === 'block';
+
+            ['e8-stats-panel', 'e8-calc-dates', 'e8-calc-settings', 'e8-calendar-panel'].forEach(id => { document.getElementById(id).style.display = 'none'; });
+            document.getElementById('e8-calc-stats-toggle').textContent = 'Статистика';
+            document.getElementById('e8-calc-settings-toggle').textContent = 'Настройка';
+            document.getElementById('e8-calc-toggle').textContent = 'Считать по датам';
+            document.getElementById('e8-calc-calendar-toggle').textContent = 'Календарь';
+
+            if (visible) { panel.style.display = 'none'; btn.textContent = 'Онлайн'; }
+            else {
+                panel.style.display = 'block'; btn.textContent = 'Онлайн ✓';
+                panel.innerHTML = '<div style="font-size:11px;opacity:.6;padding:6px;">Загрузка…</div>';
+                try { await refreshOnline(); } catch (e) { panel.innerHTML = '<div style="font-size:11px;color:#ff5555;padding:6px;">Ошибка загрузки</div>'; }
+            }
+        });
+    }
+
+    setInterval(attachOnlineButton, 1000);
+    attachOnlineButton();
+
+    setTimeout(async () => {
+        await loadEmployees(true);
+        if (!currentWorkPlanId) currentWorkPlanId = await fetchWorkPlanId();
+    }, 2000);
+
+    window.__e8OnlineRefresh = refreshOnline;
+})();
 
         // ==================================================================
         // УСТАНОВКА ПРИЛОЖЕНИЯ — СКРЫВАЕМ БАННЕР
@@ -2357,289 +2565,395 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
         // МОДУЛЬ АВТО-ПОПОЛНЕНИЯ PRICE.JSON
         // ==================================================================
         (function() {
-            'use strict';
-            const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
+    'use strict';
+    const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
 
-            const GTP = window.__e8GTP;
-            const OWNER = atob('Y2h1Y3Bl');
-            const REPO = atob('Y2FsYw==');
-            const FILE_PATH = atob('c3JjL3ByaWNlLmpzb24=');
-            const API_BASE = atob('aHR0cHM6Ly9iYWNrb2ZmaWNlLWU4LmZmYS5zdQ==');
+    const GTP = window.__e8GTP;
+    const OWNER = atob('Y2h1Y3Bl');
+    const REPO = atob('Y2FsYw==');
+    const FILE_PATH = atob('c3JjL3ByaWNlLmpzb24=');
+    const API_BASE = atob('aHR0cHM6Ly9iYWNrb2ZmaWNlLWU4LmZmYS5zdQ==');
 
-            const MAX_PARALLEL = 4;
+    const MAX_PARALLEL = 4;
 
-            let isCheckingJobs = false;
-            let isUpdatingGithub = false;
-            let knownNames = new Set();
-            let knownBaseNames = new Set();
-            let isPriceLoaded = false;
+    let isCheckingJobs = false;
+    let isUpdatingGithub = false;
+    let knownNames = new Set();
+    let knownBaseNames = new Set();
+    let isPriceLoaded = false;
 
-            function normalize(s) { return String(s || '').toLowerCase().replace(/\s+/g, '').replace(/[«»"']/g, '').trim(); }
-            function baseName(s) { return normalize(s).replace(/\([^)]*\)/g, ''); }
+    function normalize(s) { return String(s || '').toLowerCase().replace(/\s+/g, '').replace(/[«»"']/g, '').trim(); }
+    function baseName(s) { return normalize(s).replace(/\([^)]*\)/g, ''); }
 
-            async function loadCurrentPrice() {
-                try {
-                    const res = await new Promise((resolve) => {
+    async function loadCurrentPrice() {
+        try {
+            const res = await new Promise((resolve) => {
+                GM_xmlhttpRequest({
+                    method: 'GET',
+                    url: `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${FILE_PATH}?t=${Date.now()}`,
+                    onload: resolve,
+                    onerror: () => resolve(null)
+                });
+            });
+            if (!res || res.status !== 200) return;
+            const arr = JSON.parse(res.responseText);
+            arr.forEach(item => {
+                if (!item.name) return;
+                knownNames.add(item.name);
+                knownBaseNames.add(baseName(item.name));
+            });
+            isPriceLoaded = true;
+            console.log('[e8-autoprice] База имен загружена. Записей:', knownNames.size);
+        } catch (e) {
+            console.error('[e8-autoprice] Ошибка загрузки прайса:', e);
+        }
+    }
+
+    function countParams(obj) {
+        let holes = 0;
+        let grooveM = 0;
+        let areaM = 0;
+        let edgeM = 0;
+        let cutM = 0;
+
+        function traverse(node) {
+            if (!node || typeof node !== 'object') return;
+            if (typeof node.totalHole === 'number' && node.category && node.category.label && node.category.label.trim() === 'ЛДСП') {
+                holes += node.totalHole;
+            }
+            if (typeof node.totalGrooveM === 'number') {
+                grooveM += node.totalGrooveM;
+            }
+            if (typeof node.totalAreaM === 'number') {
+                areaM += node.totalAreaM;
+            }
+            if (typeof node.totalEdgeM === 'number') {
+                edgeM += node.totalEdgeM;
+            }
+            if (typeof node.totalCutM === 'number') {
+                cutM += node.totalCutM;
+            }
+            if (Array.isArray(node.children)) node.children.forEach(traverse);
+            if (Array.isArray(node.items)) node.items.forEach(traverse);
+        }
+
+        traverse(obj);
+        return {
+            holes,
+            grooveM: Math.round(grooveM * 100) / 100,
+            areaM: Math.round(areaM * 100) / 100,
+            edgeM: Math.round(edgeM * 100) / 100,
+            cutM: Math.round(cutM * 100) / 100
+        };
+    }
+
+    function fetchProductParams(productId, jobId) {
+        return new Promise((resolve) => {
+            let token = W.__e8Token || window.__e8Token || localStorage.getItem('auth_token');
+            if (token && /^eyJ/.test(token)) token = /^Bearer\s+/i.test(token) ? token : ('Bearer ' + token);
+            if (!token) {
+                resolve({ holes: 0, grooveM: 0, areaM: 0, edgeM: 0, cutM: 0 });
+                return;
+            }
+
+            const url = `${API_BASE}/api/v1/admin/projects/1/jobs/${jobId}/params`;
+
+            GM_xmlhttpRequest({
+                method: 'GET',
+                url: url,
+                headers: { 'Accept': 'application/json', 'Authorization': token },
+                onload: (res) => {
+                    if (res.status !== 200) { resolve({ holes: 0, grooveM: 0, areaM: 0, edgeM: 0, cutM: 0 }); return; }
+                    try {
+                        const json = JSON.parse(res.responseText);
+                        const params = countParams(json);
+                        if (params.holes === 0) {
+                            console.warn(`[e8-autoprice] Отверстия не найдены (0) для ${jobId}. Ответ API:`, json);
+                        }
+                        resolve(params);
+                    } catch (e) {
+                        console.error('[e8-autoprice] Ошибка парсинга', e);
+                        resolve({ holes: 0, grooveM: 0, areaM: 0, edgeM: 0, cutM: 0 });
+                    }
+                },
+                onerror: () => resolve({ holes: 0, grooveM: 0, areaM: 0, edgeM: 0, cutM: 0 }),
+                timeout: 10000
+            });
+        });
+    }
+
+    async function updateGitHubJson(newData) {
+        if (!GTP || GTP === 'ВАШ_ТОКЕН_ЗДЕСЬ') {
+            console.warn('[e8-autoprice] Не указан gtp.');
+            return;
+        }
+        if (isUpdatingGithub) return;
+        isUpdatingGithub = true;
+
+        const apiUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE_PATH}`;
+        const headers = {
+            'Authorization': `Bearer ${GTP}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+        };
+
+        try {
+            const getRes = await new Promise((resolve) => {
+                GM_xmlhttpRequest({ method: 'GET', url: apiUrl, headers, onload: resolve, onerror: () => resolve(null) });
+            });
+
+            if (!getRes || getRes.status !== 200) throw new Error('Не удалось получить SHA файла');
+            const sha = JSON.parse(getRes.responseText).sha;
+
+            let authorName = 'unknown';
+            let login = '';
+            try {
+                const l = localStorage.getItem('auth_login');
+                if (l) login = l.trim();
+            } catch (e) {}
+
+            try {
+                const token = localStorage.getItem('auth_token');
+                if (token) {
+                    const authHeader = /^Bearer\s+/i.test(token) ? token : ('Bearer ' + token);
+                    const profileRes = await new Promise((resolve) => {
                         GM_xmlhttpRequest({
                             method: 'GET',
-                            url: `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${FILE_PATH}?t=${Date.now()}`,
+                            url: 'https://backoffice-e8.ffa.su/api/v1/admin/profile',
+                            headers: { 'Accept': 'application/json', 'Authorization': authHeader },
                             onload: resolve,
-                            onerror: () => resolve(null)
+                            onerror: () => resolve(null),
+                            timeout: 5000
                         });
                     });
-                    if (!res || res.status !== 200) return;
-                    const arr = JSON.parse(res.responseText);
-                    arr.forEach(item => {
-                        if (!item.name) return;
-                        knownNames.add(item.name);
-                        knownBaseNames.add(baseName(item.name));
-                    });
-                    isPriceLoaded = true;
-                    console.log('[e8-autoprice] База имен загружена. Записей:', knownNames.size);
-                } catch (e) {
-                    console.error('[e8-autoprice] Ошибка загрузки прайса:', e);
+
+                    if (profileRes && profileRes.status === 200) {
+                        const profile = JSON.parse(profileRes.responseText);
+                        const fName = profile.firstName || '';
+                        const lName = profile.lastName || '';
+                        const fullName = `${fName} ${lName}`.trim();
+
+                        if (fullName && login) authorName = `${fullName} (${login})`;
+                        else if (fullName) authorName = fullName;
+                        else if (login) authorName = login;
+                    }
                 }
+            } catch (e) {
+                console.warn('[e8-autoprice] Не удалось получить профиль:', e);
             }
 
-            function countParams(obj) {
-                let holes = 0;
-                let grooveM = 0;
-                function traverse(node) {
-                    if (!node || typeof node !== 'object') return;
-                    if (typeof node.totalHole === 'number' && node.category && node.category.label && node.category.label.trim() === 'ЛДСП') {
-                        holes += node.totalHole;
-                    }
-                    if (typeof node.totalGrooveM === 'number') {
-                        grooveM += node.totalGrooveM;
-                    }
-                    if (Array.isArray(node.children)) node.children.forEach(traverse);
-                    if (Array.isArray(node.items)) node.items.forEach(traverse);
-                }
-                traverse(obj);
-                return { holes, grooveM };
-            }
+            const now = new Date();
+            const msk = new Date(now.getTime() + 3 * 60 * 60 * 1000);
+            const p = (x) => String(x).padStart(2, '0');
+            const timeStr = `${p(msk.getUTCDate())}.${p(msk.getUTCMonth() + 1)}.${msk.getUTCFullYear()} ${p(msk.getUTCHours())}:${p(msk.getUTCMinutes())}`;
 
-            function fetchProductParams(productId, jobId) {
-                return new Promise((resolve) => {
-                    let token = W.__e8Token || window.__e8Token || localStorage.getItem('auth_token');
-                    if (token && /^eyJ/.test(token)) token = /^Bearer\s+/i.test(token) ? token : ('Bearer ' + token);
-                    if (!token) {
-                        resolve(0);
-                        return;
-                    }
+            const commitMessage = `Auto-add missing products by ${authorName} at ${timeStr} MSK`;
 
-                    const url = `${API_BASE}/api/v1/admin/projects/1/jobs/${jobId}/params`;
+            const jsonString = JSON.stringify(newData, null, 2);
+            const base64Content = btoa(unescape(encodeURIComponent(jsonString)));
 
-                    GM_xmlhttpRequest({
-                        method: 'GET',
-                        url: url,
-                        headers: { 'Accept': 'application/json', 'Authorization': token },
-                        onload: (res) => {
-                            if (res.status !== 200) { resolve({ holes: 0, grooveM: 0 }); return; }
-                            try {
-                                const json = JSON.parse(res.responseText);
-
-                                const params = countParams(json);
-
-                                if (params.holes === 0) {
-                                    console.warn(`[e8-autoprice] Отверстия не найдены (0) для ${jobId}. Ответ API:`, json);
-                                }
-                                resolve(params);
-                            } catch (e) {
-                                console.error('[e8-autoprice] Ошибка парсинга', e);
-                                resolve({ holes: 0, grooveM: 0 });
-                            }
-                        },
-                        onerror: () => resolve({ holes: 0, grooveM: 0 }),
-                        timeout: 10000
-                    });
+            await new Promise((resolve, reject) => {
+                GM_xmlhttpRequest({
+                    method: 'PUT',
+                    url: apiUrl,
+                    headers: headers,
+                    data: JSON.stringify({
+                        message: commitMessage,
+                        content: base64Content,
+                        sha: sha,
+                        branch: 'master'
+                    }),
+                    onload: (res) => {
+                        if (res.status === 200 || res.status === 201) {
+                            console.log('[e8-autoprice] ✅ Файл price.json успешно обновлен!');
+                            resolve();
+                        } else {
+                            reject(new Error(`Ошибка: ${res.status} ${res.responseText}`));
+                        }
+                    },
+                    onerror: () => reject(new Error('Сетевая ошибка при обновлении'))
                 });
+            });
+        } catch (e) {
+            console.error('[e8-autoprice] ❌ Ошибка обновления:', e.message);
+        } finally {
+            isUpdatingGithub = false;
+        }
+    }
+
+    function updateExistingItems(currentPriceData, newItemsBatch) {
+        let updated = 0;
+
+        for (const newItem of newItemsBatch) {
+            const existing = currentPriceData.find(item => item.name === newItem.name);
+            if (existing) {
+                let changed = false;
+                if (newItem.totalAreaM !== undefined && existing.totalAreaM === undefined) {
+                    existing.totalAreaM = newItem.totalAreaM;
+                    changed = true;
+                }
+                if (newItem.totalEdgeM !== undefined && existing.totalEdgeM === undefined) {
+                    existing.totalEdgeM = newItem.totalEdgeM;
+                    changed = true;
+                }
+                if (newItem.totalCutM !== undefined && existing.totalCutM === undefined) {
+                    existing.totalCutM = newItem.totalCutM;
+                    changed = true;
+                }
+                if (newItem.totalGrooveM !== undefined && existing.totalGrooveM === undefined) {
+                    existing.totalGrooveM = newItem.totalGrooveM;
+                    changed = true;
+                }
+                if (changed) updated++;
+            }
+        }
+
+        return updated;
+    }
+
+    async function processJobs(json) {
+        if (isCheckingJobs || !isPriceLoaded || isUpdatingGithub) return;
+        isCheckingJobs = true;
+
+        try {
+            const items = json?.items || json?.data?.items;
+            const productsDict = json?.other?.dictionary?.products || json?.data?.other?.dictionary?.products || [];
+            if (!items || !productsDict.length) return;
+
+            const productMap = new Map(productsDict.map(p => [p.id, p.label]));
+            const missingProducts = new Map();
+
+            for (const order of items) {
+                for (const group of (order.children || [])) {
+                    const productId = group.productId;
+                    const label = productMap.get(productId);
+                    if (!label) continue;
+
+                    const isKnown = knownNames.has(label) || knownBaseNames.has(baseName(label));
+
+                    let foundJobId = null;
+                    for (const wp of (group.children || [])) {
+                        for (const pallet of (wp.children || [])) {
+                            if (pallet.id) { foundJobId = pallet.id; break; }
+                        }
+                        if (foundJobId) break;
+                    }
+
+                    if (foundJobId) {
+                        missingProducts.set(label, { productId, jobId: foundJobId, isKnown });
+                    }
+                }
             }
 
-            async function updateGitHubJson(newData) {
-                if (!GTP || GTP === 'ВАШ_ТОКЕН_ЗДЕСЬ') {
-                    console.warn('[e8-autoprice] Не указан gtp.');
-                    return;
-                }
-                if (isUpdatingGithub) return;
-                isUpdatingGithub = true;
+            if (missingProducts.size === 0) return;
+            console.log(`[e8-autoprice] Найдено ${missingProducts.size} новых изделий. Собираем данные...`);
 
-                const apiUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE_PATH}`;
-                const headers = {
-                    'Authorization': `Bearer ${GTP}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Content-Type': 'application/json'
-                };
+            let currentPriceData = [];
+            const rawRes = await new Promise((resolve) => {
+                GM_xmlhttpRequest({ method: 'GET', url: `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${FILE_PATH}?t=${Date.now()}`, onload: resolve });
+            });
+            if (rawRes && rawRes.status === 200) currentPriceData = JSON.parse(rawRes.responseText);
 
-                try {
-                    const getRes = await new Promise((resolve) => {
-                        GM_xmlhttpRequest({ method: 'GET', url: apiUrl, headers, onload: resolve, onerror: () => resolve(null) });
-                    });
+            const newItemsBatch = [];
+            const entries = Array.from(missingProducts.entries());
+            let totalUpdated = 0;
 
-                    if (!getRes || getRes.status !== 200) throw new Error('Не удалось получить SHA файла');
-                    const sha = JSON.parse(getRes.responseText).sha;
+            for (let i = 0; i < entries.length; i += MAX_PARALLEL) {
+                const chunk = entries.slice(i, i + MAX_PARALLEL);
+                await Promise.all(chunk.map(async ([label, data]) => {
+                    const params = await fetchProductParams(data.productId, data.jobId);
+                    if (params.holes > 0) {
+                        let altName = label;
+                        if (/^Б00\d/.test(altName)) {
+                            altName = altName.replace(/^Б00/, 'А');
+                        } else if (/^Б00[А-ЯЁA-Z]/i.test(altName)) {
+                            altName = altName.replace(/^Б00/, '');
+                        } else {
+                            altName = label;
+                        }
 
-                    const jsonString = JSON.stringify(newData, null, 2);
-                    const base64Content = btoa(unescape(encodeURIComponent(jsonString)));
+                        const newItem = { name: label, altName: altName, holes: params.holes };
+                        if (params.grooveM > 0) newItem.totalGrooveM = Math.round(params.grooveM * 100) / 100;
+                        if (params.areaM > 0) newItem.totalAreaM = Math.round(params.areaM * 100) / 100;
+                        if (params.edgeM > 0) newItem.totalEdgeM = Math.round(params.edgeM * 100) / 100;
+                        if (params.cutM > 0) newItem.totalCutM = Math.round(params.cutM * 100) / 100;
 
-                    await new Promise((resolve, reject) => {
-                        GM_xmlhttpRequest({
-                            method: 'PUT',
-                            url: apiUrl,
-                            headers: headers,
-                            data: JSON.stringify({
-                                message: 'Auto-add missing products (batch update)',
-                                content: base64Content,
-                                sha: sha,
-                                branch: 'master'
-                            }),
-                            onload: (res) => {
-                                if (res.status === 200 || res.status === 201) {
-                                    console.log('[e8-autoprice] ✅ Файл price.json успешно обновлен!');
-                                    resolve();
-                                } else {
-                                    reject(new Error(`Ошибка: ${res.status} ${res.responseText}`));
-                                }
-                            },
-                            onerror: () => reject(new Error('Сетевая ошибка при обновлении'))
-                        });
-                    });
-                } catch (e) {
-                    console.error('[e8-autoprice] ❌ Ошибка обновления:', e.message);
-                } finally {
-                    isUpdatingGithub = false;
-                }
-            }
-
-            async function processJobs(json) {
-                if (isCheckingJobs || !isPriceLoaded || isUpdatingGithub) return;
-                isCheckingJobs = true;
-
-                try {
-                    const items = json?.items || json?.data?.items;
-                    const productsDict = json?.other?.dictionary?.products || json?.data?.other?.dictionary?.products || [];
-                    if (!items || !productsDict.length) return;
-
-                    const productMap = new Map(productsDict.map(p => [p.id, p.label]));
-                    const missingProducts = new Map();
-
-                    for (const order of items) {
-                        for (const group of (order.children || [])) {
-                            const productId = group.productId;
-                            const label = productMap.get(productId);
-                            if (!label) continue;
-
-                            if (knownNames.has(label) || knownBaseNames.has(baseName(label))) continue;
-
-                            let foundJobId = null;
-                            for (const wp of (group.children || [])) {
-                                for (const pallet of (wp.children || [])) {
-                                    if (pallet.id) { foundJobId = pallet.id; break; }
-                                }
-                                if (foundJobId) break;
-                            }
-
-                            if (foundJobId) {
-                                missingProducts.set(label, { productId, jobId: foundJobId });
+                        if (!data.isKnown) {
+                            newItemsBatch.push(newItem);
+                            console.log(`[e8-autoprice] Новое изделие: ${label} (${params.holes} отв.)`);
+                        } else {
+                            const updated = updateExistingItems(currentPriceData, [newItem]);
+                            if (updated > 0) {
+                                totalUpdated += updated;
+                                console.log(`[e8-autoprice] Обновлено существующее: ${label}`);
                             }
                         }
+                    } else {
+                        console.warn(`[e8-autoprice] Не удалось посчитать отверстия для ${label}`);
                     }
-
-                    if (missingProducts.size === 0) return;
-                    console.log(`[e8-autoprice] Найдено ${missingProducts.size} новых изделий. Собираем данные...`);
-
-                    let currentPriceData = [];
-                    const rawRes = await new Promise((resolve) => {
-                        GM_xmlhttpRequest({ method: 'GET', url: `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${FILE_PATH}?t=${Date.now()}`, onload: resolve });
-                    });
-                    if (rawRes && rawRes.status === 200) currentPriceData = JSON.parse(rawRes.responseText);
-
-                    const newItemsBatch = [];
-                    const entries = Array.from(missingProducts.entries());
-
-                    for (let i = 0; i < entries.length; i += MAX_PARALLEL) {
-                        const chunk = entries.slice(i, i + MAX_PARALLEL);
-                        await Promise.all(chunk.map(async ([label, data]) => {
-                            const params = await fetchProductParams(data.productId, data.jobId);
-                            if (params.holes > 0) {
-                                let altName = label;
-                                if (/^Б00\d/.test(altName)) {
-                                    altName = altName.replace(/^Б00/, 'А');
-                                } else if (/^Б00[А-ЯЁA-Z]/i.test(altName)) {
-                                    altName = altName.replace(/^Б00/, '');
-                                } else {
-                                    altName = label;
-                                }
-
-                                const newItem = { name: label, altName: altName, holes: params.holes };
-                                if (params.grooveM > 0) {
-                                    newItem.totalGrooveM = params.grooveM;
-                                }
-
-                                newItemsBatch.push(newItem);
-                                console.log(`[e8-autoprice] Данные собраны: ${label} (${params.holes} отв., ${params.grooveM.toFixed(2)} м паза)`);
-                            } else {
-                                console.warn(`[e8-autoprice] Не удалось посчитать отверстия для ${label}`);
-                            }
-                        }));
-                    }
-
-                    if (newItemsBatch.length > 0) {
-                        console.log(`[e8-autoprice] Сбор завершен. Отправляем ${newItemsBatch.length} новых записей в price...`);
-                        currentPriceData.push(...newItemsBatch);
-                        newItemsBatch.forEach(item => {
-                            knownNames.add(item.name);
-                            knownBaseNames.add(baseName(item.name));
-                        });
-                        await updateGitHubJson(currentPriceData);
-                    }
-
-                } catch (e) {
-                    console.error('[e8-autoprice] Ошибка в процессе:', e);
-                } finally {
-                    isCheckingJobs = false;
-                }
+                }));
             }
 
-            loadCurrentPrice();
+            const hasNew = newItemsBatch.length > 0;
+            const hasUpdates = totalUpdated > 0;
 
-            function patchFetch(target) {
-                if (!target || !target.fetch || target.__e8AutoPricePatched) return;
-                target.__e8AutoPricePatched = true;
-                const orig = target.fetch;
-                target.fetch = async function (...args) {
-                    const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
-                    const res = await orig.apply(this, args);
+            if (hasNew || hasUpdates) {
+                console.log(`[e8-autoprice] Отправляем обновления в price...`);
+                currentPriceData.push(...newItemsBatch);
+                newItemsBatch.forEach(item => {
+                    knownNames.add(item.name);
+                    knownBaseNames.add(baseName(item.name));
+                });
+                await updateGitHubJson(currentPriceData);
+            } else {
+                console.log('[e8-autoprice] Нет новых или обновлённых данных для отправки.');
+            }
+
+        } catch (e) {
+            console.error('[e8-autoprice] Ошибка в процессе:', e);
+        } finally {
+            isCheckingJobs = false;
+        }
+    }
+
+    loadCurrentPrice();
+
+    function patchFetch(target) {
+        if (!target || !target.fetch || target.__e8AutoPricePatched) return;
+        target.__e8AutoPricePatched = true;
+        const orig = target.fetch;
+        target.fetch = async function (...args) {
+            const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
+            const res = await orig.apply(this, args);
+            if (url.includes('/jobs') && (url.includes('statusId=1') || url.includes('statusId=2'))) {
+                res.clone().json().then(processJobs).catch(() => {});
+            }
+            return res;
+        };
+    }
+
+    patchFetch(W);
+    if (W !== window) patchFetch(window);
+
+    const XHR = W.XMLHttpRequest || window.XMLHttpRequest;
+    if (XHR && !XHR.prototype.__e8AutoPricePatched) {
+        XHR.prototype.__e8AutoPricePatched = true;
+        const origOpen = XHR.prototype.open;
+        const origSend = XHR.prototype.send;
+        XHR.prototype.open = function (method, url, ...rest) { this.__e8url = url; return origOpen.call(this, method, url, ...rest); };
+        XHR.prototype.send = function (...args) {
+            this.addEventListener('load', function () {
+                try {
+                    const url = this.__e8url || '';
                     if (url.includes('/jobs') && (url.includes('statusId=1') || url.includes('statusId=2'))) {
-                        res.clone().json().then(processJobs).catch(() => {});
+                        processJobs(JSON.parse(this.responseText));
                     }
-                    return res;
-                };
-            }
-
-            patchFetch(W);
-            if (W !== window) patchFetch(window);
-
-            const XHR = W.XMLHttpRequest || window.XMLHttpRequest;
-            if (XHR && !XHR.prototype.__e8AutoPricePatched) {
-                XHR.prototype.__e8AutoPricePatched = true;
-                const origOpen = XHR.prototype.open;
-                const origSend = XHR.prototype.send;
-                XHR.prototype.open = function (method, url, ...rest) { this.__e8url = url; return origOpen.call(this, method, url, ...rest); };
-                XHR.prototype.send = function (...args) {
-                    this.addEventListener('load', function () {
-                        try {
-                            const url = this.__e8url || '';
-                            if (url.includes('/jobs') && (url.includes('statusId=1') || url.includes('statusId=2'))) {
-                                processJobs(JSON.parse(this.responseText));
-                            }
-                        } catch (e) {}
-                    });
-                    return origSend.apply(this, args);
-                };
-            }
-        })();
-
+                } catch (e) {}
+            });
+            return origSend.apply(this, args);
+        };
+    }
+})();
         // ==================================================================
         // МОДУЛЬ: ОТВЕРСТИЯ ИЗ PRICE.JSON И СУММА
         // ==================================================================
@@ -2827,7 +3141,8 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
             document.head.appendChild(style);
         })();
 
-        // ==================================================================
+
+        /* // ==================================================================
         // МОДУЛЬ «В РАБОТЕ» — ХРАНЕНИЕ НА GITHUB
         // ==================================================================
         (function() {
@@ -3468,9 +3783,12 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                 } else {
                     console.log('[e8-inwork] Нет данных ни на GitHub, ни в localStorage.');
                 }
-            })();
+            })(); */
 
-            // ==================================================================
+
+
+
+            /* // ==================================================================
             // МОДУЛЬ: ПРИНУДИТЕЛЬНОЕ ОБНОВЛЕНИЕ INWORK ПРИ ПЕРЕХОДЕ
             // ==================================================================
             (function() {
@@ -3513,10 +3831,313 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
                 }
 
                 console.log('%c[e8-inwork] 👁️ Модуль отслеживания переходов запущен', 'color: #8B00FF;');
-            })();
+            })(); */
 
-        })();
     }
+
+        // ==================================================================
+        // МОДУЛЬ: Подсчет паллетов statusId=1
+        // ==================================================================
+
+     (function() {
+    'use strict';
+
+    function updatePalletsCount(json) {
+        try {
+            const items = json?.items || json?.data?.items || [];
+            const currentIds = new Set();
+
+            for (const order of items) {
+                for (const group of (order.children || [])) {
+                    for (const wp of (group.children || [])) {
+                        for (const pallet of (wp.children || [])) {
+                            if (pallet.id) currentIds.add(pallet.id);
+                        }
+                    }
+                }
+            }
+
+            window.__e8CurrentPalletsCount = currentIds.size;
+            const countEl = document.getElementById('e8-total-pallets-count');
+            if (countEl) countEl.textContent = currentIds.size;
+
+            console.log('[e8-pallets] В statusId=1 найдено:', currentIds.size, 'паллетов');
+        } catch (e) {
+            console.error('[e8-pallets] Ошибка подсчета:', e);
+        }
+    }
+
+    const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
+
+    if (W.fetch && !W.fetch.__e8PalletsPatched) {
+        W.fetch.__e8PalletsPatched = true;
+        const origFetch = W.fetch;
+        W.fetch = async function (...args) {
+            const res = await origFetch.apply(this, args);
+            const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
+            if (url.includes('/jobs') && url.includes('statusId=1')) {
+                res.clone().json().then(updatePalletsCount).catch(() => {});
+            }
+            return res;
+        };
+    }
+
+    const XHR = W.XMLHttpRequest;
+    if (XHR && !XHR.prototype.__e8PalletsPatched) {
+        XHR.prototype.__e8PalletsPatched = true;
+        const origOpen = XHR.prototype.open;
+        const origSend = XHR.prototype.send;
+
+        XHR.prototype.open = function (method, url, ...rest) {
+            this.__e8url = url;
+            return origOpen.call(this, method, url, ...rest);
+        };
+
+        XHR.prototype.send = function (...args) {
+            this.addEventListener('load', function () {
+                const url = this.__e8url || '';
+                if (url.includes('/jobs') && url.includes('statusId=1')) {
+                    try {
+                        const json = JSON.parse(this.responseText);
+                        updatePalletsCount(json);
+                    } catch (e) {}
+                }
+            });
+            return origSend.apply(this, args);
+        };
+    }
+})();
+
+
+        // ==================================================================
+        // МОДУЛЬ ЛОГИРОВАНИЯ ВХОДОВ (1 РАЗ В ДЕНЬ, С ГРУППИРОВКОЙ ПО ДАТАМ)
+        // ==================================================================
+
+(function() {
+    'use strict';
+
+    const W = (typeof unsafeWindow !== 'undefined') ? unsafeWindow : window;
+
+    const OWNER = atob('Y2h1Y3Bl');
+    const REPO = atob('Y2FsYw==');
+    const LOG_FILE = atob('c3JjL2xvZy50eHQ=');
+    const RAW_URL = `https://raw.githubusercontent.com/${OWNER}/${REPO}/master/${LOG_FILE}`;
+    const API_URL = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${LOG_FILE}`;
+
+    let isLogging = false;
+
+    function getToken() {
+        let t = W.__e8Token || window.__e8Token || localStorage.getItem('auth_token');
+        if (!t) return null;
+        return /^Bearer\s+/i.test(t) ? t : (/^eyJ/.test(t) ? 'Bearer ' + t : null);
+    }
+
+    function getLogin() {
+        try {
+            return localStorage.getItem('auth_login') || null;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function getTodayDateStr() {
+        const msk = new Date(Date.now() + 3 * 60 * 60 * 1000);
+        const p = (x) => String(x).padStart(2, '0');
+        return `${p(msk.getUTCDate())}.${p(msk.getUTCMonth() + 1)}.${msk.getUTCFullYear()}`;
+    }
+
+    function formatMoscowTime(date) {
+        const msk = new Date(date.getTime() + 3 * 60 * 60 * 1000);
+        const p = (x) => String(x).padStart(2, '0');
+        return `${p(msk.getUTCDate())}.${p(msk.getUTCMonth() + 1)}.${msk.getUTCFullYear()} ${p(msk.getUTCHours())}:${p(msk.getUTCMinutes())}`;
+    }
+
+    async function fetchProfile(token) {
+        return new Promise((resolve) => {
+            GM_xmlhttpRequest({
+                method: 'GET',
+                url: 'https://backoffice-e8.ffa.su/api/v1/admin/profile',
+                headers: { 'Accept': 'application/json', 'Authorization': token },
+                onload: (res) => {
+                    if (res.status === 200) {
+                        try { resolve(JSON.parse(res.responseText)); }
+                        catch (e) { resolve(null); }
+                    } else resolve(null);
+                },
+                onerror: () => resolve(null),
+                timeout: 10000
+            });
+        });
+    }
+
+    async function fetchLogFile() {
+        return new Promise((resolve) => {
+            GM_xmlhttpRequest({
+                method: 'GET',
+                url: `${RAW_URL}?t=${Date.now()}`,
+                onload: (res) => {
+                    if (res.status === 200) resolve(res.responseText);
+                    else resolve('');
+                },
+                onerror: () => resolve(''),
+                timeout: 10000
+            });
+        });
+    }
+
+    async function getGithubSha() {
+        const GTP = window.__e8GTP;
+        if (!GTP) return null;
+        return new Promise((resolve) => {
+            GM_xmlhttpRequest({
+                method: 'GET',
+                url: API_URL,
+                headers: {
+                    'Authorization': `Bearer ${GTP}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                },
+                onload: (res) => {
+                    if (res.status === 200) {
+                        try { resolve(JSON.parse(res.responseText).sha); }
+                        catch (e) { resolve(null); }
+                    } else resolve(null);
+                },
+                onerror: () => resolve(null),
+                timeout: 10000
+            });
+        });
+    }
+
+    async function writeToGithub(content, sha) {
+        const GTP = window.__e8GTP;
+        if (!GTP) return false;
+
+        const base64Content = btoa(unescape(encodeURIComponent(content)));
+        const body = {
+            message: `Update log.txt`,
+            content: base64Content,
+            branch: 'master'
+        };
+        if (sha) body.sha = sha;
+
+        return new Promise((resolve) => {
+            GM_xmlhttpRequest({
+                method: 'PUT',
+                url: API_URL,
+                headers: {
+                    'Authorization': `Bearer ${GTP}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                data: JSON.stringify(body),
+                onload: (res) => {
+                    resolve(res.status === 200 || res.status === 201);
+                },
+                onerror: () => resolve(false),
+                timeout: 20000
+            });
+        });
+    }
+
+    async function logEntry() {
+        if (isLogging) return;
+        isLogging = true;
+
+        try {
+            const token = getToken();
+            const login = getLogin();
+
+            if (!token || !login) {
+                console.warn('[e8-log] Нет auth_token или auth_login, пропускаем логирование.');
+                return;
+            }
+
+            const profile = await fetchProfile(token);
+            if (!profile || !profile.firstName) {
+                console.warn('[e8-log] Не удалось получить профиль.');
+                return;
+            }
+
+            const name = `${profile.lastName || ''} ${profile.firstName || ''}`.trim();
+            const today = getTodayDateStr();
+            const timeStr = formatMoscowTime(new Date());
+            const entry = `${timeStr} ${name} ${login}`;
+
+            const logContent = await fetchLogFile();
+            const lines = logContent.split('\n');
+
+            const todayHeader = `----${today}-----`;
+            let hasTodayHeader = false;
+            let alreadyLoggedToday = false;
+            let todayHeaderIndex = -1;
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line === todayHeader) {
+                    hasTodayHeader = true;
+                    todayHeaderIndex = i;
+                }
+                if (line.startsWith(today) && line.endsWith(String(login))) {
+                    alreadyLoggedToday = true;
+                }
+            }
+
+            if (alreadyLoggedToday) {
+                console.log('[e8-log] Пользователь уже записан сегодня, пропускаем.');
+                return;
+            }
+
+            let newContent;
+
+            if (hasTodayHeader) {
+                const before = lines.slice(0, todayHeaderIndex + 1);
+                const after = lines.slice(todayHeaderIndex + 1);
+                newContent = [...before, entry, ...after].join('\n');
+            } else {
+                const trimmed = logContent.trim();
+                newContent = (trimmed ? trimmed + '\n' : '') + todayHeader + '\n' + entry;
+            }
+
+            const sha = await getGithubSha();
+            const success = await writeToGithub(newContent, sha);
+
+            if (success) {
+                console.log('[e8-log] ✅ Вход записан:', entry);
+            } else {
+                console.warn('[e8-log] ❌ Не удалось записать в лог.');
+            }
+        } catch (e) {
+            console.error('[e8-log] Ошибка:', e);
+        } finally {
+            isLogging = false;
+        }
+    }
+
+    function start() {
+        const tryLog = () => {
+            const token = getToken();
+            const login = getLogin();
+            if (token && login) {
+                logEntry();
+                return true;
+            }
+            return false;
+        };
+
+        if (!tryLog()) {
+            const interval = setInterval(() => {
+                if (tryLog()) clearInterval(interval);
+            }, 2000);
+            setTimeout(() => clearInterval(interval), 30000);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start);
+    } else {
+        start();
+    }
+})();
 
         // ==================================================================
         // МОДУЛЬ: Замена автарок
@@ -3888,7 +4509,7 @@ var getAuthLogin,blockPage,checkAccess;const vmkO_870307=(function vmkb(vmkz,vmk
             if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
             else start();
         })();
-
+    
     main();
 
 })();
