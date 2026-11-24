@@ -1,5 +1,16 @@
 [
   {
+    "id": "3e9f7b7a-ee9d-4e25-823d-593d10a30315",
+    "name": "Б00С8ГрафитКромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "aa7e8e89-f6c5-4e1a-98e6-55b3e6d11a13",
     "name": "Б00О5Белый(ЛДСПфасад)",
     "firstName": "",
@@ -22,17 +33,6 @@
     "execCount": 1
   },
   {
-    "id": "3e9f7b7a-ee9d-4e25-823d-593d10a30315",
-    "name": "Б00С8ГрафитКромкаЧерная",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "e69b2808-a7bb-4930-8384-60453dfc9a91",
     "name": "Б00Ш17Белый",
     "firstName": "",
@@ -46,6 +46,50 @@
   {
     "id": "c691764f-8fbe-41c7-9a46-acf149ccbcd1",
     "name": "Б00Ш17Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "7b8a8ce2-ce33-4de0-8a39-7faf3cf89e17",
+    "name": "Б0034Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "617bf09f-59e7-427c-b44c-d201830eb5f2",
+    "name": "Б0037Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "567dd1aa-f8db-4f4f-99d5-ccfe82392e96",
+    "name": "Б0037Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e09acb54-cefd-4160-ad3b-7ab2c2fdc1c9",
+    "name": "Б00Т36БелыйЗР",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
