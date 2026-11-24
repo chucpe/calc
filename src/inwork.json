@@ -11,6 +11,39 @@
     "execCount": 1
   },
   {
+    "id": "7e567ce2-4fae-48b5-9de5-ce5807705213",
+    "name": "Б00С19Графит",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e69b2808-a7bb-4930-8384-60453dfc9a91",
+    "name": "Б00Ш17Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "c691764f-8fbe-41c7-9a46-acf149ccbcd1",
+    "name": "Б00Ш17Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "545d6ac9-ef95-4f6c-8231-06c70d959617",
     "name": "Б00С6Графит",
     "firstName": "",
@@ -44,8 +77,8 @@
     "execCount": 1
   },
   {
-    "id": "7e567ce2-4fae-48b5-9de5-ce5807705213",
-    "name": "Б00С19Графит",
+    "id": "31adcb0e-880c-4de1-97a6-4a84218018a7",
+    "name": "КомпСтолБелый-КромкаБелая",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -55,19 +88,8 @@
     "execCount": 1
   },
   {
-    "id": "e69b2808-a7bb-4930-8384-60453dfc9a91",
-    "name": "Б00Ш17Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "c691764f-8fbe-41c7-9a46-acf149ccbcd1",
-    "name": "Б00Ш17Белый",
+    "id": "f9fe9254-c32e-46de-9a0c-44c34554feb3",
+    "name": "Б00Ш7Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
