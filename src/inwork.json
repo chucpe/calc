@@ -1,38 +1,5 @@
 [
   {
-    "id": "6487358a-56f6-43e9-8e5d-3c474c035b74",
-    "name": "Б0078ДСонома",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "e69b2808-a7bb-4930-8384-60453dfc9a91",
-    "name": "Б00Ш17Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "c691764f-8fbe-41c7-9a46-acf149ccbcd1",
-    "name": "Б00Ш17Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "aa7e8e89-f6c5-4e1a-98e6-55b3e6d11a13",
     "name": "Б00О5Белый(ЛДСПфасад)",
     "firstName": "",
@@ -88,8 +55,41 @@
     "execCount": 1
   },
   {
+    "id": "6487358a-56f6-43e9-8e5d-3c474c035b74",
+    "name": "Б0078ДСонома",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "7e567ce2-4fae-48b5-9de5-ce5807705213",
     "name": "Б00С19Графит",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e69b2808-a7bb-4930-8384-60453dfc9a91",
+    "name": "Б00Ш17Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "c691764f-8fbe-41c7-9a46-acf149ccbcd1",
+    "name": "Б00Ш17Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
