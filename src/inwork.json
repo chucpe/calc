@@ -55,6 +55,17 @@
     "execCount": 1
   },
   {
+    "id": "f725999a-7937-4d82-bfb0-d5a22fa39cdc",
+    "name": "Б004МБелый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "a449916b-d88c-4a52-b946-55ae07ba354f",
     "name": "КомпСтолБелый-КромкаБелая",
     "firstName": "",
