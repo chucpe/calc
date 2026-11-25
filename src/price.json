@@ -2204,5 +2204,10 @@
     "totalAreaM": 46.13,
     "totalEdgeM": 285.52,
     "totalCutM": 521.04
+  },
+  {
+    "name": "Б00Т82БелыйЧР",
+    "altName": "Т82БелыйЧР",
+    "holes": 2108
   }
 ]
