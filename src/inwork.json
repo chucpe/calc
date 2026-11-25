@@ -1,16 +1,5 @@
 [
   {
-    "id": "106d7edd-0abd-4acc-bbab-0174dcc41e72",
-    "name": "Б00Т34Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "462fdab2-4cdf-41eb-a59b-0028f2b2229b",
     "name": "Б00Т32БелыйЧР",
     "firstName": "",
@@ -68,6 +57,17 @@
   {
     "id": "5b0c5a09-4703-4941-bfb3-31daa497878f",
     "name": "Б005МБелый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "106d7edd-0abd-4acc-bbab-0174dcc41e72",
+    "name": "Б00Т34Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
