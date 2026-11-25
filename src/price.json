@@ -1294,7 +1294,10 @@
     "name": "Б00С19Белый",
     "altName": "С19Белый",
     "holes": 3140,
-    "totalGrooveM": 12.4
+    "totalGrooveM": 12.4,
+    "totalAreaM": 45.11,
+    "totalEdgeM": 383.56,
+    "totalCutM": 681.36
   },
   {
     "name": "Б00С7Сонома",
