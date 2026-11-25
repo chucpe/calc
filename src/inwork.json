@@ -22,6 +22,17 @@
     "execCount": 1
   },
   {
+    "id": "8da8ca2f-3781-43d3-80c7-7d14a524af13",
+    "name": "Б0073Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "85352eaf-9978-42b5-b379-70b51becdf5a",
     "name": "Б0073МБелый",
     "firstName": "",
@@ -57,28 +68,6 @@
   {
     "id": "cb141f89-6a1b-4a4b-a4f3-d842c286edce",
     "name": "Б0073МБелый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "4dec9734-d12a-42fd-82a1-ba00aa2fe25d",
-    "name": "Б00В1Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "8da8ca2f-3781-43d3-80c7-7d14a524af13",
-    "name": "Б0073Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -156,6 +145,17 @@
   {
     "id": "0bdb475f-d95c-439f-81a9-f06075030bfe",
     "name": "КомпСтолВотан-КромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "4dec9734-d12a-42fd-82a1-ba00aa2fe25d",
+    "name": "Б00В1Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
