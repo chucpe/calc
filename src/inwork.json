@@ -1,16 +1,5 @@
 [
   {
-    "id": "462fdab2-4cdf-41eb-a59b-0028f2b2229b",
-    "name": "Б00Т32БелыйЧР",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "b862d0f9-d739-44ff-b320-54fad069117e",
     "name": "Б00Т32БелыйЧР",
     "firstName": "",
@@ -33,7 +22,7 @@
     "execCount": 1
   },
   {
-    "id": "8e1415ae-c62a-4cdf-9ffb-15b454545ade",
+    "id": "e1a0ea8a-df87-4ac6-bc0b-74bcfe2b24f4",
     "name": "Б0073МБелый",
     "firstName": "",
     "lastName": "",
@@ -44,7 +33,7 @@
     "execCount": 1
   },
   {
-    "id": "e1a0ea8a-df87-4ac6-bc0b-74bcfe2b24f4",
+    "id": "85352eaf-9978-42b5-b379-70b51becdf5a",
     "name": "Б0073МБелый",
     "firstName": "",
     "lastName": "",
@@ -52,6 +41,94 @@
     "date": "",
     "startDateTime": null,
     "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "a3741c7b-ab56-4341-b71c-afce8eb4afc3",
+    "name": "Б0073МБелый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "e0951739-fad7-4315-8a35-fe4f909f5af9",
+    "name": "Б0073МБелый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "3b42292f-4859-4127-b9f6-e6b62f114aa2",
+    "name": "Б00Т31Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "eb8e2f44-f91a-444c-a517-dfe82b3f1f1f",
+    "name": "Б00Т31Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "ca84416d-6c8f-40f5-abc6-eddad72c2fd3",
+    "name": "КомпСтолВотан-КромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "0437cdcd-7061-4e41-ab58-df50a7233d52",
+    "name": "КомпСтолВотан-КромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "462fdab2-4cdf-41eb-a59b-0028f2b2229b",
+    "name": "Б00Т32БелыйЧР",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "8e1415ae-c62a-4cdf-9ffb-15b454545ade",
+    "name": "Б0073МБелый",
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "25.11.2026 10:48",
+    "startDateTime": "2026-11-25T07:01:01.962Z",
+    "cancelDateTime": "2026-11-25T07:48:56.505Z",
     "execCount": 1
   },
   {
