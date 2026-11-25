@@ -2211,7 +2211,10 @@
   {
     "name": "Б00Т82БелыйЧР",
     "altName": "Т82БелыйЧР",
-    "holes": 2108
+    "holes": 2108,
+    "totalAreaM": 44.86,
+    "totalEdgeM": 221.6,
+    "totalCutM": 659.6
   },
   {
     "name": "Б00Т82БелыйЧР",
