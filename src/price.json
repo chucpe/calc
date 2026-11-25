@@ -387,7 +387,10 @@
   {
     "name": "Б0036Вотан",
     "altName": "А36Вотан",
-    "holes": 1872
+    "holes": 1872,
+    "totalAreaM": 52.07,
+    "totalEdgeM": 192.42,
+    "totalCutM": 606.72
   },
   {
     "name": "Б0034Вотан",
@@ -2226,5 +2229,13 @@
     "totalAreaM": 44.86,
     "totalEdgeM": 221.6,
     "totalCutM": 659.6
+  },
+  {
+    "name": "Б00С12Вотан",
+    "altName": "С12Вотан",
+    "holes": 1840,
+    "totalAreaM": 45.45,
+    "totalEdgeM": 335.52,
+    "totalCutM": 629.12
   }
 ]
