@@ -543,7 +543,10 @@
   {
     "name": "Б00Ш2Белый",
     "altName": "Ш2Белый",
-    "holes": 1496
+    "holes": 1496,
+    "totalAreaM": 58.77,
+    "totalEdgeM": 258.1,
+    "totalCutM": 680.59
   },
   {
     "name": "Б005Белый",
