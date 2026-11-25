@@ -466,7 +466,10 @@
   {
     "name": "Б0073Белый",
     "altName": "А73Белый",
-    "holes": 1088
+    "holes": 1088,
+    "totalAreaM": 51.16,
+    "totalEdgeM": 278,
+    "totalCutM": 660.03
   },
   {
     "name": "Б00С3Венге",
