@@ -33,8 +33,85 @@
     "execCount": 1
   },
   {
+    "id": "4dec9734-d12a-42fd-82a1-ba00aa2fe25d",
+    "name": "Б00В1Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
     "id": "8da8ca2f-3781-43d3-80c7-7d14a524af13",
     "name": "Б0073Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "4245ad68-46a2-49eb-bafa-38cf034c90a6",
+    "name": "КомпСтолВотан-КромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "78f8aad4-f854-45e9-a88b-0313fa404d32",
+    "name": "КомпСтолВотан-КромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "3ced8d1d-e7ae-42a7-82fc-4c190a956af0",
+    "name": "КомпСтолВотан-КромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "0d5cc229-81ce-4509-bcf7-2e1df1ea3f74",
+    "name": "КомпСтолВотан-КромкаЧерная",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "eb8e2f44-f91a-444c-a517-dfe82b3f1f1f",
+    "name": "Б00Т31Белый",
+    "firstName": "",
+    "lastName": "",
+    "status": "Не назначен",
+    "date": "",
+    "startDateTime": null,
+    "cancelDateTime": null,
+    "execCount": 1
+  },
+  {
+    "id": "6008c103-b9c1-426f-b4a4-054b4db1a98d",
+    "name": "Б00Т31Белый",
     "firstName": "",
     "lastName": "",
     "status": "Не назначен",
@@ -99,58 +176,14 @@
     "execCount": 1
   },
   {
-    "id": "eb8e2f44-f91a-444c-a517-dfe82b3f1f1f",
-    "name": "Б00Т31Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "6008c103-b9c1-426f-b4a4-054b4db1a98d",
-    "name": "Б00Т31Белый",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
     "id": "83dee270-9562-44df-8912-be0ef217c199",
     "name": "КомпСтолВотан-КромкаЧерная",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "4245ad68-46a2-49eb-bafa-38cf034c90a6",
-    "name": "КомпСтолВотан-КромкаЧерная",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
-    "execCount": 1
-  },
-  {
-    "id": "78f8aad4-f854-45e9-a88b-0313fa404d32",
-    "name": "КомпСтолВотан-КромкаЧерная",
-    "firstName": "",
-    "lastName": "",
-    "status": "Не назначен",
-    "date": "",
-    "startDateTime": null,
-    "cancelDateTime": null,
+    "firstName": "Иван",
+    "lastName": "Шувалов",
+    "status": "Завершен",
+    "date": "25.11.2026 13:06",
+    "startDateTime": "2026-11-25T09:13:23.568Z",
+    "cancelDateTime": "2026-11-25T10:06:13.759Z",
     "execCount": 1
   },
   {
