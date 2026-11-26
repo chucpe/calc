@@ -141,7 +141,10 @@
   {
     "name": "Б00Т44МолочныйЗР",
     "altName": "Т44МолочныйЗР",
-    "holes": 2560
+    "holes": 2560,
+    "totalAreaM": 52.86,
+    "totalEdgeM": 164.07,
+    "totalCutM": 765.42
   },
   {
     "name": "Б00С8Белый",
@@ -349,7 +352,10 @@
   {
     "name": "Б007МВотан",
     "altName": "А7МВотан",
-    "holes": 1568
+    "holes": 1568,
+    "totalAreaM": 48.3,
+    "totalEdgeM": 316.97,
+    "totalCutM": 611.28
   },
   {
     "name": "Б0078ДВотан",
@@ -1452,7 +1458,10 @@
   {
     "name": "Б004МВотан",
     "altName": "А4МВотан",
-    "holes": 1792
+    "holes": 1792,
+    "totalAreaM": 49.93,
+    "totalEdgeM": 350,
+    "totalCutM": 639.05
   },
   {
     "name": "Б0038Вотан",
