@@ -167,7 +167,10 @@
   {
     "name": "Б00Ш7Белый",
     "altName": "Ш7Белый",
-    "holes": 1152
+    "holes": 1152,
+    "totalAreaM": 51.27,
+    "totalEdgeM": 282.14,
+    "totalCutM": 658.75
   },
   {
     "name": "Б0037Белый",
@@ -347,7 +350,10 @@
     "name": "Б00Ст1Вотан",
     "altName": "Ст1Вотан",
     "holes": 1024,
-    "totalGrooveM": 96
+    "totalGrooveM": 96,
+    "totalAreaM": 56.46,
+    "totalEdgeM": 210.1,
+    "totalCutM": 560.24
   },
   {
     "name": "Б007МВотан",
@@ -1969,7 +1975,10 @@
   {
     "name": "СтолЛофт110*60ВотанЧерныеНожки",
     "altName": "СтолЛофт110*60ВотанЧерныеНожки",
-    "holes": 320
+    "holes": 320,
+    "totalAreaM": 37.84,
+    "totalEdgeM": 68,
+    "totalCutM": 353.04
   },
   {
     "name": "Б00С11Бетон",
