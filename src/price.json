@@ -780,7 +780,10 @@
   {
     "name": "Б00Т29СономаБелыйЗР",
     "altName": "Т29СономаБелыйЗР",
-    "holes": 1600
+    "holes": 1600,
+    "totalAreaM": 40.82,
+    "totalEdgeM": 229.74,
+    "totalCutM": 563.48
   },
   {
     "name": "Б00В2Сонома",
@@ -2278,5 +2281,13 @@
     "totalAreaM": 44.35,
     "totalEdgeM": 220.18,
     "totalCutM": 562.16
+  },
+  {
+    "name": "Б00С12Сонома",
+    "altName": "С12Сонома",
+    "holes": 1840,
+    "totalAreaM": 45.45,
+    "totalEdgeM": 335.52,
+    "totalCutM": 629.12
   }
 ]
