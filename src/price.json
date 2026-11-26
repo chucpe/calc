@@ -790,7 +790,10 @@
   {
     "name": "Б00С6Сонома",
     "altName": "С6Сонома",
-    "holes": 1470
+    "holes": 1470,
+    "totalAreaM": 30.58,
+    "totalEdgeM": 230.91,
+    "totalCutM": 442.17
   },
   {
     "name": "Б00С6Графит",
@@ -2267,5 +2270,13 @@
     "totalAreaM": 45.45,
     "totalEdgeM": 335.52,
     "totalCutM": 629.12
+  },
+  {
+    "name": "Б00Т31ВотанГрафит ",
+    "altName": "Т31ВотанГрафит ",
+    "holes": 1480,
+    "totalAreaM": 44.35,
+    "totalEdgeM": 220.18,
+    "totalCutM": 562.16
   }
 ]
