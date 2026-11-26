@@ -20,7 +20,10 @@
   {
     "name": "Б00ШК3(А)400Белый",
     "altName": "ШК3(А)400Белый",
-    "holes": 640
+    "holes": 640,
+    "totalAreaM": 30.16,
+    "totalEdgeM": 101.82,
+    "totalCutM": 285.66
   },
   {
     "name": "Б00ШК2(А)500Белый",
@@ -45,7 +48,11 @@
   {
     "name": "Б00С7Белый",
     "altName": "С7Белый",
-    "holes": 1296
+    "holes": 1296,
+    "totalAreaM": 47.14,
+    "totalEdgeM": 241.39,
+    "totalCutM": 582.28,
+    "totalGrooveM": 32.64
   },
   {
     "name": "Б00Т29БелыйЧР",
@@ -227,7 +234,10 @@
   {
     "name": "Б0078Белый",
     "altName": "А78Белый",
-    "holes": 1960
+    "holes": 1960,
+    "totalAreaM": 49.72,
+    "totalEdgeM": 334.2,
+    "totalCutM": 555.96
   },
   {
     "name": "Б00С13Белый",
@@ -605,7 +615,10 @@
   {
     "name": "Б0018Белый",
     "altName": "А18Белый",
-    "holes": 1320
+    "holes": 1320,
+    "totalAreaM": 47.15,
+    "totalEdgeM": 309.9,
+    "totalCutM": 523.88
   },
   {
     "name": "Б00Ш5Вотан",
@@ -880,7 +893,10 @@
   {
     "name": "Б00Ш7Вотан",
     "altName": "Ш7Вотан",
-    "holes": 1152
+    "holes": 1152,
+    "totalAreaM": 51.27,
+    "totalEdgeM": 282.14,
+    "totalCutM": 658.75
   },
   {
     "name": "Б0043ВотанГрафит",
@@ -997,7 +1013,10 @@
   {
     "name": "Б0078ДСонома",
     "altName": "А78ДСонома",
-    "holes": 2052
+    "holes": 2052,
+    "totalAreaM": 49.58,
+    "totalEdgeM": 306.93,
+    "totalCutM": 595.85
   },
   {
     "name": "Б007Сонома",
@@ -1007,7 +1026,10 @@
   {
     "name": "Б00Ш1Сонома",
     "altName": "Ш1Сонома",
-    "holes": 1008
+    "holes": 1008,
+    "totalAreaM": 53.6,
+    "totalEdgeM": 194.32,
+    "totalCutM": 573.99
   },
   {
     "name": "Б0073Сонома",
@@ -1460,7 +1482,10 @@
   {
     "name": "СтолЛофт90*60БетонЧерныеНожки",
     "altName": "СтолЛофт90*60БетонЧерныеНожки",
-    "holes": 320
+    "holes": 320,
+    "totalAreaM": 30.23,
+    "totalEdgeM": 60,
+    "totalCutM": 275.04
   },
   {
     "name": "Б0043Бетон",
@@ -1520,7 +1545,10 @@
   {
     "name": "СтолЛофт110*60СономаЧерныеНожки",
     "altName": "СтолЛофт110*60СономаЧерныеНожки",
-    "holes": 320
+    "holes": 320,
+    "totalAreaM": 37.84,
+    "totalEdgeM": 68,
+    "totalCutM": 353.04
   },
   {
     "name": "Б0038ЧерныйВотан",
@@ -1595,12 +1623,18 @@
   {
     "name": "Б007МБелый",
     "altName": "А7МБелый",
-    "holes": 1568
+    "holes": 1568,
+    "totalAreaM": 48.3,
+    "totalEdgeM": 316.97,
+    "totalCutM": 611.28
   },
   {
     "name": "Б00С4Белый",
     "altName": "С4Белый",
-    "holes": 1504
+    "holes": 1504,
+    "totalAreaM": 43.65,
+    "totalEdgeM": 245.92,
+    "totalCutM": 541.66
   },
   {
     "name": "Б0083ЧерныйВотан",
@@ -1610,7 +1644,10 @@
   {
     "name": "Б0043Белый",
     "altName": "А43Белый",
-    "holes": 2240
+    "holes": 2240,
+    "totalAreaM": 54.84,
+    "totalEdgeM": 271.36,
+    "totalCutM": 658.48
   },
   {
     "name": "Б0083Белый",
@@ -1771,7 +1808,10 @@
   {
     "name": "Б00ШК4(А)400Белый",
     "altName": "ШК4(А)400Белый",
-    "holes": 516
+    "holes": 516,
+    "totalAreaM": 25.24,
+    "totalEdgeM": 77.64,
+    "totalCutM": 237.11
   },
   {
     "name": "СтолЛофт110*60БетонЧерныеНожки",
@@ -1948,17 +1988,26 @@
   {
     "name": "Б00О2МолочныйЗР",
     "altName": "О2МолочныйЗР",
-    "holes": 1836
+    "holes": 1836,
+    "totalAreaM": 44.96,
+    "totalEdgeM": 436.2,
+    "totalCutM": 655.49
   },
   {
     "name": "Б00С4Сонома",
     "altName": "С4Сонома",
-    "holes": 1504
+    "holes": 1504,
+    "totalAreaM": 43.65,
+    "totalEdgeM": 245.92,
+    "totalCutM": 541.66
   },
   {
     "name": "СтолЛофт90*60СономаЧерныеНожки",
     "altName": "СтолЛофт90*60СономаЧерныеНожки",
-    "holes": 320
+    "holes": 320,
+    "totalAreaM": 30.23,
+    "totalEdgeM": 60,
+    "totalCutM": 275.04
   },
   {
     "name": "СтолЦарга110*60БелыйБелыеНожки",
