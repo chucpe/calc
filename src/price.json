@@ -169,7 +169,10 @@
   {
     "name": "Б0037Белый",
     "altName": "А37Белый",
-    "holes": 1512
+    "holes": 1512,
+    "totalAreaM": 49.07,
+    "totalEdgeM": 317.75,
+    "totalCutM": 634.58
   },
   {
     "name": "Б0036белый",
@@ -210,7 +213,10 @@
   {
     "name": "Б0078Сонома",
     "altName": "А78Сонома",
-    "holes": 1960
+    "holes": 1960,
+    "totalAreaM": 49.72,
+    "totalEdgeM": 334.2,
+    "totalCutM": 555.96
   },
   {
     "name": "Б0078Белый",
@@ -269,7 +275,10 @@
   {
     "name": "Б004МСонома",
     "altName": "А4МСонома",
-    "holes": 1792
+    "holes": 1792,
+    "totalAreaM": 49.93,
+    "totalEdgeM": 350,
+    "totalCutM": 639.05
   },
   {
     "name": "Б0037Сонома",
@@ -1188,7 +1197,10 @@
   {
     "name": "Б0074Белый",
     "altName": "А74Белый",
-    "holes": 1026
+    "holes": 1026,
+    "totalAreaM": 41.93,
+    "totalEdgeM": 257.24,
+    "totalCutM": 479.94
   },
   {
     "name": "Б00ШК2(А)400Белый",
