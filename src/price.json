@@ -1742,7 +1742,10 @@
     "name": "Б00С19Сонома",
     "altName": "С19Сонома",
     "holes": 3140,
-    "totalGrooveM": 12.4
+    "totalGrooveM": 12.4,
+    "totalAreaM": 45.11,
+    "totalEdgeM": 383.56,
+    "totalCutM": 681.36
   },
   {
     "name": "Б00Т48Молочный",
@@ -2289,5 +2292,13 @@
     "totalAreaM": 45.45,
     "totalEdgeM": 335.52,
     "totalCutM": 629.12
+  },
+  {
+    "name": "Б00Т35ВотанГрафитЗР",
+    "altName": "Т35ВотанГрафитЗР",
+    "holes": 1600,
+    "totalAreaM": 40.82,
+    "totalEdgeM": 229.74,
+    "totalCutM": 563.48
   }
 ]
