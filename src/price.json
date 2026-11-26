@@ -1915,7 +1915,10 @@
   {
     "name": "Б005Бетон",
     "altName": "А5Бетон",
-    "holes": 1620
+    "holes": 1620,
+    "totalAreaM": 46.51,
+    "totalEdgeM": 293.75,
+    "totalCutM": 550.57
   },
   {
     "name": "Б00Т38ВотанГрафитЗР",
