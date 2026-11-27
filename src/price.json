@@ -2384,5 +2384,13 @@
     "totalAreaM": 40.82,
     "totalEdgeM": 229.74,
     "totalCutM": 563.48
+  },
+  {
+    "name": "Б00Т35ГрафитЗР",
+    "altName": "Т35ГрафитЗР",
+    "holes": 1600,
+    "totalAreaM": 40.82,
+    "totalEdgeM": 229.74,
+    "totalCutM": 563.48
   }
 ]
