@@ -556,7 +556,10 @@
     "name": "Б0034Белый",
     "altName": "А34Белый",
     "holes": 2880,
-    "totalGrooveM": 26.64
+    "totalGrooveM": 26.64,
+    "totalAreaM": 53.48,
+    "totalEdgeM": 324.87,
+    "totalCutM": 893.24
   },
   {
     "name": "Е1Сонома",
@@ -2369,6 +2372,14 @@
   {
     "name": "Б00Т35ВотанГрафитЗР",
     "altName": "Т35ВотанГрафитЗР",
+    "holes": 1600,
+    "totalAreaM": 40.82,
+    "totalEdgeM": 229.74,
+    "totalCutM": 563.48
+  },
+  {
+    "name": "Б00Т35ГрафитЗР",
+    "altName": "Т35ГрафитЗР",
     "holes": 1600,
     "totalAreaM": 40.82,
     "totalEdgeM": 229.74,
