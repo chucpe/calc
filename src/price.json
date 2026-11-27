@@ -1682,7 +1682,10 @@
   {
     "name": "Б0021Белый",
     "altName": "А21Белый",
-    "holes": 2400
+    "holes": 2400,
+    "totalAreaM": 51.6,
+    "totalEdgeM": 282.76,
+    "totalCutM": 657.04
   },
   {
     "name": "Б0021Молочный",
