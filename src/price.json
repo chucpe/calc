@@ -789,7 +789,10 @@
   {
     "name": "Б00С1Вотан",
     "altName": "С1Вотан",
-    "holes": 1680
+    "holes": 1680,
+    "totalAreaM": 43.24,
+    "totalEdgeM": 448,
+    "totalCutM": 788.55
   },
   {
     "name": "Б00Т41МолочныйЗР",
