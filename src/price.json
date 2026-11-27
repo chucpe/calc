@@ -260,7 +260,10 @@
   {
     "name": "Б00Ш10Белый",
     "altName": "Ш10Белый",
-    "holes": 1512
+    "holes": 1512,
+    "totalAreaM": 47.19,
+    "totalEdgeM": 266.41,
+    "totalCutM": 677.15
   },
   {
     "name": "Б0042Белый",
@@ -823,7 +826,10 @@
   {
     "name": "Б00С6Графит",
     "altName": "С6Графит",
-    "holes": 1470
+    "holes": 1470,
+    "totalAreaM": 30.58,
+    "totalEdgeM": 230.91,
+    "totalCutM": 442.17
   },
   {
     "name": "Б0079Венге",
