@@ -1137,7 +1137,10 @@
   {
     "name": "Б0044Молочный",
     "altName": "А44Молочный",
-    "holes": 2304
+    "holes": 2304,
+    "totalAreaM": 45.35,
+    "totalEdgeM": 265.72,
+    "totalCutM": 608.53
   },
   {
     "name": "Б0078ДБетон",
