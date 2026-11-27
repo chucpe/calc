@@ -305,7 +305,10 @@
   {
     "name": "Б0037Сонома",
     "altName": "А37Сонома",
-    "holes": 1512
+    "holes": 1512,
+    "totalAreaM": 49.07,
+    "totalEdgeM": 317.75,
+    "totalCutM": 634.58
   },
   {
     "name": "Б0034Сонома",
